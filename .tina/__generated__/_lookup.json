@@ -1,0 +1,120 @@
+{
+  "DocumentConnection": {
+    "type": "DocumentConnection",
+    "resolveType": "multiCollectionDocumentList",
+    "collections": [
+      "footer",
+      "theme",
+      "navigation",
+      "page"
+    ]
+  },
+  "Node": {
+    "type": "Node",
+    "resolveType": "nodeDocument"
+  },
+  "DocumentNode": {
+    "type": "DocumentNode",
+    "resolveType": "multiCollectionDocument"
+  },
+  "PageDocument": {
+    "type": "PageDocument",
+    "resolveType": "collectionDocument",
+    "collection": "page"
+  },
+  "PageConnection": {
+    "type": "PageConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "page"
+  },
+  "PageBlocks": {
+    "type": "PageBlocks",
+    "resolveType": "unionData",
+    "typeMap": {
+      "statsWithImage": "PageBlocksStatsWithImage",
+      "hero": "PageBlocksHero",
+      "slideshow": "PageBlocksSlideshow",
+      "comparisonTable": "PageBlocksComparisonTable",
+      "fullScreenLogo": "PageBlocksFullScreenLogo",
+      "fullScreenHeader": "PageBlocksFullScreenHeader",
+      "feature": "PageBlocksFeature",
+      "screenShotFeature": "PageBlocksScreenShotFeature"
+    }
+  },
+  "PageSeo": {
+    "type": "PageSeo",
+    "resolveType": "unionData",
+    "typeMap": {
+      "seoBasic": "PageSeoSeoBasic"
+    }
+  },
+  "NavigationItemsConnection": {
+    "type": "NavigationItemsConnection",
+    "resolveType": "multiCollectionDocumentList",
+    "collections": [
+      "page"
+    ]
+  },
+  "NavigationDocument": {
+    "type": "NavigationDocument",
+    "resolveType": "collectionDocument",
+    "collection": "navigation"
+  },
+  "NavigationConnection": {
+    "type": "NavigationConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "navigation"
+  },
+  "NavigationItemsPageDocument": {
+    "type": "NavigationItemsPageDocument",
+    "resolveType": "multiCollectionDocument"
+  },
+  "FooterDocument": {
+    "type": "FooterDocument",
+    "resolveType": "collectionDocument",
+    "collection": "footer"
+  },
+  "FooterConnection": {
+    "type": "FooterConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "footer"
+  },
+  "Action": {
+    "type": "Action",
+    "resolveType": "unionData",
+    "typeMap": {
+      "giveUsACall": "ActionGiveUsACall"
+    }
+  },
+  "ActionDocument": {
+    "type": "ActionDocument",
+    "resolveType": "collectionDocument",
+    "collection": "action"
+  },
+  "ActionConnection": {
+    "type": "ActionConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "action"
+  },
+  "PageBlocksHeroActionDocument": {
+    "type": "PageBlocksHeroActionDocument",
+    "resolveType": "multiCollectionDocument"
+  },
+  "PageBlocksHeroAction": {
+    "type": "PageBlocksHeroAction",
+    "resolveType": "unionData",
+    "typeMap": {
+      "giveUsACall": "PageBlocksHeroActionGiveUsACall"
+    }
+  },
+  "ThemeDocument": {
+    "type": "ThemeDocument",
+    "resolveType": "collectionDocument",
+    "collection": "theme"
+  },
+  "ThemeConnection": {
+    "type": "ThemeConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "theme"
+  }
+}
