@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
-import { useEditState } from "tina-graphql-gateway/dist/edit-state";
+import { useEditState } from "tinacms/dist/edit-state";
 
 const GoToEditPage: React.FC = () => {
   const { setEdit } = useEditState();
