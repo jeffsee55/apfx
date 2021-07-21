@@ -6,9 +6,8 @@ const TinaLoader = ({ pageProps, children }) => {
       useUnstable={true}
       config={{
         branch: "main",
-        clientId: "",
-        organization: "",
-        isLocalClient: true,
+        clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
+        isLocalClient: !!process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
         // mediaStore: TinaCloudCloudinaryMediaStore,
       }}
       cms={(cms) => {
