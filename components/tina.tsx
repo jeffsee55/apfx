@@ -7,9 +7,7 @@ const TinaLoader = ({ pageProps, children }) => {
       config={{
         branch: "main",
         clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-        isLocalClient: false,
-        // isLocalClient: !process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-        // mediaStore: TinaCloudCloudinaryMediaStore,
+        isLocalClient: !process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
       }}
       cms={(cms) => {
         return cms;
@@ -19,16 +17,15 @@ const TinaLoader = ({ pageProps, children }) => {
           [
             "getNavigationDocument",
             "getFooterDocument",
-            // "getPageDocument",
             "getThemeDocument",
+            // "getPageDocument",
           ].includes(args.formConfig.id)
         ) {
           // console.log("client", Client);
           const form = new Form(args.formConfig);
           // The site nav will be a global plugin
           cms.plugins.add(new GlobalFormPlugin(form));
-          // return form;
-          return args.skip();
+          return form;
         }
         return args.createForm(args.formConfig);
       }}
