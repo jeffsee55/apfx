@@ -2,7 +2,7 @@
 title: Home
 link: /
 blocks:
-  - slogan: Your global payments partner
+  - slogan: Your global payments partners
     image: >-
       https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3150&q=80
     textColor: light
@@ -10,6 +10,7 @@ blocks:
     overlayOpacity: '9'
     _template: fullScreenLogo
   - title: What we do
+    subTitle: ''
     description: >-
       We work as your trusted business partner to help you more effectively
       operate your business globally. Ebury's global payment solutions enable
