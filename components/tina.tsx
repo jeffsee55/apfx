@@ -7,7 +7,8 @@ const TinaLoader = ({ pageProps, children }) => {
       config={{
         branch: "main",
         clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-        isLocalClient: !!process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
+        isLocalClient: false,
+        // isLocalClient: !process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
         // mediaStore: TinaCloudCloudinaryMediaStore,
       }}
       cms={(cms) => {
