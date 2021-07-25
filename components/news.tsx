@@ -34,7 +34,7 @@ export const News = (props) => {
             aria-hidden="true"
           />
           <svg
-            className="hidden lg:block absolute bottom-0 inset-x-0 h-16 w-full text-gray-900"
+            className="block absolute bottom-0 inset-x-0 h-24 w-full text-gray-900"
             fill="currentColor"
             viewBox="0 0 100 100"
             preserveAspectRatio="none"

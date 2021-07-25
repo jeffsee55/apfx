@@ -1,8 +1,11 @@
 ---
-title: U.S. Dollar Down as its Fortunes Slide, for Now
+title: 'U.S. Dollar Down as its Fortunes Slide, for Now'
 subTitle: US Currency
-image: https://images.unsplash.com/photo-1583574928108-53be39420a8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3150&q=80
-description: The U.S. Dollar slipped as it keeps swinging back and forth between gains and losses this week.
+description: >-
+  The U.S. Dollar slipped as it keeps swinging back and forth between gains and
+  losses this week.
+image: >-
+  https://images.unsplash.com/photo-1583574928108-53be39420a8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3150&q=80
 ---
 
 ## Overview

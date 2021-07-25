@@ -146,6 +146,5 @@ export const getStaticPaths = async () => {
     }),
     fallback: true,
   };
-  console.log(JSON.stringify(meh, null, 2));
   return meh;
 };

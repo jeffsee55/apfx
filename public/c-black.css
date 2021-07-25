@@ -1106,8 +1106,8 @@ select {
 .h-full {
 	height: 100%;
 }
-.h-16 {
-	height: 4rem;
+.h-24 {
+	height: 6rem;
 }
 .h-1\/3 {
 	height: 33.333333%;
@@ -1120,6 +1120,9 @@ select {
 }
 .h-12 {
 	height: 3rem;
+}
+.h-16 {
+	height: 4rem;
 }
 .h-9 {
 	height: 2.25rem;
