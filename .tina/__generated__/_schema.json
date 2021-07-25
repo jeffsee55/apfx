@@ -1,6 +1,70 @@
 {
   "collections": [
     {
+      "label": "News & Insights",
+      "name": "news",
+      "path": "content/news",
+      "fields": [
+        {
+          "label": "Title",
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "namespace": [
+            "news",
+            "title"
+          ]
+        },
+        {
+          "label": "Sub-Title",
+          "name": "subTitle",
+          "type": "string",
+          "namespace": [
+            "news",
+            "subTitle"
+          ]
+        },
+        {
+          "label": "Description",
+          "name": "description",
+          "type": "string",
+          "required": true,
+          "ui": {
+            "component": "textarea"
+          },
+          "namespace": [
+            "news",
+            "description"
+          ]
+        },
+        {
+          "label": "Image",
+          "name": "image",
+          "type": "string",
+          "namespace": [
+            "news",
+            "image"
+          ]
+        },
+        {
+          "type": "string",
+          "name": "body",
+          "isBody": true,
+          "label": "Body",
+          "ui": {
+            "component": "textarea"
+          },
+          "namespace": [
+            "news",
+            "body"
+          ]
+        }
+      ],
+      "namespace": [
+        "news"
+      ]
+    },
+    {
       "label": "Footer",
       "name": "footer",
       "path": "content/footer",
@@ -261,6 +325,71 @@
           "type": "object",
           "list": true,
           "templates": [
+            {
+              "label": "News",
+              "name": "news",
+              "fields": [
+                {
+                  "label": "Title",
+                  "name": "title",
+                  "type": "string",
+                  "required": true,
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "news",
+                    "title"
+                  ]
+                },
+                {
+                  "label": "Sub-Title",
+                  "name": "subTitle",
+                  "type": "string",
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "news",
+                    "subTitle"
+                  ]
+                },
+                {
+                  "label": "Description",
+                  "name": "description",
+                  "type": "string",
+                  "required": true,
+                  "ui": {
+                    "component": "textarea"
+                  },
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "news",
+                    "description"
+                  ]
+                },
+                {
+                  "label": "Items",
+                  "name": "newsItems",
+                  "type": "reference",
+                  "required": true,
+                  "list": true,
+                  "collections": [
+                    "news"
+                  ],
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "news",
+                    "newsItems"
+                  ]
+                }
+              ],
+              "namespace": [
+                "page",
+                "blocks",
+                "news"
+              ]
+            },
             {
               "label": "Stats With Image",
               "name": "statsWithImage",

@@ -3,6 +3,7 @@
     "type": "DocumentConnection",
     "resolveType": "multiCollectionDocumentList",
     "collections": [
+      "news",
       "footer",
       "theme",
       "navigation",
@@ -31,6 +32,7 @@
     "type": "PageBlocks",
     "resolveType": "unionData",
     "typeMap": {
+      "news": "PageBlocksNews",
       "statsWithImage": "PageBlocksStatsWithImage",
       "hero": "PageBlocksHero",
       "slideshow": "PageBlocksSlideshow",
@@ -116,5 +118,36 @@
     "type": "ThemeConnection",
     "resolveType": "collectionDocumentList",
     "collection": "theme"
+  },
+  "NewsDocument": {
+    "type": "NewsDocument",
+    "resolveType": "collectionDocument",
+    "collection": "news"
+  },
+  "NewsConnection": {
+    "type": "NewsConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "news"
+  },
+  "PageBlocksNewsItemsConnection": {
+    "type": "PageBlocksNewsItemsConnection",
+    "resolveType": "multiCollectionDocumentList",
+    "collections": [
+      "news"
+    ]
+  },
+  "PageBlocksNewsNewsItemConnection": {
+    "type": "PageBlocksNewsNewsItemConnection",
+    "resolveType": "multiCollectionDocumentList",
+    "collections": [
+      "news"
+    ]
+  },
+  "PageBlocksNewsNewsItemsConnection": {
+    "type": "PageBlocksNewsNewsItemsConnection",
+    "resolveType": "multiCollectionDocumentList",
+    "collections": [
+      "news"
+    ]
   }
 }

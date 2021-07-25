@@ -125,12 +125,15 @@ const Wrapper = (props: { children: React.ReactNode }) => {
   return (
     <div className="bg-indigo-800 relative">
       <div className="absolute inset-0 z-20">
-        <img
-          className="w-full h-full object-cover"
-          // @ts-ignore
-          src={props.image}
-          alt=""
-        />
+        {/* @ts-ignore */}
+        {props.image && (
+          <img
+            className="w-full h-full object-cover"
+            // @ts-ignore
+            src={props.image}
+            alt=""
+          />
+        )}
         <div
           className={`absolute inset-0 bg-indigo-800 mix-blend-multiply opacity-5 z-40`}
           aria-hidden="true"
@@ -267,7 +270,7 @@ const Testimonial = ({ testimonial }: { testimonial: Testimonial }) => {
   );
 };
 
-const Header = (props: FeatureProps & { centered?: boolean }) => {
+export const Header = (props: FeatureProps & { centered?: boolean }) => {
   return (
     <div className={`${props.centered && "lg:text-center"} pb-4 md:pb-12`}>
       <SubTitleText>{props.subTitle}</SubTitleText>

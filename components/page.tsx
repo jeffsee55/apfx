@@ -17,6 +17,7 @@ import { Nav } from "../components/nav";
 import { Footer } from "../components/footer";
 import { Pricing } from "../components/blocks/pricing";
 import { Slideshow } from "../components/blocks/slideshow";
+import { News } from "./blocks/news";
 
 type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (
   ...args: any
@@ -45,6 +46,8 @@ export default function Home(props: HomeProps) {
                 return <HeroWithSlantImage {...block} />;
               }
               return <Hero {...block} />;
+            case "PageBlocksNews":
+              return <News {...block} />;
             case "PageBlocksFeature":
               if (block.featureStyle === "2-wide-grid") {
                 return <TwoWideGrid {...block} />;
@@ -224,6 +227,30 @@ export const getStaticProps = async ({
                 secondaryLink: true,
                 secondaryText: true,
               },
+            },
+            "...on PageBlocksNews": {
+              title: true,
+              subTitle: true,
+              newsItems: [
+                {},
+                {
+                  edges: {
+                    node: {
+                      "...on NewsDocument": {
+                        sys: {
+                          filename: true,
+                        },
+                        data: {
+                          title: true,
+                          subTitle: true,
+                          description: true,
+                          image: true,
+                        },
+                      },
+                    },
+                  },
+                },
+              ],
             },
             "...on PageBlocksFullScreenLogo": {
               slogan: true,

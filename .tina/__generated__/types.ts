@@ -63,6 +63,8 @@ export type Query = {
   node: Node;
   getDocument: DocumentNode;
   getDocumentList: DocumentConnection;
+  getNewsDocument: NewsDocument;
+  getNewsList: NewsConnection;
   getFooterDocument: FooterDocument;
   getFooterList: FooterConnection;
   getThemeDocument: ThemeDocument;
@@ -91,6 +93,19 @@ export type QueryGetDocumentArgs = {
 
 
 export type QueryGetDocumentListArgs = {
+  before?: Maybe<Scalars['String']>;
+  after?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryGetNewsDocumentArgs = {
+  relativePath?: Maybe<Scalars['String']>;
+};
+
+
+export type QueryGetNewsListArgs = {
   before?: Maybe<Scalars['String']>;
   after?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
@@ -183,7 +198,39 @@ export type CollectionDocumentsArgs = {
   last?: Maybe<Scalars['Int']>;
 };
 
-export type DocumentNode = FooterDocument | ThemeDocument | NavigationDocument | PageDocument;
+export type DocumentNode = NewsDocument | FooterDocument | ThemeDocument | NavigationDocument | PageDocument;
+
+export type News = {
+  __typename?: 'News';
+  title: Scalars['String'];
+  subTitle?: Maybe<Scalars['String']>;
+  description: Scalars['String'];
+  image?: Maybe<Scalars['String']>;
+  body?: Maybe<Scalars['String']>;
+};
+
+export type NewsDocument = Node & Document & {
+  __typename?: 'NewsDocument';
+  id: Scalars['ID'];
+  sys: SystemInfo;
+  data: News;
+  form: Scalars['JSON'];
+  values: Scalars['JSON'];
+  dataJSON: Scalars['JSON'];
+};
+
+export type NewsConnectionEdges = {
+  __typename?: 'NewsConnectionEdges';
+  cursor?: Maybe<Scalars['String']>;
+  node?: Maybe<NewsDocument>;
+};
+
+export type NewsConnection = Connection & {
+  __typename?: 'NewsConnection';
+  pageInfo?: Maybe<PageInfo>;
+  totalCount: Scalars['Int'];
+  edges?: Maybe<Array<Maybe<NewsConnectionEdges>>>;
+};
 
 export type FooterOffices = {
   __typename?: 'FooterOffices';
@@ -298,6 +345,37 @@ export type PageSeoSeoBasic = {
 };
 
 export type PageSeo = PageSeoSeoBasic;
+
+export type PageBlocksNewsNewsItemsDocument = NewsDocument;
+
+export type PageBlocksNewsNewsItemsConnectionEdges = {
+  __typename?: 'PageBlocksNewsNewsItemsConnectionEdges';
+  cursor?: Maybe<Scalars['String']>;
+  node?: Maybe<PageBlocksNewsNewsItemsDocument>;
+};
+
+export type PageBlocksNewsNewsItemsConnection = Connection & {
+  __typename?: 'PageBlocksNewsNewsItemsConnection';
+  pageInfo?: Maybe<PageInfo>;
+  totalCount: Scalars['Int'];
+  edges?: Maybe<Array<Maybe<PageBlocksNewsNewsItemsConnectionEdges>>>;
+};
+
+export type PageBlocksNews = {
+  __typename?: 'PageBlocksNews';
+  title: Scalars['String'];
+  subTitle?: Maybe<Scalars['String']>;
+  description: Scalars['String'];
+  newsItems: PageBlocksNewsNewsItemsConnection;
+};
+
+
+export type PageBlocksNewsNewsItemsArgs = {
+  before?: Maybe<Scalars['String']>;
+  after?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
 
 export type PageBlocksStatsWithImageStats = {
   __typename?: 'PageBlocksStatsWithImageStats';
@@ -470,7 +548,7 @@ export type PageBlocksScreenShotFeature = {
   testimonial?: Maybe<PageBlocksScreenShotFeatureTestimonial>;
 };
 
-export type PageBlocks = PageBlocksStatsWithImage | PageBlocksHero | PageBlocksSlideshow | PageBlocksComparisonTable | PageBlocksFullScreenLogo | PageBlocksFullScreenHeader | PageBlocksFeature | PageBlocksScreenShotFeature;
+export type PageBlocks = PageBlocksNews | PageBlocksStatsWithImage | PageBlocksHero | PageBlocksSlideshow | PageBlocksComparisonTable | PageBlocksFullScreenLogo | PageBlocksFullScreenHeader | PageBlocksFeature | PageBlocksScreenShotFeature;
 
 export type Page = {
   __typename?: 'Page';
@@ -507,6 +585,7 @@ export type Mutation = {
   __typename?: 'Mutation';
   addPendingDocument: DocumentNode;
   updateDocument: DocumentNode;
+  updateNewsDocument: NewsDocument;
   updateFooterDocument: FooterDocument;
   updateThemeDocument: ThemeDocument;
   updateNavigationDocument: NavigationDocument;
@@ -525,6 +604,12 @@ export type MutationUpdateDocumentArgs = {
   collection: Scalars['String'];
   relativePath: Scalars['String'];
   params: DocumentMutation;
+};
+
+
+export type MutationUpdateNewsDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: NewsMutation;
 };
 
 
@@ -552,10 +637,19 @@ export type MutationUpdatePageDocumentArgs = {
 };
 
 export type DocumentMutation = {
+  news?: Maybe<NewsMutation>;
   footer?: Maybe<FooterMutation>;
   theme?: Maybe<ThemeMutation>;
   navigation?: Maybe<NavigationMutation>;
   page?: Maybe<PageMutation>;
+};
+
+export type NewsMutation = {
+  title?: Maybe<Scalars['String']>;
+  subTitle?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
+  body?: Maybe<Scalars['String']>;
 };
 
 export type FooterOfficesMutation = {
@@ -594,6 +688,13 @@ export type PageSeoSeoBasicMutation = {
 
 export type PageSeoMutation = {
   seoBasic?: Maybe<PageSeoSeoBasicMutation>;
+};
+
+export type PageBlocksNewsMutation = {
+  title?: Maybe<Scalars['String']>;
+  subTitle?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  newsItems?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type PageBlocksStatsWithImageStatsMutation = {
@@ -749,6 +850,7 @@ export type PageBlocksScreenShotFeatureMutation = {
 };
 
 export type PageBlocksMutation = {
+  news?: Maybe<PageBlocksNewsMutation>;
   statsWithImage?: Maybe<PageBlocksStatsWithImageMutation>;
   hero?: Maybe<PageBlocksHeroMutation>;
   slideshow?: Maybe<PageBlocksSlideshowMutation>;

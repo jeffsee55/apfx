@@ -70,6 +70,40 @@ export const AllTypesProps: Record<string,any> = {
 				required:false
 			}
 		},
+		getNewsDocument:{
+			relativePath:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		getNewsList:{
+			before:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			after:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			first:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			last:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
 		getFooterDocument:{
 			relativePath:{
 				type:"String",
@@ -235,6 +269,34 @@ export const AllTypesProps: Record<string,any> = {
 			}
 		}
 	},
+	PageBlocksNews:{
+		newsItems:{
+			before:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			after:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			first:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			last:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		}
+	},
 	Mutation:{
 		addPendingDocument:{
 			collection:{
@@ -271,6 +333,20 @@ export const AllTypesProps: Record<string,any> = {
 			},
 			params:{
 				type:"DocumentMutation",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		updateNewsDocument:{
+			relativePath:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:true
+			},
+			params:{
+				type:"NewsMutation",
 				array:false,
 				arrayRequired:false,
 				required:true
@@ -334,6 +410,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	DocumentMutation:{
+		news:{
+			type:"NewsMutation",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		footer:{
 			type:"FooterMutation",
 			array:false,
@@ -354,6 +436,38 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		page:{
 			type:"PageMutation",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	NewsMutation:{
+		title:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		subTitle:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		description:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		image:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		body:{
+			type:"String",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -455,6 +569,32 @@ export const AllTypesProps: Record<string,any> = {
 		seoBasic:{
 			type:"PageSeoSeoBasicMutation",
 			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	PageBlocksNewsMutation:{
+		title:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		subTitle:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		description:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		newsItems:{
+			type:"String",
+			array:true,
 			arrayRequired:false,
 			required:false
 		}
@@ -1068,6 +1208,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	PageBlocksMutation:{
+		news:{
+			type:"PageBlocksNewsMutation",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		statsWithImage:{
 			type:"PageBlocksStatsWithImageMutation",
 			array:false,
@@ -1163,6 +1309,7 @@ export const ReturnTypes: Record<string,any> = {
 		endCursor:"String"
 	},
 	Node:{
+		"...on NewsDocument": "NewsDocument",
 		"...on FooterDocument": "FooterDocument",
 		"...on ThemeDocument": "ThemeDocument",
 		"...on NavigationDocument": "NavigationDocument",
@@ -1170,6 +1317,7 @@ export const ReturnTypes: Record<string,any> = {
 		id:"ID"
 	},
 	Document:{
+		"...on NewsDocument": "NewsDocument",
 		"...on FooterDocument": "FooterDocument",
 		"...on ThemeDocument": "ThemeDocument",
 		"...on NavigationDocument": "NavigationDocument",
@@ -1179,9 +1327,11 @@ export const ReturnTypes: Record<string,any> = {
 	},
 	Connection:{
 		"...on DocumentConnection": "DocumentConnection",
+		"...on NewsConnection": "NewsConnection",
 		"...on FooterConnection": "FooterConnection",
 		"...on ThemeConnection": "ThemeConnection",
 		"...on NavigationConnection": "NavigationConnection",
+		"...on PageBlocksNewsNewsItemsConnection": "PageBlocksNewsNewsItemsConnection",
 		"...on PageConnection": "PageConnection",
 		totalCount:"Int"
 	},
@@ -1191,6 +1341,8 @@ export const ReturnTypes: Record<string,any> = {
 		node:"Node",
 		getDocument:"DocumentNode",
 		getDocumentList:"DocumentConnection",
+		getNewsDocument:"NewsDocument",
+		getNewsList:"NewsConnection",
 		getFooterDocument:"FooterDocument",
 		getFooterList:"FooterConnection",
 		getThemeDocument:"ThemeDocument",
@@ -1221,10 +1373,35 @@ export const ReturnTypes: Record<string,any> = {
 		documents:"DocumentConnection"
 	},
 	DocumentNode:{
+		"...on NewsDocument":"NewsDocument",
 		"...on FooterDocument":"FooterDocument",
 		"...on ThemeDocument":"ThemeDocument",
 		"...on NavigationDocument":"NavigationDocument",
 		"...on PageDocument":"PageDocument"
+	},
+	News:{
+		title:"String",
+		subTitle:"String",
+		description:"String",
+		image:"String",
+		body:"String"
+	},
+	NewsDocument:{
+		id:"ID",
+		sys:"SystemInfo",
+		data:"News",
+		form:"JSON",
+		values:"JSON",
+		dataJSON:"JSON"
+	},
+	NewsConnectionEdges:{
+		cursor:"String",
+		node:"NewsDocument"
+	},
+	NewsConnection:{
+		pageInfo:"PageInfo",
+		totalCount:"Int",
+		edges:"NewsConnectionEdges"
 	},
 	FooterOffices:{
 		location:"String",
@@ -1309,6 +1486,24 @@ export const ReturnTypes: Record<string,any> = {
 	},
 	PageSeo:{
 		"...on PageSeoSeoBasic":"PageSeoSeoBasic"
+	},
+	PageBlocksNewsNewsItemsDocument:{
+		"...on NewsDocument":"NewsDocument"
+	},
+	PageBlocksNewsNewsItemsConnectionEdges:{
+		cursor:"String",
+		node:"PageBlocksNewsNewsItemsDocument"
+	},
+	PageBlocksNewsNewsItemsConnection:{
+		pageInfo:"PageInfo",
+		totalCount:"Int",
+		edges:"PageBlocksNewsNewsItemsConnectionEdges"
+	},
+	PageBlocksNews:{
+		title:"String",
+		subTitle:"String",
+		description:"String",
+		newsItems:"PageBlocksNewsNewsItemsConnection"
 	},
 	PageBlocksStatsWithImageStats:{
 		title:"String",
@@ -1444,6 +1639,7 @@ export const ReturnTypes: Record<string,any> = {
 		testimonial:"PageBlocksScreenShotFeatureTestimonial"
 	},
 	PageBlocks:{
+		"...on PageBlocksNews":"PageBlocksNews",
 		"...on PageBlocksStatsWithImage":"PageBlocksStatsWithImage",
 		"...on PageBlocksHero":"PageBlocksHero",
 		"...on PageBlocksSlideshow":"PageBlocksSlideshow",
@@ -1479,6 +1675,7 @@ export const ReturnTypes: Record<string,any> = {
 	Mutation:{
 		addPendingDocument:"DocumentNode",
 		updateDocument:"DocumentNode",
+		updateNewsDocument:"NewsDocument",
 		updateFooterDocument:"FooterDocument",
 		updateThemeDocument:"ThemeDocument",
 		updateNavigationDocument:"NavigationDocument",

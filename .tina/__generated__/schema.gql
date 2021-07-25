@@ -45,6 +45,8 @@ type Query {
   node(id: String): Node!
   getDocument(collection: String, relativePath: String): DocumentNode!
   getDocumentList(before: String, after: String, first: Int, last: Int): DocumentConnection!
+  getNewsDocument(relativePath: String): NewsDocument!
+  getNewsList(before: String, after: String, first: Int, last: Int): NewsConnection!
   getFooterDocument(relativePath: String): FooterDocument!
   getFooterList(before: String, after: String, first: Int, last: Int): FooterConnection!
   getThemeDocument(relativePath: String): ThemeDocument!
@@ -78,7 +80,35 @@ type Collection {
   documents(before: String, after: String, first: Int, last: Int): DocumentConnection!
 }
 
-union DocumentNode = FooterDocument | ThemeDocument | NavigationDocument | PageDocument
+union DocumentNode = NewsDocument | FooterDocument | ThemeDocument | NavigationDocument | PageDocument
+
+type News {
+  title: String!
+  subTitle: String
+  description: String!
+  image: String
+  body: String
+}
+
+type NewsDocument implements Node & Document {
+  id: ID!
+  sys: SystemInfo!
+  data: News!
+  form: JSON!
+  values: JSON!
+  dataJSON: JSON!
+}
+
+type NewsConnectionEdges {
+  cursor: String
+  node: NewsDocument
+}
+
+type NewsConnection implements Connection {
+  pageInfo: PageInfo
+  totalCount: Int!
+  edges: [NewsConnectionEdges]
+}
 
 type FooterOffices {
   location: String!
@@ -177,6 +207,26 @@ type PageSeoSeoBasic {
 }
 
 union PageSeo = PageSeoSeoBasic
+
+union PageBlocksNewsNewsItemsDocument = NewsDocument
+
+type PageBlocksNewsNewsItemsConnectionEdges {
+  cursor: String
+  node: PageBlocksNewsNewsItemsDocument
+}
+
+type PageBlocksNewsNewsItemsConnection implements Connection {
+  pageInfo: PageInfo
+  totalCount: Int!
+  edges: [PageBlocksNewsNewsItemsConnectionEdges]
+}
+
+type PageBlocksNews {
+  title: String!
+  subTitle: String
+  description: String!
+  newsItems(before: String, after: String, first: Int, last: Int): PageBlocksNewsNewsItemsConnection!
+}
 
 type PageBlocksStatsWithImageStats {
   title: String!
@@ -330,7 +380,7 @@ type PageBlocksScreenShotFeature {
   testimonial: PageBlocksScreenShotFeatureTestimonial
 }
 
-union PageBlocks = PageBlocksStatsWithImage | PageBlocksHero | PageBlocksSlideshow | PageBlocksComparisonTable | PageBlocksFullScreenLogo | PageBlocksFullScreenHeader | PageBlocksFeature | PageBlocksScreenShotFeature
+union PageBlocks = PageBlocksNews | PageBlocksStatsWithImage | PageBlocksHero | PageBlocksSlideshow | PageBlocksComparisonTable | PageBlocksFullScreenLogo | PageBlocksFullScreenHeader | PageBlocksFeature | PageBlocksScreenShotFeature
 
 type Page {
   title: String!
@@ -362,6 +412,7 @@ type PageConnection implements Connection {
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String!, relativePath: String!, params: DocumentMutation!): DocumentNode!
+  updateNewsDocument(relativePath: String!, params: NewsMutation!): NewsDocument!
   updateFooterDocument(relativePath: String!, params: FooterMutation!): FooterDocument!
   updateThemeDocument(relativePath: String!, params: ThemeMutation!): ThemeDocument!
   updateNavigationDocument(relativePath: String!, params: NavigationMutation!): NavigationDocument!
@@ -369,10 +420,19 @@ type Mutation {
 }
 
 input DocumentMutation {
+  news: NewsMutation
   footer: FooterMutation
   theme: ThemeMutation
   navigation: NavigationMutation
   page: PageMutation
+}
+
+input NewsMutation {
+  title: String
+  subTitle: String
+  description: String
+  image: String
+  body: String
 }
 
 input FooterOfficesMutation {
@@ -411,6 +471,13 @@ input PageSeoSeoBasicMutation {
 
 input PageSeoMutation {
   seoBasic: PageSeoSeoBasicMutation
+}
+
+input PageBlocksNewsMutation {
+  title: String
+  subTitle: String
+  description: String
+  newsItems: [String]
 }
 
 input PageBlocksStatsWithImageStatsMutation {
@@ -566,6 +633,7 @@ input PageBlocksScreenShotFeatureMutation {
 }
 
 input PageBlocksMutation {
+  news: PageBlocksNewsMutation
   statsWithImage: PageBlocksStatsWithImageMutation
   hero: PageBlocksHeroMutation
   slideshow: PageBlocksSlideshowMutation

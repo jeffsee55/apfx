@@ -2,7 +2,7 @@
 
 import { AllTypesProps, ReturnTypes } from './const';
 type ZEUS_INTERFACES = GraphQLTypes["Node"] | GraphQLTypes["Document"] | GraphQLTypes["Connection"]
-type ZEUS_UNIONS = GraphQLTypes["DocumentNode"] | GraphQLTypes["NavigationItemsPageDocument"] | GraphQLTypes["PageSeo"] | GraphQLTypes["PageBlocks"]
+type ZEUS_UNIONS = GraphQLTypes["DocumentNode"] | GraphQLTypes["NavigationItemsPageDocument"] | GraphQLTypes["PageSeo"] | GraphQLTypes["PageBlocksNewsNewsItemsDocument"] | GraphQLTypes["PageBlocks"]
 
 export type ValueTypes = {
     /** References another document, used as a foreign key */
@@ -28,6 +28,7 @@ breadcrumbs?: [{	excludeExtension?:boolean},true],
 }>;
 	["Node"]:AliasType<{
 		id?:true;
+		['...on NewsDocument']?: Omit<ValueTypes["NewsDocument"],keyof ValueTypes["Node"]>;
 		['...on FooterDocument']?: Omit<ValueTypes["FooterDocument"],keyof ValueTypes["Node"]>;
 		['...on ThemeDocument']?: Omit<ValueTypes["ThemeDocument"],keyof ValueTypes["Node"]>;
 		['...on NavigationDocument']?: Omit<ValueTypes["NavigationDocument"],keyof ValueTypes["Node"]>;
@@ -37,6 +38,7 @@ breadcrumbs?: [{	excludeExtension?:boolean},true],
 	["Document"]:AliasType<{
 		sys?:ValueTypes["SystemInfo"],
 	id?:true;
+		['...on NewsDocument']?: Omit<ValueTypes["NewsDocument"],keyof ValueTypes["Document"]>;
 		['...on FooterDocument']?: Omit<ValueTypes["FooterDocument"],keyof ValueTypes["Document"]>;
 		['...on ThemeDocument']?: Omit<ValueTypes["ThemeDocument"],keyof ValueTypes["Document"]>;
 		['...on NavigationDocument']?: Omit<ValueTypes["NavigationDocument"],keyof ValueTypes["Document"]>;
@@ -47,9 +49,11 @@ breadcrumbs?: [{	excludeExtension?:boolean},true],
 ["Connection"]:AliasType<{
 		totalCount?:true;
 		['...on DocumentConnection']?: Omit<ValueTypes["DocumentConnection"],keyof ValueTypes["Connection"]>;
+		['...on NewsConnection']?: Omit<ValueTypes["NewsConnection"],keyof ValueTypes["Connection"]>;
 		['...on FooterConnection']?: Omit<ValueTypes["FooterConnection"],keyof ValueTypes["Connection"]>;
 		['...on ThemeConnection']?: Omit<ValueTypes["ThemeConnection"],keyof ValueTypes["Connection"]>;
 		['...on NavigationConnection']?: Omit<ValueTypes["NavigationConnection"],keyof ValueTypes["Connection"]>;
+		['...on PageBlocksNewsNewsItemsConnection']?: Omit<ValueTypes["PageBlocksNewsNewsItemsConnection"],keyof ValueTypes["Connection"]>;
 		['...on PageConnection']?: Omit<ValueTypes["PageConnection"],keyof ValueTypes["Connection"]>;
 		__typename?: true
 }>;
@@ -59,6 +63,8 @@ getCollection?: [{	collection?:string},ValueTypes["Collection"]],
 node?: [{	id?:string},ValueTypes["Node"]],
 getDocument?: [{	collection?:string,	relativePath?:string},ValueTypes["DocumentNode"]],
 getDocumentList?: [{	before?:string,	after?:string,	first?:number,	last?:number},ValueTypes["DocumentConnection"]],
+getNewsDocument?: [{	relativePath?:string},ValueTypes["NewsDocument"]],
+getNewsList?: [{	before?:string,	after?:string,	first?:number,	last?:number},ValueTypes["NewsConnection"]],
 getFooterDocument?: [{	relativePath?:string},ValueTypes["FooterDocument"]],
 getFooterList?: [{	before?:string,	after?:string,	first?:number,	last?:number},ValueTypes["FooterConnection"]],
 getThemeDocument?: [{	relativePath?:string},ValueTypes["ThemeDocument"]],
@@ -92,10 +98,39 @@ getPageList?: [{	before?:string,	after?:string,	first?:number,	last?:number},Val
 documents?: [{	before?:string,	after?:string,	first?:number,	last?:number},ValueTypes["DocumentConnection"]],
 		__typename?: true
 }>;
-	["DocumentNode"]: AliasType<{		["...on FooterDocument"] : ValueTypes["FooterDocument"],
+	["DocumentNode"]: AliasType<{		["...on NewsDocument"] : ValueTypes["NewsDocument"],
+		["...on FooterDocument"] : ValueTypes["FooterDocument"],
 		["...on ThemeDocument"] : ValueTypes["ThemeDocument"],
 		["...on NavigationDocument"] : ValueTypes["NavigationDocument"],
 		["...on PageDocument"] : ValueTypes["PageDocument"]
+		__typename?: true
+}>;
+	["News"]: AliasType<{
+	title?:true,
+	subTitle?:true,
+	description?:true,
+	image?:true,
+	body?:true,
+		__typename?: true
+}>;
+	["NewsDocument"]: AliasType<{
+	id?:true,
+	sys?:ValueTypes["SystemInfo"],
+	data?:ValueTypes["News"],
+	form?:true,
+	values?:true,
+	dataJSON?:true,
+		__typename?: true
+}>;
+	["NewsConnectionEdges"]: AliasType<{
+	cursor?:true,
+	node?:ValueTypes["NewsDocument"],
+		__typename?: true
+}>;
+	["NewsConnection"]: AliasType<{
+	pageInfo?:ValueTypes["PageInfo"],
+	totalCount?:true,
+	edges?:ValueTypes["NewsConnectionEdges"],
 		__typename?: true
 }>;
 	["FooterOffices"]: AliasType<{
@@ -196,6 +231,27 @@ documents?: [{	before?:string,	after?:string,	first?:number,	last?:number},Value
 		__typename?: true
 }>;
 	["PageSeo"]: AliasType<{		["...on PageSeoSeoBasic"] : ValueTypes["PageSeoSeoBasic"]
+		__typename?: true
+}>;
+	["PageBlocksNewsNewsItemsDocument"]: AliasType<{		["...on NewsDocument"] : ValueTypes["NewsDocument"]
+		__typename?: true
+}>;
+	["PageBlocksNewsNewsItemsConnectionEdges"]: AliasType<{
+	cursor?:true,
+	node?:ValueTypes["PageBlocksNewsNewsItemsDocument"],
+		__typename?: true
+}>;
+	["PageBlocksNewsNewsItemsConnection"]: AliasType<{
+	pageInfo?:ValueTypes["PageInfo"],
+	totalCount?:true,
+	edges?:ValueTypes["PageBlocksNewsNewsItemsConnectionEdges"],
+		__typename?: true
+}>;
+	["PageBlocksNews"]: AliasType<{
+	title?:true,
+	subTitle?:true,
+	description?:true,
+newsItems?: [{	before?:string,	after?:string,	first?:number,	last?:number},ValueTypes["PageBlocksNewsNewsItemsConnection"]],
 		__typename?: true
 }>;
 	["PageBlocksStatsWithImageStats"]: AliasType<{
@@ -350,7 +406,8 @@ documents?: [{	before?:string,	after?:string,	first?:number,	last?:number},Value
 	testimonial?:ValueTypes["PageBlocksScreenShotFeatureTestimonial"],
 		__typename?: true
 }>;
-	["PageBlocks"]: AliasType<{		["...on PageBlocksStatsWithImage"] : ValueTypes["PageBlocksStatsWithImage"],
+	["PageBlocks"]: AliasType<{		["...on PageBlocksNews"] : ValueTypes["PageBlocksNews"],
+		["...on PageBlocksStatsWithImage"] : ValueTypes["PageBlocksStatsWithImage"],
 		["...on PageBlocksHero"] : ValueTypes["PageBlocksHero"],
 		["...on PageBlocksSlideshow"] : ValueTypes["PageBlocksSlideshow"],
 		["...on PageBlocksComparisonTable"] : ValueTypes["PageBlocksComparisonTable"],
@@ -390,6 +447,7 @@ documents?: [{	before?:string,	after?:string,	first?:number,	last?:number},Value
 	["Mutation"]: AliasType<{
 addPendingDocument?: [{	collection:string,	relativePath:string,	template?:string},ValueTypes["DocumentNode"]],
 updateDocument?: [{	collection:string,	relativePath:string,	params:ValueTypes["DocumentMutation"]},ValueTypes["DocumentNode"]],
+updateNewsDocument?: [{	relativePath:string,	params:ValueTypes["NewsMutation"]},ValueTypes["NewsDocument"]],
 updateFooterDocument?: [{	relativePath:string,	params:ValueTypes["FooterMutation"]},ValueTypes["FooterDocument"]],
 updateThemeDocument?: [{	relativePath:string,	params:ValueTypes["ThemeMutation"]},ValueTypes["ThemeDocument"]],
 updateNavigationDocument?: [{	relativePath:string,	params:ValueTypes["NavigationMutation"]},ValueTypes["NavigationDocument"]],
@@ -397,10 +455,18 @@ updatePageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},
 		__typename?: true
 }>;
 	["DocumentMutation"]: {
+	news?:ValueTypes["NewsMutation"],
 	footer?:ValueTypes["FooterMutation"],
 	theme?:ValueTypes["ThemeMutation"],
 	navigation?:ValueTypes["NavigationMutation"],
 	page?:ValueTypes["PageMutation"]
+};
+	["NewsMutation"]: {
+	title?:string,
+	subTitle?:string,
+	description?:string,
+	image?:string,
+	body?:string
 };
 	["FooterOfficesMutation"]: {
 	location?:string,
@@ -431,6 +497,12 @@ updatePageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},
 };
 	["PageSeoMutation"]: {
 	seoBasic?:ValueTypes["PageSeoSeoBasicMutation"]
+};
+	["PageBlocksNewsMutation"]: {
+	title?:string,
+	subTitle?:string,
+	description?:string,
+	newsItems?:(string | undefined)[]
 };
 	["PageBlocksStatsWithImageStatsMutation"]: {
 	title?:string,
@@ -566,6 +638,7 @@ updatePageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},
 	testimonial?:ValueTypes["PageBlocksScreenShotFeatureTestimonialMutation"]
 };
 	["PageBlocksMutation"]: {
+	news?:ValueTypes["PageBlocksNewsMutation"],
 	statsWithImage?:ValueTypes["PageBlocksStatsWithImageMutation"],
 	hero?:ValueTypes["PageBlocksHeroMutation"],
 	slideshow?:ValueTypes["PageBlocksSlideshowMutation"],
@@ -603,16 +676,18 @@ export type ModelTypes = {
 	startCursor:string,
 	endCursor:string
 };
-	["Node"]: ModelTypes["FooterDocument"] | ModelTypes["ThemeDocument"] | ModelTypes["NavigationDocument"] | ModelTypes["PageDocument"];
-	["Document"]: ModelTypes["FooterDocument"] | ModelTypes["ThemeDocument"] | ModelTypes["NavigationDocument"] | ModelTypes["PageDocument"];
+	["Node"]: ModelTypes["NewsDocument"] | ModelTypes["FooterDocument"] | ModelTypes["ThemeDocument"] | ModelTypes["NavigationDocument"] | ModelTypes["PageDocument"];
+	["Document"]: ModelTypes["NewsDocument"] | ModelTypes["FooterDocument"] | ModelTypes["ThemeDocument"] | ModelTypes["NavigationDocument"] | ModelTypes["PageDocument"];
 	/** A relay-compliant pagination connection */
-["Connection"]: ModelTypes["DocumentConnection"] | ModelTypes["FooterConnection"] | ModelTypes["ThemeConnection"] | ModelTypes["NavigationConnection"] | ModelTypes["PageConnection"];
+["Connection"]: ModelTypes["DocumentConnection"] | ModelTypes["NewsConnection"] | ModelTypes["FooterConnection"] | ModelTypes["ThemeConnection"] | ModelTypes["NavigationConnection"] | ModelTypes["PageBlocksNewsNewsItemsConnection"] | ModelTypes["PageConnection"];
 	["Query"]: {
 		getCollection:ModelTypes["Collection"],
 	getCollections:ModelTypes["Collection"][],
 	node:ModelTypes["Node"],
 	getDocument:ModelTypes["DocumentNode"],
 	getDocumentList:ModelTypes["DocumentConnection"],
+	getNewsDocument:ModelTypes["NewsDocument"],
+	getNewsList:ModelTypes["NewsConnection"],
 	getFooterDocument:ModelTypes["FooterDocument"],
 	getFooterList:ModelTypes["FooterConnection"],
 	getThemeDocument:ModelTypes["ThemeDocument"],
@@ -642,7 +717,31 @@ export type ModelTypes = {
 	fields?:(ModelTypes["JSON"] | undefined)[],
 	documents:ModelTypes["DocumentConnection"]
 };
-	["DocumentNode"]:ModelTypes["FooterDocument"] | ModelTypes["ThemeDocument"] | ModelTypes["NavigationDocument"] | ModelTypes["PageDocument"];
+	["DocumentNode"]:ModelTypes["NewsDocument"] | ModelTypes["FooterDocument"] | ModelTypes["ThemeDocument"] | ModelTypes["NavigationDocument"] | ModelTypes["PageDocument"];
+	["News"]: {
+		title:string,
+	subTitle?:string,
+	description:string,
+	image?:string,
+	body?:string
+};
+	["NewsDocument"]: {
+		id:string,
+	sys:ModelTypes["SystemInfo"],
+	data:ModelTypes["News"],
+	form:ModelTypes["JSON"],
+	values:ModelTypes["JSON"],
+	dataJSON:ModelTypes["JSON"]
+};
+	["NewsConnectionEdges"]: {
+		cursor?:string,
+	node?:ModelTypes["NewsDocument"]
+};
+	["NewsConnection"]: {
+		pageInfo?:ModelTypes["PageInfo"],
+	totalCount:number,
+	edges?:(ModelTypes["NewsConnectionEdges"] | undefined)[]
+};
 	["FooterOffices"]: {
 		location:string,
 	address:string,
@@ -723,6 +822,22 @@ export type ModelTypes = {
 	description:string
 };
 	["PageSeo"]:ModelTypes["PageSeoSeoBasic"];
+	["PageBlocksNewsNewsItemsDocument"]:ModelTypes["NewsDocument"];
+	["PageBlocksNewsNewsItemsConnectionEdges"]: {
+		cursor?:string,
+	node?:ModelTypes["PageBlocksNewsNewsItemsDocument"]
+};
+	["PageBlocksNewsNewsItemsConnection"]: {
+		pageInfo?:ModelTypes["PageInfo"],
+	totalCount:number,
+	edges?:(ModelTypes["PageBlocksNewsNewsItemsConnectionEdges"] | undefined)[]
+};
+	["PageBlocksNews"]: {
+		title:string,
+	subTitle?:string,
+	description:string,
+	newsItems:ModelTypes["PageBlocksNewsNewsItemsConnection"]
+};
 	["PageBlocksStatsWithImageStats"]: {
 		title:string,
 	subTitle?:string,
@@ -856,7 +971,7 @@ export type ModelTypes = {
 	action?:ModelTypes["PageBlocksScreenShotFeatureAction"],
 	testimonial?:ModelTypes["PageBlocksScreenShotFeatureTestimonial"]
 };
-	["PageBlocks"]:ModelTypes["PageBlocksStatsWithImage"] | ModelTypes["PageBlocksHero"] | ModelTypes["PageBlocksSlideshow"] | ModelTypes["PageBlocksComparisonTable"] | ModelTypes["PageBlocksFullScreenLogo"] | ModelTypes["PageBlocksFullScreenHeader"] | ModelTypes["PageBlocksFeature"] | ModelTypes["PageBlocksScreenShotFeature"];
+	["PageBlocks"]:ModelTypes["PageBlocksNews"] | ModelTypes["PageBlocksStatsWithImage"] | ModelTypes["PageBlocksHero"] | ModelTypes["PageBlocksSlideshow"] | ModelTypes["PageBlocksComparisonTable"] | ModelTypes["PageBlocksFullScreenLogo"] | ModelTypes["PageBlocksFullScreenHeader"] | ModelTypes["PageBlocksFeature"] | ModelTypes["PageBlocksScreenShotFeature"];
 	["Page"]: {
 		title:string,
 	link:string,
@@ -883,12 +998,14 @@ export type ModelTypes = {
 	["Mutation"]: {
 		addPendingDocument:ModelTypes["DocumentNode"],
 	updateDocument:ModelTypes["DocumentNode"],
+	updateNewsDocument:ModelTypes["NewsDocument"],
 	updateFooterDocument:ModelTypes["FooterDocument"],
 	updateThemeDocument:ModelTypes["ThemeDocument"],
 	updateNavigationDocument:ModelTypes["NavigationDocument"],
 	updatePageDocument:ModelTypes["PageDocument"]
 };
 	["DocumentMutation"]: GraphQLTypes["DocumentMutation"];
+	["NewsMutation"]: GraphQLTypes["NewsMutation"];
 	["FooterOfficesMutation"]: GraphQLTypes["FooterOfficesMutation"];
 	["FooterDisclaimersMutation"]: GraphQLTypes["FooterDisclaimersMutation"];
 	["FooterMutation"]: GraphQLTypes["FooterMutation"];
@@ -897,6 +1014,7 @@ export type ModelTypes = {
 	["NavigationMutation"]: GraphQLTypes["NavigationMutation"];
 	["PageSeoSeoBasicMutation"]: GraphQLTypes["PageSeoSeoBasicMutation"];
 	["PageSeoMutation"]: GraphQLTypes["PageSeoMutation"];
+	["PageBlocksNewsMutation"]: GraphQLTypes["PageBlocksNewsMutation"];
 	["PageBlocksStatsWithImageStatsMutation"]: GraphQLTypes["PageBlocksStatsWithImageStatsMutation"];
 	["PageBlocksStatsWithImageMutation"]: GraphQLTypes["PageBlocksStatsWithImageMutation"];
 	["PageBlocksHeroActionMutation"]: GraphQLTypes["PageBlocksHeroActionMutation"];
@@ -944,17 +1062,19 @@ export type GraphQLTypes = {
 	endCursor: string
 };
 	["Node"]: {
-	__typename:"FooterDocument" | "ThemeDocument" | "NavigationDocument" | "PageDocument"
+	__typename:"NewsDocument" | "FooterDocument" | "ThemeDocument" | "NavigationDocument" | "PageDocument"
 	id: string
+	['...on NewsDocument']: '__union' & GraphQLTypes["NewsDocument"];
 	['...on FooterDocument']: '__union' & GraphQLTypes["FooterDocument"];
 	['...on ThemeDocument']: '__union' & GraphQLTypes["ThemeDocument"];
 	['...on NavigationDocument']: '__union' & GraphQLTypes["NavigationDocument"];
 	['...on PageDocument']: '__union' & GraphQLTypes["PageDocument"];
 };
 	["Document"]: {
-	__typename:"FooterDocument" | "ThemeDocument" | "NavigationDocument" | "PageDocument"
+	__typename:"NewsDocument" | "FooterDocument" | "ThemeDocument" | "NavigationDocument" | "PageDocument"
 	sys?: GraphQLTypes["SystemInfo"],
 	id: string
+	['...on NewsDocument']: '__union' & GraphQLTypes["NewsDocument"];
 	['...on FooterDocument']: '__union' & GraphQLTypes["FooterDocument"];
 	['...on ThemeDocument']: '__union' & GraphQLTypes["ThemeDocument"];
 	['...on NavigationDocument']: '__union' & GraphQLTypes["NavigationDocument"];
@@ -962,12 +1082,14 @@ export type GraphQLTypes = {
 };
 	/** A relay-compliant pagination connection */
 ["Connection"]: {
-	__typename:"DocumentConnection" | "FooterConnection" | "ThemeConnection" | "NavigationConnection" | "PageConnection"
+	__typename:"DocumentConnection" | "NewsConnection" | "FooterConnection" | "ThemeConnection" | "NavigationConnection" | "PageBlocksNewsNewsItemsConnection" | "PageConnection"
 	totalCount: number
 	['...on DocumentConnection']: '__union' & GraphQLTypes["DocumentConnection"];
+	['...on NewsConnection']: '__union' & GraphQLTypes["NewsConnection"];
 	['...on FooterConnection']: '__union' & GraphQLTypes["FooterConnection"];
 	['...on ThemeConnection']: '__union' & GraphQLTypes["ThemeConnection"];
 	['...on NavigationConnection']: '__union' & GraphQLTypes["NavigationConnection"];
+	['...on PageBlocksNewsNewsItemsConnection']: '__union' & GraphQLTypes["PageBlocksNewsNewsItemsConnection"];
 	['...on PageConnection']: '__union' & GraphQLTypes["PageConnection"];
 };
 	["Query"]: {
@@ -977,6 +1099,8 @@ export type GraphQLTypes = {
 	node: GraphQLTypes["Node"],
 	getDocument: GraphQLTypes["DocumentNode"],
 	getDocumentList: GraphQLTypes["DocumentConnection"],
+	getNewsDocument: GraphQLTypes["NewsDocument"],
+	getNewsList: GraphQLTypes["NewsConnection"],
 	getFooterDocument: GraphQLTypes["FooterDocument"],
 	getFooterList: GraphQLTypes["FooterConnection"],
 	getThemeDocument: GraphQLTypes["ThemeDocument"],
@@ -1010,10 +1134,39 @@ export type GraphQLTypes = {
 	documents: GraphQLTypes["DocumentConnection"]
 };
 	["DocumentNode"]:{
+	['...on NewsDocument']: '__union' & GraphQLTypes["NewsDocument"];
 	['...on FooterDocument']: '__union' & GraphQLTypes["FooterDocument"];
 	['...on ThemeDocument']: '__union' & GraphQLTypes["ThemeDocument"];
 	['...on NavigationDocument']: '__union' & GraphQLTypes["NavigationDocument"];
 	['...on PageDocument']: '__union' & GraphQLTypes["PageDocument"];
+};
+	["News"]: {
+	__typename: "News",
+	title: string,
+	subTitle?: string,
+	description: string,
+	image?: string,
+	body?: string
+};
+	["NewsDocument"]: {
+	__typename: "NewsDocument",
+	id: string,
+	sys: GraphQLTypes["SystemInfo"],
+	data: GraphQLTypes["News"],
+	form: GraphQLTypes["JSON"],
+	values: GraphQLTypes["JSON"],
+	dataJSON: GraphQLTypes["JSON"]
+};
+	["NewsConnectionEdges"]: {
+	__typename: "NewsConnectionEdges",
+	cursor?: string,
+	node?: GraphQLTypes["NewsDocument"]
+};
+	["NewsConnection"]: {
+	__typename: "NewsConnection",
+	pageInfo?: GraphQLTypes["PageInfo"],
+	totalCount: number,
+	edges?: Array<GraphQLTypes["NewsConnectionEdges"] | undefined>
 };
 	["FooterOffices"]: {
 	__typename: "FooterOffices",
@@ -1114,6 +1267,27 @@ export type GraphQLTypes = {
 };
 	["PageSeo"]:{
 	['...on PageSeoSeoBasic']: '__union' & GraphQLTypes["PageSeoSeoBasic"];
+};
+	["PageBlocksNewsNewsItemsDocument"]:{
+	['...on NewsDocument']: '__union' & GraphQLTypes["NewsDocument"];
+};
+	["PageBlocksNewsNewsItemsConnectionEdges"]: {
+	__typename: "PageBlocksNewsNewsItemsConnectionEdges",
+	cursor?: string,
+	node?: GraphQLTypes["PageBlocksNewsNewsItemsDocument"]
+};
+	["PageBlocksNewsNewsItemsConnection"]: {
+	__typename: "PageBlocksNewsNewsItemsConnection",
+	pageInfo?: GraphQLTypes["PageInfo"],
+	totalCount: number,
+	edges?: Array<GraphQLTypes["PageBlocksNewsNewsItemsConnectionEdges"] | undefined>
+};
+	["PageBlocksNews"]: {
+	__typename: "PageBlocksNews",
+	title: string,
+	subTitle?: string,
+	description: string,
+	newsItems: GraphQLTypes["PageBlocksNewsNewsItemsConnection"]
 };
 	["PageBlocksStatsWithImageStats"]: {
 	__typename: "PageBlocksStatsWithImageStats",
@@ -1268,6 +1442,7 @@ export type GraphQLTypes = {
 	testimonial?: GraphQLTypes["PageBlocksScreenShotFeatureTestimonial"]
 };
 	["PageBlocks"]:{
+	['...on PageBlocksNews']: '__union' & GraphQLTypes["PageBlocksNews"];
 	['...on PageBlocksStatsWithImage']: '__union' & GraphQLTypes["PageBlocksStatsWithImage"];
 	['...on PageBlocksHero']: '__union' & GraphQLTypes["PageBlocksHero"];
 	['...on PageBlocksSlideshow']: '__union' & GraphQLTypes["PageBlocksSlideshow"];
@@ -1308,16 +1483,25 @@ export type GraphQLTypes = {
 	__typename: "Mutation",
 	addPendingDocument: GraphQLTypes["DocumentNode"],
 	updateDocument: GraphQLTypes["DocumentNode"],
+	updateNewsDocument: GraphQLTypes["NewsDocument"],
 	updateFooterDocument: GraphQLTypes["FooterDocument"],
 	updateThemeDocument: GraphQLTypes["ThemeDocument"],
 	updateNavigationDocument: GraphQLTypes["NavigationDocument"],
 	updatePageDocument: GraphQLTypes["PageDocument"]
 };
 	["DocumentMutation"]: {
-		footer?: GraphQLTypes["FooterMutation"],
+		news?: GraphQLTypes["NewsMutation"],
+	footer?: GraphQLTypes["FooterMutation"],
 	theme?: GraphQLTypes["ThemeMutation"],
 	navigation?: GraphQLTypes["NavigationMutation"],
 	page?: GraphQLTypes["PageMutation"]
+};
+	["NewsMutation"]: {
+		title?: string,
+	subTitle?: string,
+	description?: string,
+	image?: string,
+	body?: string
 };
 	["FooterOfficesMutation"]: {
 		location?: string,
@@ -1348,6 +1532,12 @@ export type GraphQLTypes = {
 };
 	["PageSeoMutation"]: {
 		seoBasic?: GraphQLTypes["PageSeoSeoBasicMutation"]
+};
+	["PageBlocksNewsMutation"]: {
+		title?: string,
+	subTitle?: string,
+	description?: string,
+	newsItems?: Array<string | undefined>
 };
 	["PageBlocksStatsWithImageStatsMutation"]: {
 		title?: string,
@@ -1483,7 +1673,8 @@ export type GraphQLTypes = {
 	testimonial?: GraphQLTypes["PageBlocksScreenShotFeatureTestimonialMutation"]
 };
 	["PageBlocksMutation"]: {
-		statsWithImage?: GraphQLTypes["PageBlocksStatsWithImageMutation"],
+		news?: GraphQLTypes["PageBlocksNewsMutation"],
+	statsWithImage?: GraphQLTypes["PageBlocksStatsWithImageMutation"],
 	hero?: GraphQLTypes["PageBlocksHeroMutation"],
 	slideshow?: GraphQLTypes["PageBlocksSlideshowMutation"],
 	comparisonTable?: GraphQLTypes["PageBlocksComparisonTableMutation"],

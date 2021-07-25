@@ -1,6 +1,47 @@
 {
   "collections": [
     {
+      "label": "News & Insights",
+      "name": "news",
+      "path": "content/news",
+      "fields": [
+        {
+          "label": "Title",
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "label": "Sub-Title",
+          "name": "subTitle",
+          "type": "string"
+        },
+        {
+          "label": "Description",
+          "name": "description",
+          "type": "string",
+          "required": true,
+          "ui": {
+            "component": "textarea"
+          }
+        },
+        {
+          "label": "Image",
+          "name": "image",
+          "type": "string"
+        },
+        {
+          "type": "string",
+          "name": "body",
+          "isBody": true,
+          "label": "Body",
+          "ui": {
+            "component": "textarea"
+          }
+        }
+      ]
+    },
+    {
       "label": "Footer",
       "name": "footer",
       "path": "content/footer",
@@ -172,6 +213,42 @@
           "type": "object",
           "list": true,
           "templates": [
+            {
+              "label": "News",
+              "name": "news",
+              "fields": [
+                {
+                  "label": "Title",
+                  "name": "title",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "label": "Sub-Title",
+                  "name": "subTitle",
+                  "type": "string"
+                },
+                {
+                  "label": "Description",
+                  "name": "description",
+                  "type": "string",
+                  "required": true,
+                  "ui": {
+                    "component": "textarea"
+                  }
+                },
+                {
+                  "label": "Items",
+                  "name": "newsItems",
+                  "type": "reference",
+                  "required": true,
+                  "list": true,
+                  "collections": [
+                    "news"
+                  ]
+                }
+              ]
+            },
             {
               "label": "Stats With Image",
               "name": "statsWithImage",

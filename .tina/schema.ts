@@ -150,6 +150,28 @@ const textFields = [
 export default defineSchema({
   collections: [
     {
+      label: "News & Insights",
+      name: "news",
+      path: "content/news",
+      fields: [
+        ...textFields,
+        {
+          label: "Image",
+          name: "image",
+          type: "string",
+        },
+        {
+          type: "string",
+          name: "body",
+          isBody: true,
+          label: "Body",
+          ui: {
+            component: "textarea",
+          },
+        },
+      ],
+    },
+    {
       label: "Footer",
       name: "footer",
       path: "content/footer",
@@ -287,6 +309,30 @@ export default defineSchema({
           type: "object",
           list: true,
           templates: [
+            {
+              label: "News",
+              name: "news",
+              fields: [
+                ...textFields,
+                {
+                  label: "Items",
+                  name: "newsItems",
+                  type: "reference",
+                  required: true,
+                  list: true,
+                  collections: ["news"],
+                },
+              ],
+              // ui: {
+              //   defaultItem: {
+              //     title: "Get in touch",
+              //     description:
+              //       "Mattis amet hendrerit dolor, quisque lorem pharetra. Pellentesque lacus nisi urna, arcu sociis eu. Orci vel lectus nisl eget eget ut consectetur. Sit justo viverra non adipisicing elit distinctio.",
+              //     image:
+              //       "https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100",
+              //   },
+              // },
+            },
             {
               label: "Stats With Image",
               name: "statsWithImage",

@@ -12,6 +12,22 @@ const base = (colorOption, fontOption) => ({
       colors: {
         indigo: colorOption,
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            color: "#fff",
+            h2: {
+              color: "#efefef",
+            },
+            a: {
+              color: "#efefef",
+              "&:hover": {
+                color: "#eee",
+              },
+            },
+          },
+        },
+      },
     },
   },
   variants: {
