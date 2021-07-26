@@ -1,5 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { CheckIcon } from "@heroicons/react/outline";
+import Link from "next/link";
 import { DisplayText, Text } from "../typographqy";
 import { Action } from "./hero";
 
@@ -106,22 +107,20 @@ function ActionButtons(props) {
     <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
       <div className="inline-flex rounded-md shadow">
         {props.action?.linkText && (
-          <a
-            href={props.action.link}
-            className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
-          >
-            {props.action.linkText}
-          </a>
+          <Link href={props.action.link}>
+            <a className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+              {props.action.linkText}
+            </a>
+          </Link>
         )}
       </div>
       {props.action.secondaryText && (
         <div className="ml-3 inline-flex rounded-md shadow">
-          <a
-            href={props.action.secondaryLink}
-            className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50"
-          >
-            {props.action.secondaryText}
-          </a>
+          <Link href={props.action.secondaryLink}>
+            <a className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50">
+              {props.action.secondaryText}
+            </a>
+          </Link>
         </div>
       )}
     </div>

@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { propTypes } from "react-markdown";
+import Link from "next/link";
 
 type NavProps = {
   items: {
@@ -27,9 +28,11 @@ export const Nav = (props: NavProps) => {
               >
                 <div className="flex items-center flex-1">
                   <div className="flex items-center justify-between w-full md:w-auto">
-                    <a href="/">
-                      <Logo variant="light" classNames="h-8 w-auto sm:h-10" />
-                    </a>
+                    <Link href="/">
+                      <a className="block">
+                        <Logo variant="light" classNames="h-8 w-auto sm:h-10" />
+                      </a>
+                    </Link>
                     <div className="-mr-2 flex items-center md:hidden">
                       <Popover.Button className="bg-gray-800 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-700 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white">
                         <span className="sr-only">Open main menu</span>
@@ -39,13 +42,14 @@ export const Nav = (props: NavProps) => {
                   </div>
                   <div className="hidden space-x-10 md:flex sm:ml-12 lg:ml-28">
                     {props.items?.map((item) => (
-                      <a
-                        key={item?.page?.data.title}
+                      <Link
                         href={item.page?.data.link}
-                        className="font-medium text-white hover:text-gray-300 whitespace-pre"
+                        key={item?.page?.data.title}
                       >
-                        {item?.page.data?.title}
-                      </a>
+                        <a className="font-medium text-white hover:text-gray-300 whitespace-pre">
+                          {item?.page.data?.title}
+                        </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -82,9 +86,11 @@ export const Nav = (props: NavProps) => {
                 >
                   <div className="rounded-lg shadow-md bg-gray-800 ring-1 ring-white ring-opacity-5 overflow-hidden">
                     <div className="px-5 pt-4 flex items-center justify-between">
-                      <a className="block" href="/">
-                        <Logo classNames="h-8 w-auto" />
-                      </a>
+                      <Link href="/">
+                        <a className="block">
+                          <Logo classNames="h-8 w-auto" />
+                        </a>
+                      </Link>
                       <div className="-mr-2">
                         <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                           <span className="sr-only">Close menu</span>
@@ -94,13 +100,14 @@ export const Nav = (props: NavProps) => {
                     </div>
                     <div className="px-2 pt-2 pb-3 space-y-1">
                       {props.items?.map((item) => (
-                        <a
-                          key={item.page?.data.title}
-                          href={item.page?.data.link}
-                          className="block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-gray-200 hover:bg-gray-700"
-                        >
-                          {item.page?.data.title}
-                        </a>
+                        <Link href={item.page?.data.link}>
+                          <a
+                            key={item.page?.data.title}
+                            className="block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-gray-200 hover:bg-gray-700"
+                          >
+                            {item.page?.data.title}
+                          </a>
+                        </Link>
                       ))}
                     </div>
                     <a

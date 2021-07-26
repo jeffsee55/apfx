@@ -1,4 +1,5 @@
 import { Logo, LogoJumbo } from "../nav";
+import Link from "next/link";
 import { DisplayText, SubTitleText, Text } from "../typographqy";
 import { Action, ActionSlim } from "./hero";
 
@@ -63,30 +64,29 @@ export function FullScreenLogo(
               <div
                 className={`flex items-center justify-center my-12 md:my-24 relative`}
               >
-                <a
-                  href={props.link}
-                  className="w-16 h-16 flex items-center justify-center relative"
-                >
-                  <div className="inset-0 absolute bg-gray-100 opacity-0 z-20 cursor-pointer hover:opacity-25 rounded-full" />
-                  <div
-                    className={`flex items-center justify-center animate-bounce ${textColor}`}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
+                <Link href={props.link}>
+                  <a className="w-16 h-16 flex items-center justify-center relative">
+                    <div className="inset-0 absolute bg-gray-100 opacity-0 z-20 cursor-pointer hover:opacity-25 rounded-full" />
+                    <div
+                      className={`flex items-center justify-center animate-bounce ${textColor}`}
                     >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 13l-7 7-7-7m14-8l-7 7-7-7"
-                      />
-                    </svg>
-                  </div>
-                </a>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 13l-7 7-7-7m14-8l-7 7-7-7"
+                        />
+                      </svg>
+                    </div>
+                  </a>
+                </Link>
               </div>
             </div>
           )}

@@ -1,21 +1,9 @@
-/*
-  This example requires Tailwind CSS v2.0+
-
-  This example requires some changes to your config:
-
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ]
-  }
-  ```
-*/
+import React from "react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { DisplayText } from "./typographqy";
+import { useLocale } from "@react-aria/i18n";
+import { useRouter } from "next/router";
+import { Markdown } from "./markdown";
 
 type Office = {
   location: string;
@@ -31,6 +19,21 @@ type FooterProps = {
 };
 
 export function Footer(props: FooterProps) {
+  const [chosenLocale, setChosenLocale] = React.useState(null);
+  const [selected, setSelected] = React.useState(null);
+  const router = useRouter();
+
+  // React.useEffect(() => {
+  //   console.log({ locale, chosenLocale });
+  //   router.push(router.asPath, null, {
+  //     locale: chosenLocale,
+  //   });
+  // }, [chosenLocale]);
+  React.useEffect(() => {
+    console.log(router.locale);
+    setSelected(router.locale);
+  }, [router.locale]);
+
   return (
     <footer className="bg-gray-800" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
@@ -41,7 +44,7 @@ export function Footer(props: FooterProps) {
         <div className="pb-8 xl:grid xl:grid-cols-5 xl:gap-8">
           <div className="grid gap-8 xl:col-span-4">
             {props.disclaimers.map((disclaimer) => {
-              return <div className="text-gray-100">{disclaimer.body}</div>;
+              return <Markdown variant="small">{disclaimer.body}</Markdown>;
             })}
           </div>
           <div className="mt-12 xl:mt-0">
@@ -57,12 +60,24 @@ export function Footer(props: FooterProps) {
                   <select
                     id="language"
                     name="language"
+                    onChange={(event) => {
+                      router.push(router.asPath, null, {
+                        locale: event.target.value,
+                        scroll: false,
+                      });
+                      // setChosenLocale(event.target.value);
+                    }}
                     className="appearance-none block w-full bg-none bg-white border border-gray-300 rounded-md py-2 pl-3 pr-10 text-base text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    defaultValue="English"
                   >
-                    <option>Australia</option>
-                    <option>United Kingdom</option>
-                    <option>United States</option>
+                    <option selected={selected === "en-au"} value="en-au">
+                      Australia
+                    </option>
+                    <option selected={selected === "en-gb"} value="en-gb">
+                      United Kingdom
+                    </option>
+                    <option selected={selected === "en-us"} value="en-us">
+                      United States
+                    </option>
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 right-0 px-2 flex items-center">
                     <ChevronDownIcon
