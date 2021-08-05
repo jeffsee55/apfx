@@ -57,7 +57,7 @@ const testimonial = {
       required: true,
       type: "string",
       ui: {
-        component: "textarea",
+        component: "markdown",
       },
     },
     {
@@ -96,7 +96,7 @@ const action = {
       name: "callToAction",
       type: "string",
       ui: {
-        component: "textarea",
+        component: "markdown",
       },
     },
     {
@@ -142,7 +142,7 @@ const textFields = [
     type: "string" as const,
     required: true,
     ui: {
-      component: "textarea",
+      component: "markdown",
     },
   },
 ];
@@ -166,7 +166,7 @@ export default defineSchema({
           isBody: true,
           label: "Body",
           ui: {
-            component: "textarea",
+            component: "markdown",
           },
         },
       ],
@@ -201,7 +201,7 @@ export default defineSchema({
               required: true,
               type: "string",
               ui: {
-                component: "textarea",
+                component: "markdown",
               },
             },
             {
@@ -224,7 +224,7 @@ export default defineSchema({
               name: "body",
               type: "string",
               ui: {
-                component: "textarea",
+                component: "markdown",
               },
             },
           ],
@@ -583,7 +583,7 @@ export default defineSchema({
                       required: true,
                       type: "string",
                       ui: {
-                        component: "textarea",
+                        component: "markdown",
                       },
                     },
                   ],

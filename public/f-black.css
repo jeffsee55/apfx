@@ -1031,6 +1031,9 @@ select {
 .mt-2 {
 	margin-top: 0.5rem;
 }
+.mb-4 {
+	margin-bottom: 1rem;
+}
 .-mr-2 {
 	margin-right: -0.5rem;
 }
@@ -1049,6 +1052,9 @@ select {
 .ml-3 {
 	margin-left: 0.75rem;
 }
+.ml-4 {
+	margin-left: 1rem;
+}
 .-mr-48 {
 	margin-right: -12rem;
 }
@@ -1066,9 +1072,6 @@ select {
 }
 .mt-16 {
 	margin-top: 4rem;
-}
-.ml-4 {
-	margin-left: 1rem;
 }
 .mt-5 {
 	margin-top: 1.25rem;
@@ -1662,9 +1665,9 @@ select {
 	font-size: 1.125rem;
 	line-height: 1.75rem;
 }
-.text-4xl {
-	font-size: 2.25rem;
-	line-height: 2.5rem;
+.text-2xl {
+	font-size: 1.5rem;
+	line-height: 2rem;
 }
 .text-xl {
 	font-size: 1.25rem;
@@ -1674,9 +1677,9 @@ select {
 	font-size: 0.75rem;
 	line-height: 1rem;
 }
-.text-2xl {
-	font-size: 1.5rem;
-	line-height: 2rem;
+.text-4xl {
+	font-size: 2.25rem;
+	line-height: 2.5rem;
 }
 .font-semibold {
 	font-weight: 600;
@@ -1734,21 +1737,9 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(243, 244, 246, var(--tw-text-opacity));
 }
-.text-gray-200 {
-	--tw-text-opacity: 1;
-	color: rgba(229, 231, 235, var(--tw-text-opacity));
-}
 .text-white {
 	--tw-text-opacity: 1;
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
-}
-.text-indigo-200 {
-	--tw-text-opacity: 1;
-	color: rgba(229, 231, 235, var(--tw-text-opacity));
-}
-.text-gray-700 {
-	--tw-text-opacity: 1;
-	color: rgba(55, 65, 81, var(--tw-text-opacity));
 }
 .text-gray-800 {
 	--tw-text-opacity: 1;
@@ -1757,6 +1748,14 @@ select {
 .text-indigo-50 {
 	--tw-text-opacity: 1;
 	color: rgba(249, 250, 251, var(--tw-text-opacity));
+}
+.text-gray-700 {
+	--tw-text-opacity: 1;
+	color: rgba(55, 65, 81, var(--tw-text-opacity));
+}
+.text-indigo-200 {
+	--tw-text-opacity: 1;
+	color: rgba(229, 231, 235, var(--tw-text-opacity));
 }
 .text-gray-300 {
 	--tw-text-opacity: 1;
@@ -1777,6 +1776,10 @@ select {
 .text-green-500 {
 	--tw-text-opacity: 1;
 	color: rgba(16, 185, 129, var(--tw-text-opacity));
+}
+.text-gray-200 {
+	--tw-text-opacity: 1;
+	color: rgba(229, 231, 235, var(--tw-text-opacity));
 }
 .text-indigo-300 {
 	--tw-text-opacity: 1;
@@ -2377,6 +2380,10 @@ a.hover-smooth:hover::before {
 		margin-left: auto;
 	}
 
+	.md\:mt-8 {
+		margin-top: 2rem;
+	}
+
 	.md\:-mr-16 {
 		margin-right: -4rem;
 	}
@@ -2496,6 +2503,21 @@ a.hover-smooth:hover::before {
 	.md\:text-4xl {
 		font-size: 2.25rem;
 		line-height: 2.5rem;
+	}
+
+	.md\:text-5xl {
+		font-size: 3rem;
+		line-height: 1;
+	}
+
+	.md\:text-3xl {
+		font-size: 1.875rem;
+		line-height: 2.25rem;
+	}
+
+	.md\:text-2xl {
+		font-size: 1.5rem;
+		line-height: 2rem;
 	}
 
 	.md\:text-xl {
@@ -2657,12 +2679,12 @@ a.hover-smooth:hover::before {
 		max-width: 42rem;
 	}
 
-	.lg\:max-w-xl {
-		max-width: 36rem;
-	}
-
 	.lg\:max-w-5xl {
 		max-width: 64rem;
+	}
+
+	.lg\:max-w-xl {
+		max-width: 36rem;
 	}
 
 	.lg\:flex-shrink-0 {

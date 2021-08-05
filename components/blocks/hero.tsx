@@ -199,9 +199,7 @@ export function HeroWithSlantImage(props: HeroProps) {
           <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-20">
             <div className="sm:text-center lg:text-left">
               <DisplayText variant={"light"}>{props.title}</DisplayText>
-              <Text variant={"light"} classNames="lg:max-w-xl">
-                {props.description}
-              </Text>
+              <Markdown classNames="mt-4 md:mt-8">{props.description}</Markdown>
               {props.action && <ActionBox action={props.action} />}
             </div>
           </main>

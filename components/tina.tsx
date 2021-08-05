@@ -1,4 +1,5 @@
-import Tina, { GlobalFormPlugin, Form } from "tinacms";
+import Tina from "tinacms";
+import { MarkdownFieldPlugin } from "react-tinacms-editor";
 
 const TinaLoader = ({ pageProps, children }) => {
   return (
@@ -9,23 +10,19 @@ const TinaLoader = ({ pageProps, children }) => {
         clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
         isLocalClient: !process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
       }}
-      cms={(cms) => {
+      cmsCallback={(cms) => {
+        cms.plugins.add(MarkdownFieldPlugin);
         return cms;
       }}
-      formify={(args, cms) => {
+      formifyCallback={(args, cms) => {
         if (
           [
             "getNavigationDocument",
             "getFooterDocument",
             "getThemeDocument",
-            // "getPageDocument",
           ].includes(args.formConfig.id)
         ) {
-          // console.log("client", Client);
-          const form = new Form(args.formConfig);
-          // The site nav will be a global plugin
-          cms.plugins.add(new GlobalFormPlugin(form));
-          return form;
+          return args.createGlobalForm(args.formConfig);
         }
         return args.createForm(args.formConfig);
       }}

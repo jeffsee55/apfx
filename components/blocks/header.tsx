@@ -2,6 +2,7 @@ import { Logo, LogoJumbo } from "../nav";
 import Link from "next/link";
 import { DisplayText, SubTitleText, Text } from "../typographqy";
 import { Action, ActionSlim } from "./hero";
+import { Markdown } from "../markdown";
 
 type HeaderProps = {
   title: string;
@@ -143,9 +144,9 @@ const TextBlurb = (props: Omit<HeaderProps, "image">) => {
         <SubTitleText variant={textColor}>{props.subTitle}</SubTitleText>
       )}
       <DisplayText variant={textColor}>{props.title}</DisplayText>
-      <Text variant={textColor} classNames="max-w-3xl">
+      <Markdown colorVariant={textColor} classNames="max-w-3xl mt-8">
         {props.description}
-      </Text>
+      </Markdown>
     </>
   );
 };

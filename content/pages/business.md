@@ -117,19 +117,20 @@ blocks:
           your payments are fast and secure.
     image: ''
     _template: feature
-  - title: Dedicated Relationship Manager
+  - title: 'Dedicated Relationship Manager '
+    subTitle: ''
     description: >-
-      Complimentary FX Health Check - Your consultant will help identify any
+      **Complimentary FX Health Check** - Your consultant will help identify any
       inefficiencies in your current processes and recommend appropriate
       solutions.
 
 
-      Pro-actively monitoring the currency markets and positions so you don’t
+      **Pro-actively monitor** the currency markets and positions so you don’t
       have to notifying you of market movements and upcoming economic data and
-      events
+      events.
 
 
-      Book orders and contracts over the phone, direct contact with your
+      **Book orders and contracts over the phone**, direct contact with your
       consultant to book currency and make payments on the go
     image: >-
       https://images.unsplash.com/39/lIZrwvbeRuuzqOoWJUEn_Photoaday_CSD%20(1%20of%201)-5.jpg?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80

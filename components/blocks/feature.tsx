@@ -2,6 +2,7 @@
 // should just use those
 import * as Icons from "@heroicons/react/outline";
 import React from "react";
+import { Markdown } from "../markdown";
 import { DisplayText, SubTitleText, Text } from "../typographqy";
 import { Action, ActionSlim } from "./hero";
 
@@ -53,13 +54,17 @@ export function ScreenshotFeatureLeft(props: ScreenShopFeatureProps) {
                     <Icon className="h-6 w-6 text-white" aria-hidden="true" />
                   </span>
                 )}
-                {props.subTitle && <h2>{props.subTitle}</h2>}
+                {props.subTitle && (
+                  <h2 className="ml-4 text-white uppercase tracking-wide text-sm font-bold">
+                    {props.subTitle}
+                  </h2>
+                )}
               </div>
               <div className="mt-6">
                 <DisplayText size="text-3xl">{props.title}</DisplayText>
-                <p className="mt-4 text-lg text-gray-100">
+                <Markdown classNames="mt-4 md:mt-8 mt-4">
                   {props.description}
-                </p>
+                </Markdown>
                 <ActionSlim action={props.action} />
               </div>
             </div>
@@ -89,16 +94,23 @@ export function ScreenshotFeatureRight(props: ScreenShopFeatureProps) {
         <div className="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
           <div className="px-4 max-w-xl mx-auto sm:px-6 lg:py-32 lg:max-w-none lg:mx-0 lg:px-0 lg:col-start-2">
             <div>
-              <div>
-                <span className="h-12 w-12 rounded-md flex items-center justify-center bg-indigo-600">
-                  <Icon className="h-6 w-6 text-white" aria-hidden="true" />
-                </span>
+              <div className="flex items-center">
+                {props.icon && (
+                  <span className="h-12 w-12 rounded-md flex items-center justify-center bg-indigo-600">
+                    <Icon className="h-6 w-6 text-white" aria-hidden="true" />
+                  </span>
+                )}
+                {props.subTitle && (
+                  <h2 className="ml-4 text-white uppercase tracking-wide text-sm font-bold">
+                    {props.subTitle}
+                  </h2>
+                )}
               </div>
               <div className="mt-6">
                 <DisplayText size="text-3xl">{props.title}</DisplayText>
-                <p className="mt-4 text-lg text-gray-100">
+                <Markdown classNames="mt-4 md:mt-8 mt-4">
                   {props.description}
-                </p>
+                </Markdown>
                 <ActionSlim action={props.action} />
               </div>
             </div>
