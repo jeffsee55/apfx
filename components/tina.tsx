@@ -14,10 +14,11 @@ const TinaLoader = ({ pageProps, children }) => {
         cms.plugins.add(MarkdownFieldPlugin);
         return cms;
       }}
-      formifyCallback={(args, cms) => {
+      formifyCallback={(args) => {
         if (
           [
             "getNavigationDocument",
+            "getLocaleInfoDocument",
             "getFooterDocument",
             "getThemeDocument",
           ].includes(args.formConfig.id)

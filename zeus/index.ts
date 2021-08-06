@@ -28,6 +28,7 @@ breadcrumbs?: [{	excludeExtension?:boolean},true],
 }>;
 	["Node"]:AliasType<{
 		id?:true;
+		['...on LocaleInfoDocument']?: Omit<ValueTypes["LocaleInfoDocument"],keyof ValueTypes["Node"]>;
 		['...on NewsDocument']?: Omit<ValueTypes["NewsDocument"],keyof ValueTypes["Node"]>;
 		['...on FooterDocument']?: Omit<ValueTypes["FooterDocument"],keyof ValueTypes["Node"]>;
 		['...on ThemeDocument']?: Omit<ValueTypes["ThemeDocument"],keyof ValueTypes["Node"]>;
@@ -38,6 +39,7 @@ breadcrumbs?: [{	excludeExtension?:boolean},true],
 	["Document"]:AliasType<{
 		sys?:ValueTypes["SystemInfo"],
 	id?:true;
+		['...on LocaleInfoDocument']?: Omit<ValueTypes["LocaleInfoDocument"],keyof ValueTypes["Document"]>;
 		['...on NewsDocument']?: Omit<ValueTypes["NewsDocument"],keyof ValueTypes["Document"]>;
 		['...on FooterDocument']?: Omit<ValueTypes["FooterDocument"],keyof ValueTypes["Document"]>;
 		['...on ThemeDocument']?: Omit<ValueTypes["ThemeDocument"],keyof ValueTypes["Document"]>;
@@ -49,6 +51,7 @@ breadcrumbs?: [{	excludeExtension?:boolean},true],
 ["Connection"]:AliasType<{
 		totalCount?:true;
 		['...on DocumentConnection']?: Omit<ValueTypes["DocumentConnection"],keyof ValueTypes["Connection"]>;
+		['...on LocaleInfoConnection']?: Omit<ValueTypes["LocaleInfoConnection"],keyof ValueTypes["Connection"]>;
 		['...on NewsConnection']?: Omit<ValueTypes["NewsConnection"],keyof ValueTypes["Connection"]>;
 		['...on FooterConnection']?: Omit<ValueTypes["FooterConnection"],keyof ValueTypes["Connection"]>;
 		['...on ThemeConnection']?: Omit<ValueTypes["ThemeConnection"],keyof ValueTypes["Connection"]>;
@@ -63,6 +66,8 @@ getCollection?: [{	collection?:string},ValueTypes["Collection"]],
 node?: [{	id?:string},ValueTypes["Node"]],
 getDocument?: [{	collection?:string,	relativePath?:string},ValueTypes["DocumentNode"]],
 getDocumentList?: [{	before?:string,	after?:string,	first?:number,	last?:number},ValueTypes["DocumentConnection"]],
+getLocaleInfoDocument?: [{	relativePath?:string},ValueTypes["LocaleInfoDocument"]],
+getLocaleInfoList?: [{	before?:string,	after?:string,	first?:number,	last?:number},ValueTypes["LocaleInfoConnection"]],
 getNewsDocument?: [{	relativePath?:string},ValueTypes["NewsDocument"]],
 getNewsList?: [{	before?:string,	after?:string,	first?:number,	last?:number},ValueTypes["NewsConnection"]],
 getFooterDocument?: [{	relativePath?:string},ValueTypes["FooterDocument"]],
@@ -98,11 +103,42 @@ getPageList?: [{	before?:string,	after?:string,	first?:number,	last?:number},Val
 documents?: [{	before?:string,	after?:string,	first?:number,	last?:number},ValueTypes["DocumentConnection"]],
 		__typename?: true
 }>;
-	["DocumentNode"]: AliasType<{		["...on NewsDocument"] : ValueTypes["NewsDocument"],
+	["DocumentNode"]: AliasType<{		["...on LocaleInfoDocument"] : ValueTypes["LocaleInfoDocument"],
+		["...on NewsDocument"] : ValueTypes["NewsDocument"],
 		["...on FooterDocument"] : ValueTypes["FooterDocument"],
 		["...on ThemeDocument"] : ValueTypes["ThemeDocument"],
 		["...on NavigationDocument"] : ValueTypes["NavigationDocument"],
 		["...on PageDocument"] : ValueTypes["PageDocument"]
+		__typename?: true
+}>;
+	["LocaleInfoTel"]: AliasType<{
+	au?:true,
+	gb?:true,
+	us?:true,
+		__typename?: true
+}>;
+	["LocaleInfo"]: AliasType<{
+	tel?:ValueTypes["LocaleInfoTel"],
+		__typename?: true
+}>;
+	["LocaleInfoDocument"]: AliasType<{
+	id?:true,
+	sys?:ValueTypes["SystemInfo"],
+	data?:ValueTypes["LocaleInfo"],
+	form?:true,
+	values?:true,
+	dataJSON?:true,
+		__typename?: true
+}>;
+	["LocaleInfoConnectionEdges"]: AliasType<{
+	cursor?:true,
+	node?:ValueTypes["LocaleInfoDocument"],
+		__typename?: true
+}>;
+	["LocaleInfoConnection"]: AliasType<{
+	pageInfo?:ValueTypes["PageInfo"],
+	totalCount?:true,
+	edges?:ValueTypes["LocaleInfoConnectionEdges"],
 		__typename?: true
 }>;
 	["News"]: AliasType<{
@@ -447,6 +483,7 @@ newsItems?: [{	before?:string,	after?:string,	first?:number,	last?:number},Value
 	["Mutation"]: AliasType<{
 addPendingDocument?: [{	collection:string,	relativePath:string,	template?:string},ValueTypes["DocumentNode"]],
 updateDocument?: [{	collection:string,	relativePath:string,	params:ValueTypes["DocumentMutation"]},ValueTypes["DocumentNode"]],
+updateLocaleInfoDocument?: [{	relativePath:string,	params:ValueTypes["LocaleInfoMutation"]},ValueTypes["LocaleInfoDocument"]],
 updateNewsDocument?: [{	relativePath:string,	params:ValueTypes["NewsMutation"]},ValueTypes["NewsDocument"]],
 updateFooterDocument?: [{	relativePath:string,	params:ValueTypes["FooterMutation"]},ValueTypes["FooterDocument"]],
 updateThemeDocument?: [{	relativePath:string,	params:ValueTypes["ThemeMutation"]},ValueTypes["ThemeDocument"]],
@@ -455,11 +492,20 @@ updatePageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},
 		__typename?: true
 }>;
 	["DocumentMutation"]: {
+	localeInfo?:ValueTypes["LocaleInfoMutation"],
 	news?:ValueTypes["NewsMutation"],
 	footer?:ValueTypes["FooterMutation"],
 	theme?:ValueTypes["ThemeMutation"],
 	navigation?:ValueTypes["NavigationMutation"],
 	page?:ValueTypes["PageMutation"]
+};
+	["LocaleInfoTelMutation"]: {
+	au?:string,
+	gb?:string,
+	us?:string
+};
+	["LocaleInfoMutation"]: {
+	tel?:ValueTypes["LocaleInfoTelMutation"]
 };
 	["NewsMutation"]: {
 	title?:string,
@@ -676,16 +722,18 @@ export type ModelTypes = {
 	startCursor:string,
 	endCursor:string
 };
-	["Node"]: ModelTypes["NewsDocument"] | ModelTypes["FooterDocument"] | ModelTypes["ThemeDocument"] | ModelTypes["NavigationDocument"] | ModelTypes["PageDocument"];
-	["Document"]: ModelTypes["NewsDocument"] | ModelTypes["FooterDocument"] | ModelTypes["ThemeDocument"] | ModelTypes["NavigationDocument"] | ModelTypes["PageDocument"];
+	["Node"]: ModelTypes["LocaleInfoDocument"] | ModelTypes["NewsDocument"] | ModelTypes["FooterDocument"] | ModelTypes["ThemeDocument"] | ModelTypes["NavigationDocument"] | ModelTypes["PageDocument"];
+	["Document"]: ModelTypes["LocaleInfoDocument"] | ModelTypes["NewsDocument"] | ModelTypes["FooterDocument"] | ModelTypes["ThemeDocument"] | ModelTypes["NavigationDocument"] | ModelTypes["PageDocument"];
 	/** A relay-compliant pagination connection */
-["Connection"]: ModelTypes["DocumentConnection"] | ModelTypes["NewsConnection"] | ModelTypes["FooterConnection"] | ModelTypes["ThemeConnection"] | ModelTypes["NavigationConnection"] | ModelTypes["PageBlocksNewsNewsItemsConnection"] | ModelTypes["PageConnection"];
+["Connection"]: ModelTypes["DocumentConnection"] | ModelTypes["LocaleInfoConnection"] | ModelTypes["NewsConnection"] | ModelTypes["FooterConnection"] | ModelTypes["ThemeConnection"] | ModelTypes["NavigationConnection"] | ModelTypes["PageBlocksNewsNewsItemsConnection"] | ModelTypes["PageConnection"];
 	["Query"]: {
 		getCollection:ModelTypes["Collection"],
 	getCollections:ModelTypes["Collection"][],
 	node:ModelTypes["Node"],
 	getDocument:ModelTypes["DocumentNode"],
 	getDocumentList:ModelTypes["DocumentConnection"],
+	getLocaleInfoDocument:ModelTypes["LocaleInfoDocument"],
+	getLocaleInfoList:ModelTypes["LocaleInfoConnection"],
 	getNewsDocument:ModelTypes["NewsDocument"],
 	getNewsList:ModelTypes["NewsConnection"],
 	getFooterDocument:ModelTypes["FooterDocument"],
@@ -717,7 +765,32 @@ export type ModelTypes = {
 	fields?:(ModelTypes["JSON"] | undefined)[],
 	documents:ModelTypes["DocumentConnection"]
 };
-	["DocumentNode"]:ModelTypes["NewsDocument"] | ModelTypes["FooterDocument"] | ModelTypes["ThemeDocument"] | ModelTypes["NavigationDocument"] | ModelTypes["PageDocument"];
+	["DocumentNode"]:ModelTypes["LocaleInfoDocument"] | ModelTypes["NewsDocument"] | ModelTypes["FooterDocument"] | ModelTypes["ThemeDocument"] | ModelTypes["NavigationDocument"] | ModelTypes["PageDocument"];
+	["LocaleInfoTel"]: {
+		au?:string,
+	gb?:string,
+	us?:string
+};
+	["LocaleInfo"]: {
+		tel?:ModelTypes["LocaleInfoTel"]
+};
+	["LocaleInfoDocument"]: {
+		id:string,
+	sys:ModelTypes["SystemInfo"],
+	data:ModelTypes["LocaleInfo"],
+	form:ModelTypes["JSON"],
+	values:ModelTypes["JSON"],
+	dataJSON:ModelTypes["JSON"]
+};
+	["LocaleInfoConnectionEdges"]: {
+		cursor?:string,
+	node?:ModelTypes["LocaleInfoDocument"]
+};
+	["LocaleInfoConnection"]: {
+		pageInfo?:ModelTypes["PageInfo"],
+	totalCount:number,
+	edges?:(ModelTypes["LocaleInfoConnectionEdges"] | undefined)[]
+};
 	["News"]: {
 		title:string,
 	subTitle?:string,
@@ -998,6 +1071,7 @@ export type ModelTypes = {
 	["Mutation"]: {
 		addPendingDocument:ModelTypes["DocumentNode"],
 	updateDocument:ModelTypes["DocumentNode"],
+	updateLocaleInfoDocument:ModelTypes["LocaleInfoDocument"],
 	updateNewsDocument:ModelTypes["NewsDocument"],
 	updateFooterDocument:ModelTypes["FooterDocument"],
 	updateThemeDocument:ModelTypes["ThemeDocument"],
@@ -1005,6 +1079,8 @@ export type ModelTypes = {
 	updatePageDocument:ModelTypes["PageDocument"]
 };
 	["DocumentMutation"]: GraphQLTypes["DocumentMutation"];
+	["LocaleInfoTelMutation"]: GraphQLTypes["LocaleInfoTelMutation"];
+	["LocaleInfoMutation"]: GraphQLTypes["LocaleInfoMutation"];
 	["NewsMutation"]: GraphQLTypes["NewsMutation"];
 	["FooterOfficesMutation"]: GraphQLTypes["FooterOfficesMutation"];
 	["FooterDisclaimersMutation"]: GraphQLTypes["FooterDisclaimersMutation"];
@@ -1062,8 +1138,9 @@ export type GraphQLTypes = {
 	endCursor: string
 };
 	["Node"]: {
-	__typename:"NewsDocument" | "FooterDocument" | "ThemeDocument" | "NavigationDocument" | "PageDocument"
+	__typename:"LocaleInfoDocument" | "NewsDocument" | "FooterDocument" | "ThemeDocument" | "NavigationDocument" | "PageDocument"
 	id: string
+	['...on LocaleInfoDocument']: '__union' & GraphQLTypes["LocaleInfoDocument"];
 	['...on NewsDocument']: '__union' & GraphQLTypes["NewsDocument"];
 	['...on FooterDocument']: '__union' & GraphQLTypes["FooterDocument"];
 	['...on ThemeDocument']: '__union' & GraphQLTypes["ThemeDocument"];
@@ -1071,9 +1148,10 @@ export type GraphQLTypes = {
 	['...on PageDocument']: '__union' & GraphQLTypes["PageDocument"];
 };
 	["Document"]: {
-	__typename:"NewsDocument" | "FooterDocument" | "ThemeDocument" | "NavigationDocument" | "PageDocument"
+	__typename:"LocaleInfoDocument" | "NewsDocument" | "FooterDocument" | "ThemeDocument" | "NavigationDocument" | "PageDocument"
 	sys?: GraphQLTypes["SystemInfo"],
 	id: string
+	['...on LocaleInfoDocument']: '__union' & GraphQLTypes["LocaleInfoDocument"];
 	['...on NewsDocument']: '__union' & GraphQLTypes["NewsDocument"];
 	['...on FooterDocument']: '__union' & GraphQLTypes["FooterDocument"];
 	['...on ThemeDocument']: '__union' & GraphQLTypes["ThemeDocument"];
@@ -1082,9 +1160,10 @@ export type GraphQLTypes = {
 };
 	/** A relay-compliant pagination connection */
 ["Connection"]: {
-	__typename:"DocumentConnection" | "NewsConnection" | "FooterConnection" | "ThemeConnection" | "NavigationConnection" | "PageBlocksNewsNewsItemsConnection" | "PageConnection"
+	__typename:"DocumentConnection" | "LocaleInfoConnection" | "NewsConnection" | "FooterConnection" | "ThemeConnection" | "NavigationConnection" | "PageBlocksNewsNewsItemsConnection" | "PageConnection"
 	totalCount: number
 	['...on DocumentConnection']: '__union' & GraphQLTypes["DocumentConnection"];
+	['...on LocaleInfoConnection']: '__union' & GraphQLTypes["LocaleInfoConnection"];
 	['...on NewsConnection']: '__union' & GraphQLTypes["NewsConnection"];
 	['...on FooterConnection']: '__union' & GraphQLTypes["FooterConnection"];
 	['...on ThemeConnection']: '__union' & GraphQLTypes["ThemeConnection"];
@@ -1099,6 +1178,8 @@ export type GraphQLTypes = {
 	node: GraphQLTypes["Node"],
 	getDocument: GraphQLTypes["DocumentNode"],
 	getDocumentList: GraphQLTypes["DocumentConnection"],
+	getLocaleInfoDocument: GraphQLTypes["LocaleInfoDocument"],
+	getLocaleInfoList: GraphQLTypes["LocaleInfoConnection"],
 	getNewsDocument: GraphQLTypes["NewsDocument"],
 	getNewsList: GraphQLTypes["NewsConnection"],
 	getFooterDocument: GraphQLTypes["FooterDocument"],
@@ -1134,11 +1215,42 @@ export type GraphQLTypes = {
 	documents: GraphQLTypes["DocumentConnection"]
 };
 	["DocumentNode"]:{
+	['...on LocaleInfoDocument']: '__union' & GraphQLTypes["LocaleInfoDocument"];
 	['...on NewsDocument']: '__union' & GraphQLTypes["NewsDocument"];
 	['...on FooterDocument']: '__union' & GraphQLTypes["FooterDocument"];
 	['...on ThemeDocument']: '__union' & GraphQLTypes["ThemeDocument"];
 	['...on NavigationDocument']: '__union' & GraphQLTypes["NavigationDocument"];
 	['...on PageDocument']: '__union' & GraphQLTypes["PageDocument"];
+};
+	["LocaleInfoTel"]: {
+	__typename: "LocaleInfoTel",
+	au?: string,
+	gb?: string,
+	us?: string
+};
+	["LocaleInfo"]: {
+	__typename: "LocaleInfo",
+	tel?: GraphQLTypes["LocaleInfoTel"]
+};
+	["LocaleInfoDocument"]: {
+	__typename: "LocaleInfoDocument",
+	id: string,
+	sys: GraphQLTypes["SystemInfo"],
+	data: GraphQLTypes["LocaleInfo"],
+	form: GraphQLTypes["JSON"],
+	values: GraphQLTypes["JSON"],
+	dataJSON: GraphQLTypes["JSON"]
+};
+	["LocaleInfoConnectionEdges"]: {
+	__typename: "LocaleInfoConnectionEdges",
+	cursor?: string,
+	node?: GraphQLTypes["LocaleInfoDocument"]
+};
+	["LocaleInfoConnection"]: {
+	__typename: "LocaleInfoConnection",
+	pageInfo?: GraphQLTypes["PageInfo"],
+	totalCount: number,
+	edges?: Array<GraphQLTypes["LocaleInfoConnectionEdges"] | undefined>
 };
 	["News"]: {
 	__typename: "News",
@@ -1483,6 +1595,7 @@ export type GraphQLTypes = {
 	__typename: "Mutation",
 	addPendingDocument: GraphQLTypes["DocumentNode"],
 	updateDocument: GraphQLTypes["DocumentNode"],
+	updateLocaleInfoDocument: GraphQLTypes["LocaleInfoDocument"],
 	updateNewsDocument: GraphQLTypes["NewsDocument"],
 	updateFooterDocument: GraphQLTypes["FooterDocument"],
 	updateThemeDocument: GraphQLTypes["ThemeDocument"],
@@ -1490,11 +1603,20 @@ export type GraphQLTypes = {
 	updatePageDocument: GraphQLTypes["PageDocument"]
 };
 	["DocumentMutation"]: {
-		news?: GraphQLTypes["NewsMutation"],
+		localeInfo?: GraphQLTypes["LocaleInfoMutation"],
+	news?: GraphQLTypes["NewsMutation"],
 	footer?: GraphQLTypes["FooterMutation"],
 	theme?: GraphQLTypes["ThemeMutation"],
 	navigation?: GraphQLTypes["NavigationMutation"],
 	page?: GraphQLTypes["PageMutation"]
+};
+	["LocaleInfoTelMutation"]: {
+		au?: string,
+	gb?: string,
+	us?: string
+};
+	["LocaleInfoMutation"]: {
+		tel?: GraphQLTypes["LocaleInfoTelMutation"]
 };
 	["NewsMutation"]: {
 		title?: string,

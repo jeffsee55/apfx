@@ -1,8 +1,8 @@
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
-import { propTypes } from "react-markdown";
 import Link from "next/link";
+import { useLocaleInfo } from "./locale-info";
 
 type NavProps = {
   items: {
@@ -16,6 +16,7 @@ type NavProps = {
 };
 
 export const Nav = (props: NavProps) => {
+  const localeInfo = useLocaleInfo();
   return (
     <div className="absolute top-0 left-0 right-0 z-50">
       <div className="relative py-6 sm:py-8">
@@ -55,13 +56,13 @@ export const Nav = (props: NavProps) => {
                 </div>
                 <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
                   <a
-                    href="https://apply.ebury.com/sfdc/servlet/SmartForm.html?formCode=currency-services&brand=APY&locale=en_AU"
+                    href={localeInfo.signInLink}
                     className="whitespace-nowrap text-base font-medium text-gray-100 hover:text-gray-200"
                   >
                     Sign in
                   </a>
                   <a
-                    href="https://oapfxptyltd.ebury.com/"
+                    href={localeInfo.signUpLink}
                     className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
                   >
                     Sign up

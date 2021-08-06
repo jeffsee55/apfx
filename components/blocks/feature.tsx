@@ -290,7 +290,7 @@ export const Header = (props: FeatureProps & { centered?: boolean }) => {
         {props.title}
       </DisplayText>
       <Hr centered={props.centered} />
-      <Text>{props.description}</Text>
+      <Markdown classNames="mt-8">{props.description}</Markdown>
     </div>
   );
 };

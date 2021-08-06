@@ -3,6 +3,7 @@
     "type": "DocumentConnection",
     "resolveType": "multiCollectionDocumentList",
     "collections": [
+      "localeInfo",
       "news",
       "footer",
       "theme",
@@ -149,5 +150,15 @@
     "collections": [
       "news"
     ]
+  },
+  "LocaleInfoDocument": {
+    "type": "LocaleInfoDocument",
+    "resolveType": "collectionDocument",
+    "collection": "localeInfo"
+  },
+  "LocaleInfoConnection": {
+    "type": "LocaleInfoConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "localeInfo"
   }
 }

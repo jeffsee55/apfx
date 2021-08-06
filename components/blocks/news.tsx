@@ -1,5 +1,6 @@
 import { Header } from "./feature";
 import Link from "next/link";
+import { Img } from "../img";
 
 type NewsProps = {
   title: string;
@@ -50,8 +51,9 @@ export const News = (props: NewsProps) => {
                 className="flex flex-col rounded-lg shadow-lg overflow-hidden bg-gray-700"
               >
                 <div className="flex-shrink-0">
-                  <img
+                  <Img
                     className="h-56 w-full object-cover"
+                    width={400}
                     src={
                       // @ts-ignore
                       edge.node.data.image ||

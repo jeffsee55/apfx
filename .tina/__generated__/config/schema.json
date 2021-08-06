@@ -1,6 +1,79 @@
 {
   "collections": [
     {
+      "label": "Locale Information",
+      "name": "localeInfo",
+      "path": "content/localeInfo",
+      "fields": [
+        {
+          "type": "object",
+          "label": "AU",
+          "name": "au",
+          "fields": [
+            {
+              "label": "Tel",
+              "name": "tel",
+              "type": "string"
+            },
+            {
+              "label": "Sign Up Link",
+              "name": "signUpLink",
+              "type": "string"
+            },
+            {
+              "label": "Sign In Link",
+              "name": "signInLink",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "label": "US",
+          "name": "us",
+          "fields": [
+            {
+              "label": "Tel",
+              "name": "tel",
+              "type": "string"
+            },
+            {
+              "label": "Sign Up Link",
+              "name": "signUpLink",
+              "type": "string"
+            },
+            {
+              "label": "Sign In Link",
+              "name": "signInLink",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "label": "GB",
+          "name": "gb",
+          "fields": [
+            {
+              "label": "Tel",
+              "name": "tel",
+              "type": "string"
+            },
+            {
+              "label": "Sign Up Link",
+              "name": "signUpLink",
+              "type": "string"
+            },
+            {
+              "label": "Sign In Link",
+              "name": "signInLink",
+              "type": "string"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "label": "News & Insights",
       "name": "news",
       "path": "content/news",
@@ -366,7 +439,7 @@
                   "type": "object",
                   "ui": {
                     "linkText": "Give us a call!",
-                    "link": "https://example.com"
+                    "link": "tel"
                   },
                   "fields": [
                     {
@@ -387,6 +460,25 @@
                       "label": "Link",
                       "name": "link",
                       "required": true,
+                      "type": "string",
+                      "options": [
+                        {
+                          "label": "Tel",
+                          "value": "tel"
+                        },
+                        {
+                          "label": "Sign Up",
+                          "value": "signUpLink"
+                        },
+                        {
+                          "label": "Sign In",
+                          "value": "signInLink"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Link Override",
+                      "name": "linkOverride",
                       "type": "string"
                     },
                     {
@@ -397,6 +489,25 @@
                     {
                       "label": "Secondary Link",
                       "name": "secondaryLink",
+                      "type": "string",
+                      "options": [
+                        {
+                          "label": "Tel",
+                          "value": "tel"
+                        },
+                        {
+                          "label": "Sign Up",
+                          "value": "signUpLink"
+                        },
+                        {
+                          "label": "Sign In",
+                          "value": "signInLink"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Secondary Link Override",
+                      "name": "secondaryLinkOverride",
                       "type": "string"
                     }
                   ]
@@ -467,7 +578,7 @@
                       "type": "object",
                       "ui": {
                         "linkText": "Give us a call!",
-                        "link": "https://example.com"
+                        "link": "tel"
                       },
                       "fields": [
                         {
@@ -488,6 +599,25 @@
                           "label": "Link",
                           "name": "link",
                           "required": true,
+                          "type": "string",
+                          "options": [
+                            {
+                              "label": "Tel",
+                              "value": "tel"
+                            },
+                            {
+                              "label": "Sign Up",
+                              "value": "signUpLink"
+                            },
+                            {
+                              "label": "Sign In",
+                              "value": "signInLink"
+                            }
+                          ]
+                        },
+                        {
+                          "label": "Link Override",
+                          "name": "linkOverride",
                           "type": "string"
                         },
                         {
@@ -498,6 +628,25 @@
                         {
                           "label": "Secondary Link",
                           "name": "secondaryLink",
+                          "type": "string",
+                          "options": [
+                            {
+                              "label": "Tel",
+                              "value": "tel"
+                            },
+                            {
+                              "label": "Sign Up",
+                              "value": "signUpLink"
+                            },
+                            {
+                              "label": "Sign In",
+                              "value": "signInLink"
+                            }
+                          ]
+                        },
+                        {
+                          "label": "Secondary Link Override",
+                          "name": "secondaryLinkOverride",
                           "type": "string"
                         }
                       ]
@@ -632,7 +781,7 @@
                   "type": "object",
                   "ui": {
                     "linkText": "Give us a call!",
-                    "link": "https://example.com"
+                    "link": "tel"
                   },
                   "fields": [
                     {
@@ -653,6 +802,25 @@
                       "label": "Link",
                       "name": "link",
                       "required": true,
+                      "type": "string",
+                      "options": [
+                        {
+                          "label": "Tel",
+                          "value": "tel"
+                        },
+                        {
+                          "label": "Sign Up",
+                          "value": "signUpLink"
+                        },
+                        {
+                          "label": "Sign In",
+                          "value": "signInLink"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Link Override",
+                      "name": "linkOverride",
                       "type": "string"
                     },
                     {
@@ -663,6 +831,25 @@
                     {
                       "label": "Secondary Link",
                       "name": "secondaryLink",
+                      "type": "string",
+                      "options": [
+                        {
+                          "label": "Tel",
+                          "value": "tel"
+                        },
+                        {
+                          "label": "Sign Up",
+                          "value": "signUpLink"
+                        },
+                        {
+                          "label": "Sign In",
+                          "value": "signInLink"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Secondary Link Override",
+                      "name": "secondaryLinkOverride",
                       "type": "string"
                     }
                   ]
@@ -790,7 +977,7 @@
                   "type": "object",
                   "ui": {
                     "linkText": "Give us a call!",
-                    "link": "https://example.com"
+                    "link": "tel"
                   },
                   "fields": [
                     {
@@ -811,6 +998,25 @@
                       "label": "Link",
                       "name": "link",
                       "required": true,
+                      "type": "string",
+                      "options": [
+                        {
+                          "label": "Tel",
+                          "value": "tel"
+                        },
+                        {
+                          "label": "Sign Up",
+                          "value": "signUpLink"
+                        },
+                        {
+                          "label": "Sign In",
+                          "value": "signInLink"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Link Override",
+                      "name": "linkOverride",
                       "type": "string"
                     },
                     {
@@ -821,6 +1027,25 @@
                     {
                       "label": "Secondary Link",
                       "name": "secondaryLink",
+                      "type": "string",
+                      "options": [
+                        {
+                          "label": "Tel",
+                          "value": "tel"
+                        },
+                        {
+                          "label": "Sign Up",
+                          "value": "signUpLink"
+                        },
+                        {
+                          "label": "Sign In",
+                          "value": "signInLink"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Secondary Link Override",
+                      "name": "secondaryLinkOverride",
                       "type": "string"
                     }
                   ]
@@ -1574,7 +1799,7 @@
                   "type": "object",
                   "ui": {
                     "linkText": "Give us a call!",
-                    "link": "https://example.com"
+                    "link": "tel"
                   },
                   "fields": [
                     {
@@ -1595,6 +1820,25 @@
                       "label": "Link",
                       "name": "link",
                       "required": true,
+                      "type": "string",
+                      "options": [
+                        {
+                          "label": "Tel",
+                          "value": "tel"
+                        },
+                        {
+                          "label": "Sign Up",
+                          "value": "signUpLink"
+                        },
+                        {
+                          "label": "Sign In",
+                          "value": "signInLink"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Link Override",
+                      "name": "linkOverride",
                       "type": "string"
                     },
                     {
@@ -1605,6 +1849,25 @@
                     {
                       "label": "Secondary Link",
                       "name": "secondaryLink",
+                      "type": "string",
+                      "options": [
+                        {
+                          "label": "Tel",
+                          "value": "tel"
+                        },
+                        {
+                          "label": "Sign Up",
+                          "value": "signUpLink"
+                        },
+                        {
+                          "label": "Sign In",
+                          "value": "signInLink"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Secondary Link Override",
+                      "name": "secondaryLinkOverride",
                       "type": "string"
                     }
                   ]

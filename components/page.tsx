@@ -105,6 +105,14 @@ export const getStaticProps = async ({
   };
   // try {
   const listCardsAndDraw = await chainWithQueryString.query({
+    getLocaleInfoDocument: [
+      {
+        relativePath: "main.md",
+      },
+      {
+        dataJSON: true,
+      },
+    ],
     getPageList: [
       {},
       {

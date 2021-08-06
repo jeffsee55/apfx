@@ -82,13 +82,19 @@ const testimonial = {
   ],
 };
 
+const linkOptions = [
+  { label: "Tel", value: "tel" },
+  { label: "Sign Up", value: "signUpLink" },
+  { label: "Sign In", value: "signInLink" },
+];
+
 const action = {
   label: "Action",
   name: "action",
   type: "object",
   ui: {
     linkText: "Give us a call!",
-    link: "https://example.com",
+    link: "tel",
   },
   fields: [
     {
@@ -110,6 +116,13 @@ const action = {
       name: "link",
       required: true,
       type: "string",
+      options: linkOptions,
+    },
+    {
+      label: "Link Override",
+      name: "linkOverride",
+      // description: "Provide a raw value to link (can't be internationalized)",
+      type: "string",
     },
     {
       label: "Secondary Text",
@@ -119,6 +132,13 @@ const action = {
     {
       label: "Secondary Link",
       name: "secondaryLink",
+      type: "string",
+      options: linkOptions,
+    },
+    {
+      label: "Secondary Link Override",
+      name: "secondaryLinkOverride",
+      // description: "Provide a raw value to link (can't be internationalized)",
       type: "string",
     },
   ],
@@ -147,8 +167,51 @@ const textFields = [
   },
 ];
 
+const localeStrings = [
+  {
+    label: "Tel",
+    name: "tel",
+    type: "string",
+  },
+  {
+    label: "Sign Up Link",
+    name: "signUpLink",
+    type: "string",
+  },
+  {
+    label: "Sign In Link",
+    name: "signInLink",
+    type: "string",
+  },
+];
+
 export default defineSchema({
   collections: [
+    {
+      label: "Locale Information",
+      name: "localeInfo",
+      path: "content/localeInfo",
+      fields: [
+        {
+          type: "object",
+          label: "AU",
+          name: "au",
+          fields: localeStrings,
+        },
+        {
+          type: "object",
+          label: "US",
+          name: "us",
+          fields: localeStrings,
+        },
+        {
+          type: "object",
+          label: "GB",
+          name: "gb",
+          fields: localeStrings,
+        },
+      ],
+    },
     {
       label: "News & Insights",
       name: "news",

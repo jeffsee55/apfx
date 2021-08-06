@@ -63,6 +63,8 @@ export type Query = {
   node: Node;
   getDocument: DocumentNode;
   getDocumentList: DocumentConnection;
+  getLocaleInfoDocument: LocaleInfoDocument;
+  getLocaleInfoList: LocaleInfoConnection;
   getNewsDocument: NewsDocument;
   getNewsList: NewsConnection;
   getFooterDocument: FooterDocument;
@@ -93,6 +95,19 @@ export type QueryGetDocumentArgs = {
 
 
 export type QueryGetDocumentListArgs = {
+  before?: Maybe<Scalars['String']>;
+  after?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryGetLocaleInfoDocumentArgs = {
+  relativePath?: Maybe<Scalars['String']>;
+};
+
+
+export type QueryGetLocaleInfoListArgs = {
   before?: Maybe<Scalars['String']>;
   after?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
@@ -198,7 +213,58 @@ export type CollectionDocumentsArgs = {
   last?: Maybe<Scalars['Int']>;
 };
 
-export type DocumentNode = NewsDocument | FooterDocument | ThemeDocument | NavigationDocument | PageDocument;
+export type DocumentNode = LocaleInfoDocument | NewsDocument | FooterDocument | ThemeDocument | NavigationDocument | PageDocument;
+
+export type LocaleInfoAu = {
+  __typename?: 'LocaleInfoAu';
+  tel?: Maybe<Scalars['String']>;
+  signUpLink?: Maybe<Scalars['String']>;
+  signInLink?: Maybe<Scalars['String']>;
+};
+
+export type LocaleInfoUs = {
+  __typename?: 'LocaleInfoUs';
+  tel?: Maybe<Scalars['String']>;
+  signUpLink?: Maybe<Scalars['String']>;
+  signInLink?: Maybe<Scalars['String']>;
+};
+
+export type LocaleInfoGb = {
+  __typename?: 'LocaleInfoGb';
+  tel?: Maybe<Scalars['String']>;
+  signUpLink?: Maybe<Scalars['String']>;
+  signInLink?: Maybe<Scalars['String']>;
+};
+
+export type LocaleInfo = {
+  __typename?: 'LocaleInfo';
+  au?: Maybe<LocaleInfoAu>;
+  us?: Maybe<LocaleInfoUs>;
+  gb?: Maybe<LocaleInfoGb>;
+};
+
+export type LocaleInfoDocument = Node & Document & {
+  __typename?: 'LocaleInfoDocument';
+  id: Scalars['ID'];
+  sys: SystemInfo;
+  data: LocaleInfo;
+  form: Scalars['JSON'];
+  values: Scalars['JSON'];
+  dataJSON: Scalars['JSON'];
+};
+
+export type LocaleInfoConnectionEdges = {
+  __typename?: 'LocaleInfoConnectionEdges';
+  cursor?: Maybe<Scalars['String']>;
+  node?: Maybe<LocaleInfoDocument>;
+};
+
+export type LocaleInfoConnection = Connection & {
+  __typename?: 'LocaleInfoConnection';
+  pageInfo?: Maybe<PageInfo>;
+  totalCount: Scalars['Int'];
+  edges?: Maybe<Array<Maybe<LocaleInfoConnectionEdges>>>;
+};
 
 export type News = {
   __typename?: 'News';
@@ -398,8 +464,10 @@ export type PageBlocksHeroAction = {
   callToAction?: Maybe<Scalars['String']>;
   linkText: Scalars['String'];
   link: Scalars['String'];
+  linkOverride?: Maybe<Scalars['String']>;
   secondaryText?: Maybe<Scalars['String']>;
   secondaryLink?: Maybe<Scalars['String']>;
+  secondaryLinkOverride?: Maybe<Scalars['String']>;
 };
 
 export type PageBlocksHero = {
@@ -417,8 +485,10 @@ export type PageBlocksSlideshowItemsAction = {
   callToAction?: Maybe<Scalars['String']>;
   linkText: Scalars['String'];
   link: Scalars['String'];
+  linkOverride?: Maybe<Scalars['String']>;
   secondaryText?: Maybe<Scalars['String']>;
   secondaryLink?: Maybe<Scalars['String']>;
+  secondaryLinkOverride?: Maybe<Scalars['String']>;
 };
 
 export type PageBlocksSlideshowItems = {
@@ -451,8 +521,10 @@ export type PageBlocksComparisonTableAction = {
   callToAction?: Maybe<Scalars['String']>;
   linkText: Scalars['String'];
   link: Scalars['String'];
+  linkOverride?: Maybe<Scalars['String']>;
   secondaryText?: Maybe<Scalars['String']>;
   secondaryLink?: Maybe<Scalars['String']>;
+  secondaryLinkOverride?: Maybe<Scalars['String']>;
 };
 
 export type PageBlocksComparisonTable = {
@@ -479,8 +551,10 @@ export type PageBlocksFullScreenHeaderAction = {
   callToAction?: Maybe<Scalars['String']>;
   linkText: Scalars['String'];
   link: Scalars['String'];
+  linkOverride?: Maybe<Scalars['String']>;
   secondaryText?: Maybe<Scalars['String']>;
   secondaryLink?: Maybe<Scalars['String']>;
+  secondaryLinkOverride?: Maybe<Scalars['String']>;
 };
 
 export type PageBlocksFullScreenHeader = {
@@ -520,8 +594,10 @@ export type PageBlocksScreenShotFeatureAction = {
   callToAction?: Maybe<Scalars['String']>;
   linkText: Scalars['String'];
   link: Scalars['String'];
+  linkOverride?: Maybe<Scalars['String']>;
   secondaryText?: Maybe<Scalars['String']>;
   secondaryLink?: Maybe<Scalars['String']>;
+  secondaryLinkOverride?: Maybe<Scalars['String']>;
 };
 
 export type PageBlocksScreenShotFeatureTestimonialAuthor = {
@@ -585,6 +661,7 @@ export type Mutation = {
   __typename?: 'Mutation';
   addPendingDocument: DocumentNode;
   updateDocument: DocumentNode;
+  updateLocaleInfoDocument: LocaleInfoDocument;
   updateNewsDocument: NewsDocument;
   updateFooterDocument: FooterDocument;
   updateThemeDocument: ThemeDocument;
@@ -604,6 +681,12 @@ export type MutationUpdateDocumentArgs = {
   collection: Scalars['String'];
   relativePath: Scalars['String'];
   params: DocumentMutation;
+};
+
+
+export type MutationUpdateLocaleInfoDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: LocaleInfoMutation;
 };
 
 
@@ -637,11 +720,36 @@ export type MutationUpdatePageDocumentArgs = {
 };
 
 export type DocumentMutation = {
+  localeInfo?: Maybe<LocaleInfoMutation>;
   news?: Maybe<NewsMutation>;
   footer?: Maybe<FooterMutation>;
   theme?: Maybe<ThemeMutation>;
   navigation?: Maybe<NavigationMutation>;
   page?: Maybe<PageMutation>;
+};
+
+export type LocaleInfoAuMutation = {
+  tel?: Maybe<Scalars['String']>;
+  signUpLink?: Maybe<Scalars['String']>;
+  signInLink?: Maybe<Scalars['String']>;
+};
+
+export type LocaleInfoUsMutation = {
+  tel?: Maybe<Scalars['String']>;
+  signUpLink?: Maybe<Scalars['String']>;
+  signInLink?: Maybe<Scalars['String']>;
+};
+
+export type LocaleInfoGbMutation = {
+  tel?: Maybe<Scalars['String']>;
+  signUpLink?: Maybe<Scalars['String']>;
+  signInLink?: Maybe<Scalars['String']>;
+};
+
+export type LocaleInfoMutation = {
+  au?: Maybe<LocaleInfoAuMutation>;
+  us?: Maybe<LocaleInfoUsMutation>;
+  gb?: Maybe<LocaleInfoGbMutation>;
 };
 
 export type NewsMutation = {
@@ -715,8 +823,10 @@ export type PageBlocksHeroActionMutation = {
   callToAction?: Maybe<Scalars['String']>;
   linkText?: Maybe<Scalars['String']>;
   link?: Maybe<Scalars['String']>;
+  linkOverride?: Maybe<Scalars['String']>;
   secondaryText?: Maybe<Scalars['String']>;
   secondaryLink?: Maybe<Scalars['String']>;
+  secondaryLinkOverride?: Maybe<Scalars['String']>;
 };
 
 export type PageBlocksHeroMutation = {
@@ -732,8 +842,10 @@ export type PageBlocksSlideshowItemsActionMutation = {
   callToAction?: Maybe<Scalars['String']>;
   linkText?: Maybe<Scalars['String']>;
   link?: Maybe<Scalars['String']>;
+  linkOverride?: Maybe<Scalars['String']>;
   secondaryText?: Maybe<Scalars['String']>;
   secondaryLink?: Maybe<Scalars['String']>;
+  secondaryLinkOverride?: Maybe<Scalars['String']>;
 };
 
 export type PageBlocksSlideshowItemsMutation = {
@@ -762,8 +874,10 @@ export type PageBlocksComparisonTableActionMutation = {
   callToAction?: Maybe<Scalars['String']>;
   linkText?: Maybe<Scalars['String']>;
   link?: Maybe<Scalars['String']>;
+  linkOverride?: Maybe<Scalars['String']>;
   secondaryText?: Maybe<Scalars['String']>;
   secondaryLink?: Maybe<Scalars['String']>;
+  secondaryLinkOverride?: Maybe<Scalars['String']>;
 };
 
 export type PageBlocksComparisonTableMutation = {
@@ -787,8 +901,10 @@ export type PageBlocksFullScreenHeaderActionMutation = {
   callToAction?: Maybe<Scalars['String']>;
   linkText?: Maybe<Scalars['String']>;
   link?: Maybe<Scalars['String']>;
+  linkOverride?: Maybe<Scalars['String']>;
   secondaryText?: Maybe<Scalars['String']>;
   secondaryLink?: Maybe<Scalars['String']>;
+  secondaryLinkOverride?: Maybe<Scalars['String']>;
 };
 
 export type PageBlocksFullScreenHeaderMutation = {
@@ -824,8 +940,10 @@ export type PageBlocksScreenShotFeatureActionMutation = {
   callToAction?: Maybe<Scalars['String']>;
   linkText?: Maybe<Scalars['String']>;
   link?: Maybe<Scalars['String']>;
+  linkOverride?: Maybe<Scalars['String']>;
   secondaryText?: Maybe<Scalars['String']>;
   secondaryLink?: Maybe<Scalars['String']>;
+  secondaryLinkOverride?: Maybe<Scalars['String']>;
 };
 
 export type PageBlocksScreenShotFeatureTestimonialAuthorMutation = {

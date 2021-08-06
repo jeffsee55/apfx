@@ -45,6 +45,8 @@ type Query {
   node(id: String): Node!
   getDocument(collection: String, relativePath: String): DocumentNode!
   getDocumentList(before: String, after: String, first: Int, last: Int): DocumentConnection!
+  getLocaleInfoDocument(relativePath: String): LocaleInfoDocument!
+  getLocaleInfoList(before: String, after: String, first: Int, last: Int): LocaleInfoConnection!
   getNewsDocument(relativePath: String): NewsDocument!
   getNewsList(before: String, after: String, first: Int, last: Int): NewsConnection!
   getFooterDocument(relativePath: String): FooterDocument!
@@ -80,7 +82,51 @@ type Collection {
   documents(before: String, after: String, first: Int, last: Int): DocumentConnection!
 }
 
-union DocumentNode = NewsDocument | FooterDocument | ThemeDocument | NavigationDocument | PageDocument
+union DocumentNode = LocaleInfoDocument | NewsDocument | FooterDocument | ThemeDocument | NavigationDocument | PageDocument
+
+type LocaleInfoAu {
+  tel: String
+  signUpLink: String
+  signInLink: String
+}
+
+type LocaleInfoUs {
+  tel: String
+  signUpLink: String
+  signInLink: String
+}
+
+type LocaleInfoGb {
+  tel: String
+  signUpLink: String
+  signInLink: String
+}
+
+type LocaleInfo {
+  au: LocaleInfoAu
+  us: LocaleInfoUs
+  gb: LocaleInfoGb
+}
+
+type LocaleInfoDocument implements Node & Document {
+  id: ID!
+  sys: SystemInfo!
+  data: LocaleInfo!
+  form: JSON!
+  values: JSON!
+  dataJSON: JSON!
+}
+
+type LocaleInfoConnectionEdges {
+  cursor: String
+  node: LocaleInfoDocument
+}
+
+type LocaleInfoConnection implements Connection {
+  pageInfo: PageInfo
+  totalCount: Int!
+  edges: [LocaleInfoConnectionEdges]
+}
 
 type News {
   title: String!
@@ -246,8 +292,10 @@ type PageBlocksHeroAction {
   callToAction: String
   linkText: String!
   link: String!
+  linkOverride: String
   secondaryText: String
   secondaryLink: String
+  secondaryLinkOverride: String
 }
 
 type PageBlocksHero {
@@ -263,8 +311,10 @@ type PageBlocksSlideshowItemsAction {
   callToAction: String
   linkText: String!
   link: String!
+  linkOverride: String
   secondaryText: String
   secondaryLink: String
+  secondaryLinkOverride: String
 }
 
 type PageBlocksSlideshowItems {
@@ -293,8 +343,10 @@ type PageBlocksComparisonTableAction {
   callToAction: String
   linkText: String!
   link: String!
+  linkOverride: String
   secondaryText: String
   secondaryLink: String
+  secondaryLinkOverride: String
 }
 
 type PageBlocksComparisonTable {
@@ -318,8 +370,10 @@ type PageBlocksFullScreenHeaderAction {
   callToAction: String
   linkText: String!
   link: String!
+  linkOverride: String
   secondaryText: String
   secondaryLink: String
+  secondaryLinkOverride: String
 }
 
 type PageBlocksFullScreenHeader {
@@ -355,8 +409,10 @@ type PageBlocksScreenShotFeatureAction {
   callToAction: String
   linkText: String!
   link: String!
+  linkOverride: String
   secondaryText: String
   secondaryLink: String
+  secondaryLinkOverride: String
 }
 
 type PageBlocksScreenShotFeatureTestimonialAuthor {
@@ -412,6 +468,7 @@ type PageConnection implements Connection {
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String!, relativePath: String!, params: DocumentMutation!): DocumentNode!
+  updateLocaleInfoDocument(relativePath: String!, params: LocaleInfoMutation!): LocaleInfoDocument!
   updateNewsDocument(relativePath: String!, params: NewsMutation!): NewsDocument!
   updateFooterDocument(relativePath: String!, params: FooterMutation!): FooterDocument!
   updateThemeDocument(relativePath: String!, params: ThemeMutation!): ThemeDocument!
@@ -420,11 +477,36 @@ type Mutation {
 }
 
 input DocumentMutation {
+  localeInfo: LocaleInfoMutation
   news: NewsMutation
   footer: FooterMutation
   theme: ThemeMutation
   navigation: NavigationMutation
   page: PageMutation
+}
+
+input LocaleInfoAuMutation {
+  tel: String
+  signUpLink: String
+  signInLink: String
+}
+
+input LocaleInfoUsMutation {
+  tel: String
+  signUpLink: String
+  signInLink: String
+}
+
+input LocaleInfoGbMutation {
+  tel: String
+  signUpLink: String
+  signInLink: String
+}
+
+input LocaleInfoMutation {
+  au: LocaleInfoAuMutation
+  us: LocaleInfoUsMutation
+  gb: LocaleInfoGbMutation
 }
 
 input NewsMutation {
@@ -498,8 +580,10 @@ input PageBlocksHeroActionMutation {
   callToAction: String
   linkText: String
   link: String
+  linkOverride: String
   secondaryText: String
   secondaryLink: String
+  secondaryLinkOverride: String
 }
 
 input PageBlocksHeroMutation {
@@ -515,8 +599,10 @@ input PageBlocksSlideshowItemsActionMutation {
   callToAction: String
   linkText: String
   link: String
+  linkOverride: String
   secondaryText: String
   secondaryLink: String
+  secondaryLinkOverride: String
 }
 
 input PageBlocksSlideshowItemsMutation {
@@ -545,8 +631,10 @@ input PageBlocksComparisonTableActionMutation {
   callToAction: String
   linkText: String
   link: String
+  linkOverride: String
   secondaryText: String
   secondaryLink: String
+  secondaryLinkOverride: String
 }
 
 input PageBlocksComparisonTableMutation {
@@ -570,8 +658,10 @@ input PageBlocksFullScreenHeaderActionMutation {
   callToAction: String
   linkText: String
   link: String
+  linkOverride: String
   secondaryText: String
   secondaryLink: String
+  secondaryLinkOverride: String
 }
 
 input PageBlocksFullScreenHeaderMutation {
@@ -607,8 +697,10 @@ input PageBlocksScreenShotFeatureActionMutation {
   callToAction: String
   linkText: String
   link: String
+  linkOverride: String
   secondaryText: String
   secondaryLink: String
+  secondaryLinkOverride: String
 }
 
 input PageBlocksScreenShotFeatureTestimonialAuthorMutation {

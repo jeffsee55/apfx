@@ -12,9 +12,9 @@ blocks:
       https://images.ctfassets.net/fn5fbjfhb3z0/1GQRbVRTQ9OJmignvZxPTd/43b7e889507f8801aa8268aef9d95083/opera-house-2.jpg?w=1600&h=1066&q=50
     action:
       linkText: Find out more
-      link: info@apfx.com.au
-      secondaryText: 02 9216 9027
-      secondaryLink: 'tel: 02 9216 9027'
+      link: signUpLink
+      secondaryText: 'Or give us a call '
+      secondaryLink: tel
     _template: hero
   - items:
       - title: International Payments

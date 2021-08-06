@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocaleInfo } from "../locale-info";
 import { Markdown } from "../markdown";
 import { useTheme } from "../theme";
 import { DisplayText, Text } from "../typographqy";
@@ -234,20 +235,30 @@ export function HeroWithSlantImage(props: HeroProps) {
 }
 
 const ActionBox = (props: { action: Action }) => {
+  const localeInfo = useLocaleInfo();
+  const link =
+    props.action.link === "tel"
+      ? `tel: ${localeInfo[props.action.link]}`
+      : localeInfo[props.action.link];
+  const secondaryLink =
+    props.action.secondaryLink === "tel"
+      ? `tel: ${localeInfo[props.action.secondaryLink]}`
+      : localeInfo[props.action.secondaryLink];
+
   return (
     <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
       <div className="rounded-md shadow">
         <a
-          href={props.action?.link || ""}
+          href={link || ""}
           className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
         >
           {props.action?.linkText || ""}
         </a>
       </div>
-      {props.action.secondaryLink && (
+      {secondaryLink && (
         <div className="mt-3 sm:mt-0 sm:ml-3">
           <a
-            href={props.action.secondaryLink}
+            href={secondaryLink}
             className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
           >
             {props.action.secondaryText}

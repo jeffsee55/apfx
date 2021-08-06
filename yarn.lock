@@ -2190,14 +2190,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tinacms/cli@npm:^0.53.0":
-  version: 0.53.0
-  resolution: "@tinacms/cli@npm:0.53.0"
+"@tinacms/cli@npm:^0.53.2":
+  version: 0.53.2
+  resolution: "@tinacms/cli@npm:0.53.2"
   dependencies:
     "@graphql-codegen/core": ^1.17.0
     "@graphql-codegen/typescript": ^1.17.0
     "@graphql-codegen/typescript-operations": ^1.17.0
-    "@tinacms/graphql": 0.51.1
+    "@tinacms/graphql": 0.52.1
     ajv: ^6.12.3
     altair-express-middleware: 4.0.6
     axios: 0.19.0
@@ -2223,13 +2223,13 @@ __metadata:
     yup: ^0.32.9
   bin:
     tinacms: bin/tinacms
-  checksum: e9bc2d33749ae0cc22433dd7eca630618daaf1891e198000ece7e1ca038bfc1b4f5bf212f73964ffe09198bd60ff25dc9a7750a6a2c30bfe935cfdf9ee803521
+  checksum: 88e98fb752a7f7553d665b7e7437d75c2484b665dd9b55e8516731492c097a0f4255aa94e8dc96d64bcc05c609aacb190af24a430d0b480c4525aee423c39277
   languageName: node
   linkType: hard
 
-"@tinacms/graphql@npm:0.51.1":
-  version: 0.51.1
-  resolution: "@tinacms/graphql@npm:0.51.1"
+"@tinacms/graphql@npm:0.52.1":
+  version: 0.52.1
+  resolution: "@tinacms/graphql@npm:0.52.1"
   dependencies:
     "@octokit/auth-app": ^2.6.0
     "@octokit/graphql": ^4.5.6
@@ -2263,7 +2263,7 @@ __metadata:
     vfile: ^4.2.0
     ws: ^7.3.1
     yup: ^0.32.9
-  checksum: 4e53f6562f80bf86aa6c2f24a158c378f9a40ea642004b7997250a9b09fdaeaf9495fada2da12ad7a0831d855cfbbd944eb11b564d8b2ef48a91afed24ec268b
+  checksum: d2006b3eb656e57168194964955a8951e6326d59a78b61ce8096987ed9cf424df28367ad703e8204cec28111be0ccb4e25a036cc098d59c196105e5d1de5e1e5
   languageName: node
   linkType: hard
 
@@ -2969,7 +2969,7 @@ __metadata:
     "@tailwindcss/aspect-ratio": ^0.2.1
     "@tailwindcss/forms": ^0.3.3
     "@tailwindcss/typography": ^0.4.1
-    "@tinacms/cli": ^0.53.0
+    "@tinacms/cli": ^0.53.2
     "@types/node": ^16.3.1
     "@types/react": ^17.0.14
     autoprefixer: ^10.2.6
@@ -2984,7 +2984,7 @@ __metadata:
     smoothscroll-polyfill: ^0.4.4
     styled-components: ^5.3.0
     tailwindcss: ^2.2.4
-    tinacms: ^0.52.0
+    tinacms: ^0.53.0
     typescript: ^4.3.5
   languageName: unknown
   linkType: soft
@@ -12662,9 +12662,9 @@ next@latest:
   languageName: node
   linkType: hard
 
-"tinacms@npm:^0.52.0":
-  version: 0.52.0
-  resolution: "tinacms@npm:0.52.0"
+"tinacms@npm:^0.53.0":
+  version: 0.53.0
+  resolution: "tinacms@npm:0.53.0"
   dependencies:
     "@graphql-codegen/core": ^1.15.4
     "@graphql-codegen/typescript": ^1.15.4
@@ -12694,7 +12694,7 @@ next@latest:
     react-dom: ">=16.8"
     react-is: ^16.13.1 || <18.0.0
     styled-components: "*"
-  checksum: fbe23bb944069fc6e2b5a346662bd7967e349a6d0a21b2004c08e608a792cfe4db51bd8d2cbaaeaf8cc27a80377f9e0afb0f184bbef3e6280ee1eb0819d9e109
+  checksum: 8143028aee2862553d155680dce585734b89806813b93071ca6ca273b15bd30b773d727e2b40b30efc2a47f5ec271280efcc0c7c85ec0079be3cfd04b480119a
   languageName: node
   linkType: hard
 

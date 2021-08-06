@@ -70,6 +70,40 @@ export const AllTypesProps: Record<string,any> = {
 				required:false
 			}
 		},
+		getLocaleInfoDocument:{
+			relativePath:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		getLocaleInfoList:{
+			before:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			after:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			first:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			last:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
 		getNewsDocument:{
 			relativePath:{
 				type:"String",
@@ -338,6 +372,20 @@ export const AllTypesProps: Record<string,any> = {
 				required:true
 			}
 		},
+		updateLocaleInfoDocument:{
+			relativePath:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:true
+			},
+			params:{
+				type:"LocaleInfoMutation",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
 		updateNewsDocument:{
 			relativePath:{
 				type:"String",
@@ -410,6 +458,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	DocumentMutation:{
+		localeInfo:{
+			type:"LocaleInfoMutation",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		news:{
 			type:"NewsMutation",
 			array:false,
@@ -436,6 +490,34 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		page:{
 			type:"PageMutation",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	LocaleInfoTelMutation:{
+		au:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		gb:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		us:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	LocaleInfoMutation:{
+		tel:{
+			type:"LocaleInfoTelMutation",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -1309,6 +1391,7 @@ export const ReturnTypes: Record<string,any> = {
 		endCursor:"String"
 	},
 	Node:{
+		"...on LocaleInfoDocument": "LocaleInfoDocument",
 		"...on NewsDocument": "NewsDocument",
 		"...on FooterDocument": "FooterDocument",
 		"...on ThemeDocument": "ThemeDocument",
@@ -1317,6 +1400,7 @@ export const ReturnTypes: Record<string,any> = {
 		id:"ID"
 	},
 	Document:{
+		"...on LocaleInfoDocument": "LocaleInfoDocument",
 		"...on NewsDocument": "NewsDocument",
 		"...on FooterDocument": "FooterDocument",
 		"...on ThemeDocument": "ThemeDocument",
@@ -1327,6 +1411,7 @@ export const ReturnTypes: Record<string,any> = {
 	},
 	Connection:{
 		"...on DocumentConnection": "DocumentConnection",
+		"...on LocaleInfoConnection": "LocaleInfoConnection",
 		"...on NewsConnection": "NewsConnection",
 		"...on FooterConnection": "FooterConnection",
 		"...on ThemeConnection": "ThemeConnection",
@@ -1341,6 +1426,8 @@ export const ReturnTypes: Record<string,any> = {
 		node:"Node",
 		getDocument:"DocumentNode",
 		getDocumentList:"DocumentConnection",
+		getLocaleInfoDocument:"LocaleInfoDocument",
+		getLocaleInfoList:"LocaleInfoConnection",
 		getNewsDocument:"NewsDocument",
 		getNewsList:"NewsConnection",
 		getFooterDocument:"FooterDocument",
@@ -1373,11 +1460,37 @@ export const ReturnTypes: Record<string,any> = {
 		documents:"DocumentConnection"
 	},
 	DocumentNode:{
+		"...on LocaleInfoDocument":"LocaleInfoDocument",
 		"...on NewsDocument":"NewsDocument",
 		"...on FooterDocument":"FooterDocument",
 		"...on ThemeDocument":"ThemeDocument",
 		"...on NavigationDocument":"NavigationDocument",
 		"...on PageDocument":"PageDocument"
+	},
+	LocaleInfoTel:{
+		au:"String",
+		gb:"String",
+		us:"String"
+	},
+	LocaleInfo:{
+		tel:"LocaleInfoTel"
+	},
+	LocaleInfoDocument:{
+		id:"ID",
+		sys:"SystemInfo",
+		data:"LocaleInfo",
+		form:"JSON",
+		values:"JSON",
+		dataJSON:"JSON"
+	},
+	LocaleInfoConnectionEdges:{
+		cursor:"String",
+		node:"LocaleInfoDocument"
+	},
+	LocaleInfoConnection:{
+		pageInfo:"PageInfo",
+		totalCount:"Int",
+		edges:"LocaleInfoConnectionEdges"
 	},
 	News:{
 		title:"String",
@@ -1675,6 +1788,7 @@ export const ReturnTypes: Record<string,any> = {
 	Mutation:{
 		addPendingDocument:"DocumentNode",
 		updateDocument:"DocumentNode",
+		updateLocaleInfoDocument:"LocaleInfoDocument",
 		updateNewsDocument:"NewsDocument",
 		updateFooterDocument:"FooterDocument",
 		updateThemeDocument:"ThemeDocument",
