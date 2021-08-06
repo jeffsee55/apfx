@@ -10,6 +10,7 @@ export const Markdown = (props: {
   const colorVariant = props.colorVariant || "light";
   const selectedVariant = variants[variant];
   return (
+    // @ts-ignore
     <div className={`${selectedVariant.root} ${props.classNames}`}>
       <ReactMarkdown components={selectedVariant(colorVariant)}>
         {props.children}
