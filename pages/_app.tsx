@@ -32,9 +32,9 @@ const Page = ({ pageProps, Component }) => {
 
   const theme = pageProps.data?.getThemeDocument?.dataJSON;
   const currentLocaleInfo =
-    pageProps.data.getLocaleInfoDocument.dataJSON[
+    pageProps.data?.getLocaleInfoDocument?.dataJSON[
       router.locale.replace("en-", "") || "au"
-    ];
+    ] || {};
   return (
     <LocaleContext.Provider value={currentLocaleInfo}>
       {theme && <Theme theme={theme} />}
