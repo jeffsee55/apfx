@@ -36,6 +36,7 @@ export const CloudinaryImg = React.forwardRef((props: ImgType, ref) => {
   return (
     <img
       className={props.className}
+      // @ts-ignore
       ref={ref}
       src={newString}
       alt={props.alt}
@@ -74,6 +75,7 @@ export const UnsplashImg = React.forwardRef((props: ImgType, ref) => {
   return (
     <img
       className={props.className}
+      // @ts-ignore
       ref={ref}
       src={newString}
       alt={props.alt}
@@ -87,6 +89,7 @@ export const Img = React.forwardRef((props: ImgType, ref) => {
   } else if (props.src.includes("cloudinary")) {
     return <CloudinaryImg {...props} ref={ref} />;
   } else {
+    // @ts-ignore
     return <img className={props.className} ref={ref} src={props.src} />;
   }
 });
