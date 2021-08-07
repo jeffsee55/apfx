@@ -4,12 +4,9 @@ import { MarkdownFieldPlugin } from "react-tinacms-editor";
 const TinaLoader = ({ pageProps, children }) => {
   return (
     <Tina
-      useUnstable={true}
-      config={{
-        branch: "main",
-        clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-        isLocalClient: !process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-      }}
+      branch="main"
+      clientId="d94095b9-fb25-40a6-a3ea-277ad5653cb0"
+      isLocalClient={false}
       cmsCallback={(cms) => {
         cms.plugins.add(MarkdownFieldPlugin);
         return cms;
