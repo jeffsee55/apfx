@@ -2,7 +2,7 @@
 title: Home
 link: /
 blocks:
-  - slogan: Your global payments partners
+  - slogan: Your global payments partner
     image: >-
       https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3150&q=80
     textColor: light
@@ -26,7 +26,7 @@ blocks:
       link: >-
         https://apply.ebury.com/sfdc/servlet/SmartForm.html?formCode=currency-services&brand=APY&locale=en_AU
       secondaryText: 'Or give us a call '
-      secondaryLink: 'tel: 02 9216 9027'
+      secondaryLink: tel
     _template: hero
   - title: About Us
     subTitle: learn more

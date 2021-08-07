@@ -152,7 +152,7 @@ export const getStaticPaths = async () => {
     paths: paths.getNewsList.edges.map((edge) => {
       return { params: { filename: edge.node.sys.filename } };
     }),
-    fallback: true,
+    fallback: false,
   };
   return meh;
 };
