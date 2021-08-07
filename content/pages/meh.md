@@ -23,8 +23,7 @@ blocks:
       https://images.ctfassets.net/fn5fbjfhb3z0/1GQRbVRTQ9OJmignvZxPTd/43b7e889507f8801aa8268aef9d95083/opera-house-2.jpg?w=1600&h=1066&q=50
     action:
       linkText: Sign Up Today
-      link: >-
-        https://apply.ebury.com/sfdc/servlet/SmartForm.html?formCode=currency-services&brand=APY&locale=en_AU
+      link: signUpLink
       secondaryText: 'Or give us a call '
       secondaryLink: tel
     _template: hero
