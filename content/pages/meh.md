@@ -127,9 +127,9 @@ blocks:
         Get in touch 
         today
       linkText: Find out more
-      link: info@apfx.com.au
-      secondaryText: 02 9216 9027
-      secondaryLink: 'tel: 02 9216 9027'
+      link: signUpLink
+      secondaryText: Give us a call
+      secondaryLink: tel
     _template: comparisonTable
 ---
 
