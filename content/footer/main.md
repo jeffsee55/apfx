@@ -19,25 +19,22 @@ offices:
       New York, 10007, United States
     phone: +1 212-220-8500
 disclaimers:
-  - body: >
-      AP FX Pty Ltd is a company registered in Australia (ACN 632 776 526).
-      Registered office: Level 7, 167 Macquarie Street, Sydney, NSW, 2000 AP FX
-      Pty Ltd Payment and Foreign Currency Exchange Services are provided by
-      Ebury Partners UK Limited. AP FX Pty Ltd is partnered with Ebury Partners
-      UK Limited as a Programme Manager.
-
-
-      Ebury Partners UK Limited are authorised and regulated by the Financial
-      Conduct Authority as an Electronic Money Institution. (Reference Number
-      900797). Ebury is a registered branch of a foreign company registered with
-      the Australian Securities and Investments Commission (ASIC), Australian
-      Registered Body Number (ARBN): 625 009 887 and with the Australian
-      Transaction Reports and Analysis Centre (AUSTRAC). Ebury provide financial
-      services in Australia pursuant to a licensing Exemption provided by the
-      Australian Securities and Investments Commission (“ASIC”).
-
-
-      Ebury Partners UK Limited is registered with the information
-      Commissioner’s Office, with registration number: ZA345828.
+  - body: >-
+      _AP FX Pty Ltd (trading as AP FX Pty Ltd) (ACN 632 776 526) is an
+      Authorised Representative (001286469) of Ebury Partners Australia Pty
+      Limited (ACN 632 570 702) which holds an Australian Financial Services
+      Licence (520548). Ebury Partners Australia Pty Limited ('Ebury’) ACN 632
+      570 702, Registered Office: Level 1, [53 Berry Street, North Sydney NSW
+      2060](https://www.google.com/maps/search/53+Berry+Street,+North+Sydney+NSW+2060?entry=gmail&source=g).
+      Ebury is authorised and regulated by the Australian Securities and
+      Investments Commission (ASIC) to provide financial services under
+      Australian Financial Services License (AFSL) 520548 and registered with
+      the Australian Transaction Reports and Analysis Centre (AUSTRAC). AP FX FX
+      Pty Ltd currency exchange services are provided by The Currency Cloud
+      Limited. Registered in England No. 06323311. Registered Office:
+      Stewardship Building 1st Floor, 12 Steward Street London E1 6FQ. The
+      Currency Cloud Limited is authorised by the Financial Conduct Authority
+      under the Electronic Money Regulations 2011 for the issuing of electronic
+      money. FCA registration number: 900199_
 ---
 
