@@ -1,10 +1,12 @@
 ---
 offices:
   - location: Sydney
-    address: |2-
-       Level 7,
-      167 Macquarie Street,
-      Sydney, NSW, 2000
+    address: |-
+      Level 7, 167 Macquarie Street, 
+
+      Sydney, 
+
+      NSW, 2000
     phone: +61 2 9216 9027
   - location: London
     address: |
@@ -27,18 +29,17 @@ disclaimers:
       UK Limited as a Programme Manager.
 
 
-      Ebury Partners UK Limited are
-      authorised and regulated by the Financial Conduct Authority as an
-      Electronic Money Institution. (Reference Number 900797). Ebury is a
-      registered branch of a foreign company registered with the Australian
-      Securities and Investments Commission (ASIC), Australian Registered Body
-      Number (ARBN): 625 009 887 and with the Australian Transaction Reports and
-      Analysis Centre (AUSTRAC). Ebury provide financial services in Australia
-      pursuant to a licensing Exemption provided by the Australian Securities
-      and Investments Commission (“ASIC”).
+      Ebury Partners UK Limited are authorised and regulated by the Financial
+      Conduct Authority as an Electronic Money Institution. (Reference Number
+      900797). Ebury is a registered branch of a foreign company registered with
+      the Australian Securities and Investments Commission (ASIC), Australian
+      Registered Body Number (ARBN): 625 009 887 and with the Australian
+      Transaction Reports and Analysis Centre (AUSTRAC). Ebury provide financial
+      services in Australia pursuant to a licensing Exemption provided by the
+      Australian Securities and Investments Commission (“ASIC”).
 
 
-      Ebury Partners UK Limited is
-      registered with the information Commissioner’s Office, with registration
-      number: ZA345828.
+      Ebury Partners UK Limited is registered with the information
+      Commissioner’s Office, with registration number: ZA345828.
 ---
+
