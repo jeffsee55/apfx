@@ -96,9 +96,7 @@ blocks:
     _template: slideshow
   - title: Dedicated solutions to fit your needs
     subTitle: Private Clients & Business
-    description: >-
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum sequi unde
-      repudiandae natus.
+    description: ''
     items:
       - title: Business
         subTitle: Risk management
@@ -122,9 +120,7 @@ blocks:
           - Dedicated Relationship Manager
           - Currency Accounts
     action:
-      callToAction: |-
-        Get in touch 
-        today
+      callToAction: Get in touch today
       linkText: Find out more
       link: signUpLink
       secondaryText: Give us a call
