@@ -2,9 +2,7 @@
 offices:
   - location: Sydney
     address: |-
-      Level 7, 167 Macquarie Street, 
-
-      Sydney, 
+      Level 7, 167 Macquarie Street, Sydney,
 
       NSW, 2000
     phone: +61 2 9216 9027
