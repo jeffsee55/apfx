@@ -13,8 +13,8 @@ blocks:
     subTitle: ''
     description: >-
       We work as your trusted business partner to help you more effectively
-      operate your business globally. Ebury's global payment solutions enable
-      you to efficiently and securely send payments across the world in over 140
+      operate your business globally. Our global payment solutions enable you to
+      efficiently and securely send payments across the world in over 140
       currencies. Offering a sophisticated suite of products and an advanced
       technology platform, as well as a panel of the biggest, global banks to
       ensure the most competitive pricing in the industry.
