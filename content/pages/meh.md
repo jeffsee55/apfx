@@ -93,15 +93,19 @@ blocks:
           https://images.ctfassets.net/fn5fbjfhb3z0/1GQRbVRTQ9OJmignvZxPTd/43b7e889507f8801aa8268aef9d95083/opera-house-2.jpg?w=1600&h=1066&q=50
       - title: Currency Accounts
         description: >-
-          Receive hold and pay in multiple currencies - Flexibility to allow
-          your clients and suppliers to pay you in 30 currencies.
+          With APFX you can receive, hold and make payments in multiple
+          currencies in just a few clicks.
 
-          Hold currency in accounts without a local presence (ask your
-          consultant for more details)
 
-          Transfers always addressed to an account in your name
+          Send anmd receive funds using local payment networks avaoliding delays
+          and additional charges
 
-          Access your funds securely online at any time
+
+          APFX provides the flexibility to allow your clients and suppliers to
+          pay you in 30 currencies. Hold currency in accounts without a local
+          presence (ask your consultant for more details) Transfers always
+          addressed to an account in your name Access your funds securely online
+          at any time
         image: >-
           https://images.ctfassets.net/fn5fbjfhb3z0/43WPBLQnokb9VmtMGq4JWE/7a68eaa362df36ed7b08b9db785e57f3/christopher-burns-D-fpL7F_MEI-unsplash.jpg?w=3200&h=1843&q=50
       - title: Dedicated Relationship Manager
