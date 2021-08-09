@@ -9,15 +9,9 @@ blocks:
     overlayColor: brand
     overlayOpacity: '7'
     _template: fullScreenLogo
-  - title: What we do
-    subTitle: ''
-    description: >-
-      We work as your trusted business partner to help you more effectively
-      operate your business globally. Our global payment solutions enable you to
-      efficiently and securely send payments across the world in over 140
-      currencies. Offering a sophisticated suite of products and an advanced
-      technology platform, as well as a panel of the biggest, global banks to
-      ensure the most competitive pricing in the industry.
+  - title: About Us
+    subTitle: Transforming the way you operate your business globally
+    description: "We work as your trusted business partner to help you more effectively operate your business globally. Our global payment solutions enable you to efficiently and securely send payments across the world in over 140 currencies. Offering a sophisticated suite of products and an advanced technology platform, as well as a panel of the biggest, global banks to ensure the most competitive pricing in the industry.\n\nWhen it comes to our solutions we are constantly evolving. \_This means that whilst you’ll have the confidence of dealing with an established business, you’ll never have to put up with the slow and outdated solutions that typically come with one.\n\nBecause of our track record, we’ve been able to secure unique partnerships with leading global institutions, providing enhanced capabilities and a truly international reach\n\nEach of our solutions are led by dedicated specialists, ensuring the organisations we work with only receive the highest level of expertise. If you haven’t already, you can find out how we support clients in each of these areas, below"
     style: slanted
     image: >-
       https://images.ctfassets.net/fn5fbjfhb3z0/1GQRbVRTQ9OJmignvZxPTd/43b7e889507f8801aa8268aef9d95083/opera-house-2.jpg?w=1600&h=1066&q=50
