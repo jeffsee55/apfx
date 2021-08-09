@@ -52,10 +52,14 @@ blocks:
     features:
       - icon: UserCircleIcon
         name: Tailored approach
-        description: 'Methodology '
+        description: ' '
       - icon: CogIcon
         name: Technology
-        description: Spiel on partners and platform
+        description: >-
+          APFX has secured partnerships with market leading technology vendors
+          to provide our clients with market leading capabilities and a truly
+          international proposition. Ensuring the best possible user experience,
+          speed and superior security
       - icon: CurrencyDollarIcon
         name: Pricing
         description: Liquidity providers
