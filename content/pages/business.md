@@ -3,10 +3,7 @@ title: Corporate Clients
 link: /business
 blocks:
   - title: Corporate Services
-    description: >-
-      Transact in over 140 different currencies - you can send payments in
-      minutes in over 140 different currencies including exotics and market
-      leading rates.
+    description: 'APFX works closely with a number of large '
     style: slanted
     image: >-
       https://images.ctfassets.net/fn5fbjfhb3z0/1GQRbVRTQ9OJmignvZxPTd/43b7e889507f8801aa8268aef9d95083/opera-house-2.jpg?w=1600&h=1066&q=50
@@ -17,9 +14,15 @@ blocks:
       secondaryLink: tel
     _template: hero
   - title: International Payments
-    description: ''
+    description: >-
+      Alongside our currency management strategies, we provide a suite of
+      products and services focused on executing your FX and payment
+      tequirements more efficiently
     featureStyle: 2-wide-grid
     features:
+      - icon: HeartIcon
+        name: Local Routing
+        description: "We can often avoid the delays and charges associated with intermediary banks to provide lower cost and paster cross border payments\n\n\_"
       - icon: GlobeAltIcon
         name: Transact in over 140 different currencies
         description: >+
