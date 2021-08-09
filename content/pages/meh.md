@@ -45,8 +45,8 @@ blocks:
       secondaryText: 'Or give us a call '
       secondaryLink: tel
     _template: hero
-  - title: About Us
-    subTitle: learn more
+  - title: Overview
+    subTitle: ''
     description: ''
     featureStyle: 3-column
     features:
@@ -58,11 +58,8 @@ blocks:
           competitive rates.
 
       - icon: InboxIcon
-        name: Currency Accounts & Collection Capabilities
-        description: >+
-          Receive, hold and pay in multiple currencies and collect funds in 70
-          currencies with a global account from APFX.
-
+        name: 'Technology '
+        description: Spiel on partners and platform
       - icon: ScaleIcon
         name: Risk Management
         description: >-
