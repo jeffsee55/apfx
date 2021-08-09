@@ -52,7 +52,11 @@ blocks:
     features:
       - icon: UserCircleIcon
         name: Tailored approach
-        description: ' '
+        description: >-
+          Each of our solutions are led by dedicated specialists, ensuring the
+          organisations we work with only receive the highest level of
+          expertise. If you haven’t already, you can find out how we support
+          clients in each of these areas, below.
       - icon: CogIcon
         name: Technology
         description: >-
