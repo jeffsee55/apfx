@@ -81,11 +81,7 @@ blocks:
         overlayColor: gray
         overlayOpacity: '8'
       - title: Risk Management
-        description: >-
-          Risk management solutions allow you to protect against the uncertainty
-          of the fluctuating currency markets and our expertise and suite of
-          products will give you peace of mind that your bottom line is being
-          protected
+        description: "There is no shortage of advice or opinions on where exchange rates are going.\_ However, for those responsible for deciding how to manage their currency exposures it has never been more important to be pro-active in making informed decisions. The fact remains that nobody can reliably predict the currency market but despite this, currency purchasing decisions are still frequently based on a ‘best guess’ and therefore companies remain vulnerable to currency risk.\n\nAt APFX, we look to mitigate the problem of unpredictable exchange rates by developing strategies tailored to your business circumstances and in doing so, give you greater control over the impact exchange rate volatility has on your bottom line"
         image: >-
           https://images.ctfassets.net/fn5fbjfhb3z0/1GQRbVRTQ9OJmignvZxPTd/43b7e889507f8801aa8268aef9d95083/opera-house-2.jpg?w=1600&h=1066&q=50
       - title: Currency Accounts
