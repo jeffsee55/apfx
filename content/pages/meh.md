@@ -50,7 +50,7 @@ blocks:
     description: ''
     featureStyle: 3-column
     features:
-      - icon: SupportIcon
+      - icon: UserCircleIcon
         name: Tailored approach
         description: 'Methodology '
       - icon: CogIcon
