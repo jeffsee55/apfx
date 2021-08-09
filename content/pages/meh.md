@@ -99,10 +99,16 @@ blocks:
         image: >-
           https://images.ctfassets.net/fn5fbjfhb3z0/43WPBLQnokb9VmtMGq4JWE/7a68eaa362df36ed7b08b9db785e57f3/christopher-burns-D-fpL7F_MEI-unsplash.jpg?w=3200&h=1843&q=50
       - title: Dedicated Relationship Manager
-        description: |-
-          Update on market moves
+        description: >-
+          Our dedicated relationship managers provide tailored and proactive
+          analysis, guiding our clients to market entry. Providing updates on
+          market movements, critical factors that will be affecting currency
+          markets and always available to place trades, execute payments and
+          offer guidance via phone, email or chat.
 
-          Place orders and trades over the phone
+
+          APFX can provide a far more consultative approach to managing FX risk
+          or implementing a more effective payments operation.
         image: >-
           https://images.ctfassets.net/fn5fbjfhb3z0/6fXyWmYnGmnNnW4Z0kdFfW/96d3830218d5af21b493756b03515582/kevin-bosc-oeqBJZd1GWY-unsplash.jpg?w=3200&h=2133&q=50
         overlayColor: gray
