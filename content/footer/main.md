@@ -5,12 +5,6 @@ offices:
       Level 29, Chifley Tower,                                    Chifley
       Square, Sydney, 2000
     phone: +61 2 9216 9027
-  - location: Sydney
-    address: |-
-      Level 7, 167 Macquarie Street, Sydney,
-
-      NSW, 2000
-    phone: +61 2 9216 9027
   - location: London
     address: |
       Level 1, Devonshire House,
