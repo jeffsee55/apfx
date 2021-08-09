@@ -2,8 +2,9 @@
 title: Corporate Clients
 link: /business
 blocks:
-  - title: Corporate Services
-    description: 'APFX works closely with a number of large '
+  - title: Corporate Client Services
+    subTitle: ''
+    description: ''
     style: slanted
     image: >-
       https://images.ctfassets.net/fn5fbjfhb3z0/1GQRbVRTQ9OJmignvZxPTd/43b7e889507f8801aa8268aef9d95083/opera-house-2.jpg?w=1600&h=1066&q=50
