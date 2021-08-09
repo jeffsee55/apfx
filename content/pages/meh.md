@@ -53,7 +53,7 @@ blocks:
       - icon: SupportIcon
         name: Tailored approach
         description: 'Methodology '
-      - icon: InboxIcon
+      - icon: CogIcon
         name: Technology
         description: Spiel on partners and platform
       - icon: CurrencyDollarIcon
