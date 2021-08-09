@@ -50,13 +50,9 @@ blocks:
     description: ''
     featureStyle: 3-column
     features:
-      - icon: CurrencyEuroIcon
-        name: Approach
-        description: >+
-          You can send domestic and international payments in over 140
-          currencies, including many exotic and emerging market currencies at
-          competitive rates.
-
+      - icon: SupportIcon
+        name: Tailored approach
+        description: 'Methodology '
       - icon: InboxIcon
         name: 'Technology '
         description: Spiel on partners and platform
