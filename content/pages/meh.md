@@ -51,7 +51,7 @@ blocks:
     featureStyle: 3-column
     features:
       - icon: CurrencyEuroIcon
-        name: International Payments
+        name: Approach
         description: >+
           You can send domestic and international payments in over 140
           currencies, including many exotic and emerging market currencies at
