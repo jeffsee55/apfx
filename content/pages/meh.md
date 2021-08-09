@@ -56,7 +56,7 @@ blocks:
       - icon: InboxIcon
         name: Technology
         description: Spiel on partners and platform
-      - icon: SupportIcon
+      - icon: CurrencyDollarIcon
         name: Pricing
         description: Liquidity providers
     _template: feature
