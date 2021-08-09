@@ -78,12 +78,6 @@ blocks:
       unsecured hedging facilities and provide market leading FX rates.
     featureStyle: 3-column
     features:
-      - icon: HeartIcon
-        name: Options
-        description: >-
-          Coming in 2021 – An extension to our suite of risk management products
-          to assist in enhancing your FX portfolio further. Speak to a
-          consultant to find out more about this exciting new launch
       - icon: ScaleIcon
         name: Risk management
         description: >-
@@ -120,6 +114,12 @@ blocks:
           When you have set your strategy, you can manage your forwards and
           initiate payment using our innovative payment infrastructure, ensuring
           your payments are fast and secure.
+      - icon: HeartIcon
+        name: Options
+        description: >-
+          Coming in 2021 – An extension to our suite of risk management products
+          to assist in enhancing your FX portfolio further. Speak to a
+          consultant to find out more about this exciting new launch
     image: ''
     _template: feature
   - title: 'Dedicated Relationship Manager '
