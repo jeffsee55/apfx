@@ -61,7 +61,7 @@ blocks:
         name: 'Technology '
         description: Spiel on partners and platform
       - icon: ScaleIcon
-        name: Risk Management
+        name: Client service
         description: >-
           Risk management solutions allow you to protect against the uncertainty
           of the fluctuating currency markets and our expertise and suite of
