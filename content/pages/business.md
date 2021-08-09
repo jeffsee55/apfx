@@ -20,15 +20,15 @@ blocks:
       tequirements more efficiently
     featureStyle: 2-wide-grid
     features:
-      - icon: HeartIcon
-        name: Local Routing
-        description: "We can often avoid the delays and charges associated with intermediary banks to provide lower cost and paster cross border payments\n\n\_"
       - icon: GlobeAltIcon
         name: Transact in over 140 different currencies
         description: >+
           You can send payments in minutes in over 140 different currencies
           including exotics at market leading rates.
 
+      - icon: HeartIcon
+        name: Local Routing
+        description: "We can often avoid the delays and charges associated with intermediary banks to provide lower cost and paster cross border payments\n\n\_"
       - icon: ScaleIcon
         name: APFX Online
         description: >+
