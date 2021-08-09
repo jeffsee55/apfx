@@ -15,10 +15,10 @@ blocks:
       At APFX, we develop strategies and technologies to assist corporates and
       private clients to more effectively manage their payments and currency.
       Our solutions enable you to efficiently and securely send payments across
-      the world in over 140 currencies. Offering a sophisticated suite of
-      products and an advanced technology platform, as well as a panel of the
-      biggest, global banks to ensure the most competitive pricing in the
-      industry.
+      the world in over 140 currencies. APFX offers an extensive suite of
+      products and an advanced technology platform, as well as a number of
+      strategic liquidity providers to ensure the most competitive pricing in
+      the industry.
 
 
       When it comes to our solutions we are constantly innovating. Giving
