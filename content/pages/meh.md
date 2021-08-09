@@ -56,13 +56,9 @@ blocks:
       - icon: InboxIcon
         name: Technology
         description: Spiel on partners and platform
-      - icon: ScaleIcon
-        name: Client service
-        description: >-
-          Risk management solutions allow you to protect against the uncertainty
-          of the fluctuating currency markets and our expertise and suite of
-          products will give you peace of mind that your bottom line is being
-          protected
+      - icon: SupportIcon
+        name: Pricing
+        description: Liquidity providers
     _template: feature
   - items:
       - title: International Payments
