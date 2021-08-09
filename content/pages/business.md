@@ -71,15 +71,18 @@ blocks:
     overlayOpacity: '9'
     _template: fullScreenHeader
   - title: Risk Management
-    description: ''
+    description: >-
+      We provide an extensive suite of products for executing your strategy with
+      an emphasis on mitigating currency risk and creating operational
+      efficiency 
     featureStyle: 3-column
     features:
       - icon: ScaleIcon
         name: Risk management
         description: >-
-          Work with your dedicated consultant to more effectively build and
-          manage your international payments and FX strategy, pro actively
-          working together to protect profits
+          Work with your dedicated consultant to build out and manage your
+          international payments and FX strategy, pro actively working together
+          to protect profits
       - icon: ArrowRightIcon
         name: Forward contracts
         description: >-
