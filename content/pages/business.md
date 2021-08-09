@@ -42,7 +42,7 @@ blocks:
           thanks to our network of banking and technology partner.
 
       - icon: DocumentReportIcon
-        name: Batch Payment
+        name: Mass Payment
         description: >-
           Make multiple payments to your beneficiaries via a simple file upload
           on your platform to save time and hassle when processing large volumes
