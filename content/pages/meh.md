@@ -54,7 +54,7 @@ blocks:
         name: Tailored approach
         description: 'Methodology '
       - icon: InboxIcon
-        name: 'Technology '
+        name: Technology
         description: Spiel on partners and platform
       - icon: ScaleIcon
         name: Client service
