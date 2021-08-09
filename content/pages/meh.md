@@ -25,17 +25,6 @@ blocks:
       clients the peace of mind that they are dealing with an established
       business, whilst remaining agile and free from the the slow and outdated
       solutions that typically come with one.
-
-
-      Because of our track record, we’ve been able to secure partnerships with
-      leading global institutions, providing market leading capabilities and a
-      truly international proposition.
-
-
-      Each of our solutions are led by dedicated specialists, ensuring the
-      organisations we work with only receive the highest level of expertise. If
-      you haven’t already, you can find out how we support clients in each of
-      these areas, below.
     style: slanted
     image: >-
       https://images.ctfassets.net/fn5fbjfhb3z0/1GQRbVRTQ9OJmignvZxPTd/43b7e889507f8801aa8268aef9d95083/opera-house-2.jpg?w=1600&h=1066&q=50
