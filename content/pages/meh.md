@@ -82,7 +82,7 @@ blocks:
 
           You can send domestic and international payments in over 140
           currencies, including many exotic and emerging market currencies at
-          highyl competitive rates. find out more
+          highyl competitive rates. learn more
         image: >-
           https://images.unsplash.com/photo-1521127149192-4438d6686c74?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2817&q=80
         overlayColor: gray
