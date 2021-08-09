@@ -96,7 +96,7 @@ blocks:
           to transact enabling you to take advantage should the market move
           significantly for or against you.
       - icon: ChartBarIcon
-        name: Market analyst
+        name: Market analysis
         description: >-
           Your consultant and our partner analysts help to support you in making
           informed business decisions. Detailed forecasts enable you to build a
