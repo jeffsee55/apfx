@@ -55,7 +55,10 @@ blocks:
           speed and superior security
       - icon: CurrencyDollarIcon
         name: Pricing
-        description: Liquidity providers
+        description: >-
+          APFX is supported by a network of liquidity providers to ensure the
+          most competitive pricing in the industry. Giving clients access to
+          wholesale rates of exchange for over 140 different currencies
     _template: feature
   - items:
       - title: International Payments
