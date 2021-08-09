@@ -74,7 +74,8 @@ blocks:
     description: >-
       We provide an extensive suite of products for executing your strategy with
       an emphasis on mitigating currency risk and creating operational
-      efficiency 
+      efficiency. With our network of liquidity providers APFX can offer leading
+      unsecured hedging facilities and provide market leading FX rates.
     featureStyle: 3-column
     features:
       - icon: ScaleIcon
