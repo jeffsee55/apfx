@@ -102,10 +102,11 @@ blocks:
           informed business decisions. Detailed forecasts enable you to build a
           robust strategy with your consultant
       - icon: WifiIcon
-        name: Online drawdowns
-        description: >
+        name: APFX Online
+        description: >-
           Easily and quickly drawdown from your existing contracts using APFX
-          Online and send funds to your beneficiaries
+          Online and send funds to your beneficiaries. You can also easily
+          manage your payment and hedging positions
       - icon: CurrencyDollarIcon
         name: Payments
         description: >-
