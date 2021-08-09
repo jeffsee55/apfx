@@ -82,7 +82,7 @@ blocks:
         description: >-
           Work with your dedicated consultant to build out and manage your
           international payments and FX strategy, pro actively working together
-          to protect profits
+          to protect profits.
       - icon: ArrowRightIcon
         name: Forward contracts
         description: >-
