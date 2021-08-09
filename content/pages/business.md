@@ -78,6 +78,12 @@ blocks:
       unsecured hedging facilities and provide market leading FX rates.
     featureStyle: 3-column
     features:
+      - icon: HeartIcon
+        name: Options
+        description: >-
+          Coming in 2021 – An extension to our suite of risk management products
+          to assist in enhancing your FX portfolio further. Speak to a
+          consultant to find out more about this exciting new launch
       - icon: ScaleIcon
         name: Risk management
         description: >-
