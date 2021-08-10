@@ -119,9 +119,9 @@ blocks:
     description: ''
     items:
       - title: The APFX difference
-        subTitle: Risk management
+        subTitle: Why our clients love us
         description: >-
-          Transact in over 140 different currencies - you can send payments in
+          Transact in over 140 different currencies  you can send payments in
           minutes in over 140 different currencies including exotics and market
           leading rates.
         bulletPoints:
@@ -129,16 +129,7 @@ blocks:
           - Multi currency bank accounts
           - 'Industry specialists '
           - International Payments
-      - title: Private clients
-        subTitle: Simple & Secure
-        description: >-
-          Transact in over 140 different currencies - you can send payments in
-          minutes in over 140 different currencies including exotics and market
-          leading rates.
-        bulletPoints:
-          - Risk Management
-          - Dedicated Relationship Manager
-          - Currency Accounts
+      - {}
     action:
       callToAction: Get in touch today
       linkText: Find out more
