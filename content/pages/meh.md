@@ -114,20 +114,20 @@ blocks:
         overlayColor: gray
         overlayOpacity: '8'
     _template: slideshow
-  - title: Dedicated solutions to fit your needs
-    subTitle: Private Clients & Business
+  - title: Why APFX?
+    subTitle: Your global payments partner
     description: ''
     items:
-      - title: Business
+      - title: The APFX difference
         subTitle: Risk management
         description: >-
           Transact in over 140 different currencies - you can send payments in
           minutes in over 140 different currencies including exotics and market
           leading rates.
         bulletPoints:
-          - Dedicated Relationship Manager
-          - Currency Accounts
-          - Risk Management
+          - Bank beating exchange rates
+          - Multi currency bank accounts
+          - 'Industry specialists '
           - International Payments
       - title: Private clients
         subTitle: Simple & Secure
