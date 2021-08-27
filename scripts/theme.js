@@ -5,8 +5,20 @@ const fs = require("fs");
 const path = require("path");
 const tailwindConfig = require("../tailwind.config");
 
+const fontMap = {
+  a: ["Nunito"],
+  b: ["Adren"],
+  c: ["Moneta"],
+  d: ["Brooklyn"],
+  e: ["Berlin"],
+  f: ["Quart"],
+  Ardent: ["Ardent"],
+  Article: ["Article"],
+  Pulse: ["Pulse"],
+};
+
 const theme = {
-  displayFonts: ["a", "b", "c", "d", "e", "f", "Ardent"],
+  displayFonts: Object.keys(fontMap) || ["Wensley"],
   colorModes: ["steel", "black", "indigo"],
 };
 

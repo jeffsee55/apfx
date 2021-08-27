@@ -1,5 +1,17 @@
 const colors = require("tailwindcss/colors");
 
+const fontMap = {
+  a: ["Nunito"],
+  b: ["Adren"],
+  c: ["Moneta"],
+  d: ["Brooklyn"],
+  e: ["Berlin"],
+  f: ["Quart"],
+  Ardent: ["Ardent"],
+  Article: ["Article"],
+  Pulse: ["Pulse"],
+};
+
 const base = (colorOption, fontOption) => ({
   mode: "jit",
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
@@ -42,7 +54,6 @@ const base = (colorOption, fontOption) => ({
 
 module.exports = (displayFont, colorMode) => {
   let colorOption;
-  let fontOption;
   switch (colorMode) {
     case "black":
       colorOption = colors.coolGray;
@@ -57,32 +68,7 @@ module.exports = (displayFont, colorMode) => {
       colorOption = colors.indigo;
       break;
   }
-  switch (displayFont) {
-    case "a":
-      fontOption = ["Nunito"];
-      break;
-    case "b":
-      fontOption = ["Adren"];
-      break;
-    case "c":
-      fontOption = ["Moneta"];
-      break;
-    case "d":
-      fontOption = ["Brooklyn"];
-      break;
-    case "e":
-      fontOption = ["Berlin"];
-      break;
-    case "f":
-      fontOption = ["Quart"];
-      break;
-    case "Ardent":
-      fontOption = ["Ardent"];
-      break;
-    default:
-      fontOption = ["Wensley"];
-      break;
-  }
+  const fontOption = fontMap[displayFont];
   console.log(fontOption, colorOption);
   return base(colorOption, fontOption);
 };

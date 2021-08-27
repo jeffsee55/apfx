@@ -305,7 +305,9 @@
             "d",
             "e",
             "f",
-            "Ardent"
+            "Ardent",
+            "Article",
+            "Pulse"
           ],
           "namespace": [
             "theme",
