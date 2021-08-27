@@ -6,7 +6,7 @@ const path = require("path");
 const tailwindConfig = require("../tailwind.config");
 
 const theme = {
-  displayFonts: ["a", "b", "c", "d", "e", "f"],
+  displayFonts: ["a", "b", "c", "d", "e", "f", "Ardent"],
   colorModes: ["steel", "black", "indigo"],
 };
 

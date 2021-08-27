@@ -10,6 +10,27 @@
   font-display: swap;
 }
 @font-face {
+  font-family: "Ardent";
+  src: url("/fonts/Ardent-Sans bold.otf");
+  font-style: black;
+  font-weight: 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ardent";
+  src: url("/fonts/Ardent-Sans regular.otf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ardent";
+  src: url("/fonts/Ardent-Sans light.otf");
+  font-style: thin;
+  font-weight: 100;
+  font-display: swap;
+}
+@font-face {
   font-family: "Bristan Rought";
   src: url("/fonts/BristainRought.ttf");
   font-style: normal;

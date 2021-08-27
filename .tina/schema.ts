@@ -304,7 +304,7 @@ export default defineSchema({
           label: "Display Font",
           name: "displayFont",
           type: "string",
-          options: ["a", "b", "c", "d", "e", "f"],
+          options: ["a", "b", "c", "d", "e", "f", "Ardent"],
         },
         {
           label: "Color mode",

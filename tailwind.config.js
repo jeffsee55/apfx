@@ -76,6 +76,9 @@ module.exports = (displayFont, colorMode) => {
     case "f":
       fontOption = ["Quart"];
       break;
+    case "Ardent":
+      fontOption = ["Ardent"];
+      break;
     default:
       fontOption = ["Wensley"];
       break;
