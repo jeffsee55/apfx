@@ -87,7 +87,7 @@ blocks:
           currencies in just a few clicks.
 
 
-          Send anmd receive funds using local payment networks avaoliding delays
+          Send and receive funds using local payment networks avoiding delays
           and additional charges
 
 
