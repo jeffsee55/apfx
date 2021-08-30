@@ -34,7 +34,7 @@ blocks:
           Our online portal is a way to manage your account 24/7, easily trade
           in over 50 currencies and make payments to your beneficiaries.
         image: >-
-          https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80
+          https://images.unsplash.com/photo-1561728130-afd430af0493?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3300&q=80
       - title: Currency Accounts
         description: >-
           With a private APFX Global account you have the flexibility to send
