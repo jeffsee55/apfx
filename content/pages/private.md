@@ -3,7 +3,9 @@ title: Private Clients
 link: /personal
 blocks:
   - title: Private Client Services
-    description: ''
+    description: >-
+      Bank beating FX rates, intuitive mulit-currency online platform and
+      superior customer support for individuals
     style: slanted
     image: >-
       https://images.ctfassets.net/fn5fbjfhb3z0/1GQRbVRTQ9OJmignvZxPTd/43b7e889507f8801aa8268aef9d95083/opera-house-2.jpg?w=1600&h=1066&q=50
