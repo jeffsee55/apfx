@@ -133,7 +133,7 @@ blocks:
       callToAction: Get in touch today
       linkText: Find out more
       link: signUpLink
-      secondaryText: Give us a call
+      secondaryText: Get in touch
       secondaryLink: tel
     _template: comparisonTable
 ---
