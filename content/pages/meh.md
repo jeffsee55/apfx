@@ -26,7 +26,8 @@ blocks:
       business, whilst remaining agile and free from the the slow and outdated
       solutions that typically come with one.
     style: slanted
-    image: 'https://media-public.canva.com/MADQ4_tjDTU/1/screen.jpg'
+    image: >-
+      {"A?":"B","a":5,"d":"B","h":"www.canva.com","c":"DAEhfx588bA","i":"CQme_rx8gPZLgc0YqmRuEQ","b":1630288885836,"A":[{"A?":"I","A":108,"B":312.20243673851917,"D":1295.5951265229617,"C":864,"a":{"B":{"A":{"A":"MADQ4_tjDTU","B":1},"B":{"A":-1.1368683772161603e-13,"B":-1.1368683772161603e-13,"D":1295.595126522962,"C":864.0000000000002}}}}],"B":1920,"C":1080}
     action:
       linkText: Sign Up Today
       link: signUpLink
