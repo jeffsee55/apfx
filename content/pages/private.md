@@ -47,10 +47,19 @@ blocks:
         image: >-
           https://images.unsplash.com/photo-1473042904451-00171c69419d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3475&q=80
       - title: Why APFX?
-        description: >
-          Work with a consultant to repatriate pensions, or make high value
-          purchases such as a property overseas or a yacht, discuss a strategy
-          to make sure you are getting the most out of your currency
+        description: >-
+          We understand how important it is for private individuals to move
+          their own money around the world in a more cost and time effective
+          way.
+
+
+          Work with a dedicated specialist to repatriate pensions, or make high
+          value purchases such as a property or a yacht, discuss a strategy to
+          make sure you are getting the most out of your currency.
+
+
+          Get in touch with one of our experts today to see how much you could
+          save.
         image: >-
           https://images.unsplash.com/photo-1526459808813-57c44a8cf699?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3466&q=80
     _template: slideshow
