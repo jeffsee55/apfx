@@ -3,10 +3,7 @@ title: Private Clients
 link: /personal
 blocks:
   - title: Private Client Services
-    description: >-
-      Transact in over 140 different currencies - you can send payments in
-      minutes in over 140 different currencies including exotics and market
-      leading rates.
+    description: ''
     style: slanted
     image: >-
       https://images.ctfassets.net/fn5fbjfhb3z0/1GQRbVRTQ9OJmignvZxPTd/43b7e889507f8801aa8268aef9d95083/opera-house-2.jpg?w=1600&h=1066&q=50
