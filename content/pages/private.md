@@ -18,10 +18,21 @@ blocks:
   - items:
       - title: International Payments
         subTitle: ''
-        description: >
-          Ebury's global payments solution helps you to more effectively manage
-          your international payments, transact in over 140 currencies book at
-          SPOT and pay your beneficiaries in minutes
+        description: >-
+          APFX's market leading suite of payments products are also available to
+          individuals.
+
+
+          You can send payments in minutes in over 140 different currencies
+          including exotics at market leading rates.
+
+
+          Your payments are sent through the fastest and most secure routes,
+          thanks to our network of banking and technology partner.
+
+
+          Our online portal is a way to manage your account 24/7, easily trade
+          in over 50 currencies and make payments to your beneficiaries.
         image: >-
           https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80
       - title: Currency Accounts
