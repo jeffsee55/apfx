@@ -129,6 +129,16 @@ blocks:
           - Multi currency bank accounts
           - 'Industry specialists '
           - International Payments
+      - title: Dont just take our word for it
+        subTitle: What our clients have to say
+        description: >-
+          “We had been using our bank for a number of years, when we spoke with
+          APFX they took the time to understand our business inside out. 2020
+          was a particularly cchallenging year and the team helped us to
+          navigate the uncertainty of the financial markets during a
+          particularly volatile period. We built out a full payments and risk
+          management strategy, we negotiated new terms with our supplier, we saw
+          a dramatic improvement in pricing and efficiency in our operation"
     action:
       callToAction: Get in touch today
       linkText: Find out more
