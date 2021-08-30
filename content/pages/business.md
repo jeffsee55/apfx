@@ -4,14 +4,16 @@ link: /business
 blocks:
   - title: Corporate Client Services
     subTitle: ''
-    description: ''
+    description: >-
+      Bespoke payments and risk management capabilities for businesses of all
+      size
     style: slanted
     image: >-
-      https://images.ctfassets.net/fn5fbjfhb3z0/1GQRbVRTQ9OJmignvZxPTd/43b7e889507f8801aa8268aef9d95083/opera-house-2.jpg?w=1600&h=1066&q=50
+      https://images.unsplash.com/photo-1579532582937-16c108930bf6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1951&q=80
     action:
       linkText: Find out more
       link: signUpLink
-      secondaryText: Or give us a call
+      secondaryText: Get in touch
       secondaryLink: tel
     _template: hero
   - title: International Payments
@@ -66,10 +68,10 @@ blocks:
     subTitle: ''
     description: "With an APFX Global account you have the flexibility to allow your clients and suppliers to pay you in multiple currencies. \n\nHold currency in accounts without a local presence in your own name, with transfers always addressed to an account in your name avoiding any delays due to to any third party collection queries\n\nAccess your funds securely online at any time through APFX online\n\nSend and receive funds using local payment networks avoiding the delays and charges associated with intermediary institutions\n\nCentralise cash management – assign accounts to indivudals entities or even specific departments or subsidiaries. Create a virtual account structure that emulates operations and enables cash across the business to be viewed and managed centrally.\n\nSimplify account management – Quickly and easily open accounts and manage them via APFX online. Save time, money and hassle on this proicess\n\n\_"
     image: >-
-      https://images.unsplash.com/photo-1524414139215-35c99f80112d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80
+      https://images.unsplash.com/photo-1473042904451-00171c69419d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3475&q=80
     textColor: light
     overlayColor: gray
-    overlayOpacity: '9'
+    overlayOpacity: '6'
     _template: fullScreenHeader
   - title: Risk Management
     description: >-
@@ -126,21 +128,21 @@ blocks:
   - title: 'Dedicated Relationship Manager '
     subTitle: ''
     description: >-
-      **Complimentary FX Health Check** - Your consultant will help identify any
-      inefficiencies in your current processes and recommend appropriate
-      solutions.
+      With our complimentary FX risk assessment, your consultant will help to
+      identify any inefficiencies in your current processes and recommend
+      appropriate solutions.
 
 
-      **Pro-actively monitor** the currency markets and positions so you don’t
-      have to notifying you of market movements and upcoming economic data and
-      events.
+      Our specialists will proactively monitor the currency markets and
+      positions so you don’t have to, notifying you of market movements and
+      upcoming economic data and events.
 
 
-      **Book orders and contracts over the phone**, direct contact with your
+      Book orders and contracts over the phone, direct contact with your
       consultant to book currency and make payments on the go
     image: >-
       https://images.unsplash.com/39/lIZrwvbeRuuzqOoWJUEn_Photoaday_CSD%20(1%20of%201)-5.jpg?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80
-    overlayOpacity: '8'
+    overlayOpacity: '6'
     _template: fullScreenHeader
 ---
 
