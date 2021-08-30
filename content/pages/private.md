@@ -24,7 +24,7 @@ blocks:
 
 
           You can send payments in minutes in over 140 different currencies
-          including exotics at market leading rates.
+          including exotics at very competitive rates.
 
 
           Your payments are sent through the fastest and most secure routes,
