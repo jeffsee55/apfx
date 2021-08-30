@@ -7,7 +7,7 @@ blocks:
       https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3150&q=80
     textColor: light
     overlayColor: brand
-    overlayOpacity: '7'
+    overlayOpacity: '6'
     _template: fullScreenLogo
   - title: About Us
     subTitle: Transforming the way you operate your business globally
