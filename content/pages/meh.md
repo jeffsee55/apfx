@@ -27,7 +27,7 @@ blocks:
       solutions that typically come with one.
     style: slanted
     image: >-
-      {"A?":"B","a":5,"d":"B","h":"www.canva.com","c":"DAEhfx588bA","i":"CQme_rx8gPZLgc0YqmRuEQ","b":1630288885836,"A":[{"A?":"I","A":108,"B":312.20243673851917,"D":1295.5951265229617,"C":864,"a":{"B":{"A":{"A":"MADQ4_tjDTU","B":1},"B":{"A":-1.1368683772161603e-13,"B":-1.1368683772161603e-13,"D":1295.595126522962,"C":864.0000000000002}}}}],"B":1920,"C":1080}
+      https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3300&q=80
     action:
       linkText: Sign Up Today
       link: signUpLink
