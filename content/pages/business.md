@@ -69,7 +69,7 @@ blocks:
       https://images.unsplash.com/photo-1473042904451-00171c69419d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3475&q=80
     textColor: light
     overlayColor: gray
-    overlayOpacity: '9'
+    overlayOpacity: '6'
     _template: fullScreenHeader
   - title: Risk Management
     description: >-
@@ -140,7 +140,7 @@ blocks:
       consultant to book currency and make payments on the go
     image: >-
       https://images.unsplash.com/39/lIZrwvbeRuuzqOoWJUEn_Photoaday_CSD%20(1%20of%201)-5.jpg?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80
-    overlayOpacity: '8'
+    overlayOpacity: '6'
     _template: fullScreenHeader
 ---
 
