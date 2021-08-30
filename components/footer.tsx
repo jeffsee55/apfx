@@ -97,7 +97,7 @@ export function Footer(props: FooterProps) {
           <div className="mt-8 md:mt-0 text-gray-400">
             Follow us on
             <a
-              href=""
+              href="https://www.linkedin.com/company/19218470"
               className="text-gray-400 hover:text-gray-300 pl-2 inline-block -pt-1"
             >
               <span className="sr-only">LinkedIn</span>
