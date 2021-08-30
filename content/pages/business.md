@@ -7,7 +7,7 @@ blocks:
     description: ''
     style: slanted
     image: >-
-      https://images.ctfassets.net/fn5fbjfhb3z0/1GQRbVRTQ9OJmignvZxPTd/43b7e889507f8801aa8268aef9d95083/opera-house-2.jpg?w=1600&h=1066&q=50
+      https://images.unsplash.com/photo-1579532582937-16c108930bf6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1951&q=80
     action:
       linkText: Find out more
       link: signUpLink
