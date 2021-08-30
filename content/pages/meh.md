@@ -7,7 +7,7 @@ blocks:
       https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3150&q=80
     textColor: light
     overlayColor: brand
-    overlayOpacity: "7"
+    overlayOpacity: '7'
     _template: fullScreenLogo
   - title: About Us
     subTitle: Transforming the way you operate your business globally
@@ -26,17 +26,16 @@ blocks:
       business, whilst remaining agile and free from the the slow and outdated
       solutions that typically come with one.
     style: slanted
-    image: >-
-      https://images.ctfassets.net/fn5fbjfhb3z0/1GQRbVRTQ9OJmignvZxPTd/43b7e889507f8801aa8268aef9d95083/opera-house-2.jpg?w=1600&h=1066&q=50
+    image: 'https://media-public.canva.com/MADQ4_tjDTU/1/screen.jpg'
     action:
       linkText: Sign Up Today
       link: signUpLink
-      secondaryText: "Or give us a call "
+      secondaryText: 'Or give us a call '
       secondaryLink: tel
     _template: hero
   - title: Overview
-    subTitle: ""
-    description: ""
+    subTitle: ''
+    description: ''
     featureStyle: 3-column
     features:
       - icon: UserCircleIcon
@@ -76,7 +75,7 @@ blocks:
         image: >-
           https://images.unsplash.com/photo-1521127149192-4438d6686c74?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2817&q=80
         overlayColor: gray
-        overlayOpacity: "8"
+        overlayOpacity: '8'
       - title: Risk Management
         description: "There is no shortage of advice or opinions on where exchange rates are going.\_ However, for those responsible for deciding how to manage their currency exposures it has never been more important to be pro-active in making informed decisions. The fact remains that nobody can reliably predict the currency market but despite this, currency purchasing decisions are still frequently based on a ‘best guess’ and therefore companies remain vulnerable to currency risk. \n\nAt APFX, we look to mitigate the problem of unpredictable exchange rates by developing strategies tailored to your business circumstances and in doing so, give you greater control over the impact exchange rate volatility has on your bottom line. learn more"
         image: >-
@@ -112,11 +111,11 @@ blocks:
         image: >-
           https://images.ctfassets.net/fn5fbjfhb3z0/6fXyWmYnGmnNnW4Z0kdFfW/96d3830218d5af21b493756b03515582/kevin-bosc-oeqBJZd1GWY-unsplash.jpg?w=3200&h=2133&q=50
         overlayColor: gray
-        overlayOpacity: "8"
+        overlayOpacity: '8'
     _template: slideshow
   - title: Why APFX?
     subTitle: Your global payments partner
-    description: ""
+    description: ''
     items:
       - title: The APFX difference
         subTitle: Why our clients love us
@@ -127,7 +126,7 @@ blocks:
         bulletPoints:
           - Bank beating exchange rates
           - Multi currency bank accounts
-          - "Industry specialists "
+          - 'Industry specialists '
           - International Payments
     action:
       callToAction: Get in touch today
@@ -137,3 +136,4 @@ blocks:
       secondaryLink: tel
     _template: comparisonTable
 ---
+
