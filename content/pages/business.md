@@ -13,7 +13,7 @@ blocks:
     action:
       linkText: Find out more
       link: signUpLink
-      secondaryText: Or give us a call
+      secondaryText: Get in touch
       secondaryLink: tel
     _template: hero
   - title: International Payments
