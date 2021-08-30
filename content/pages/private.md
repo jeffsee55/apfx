@@ -85,15 +85,30 @@ blocks:
   - title: Currency Accounts
     subTitle: Acount services
     description: >-
-      Receive hold and pay in multiple currencies - Flexibility to allow your
-      clients and suppliers to pay you in 30 currencies.
+      With an APFX Global account you have the flexibility to allow your clients
+      and suppliers to pay you in multiple currencies.
 
-      Hold currency in accounts without a local presence (ask your consultant
-      for more details)
 
-      Transfers always addressed to an account in your name
+      Hold currency in accounts without a local presence in your own name, with
+      transfers always addressed to an account in your name avoiding any delays
+      due to to any third party collection queries
 
-      Access your funds securely online at any time
+
+      Access your funds securely online at any time through APFX online
+
+
+      Send and receive funds using local payment networks avoiding the delays
+      and charges associated with intermediary institutions
+
+
+      Centralise cash management – assign accounts to indivudals entities or
+      even specific departments or subsidiaries. Create a virtual account
+      structure that emulates operations and enables cash across the business to
+      be viewed and managed centrally.
+
+
+      Simplify account management – Quickly and easily open accounts and manage
+      them via APFX online. Save time, money and hassle on this proicess
     image: >-
       https://images.unsplash.com/photo-1524414139215-35c99f80112d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80
     textColor: light
