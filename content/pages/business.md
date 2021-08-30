@@ -128,17 +128,17 @@ blocks:
   - title: 'Dedicated Relationship Manager '
     subTitle: ''
     description: >-
-      **Complimentary FX Health Check** - Your consultant will help identify any
-      inefficiencies in your current processes and recommend appropriate
-      solutions.
+      With our complimentary FX risk assessment, your consultant will help to
+      identify any inefficiencies in your current processes and recommend
+      appropriate solutions.
 
 
-      **Pro-actively monitor** the currency markets and positions so you don’t
-      have to notifying you of market movements and upcoming economic data and
-      events.
+      Our specialists will proactively monitor the currency markets and
+      positions so you don’t have to, notifying you of market movements and
+      upcoming economic data and events.
 
 
-      **Book orders and contracts over the phone**, direct contact with your
+      Book orders and contracts over the phone, direct contact with your
       consultant to book currency and make payments on the go
     image: >-
       https://images.unsplash.com/39/lIZrwvbeRuuzqOoWJUEn_Photoaday_CSD%20(1%20of%201)-5.jpg?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80
