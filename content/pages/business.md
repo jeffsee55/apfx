@@ -66,7 +66,7 @@ blocks:
     subTitle: ''
     description: "With an APFX Global account you have the flexibility to allow your clients and suppliers to pay you in multiple currencies. \n\nHold currency in accounts without a local presence in your own name, with transfers always addressed to an account in your name avoiding any delays due to to any third party collection queries\n\nAccess your funds securely online at any time through APFX online\n\nSend and receive funds using local payment networks avoiding the delays and charges associated with intermediary institutions\n\nCentralise cash management – assign accounts to indivudals entities or even specific departments or subsidiaries. Create a virtual account structure that emulates operations and enables cash across the business to be viewed and managed centrally.\n\nSimplify account management – Quickly and easily open accounts and manage them via APFX online. Save time, money and hassle on this proicess\n\n\_"
     image: >-
-      https://images.unsplash.com/photo-1524414139215-35c99f80112d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80
+      https://images.unsplash.com/photo-1473042904451-00171c69419d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3475&q=80
     textColor: light
     overlayColor: gray
     overlayOpacity: '9'
