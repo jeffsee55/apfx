@@ -31,7 +31,7 @@ blocks:
     action:
       linkText: Sign Up Today
       link: signUpLink
-      secondaryText: 'Or give us a call '
+      secondaryText: Get in touch
       secondaryLink: tel
     _template: hero
   - title: Overview
