@@ -23,10 +23,25 @@ blocks:
         image: >-
           https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80
       - title: Currency Accounts
-        description: >
-          Receive, hold and pay in multiple currencies with your account,
-          exchange between currencies at the most competitive rates, pay your
-          suppliers and access your funds at any time via APFX Online
+        description: >-
+          With a private APFX Global account you have the flexibility to send
+          and receive in multiple currencies.
+
+
+          Hold currency in accounts without a local presence in your own name,
+          with transfers always addressed to an account in your name avoiding
+          any delays due to to any third party collection queries
+
+
+          Access your funds securely online at any time through APFX online
+
+
+          Send and receive funds using local payment networks avoiding the
+          delays and charges associated with intermediary institutions
+
+
+          Quickly and easily open accounts and manage them via APFX online. Save
+          time, money and hassle on this process
         image: >-
           https://images.unsplash.com/photo-1473042904451-00171c69419d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3475&q=80
       - title: Ultra High Net Worth
