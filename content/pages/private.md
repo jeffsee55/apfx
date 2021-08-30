@@ -12,7 +12,7 @@ blocks:
     action:
       linkText: Find out more
       link: signUpLink
-      secondaryText: 'Or give us a call '
+      secondaryText: Get a live quote
       secondaryLink: tel
     _template: hero
   - items:
