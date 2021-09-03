@@ -63,6 +63,12 @@ blocks:
           paramount, clients funds are protected in segregated accounts and we
           are regulated by the Australian Prudential Regulatory Authority (APRA)
           so adhere to the strictest of regulatory controls.
+      - icon: CurrencyDollarIcon
+        name: ACH Pull
+        description: >-
+          ACH Pull allows you to transfer money directly from your bank account
+          into your APFX account. This means that you don't have to go into your
+          bank account and push the funds. (US clients only)
     _template: feature
   - title: Currency Accounts
     subTitle: ''
