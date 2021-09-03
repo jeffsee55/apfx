@@ -20,6 +20,10 @@ offices:
 disclaimers:
   - body: >-
       ![AFMA](https://www.ofx.com/-/media/Images_For_Modules/Modules/ML014%20-%20Inline%20Image%20List/Footer/AFMA.ashx?h=51&w=297&la=en-AU&hash=B2D273D90DC93D40573E24A92E00B76A)
+
+
+      ![Securities Industry and Financial Markets
+      Association](https://www.sifma.org/wp-content/themes/sifma-wp-theme/static/img/sifma.png)
   - body: >-
       _AP FX Pty Ltd (trading as AP FX Pty Ltd) (ACN 632 776 526) is an
       Authorised Representative (001286469) of Ebury Partners Australia Pty
