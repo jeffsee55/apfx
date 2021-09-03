@@ -20,7 +20,7 @@ blocks:
     description: >-
       Alongside our currency management strategies, we provide a suite of
       products and services focused on executing your FX and payment
-      tequirements more efficiently
+      requirements more efficiently
     featureStyle: 2-wide-grid
     features:
       - icon: GlobeAltIcon
