@@ -34,8 +34,10 @@ disclaimers:
       Ebury is authorised and regulated by the Australian Securities and
       Investments Commission (ASIC) to provide financial services under
       Australian Financial Services License (AFSL) 520548 and registered with
-      the Australian Transaction Reports and Analysis Centre (AUSTRAC). AP FX
-      Pty Ltd currency exchange services are provided by The Currency Cloud
+      the Australian Transaction Reports and Analysis Centre (AUSTRAC). AP FX,_ 
+
+
+      _Inc currency exchange services are provided by The Currency Cloud
       Limited. Registered in England No. 06323311. Registered Office:
       Stewardship Building 1st Floor, 12 Steward Street London E1 6FQ. The
       Currency Cloud Limited is authorised by the Financial Conduct Authority
