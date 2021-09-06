@@ -5,7 +5,7 @@ description: >-
   The U.S. Dollar slipped as it keeps swinging back and forth between gains and
   losses this week.
 image: >-
-  https://images.unsplash.com/photo-1583574928108-53be39420a8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3150&q=80
+  https://images.unsplash.com/photo-1532270239525-86620e182354?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3302&q=80
 ---
 China accounts for nearly 15% of the global trade, and if you are an importer, it is very likely that you are already trading with China or planning to do so in the future. However, navigating cross-border trade with China through the coronavirus pandemic has proven challenging.
 
