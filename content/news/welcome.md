@@ -1,6 +1,6 @@
 ---
-title: 'U.S. Dollar Down as its Fortunes Slide, for Now'
-subTitle: US Currency
+title: 5 tips to trade better with companies in China
+subTitle: Doing business with China
 description: >-
   The U.S. Dollar slipped as it keeps swinging back and forth between gains and
   losses this week.
