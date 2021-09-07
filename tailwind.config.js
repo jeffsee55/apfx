@@ -10,6 +10,7 @@ const fontMap = {
   Ardent: ["Ardent"],
   Article: ["Article"],
   Pulse: ["Pulse"],
+  OpenSans: ["Open Sans"],
 };
 
 const base = (colorOption, fontOption) => ({
@@ -69,6 +70,5 @@ module.exports = (displayFont, colorMode) => {
       break;
   }
   const fontOption = fontMap[displayFont];
-  console.log(fontOption, colorOption);
   return base(colorOption, fontOption);
 };

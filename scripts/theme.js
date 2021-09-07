@@ -15,6 +15,7 @@ const fontMap = {
   Ardent: ["Ardent"],
   Article: ["Article"],
   Pulse: ["Pulse"],
+  OpenSans: ["Open Sans"],
 };
 
 const theme = {

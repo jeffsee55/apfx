@@ -1,7 +1,6 @@
 import Tina from "tinacms";
 import { MarkdownFieldPlugin } from "react-tinacms-editor";
 
-console.log(process.env);
 const TinaLoader = ({ pageProps, children }) => {
   return (
     <Tina

@@ -1,6 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { CheckIcon } from "@heroicons/react/outline";
 import Link from "next/link";
+import { Markdown } from "../markdown";
 import { DisplayText, Text } from "../typographqy";
 import { Action } from "./hero";
 
@@ -29,33 +30,36 @@ function Pill(props) {
 
 function ComparisonCard(props) {
   return (
-    <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
+    <div className="flex flex-col rounded-lg shadow-lg overflow-hidden bg-white">
       <div className="px-6 py-8 bg-white sm:p-10 sm:pb-6">
         {props.item.subTitle && <Pill subTitle={props.item.subTitle}></Pill>}
         <DisplayText
           size={"text-2xl lg:text-3xl"}
-          classNames="mt-4 flex items-baseline text-3xl font-extrabold"
+          classNames="my-4 flex items-baseline"
           variant="dark"
         >
           {props.item.title}
         </DisplayText>
-        <p className="mt-5 text-lg text-gray-500">{props.item.description}</p>
+        {/* <p className="mt-5 text-lg text-gray-500">{props.item.description}</p> */}
+        <Markdown colorVariant="dark">{props.item.description}</Markdown>
       </div>
-      <div className="flex-1 flex flex-col justify-between px-6 pt-6 pb-8 bg-gray-50 space-y-6 sm:p-10 sm:pt-6">
-        <ul className="space-y-4">
-          {props.item.bulletPoints?.map((bulletPoints) => (
-            <li key={bulletPoints} className="flex items-start">
-              <div className="flex-shrink-0">
-                <CheckIcon
-                  className="h-6 w-6 text-green-500"
-                  aria-hidden="true"
-                />
-              </div>
-              <p className="ml-3 text-base text-gray-700">{bulletPoints}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {props.item.bulletPoints?.length > 0 && (
+        <div className="flex-1 flex flex-col justify-between px-6 pt-6 pb-8 bg-gray-50 space-y-6 sm:p-10 sm:pt-6">
+          <ul className="space-y-4">
+            {props.item.bulletPoints?.map((bulletPoints) => (
+              <li key={bulletPoints} className="flex items-start">
+                <div className="flex-shrink-0">
+                  <CheckIcon
+                    className="h-6 w-6 text-green-500"
+                    aria-hidden="true"
+                  />
+                </div>
+                <p className="ml-3 text-base text-gray-700">{bulletPoints}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
@@ -71,7 +75,6 @@ export function Pricing(props: PricingProps) {
                 {props.subTitle}
               </h2>
             )}
-            {/* <p className="text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl"> */}
             <DisplayText size={"text-3xl lg:text-5xl py-4"}>
               {props.title}
             </DisplayText>

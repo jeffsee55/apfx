@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Chain, Zeus } from "../zeus";
-import { Hero, HeroWithSlantImage } from "../components/blocks/hero";
+import { HeroWithSlantImage } from "../components/blocks/hero";
 import {
   TwoWideGrid,
   ThreeWideGrid,
@@ -45,7 +45,7 @@ export default function Home(props: HomeProps) {
               if (block.style === "slanted") {
                 return <HeroWithSlantImage {...block} />;
               }
-              return <Hero {...block} />;
+              return <HeroWithSlantImage {...block} />;
             case "PageBlocksNews":
               return <News {...block} />;
             case "PageBlocksFeature":
