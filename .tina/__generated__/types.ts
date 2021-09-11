@@ -219,6 +219,7 @@ export type LocaleInfoAu = {
   __typename?: 'LocaleInfoAu';
   tel?: Maybe<Scalars['String']>;
   signUpLink?: Maybe<Scalars['String']>;
+  signUpLinkPersonal?: Maybe<Scalars['String']>;
   signInLink?: Maybe<Scalars['String']>;
 };
 
@@ -226,6 +227,7 @@ export type LocaleInfoUs = {
   __typename?: 'LocaleInfoUs';
   tel?: Maybe<Scalars['String']>;
   signUpLink?: Maybe<Scalars['String']>;
+  signUpLinkPersonal?: Maybe<Scalars['String']>;
   signInLink?: Maybe<Scalars['String']>;
 };
 
@@ -233,6 +235,7 @@ export type LocaleInfoGb = {
   __typename?: 'LocaleInfoGb';
   tel?: Maybe<Scalars['String']>;
   signUpLink?: Maybe<Scalars['String']>;
+  signUpLinkPersonal?: Maybe<Scalars['String']>;
   signInLink?: Maybe<Scalars['String']>;
 };
 
@@ -731,18 +734,21 @@ export type DocumentMutation = {
 export type LocaleInfoAuMutation = {
   tel?: Maybe<Scalars['String']>;
   signUpLink?: Maybe<Scalars['String']>;
+  signUpLinkPersonal?: Maybe<Scalars['String']>;
   signInLink?: Maybe<Scalars['String']>;
 };
 
 export type LocaleInfoUsMutation = {
   tel?: Maybe<Scalars['String']>;
   signUpLink?: Maybe<Scalars['String']>;
+  signUpLinkPersonal?: Maybe<Scalars['String']>;
   signInLink?: Maybe<Scalars['String']>;
 };
 
 export type LocaleInfoGbMutation = {
   tel?: Maybe<Scalars['String']>;
   signUpLink?: Maybe<Scalars['String']>;
+  signUpLinkPersonal?: Maybe<Scalars['String']>;
   signInLink?: Maybe<Scalars['String']>;
 };
 

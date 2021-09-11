@@ -31,6 +31,16 @@
               ]
             },
             {
+              "label": "Sign Up Link Personal",
+              "name": "signUpLinkPersonal",
+              "type": "string",
+              "namespace": [
+                "localeInfo",
+                "au",
+                "signUpLinkPersonal"
+              ]
+            },
+            {
               "label": "Sign In Link",
               "name": "signInLink",
               "type": "string",
@@ -72,6 +82,16 @@
               ]
             },
             {
+              "label": "Sign Up Link Personal",
+              "name": "signUpLinkPersonal",
+              "type": "string",
+              "namespace": [
+                "localeInfo",
+                "us",
+                "signUpLinkPersonal"
+              ]
+            },
+            {
               "label": "Sign In Link",
               "name": "signInLink",
               "type": "string",
@@ -110,6 +130,16 @@
                 "localeInfo",
                 "gb",
                 "signUpLink"
+              ]
+            },
+            {
+              "label": "Sign Up Link Personal",
+              "name": "signUpLinkPersonal",
+              "type": "string",
+              "namespace": [
+                "localeInfo",
+                "gb",
+                "signUpLinkPersonal"
               ]
             },
             {

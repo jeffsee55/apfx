@@ -179,6 +179,11 @@ const localeStrings = [
     type: "string",
   },
   {
+    label: "Sign Up Link Personal",
+    name: "signUpLinkPersonal",
+    type: "string",
+  },
+  {
     label: "Sign In Link",
     name: "signInLink",
     type: "string",

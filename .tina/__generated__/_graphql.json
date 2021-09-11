@@ -1699,6 +1699,21 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
+            "value": "signUpLinkPersonal"
+          },
+          "arguments": [],
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
             "value": "signInLink"
           },
           "arguments": [],
@@ -1755,6 +1770,21 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
+            "value": "signUpLinkPersonal"
+          },
+          "arguments": [],
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
             "value": "signInLink"
           },
           "arguments": [],
@@ -1797,6 +1827,21 @@
           "name": {
             "kind": "Name",
             "value": "signUpLink"
+          },
+          "arguments": [],
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "signUpLinkPersonal"
           },
           "arguments": [],
           "type": {
@@ -6716,6 +6761,20 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
+            "value": "signUpLinkPersonal"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": {
+            "kind": "Name",
             "value": "signInLink"
           },
           "type": {
@@ -6767,6 +6826,20 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
+            "value": "signUpLinkPersonal"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": {
+            "kind": "Name",
             "value": "signInLink"
           },
           "type": {
@@ -6805,6 +6878,20 @@
           "name": {
             "kind": "Name",
             "value": "signUpLink"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "signUpLinkPersonal"
           },
           "type": {
             "kind": "NamedType",

@@ -87,18 +87,21 @@ union DocumentNode = LocaleInfoDocument | NewsDocument | FooterDocument | ThemeD
 type LocaleInfoAu {
   tel: String
   signUpLink: String
+  signUpLinkPersonal: String
   signInLink: String
 }
 
 type LocaleInfoUs {
   tel: String
   signUpLink: String
+  signUpLinkPersonal: String
   signInLink: String
 }
 
 type LocaleInfoGb {
   tel: String
   signUpLink: String
+  signUpLinkPersonal: String
   signInLink: String
 }
 
@@ -488,18 +491,21 @@ input DocumentMutation {
 input LocaleInfoAuMutation {
   tel: String
   signUpLink: String
+  signUpLinkPersonal: String
   signInLink: String
 }
 
 input LocaleInfoUsMutation {
   tel: String
   signUpLink: String
+  signUpLinkPersonal: String
   signInLink: String
 }
 
 input LocaleInfoGbMutation {
   tel: String
   signUpLink: String
+  signUpLinkPersonal: String
   signInLink: String
 }
 

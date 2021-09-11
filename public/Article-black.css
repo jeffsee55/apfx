@@ -1053,6 +1053,9 @@ select {
 .ml-8 {
 	margin-left: 2rem;
 }
+.mb-8 {
+	margin-bottom: 2rem;
+}
 .mt-6 {
 	margin-top: 1.5rem;
 }
@@ -1599,6 +1602,9 @@ select {
 .pb-3 {
 	padding-bottom: 0.75rem;
 }
+.pb-2 {
+	padding-bottom: 0.5rem;
+}
 .pt-28 {
 	padding-top: 7rem;
 }
@@ -1738,17 +1744,17 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(229, 231, 235, var(--tw-text-opacity));
 }
-.text-indigo-700 {
+.text-gray-500 {
 	--tw-text-opacity: 1;
-	color: rgba(55, 65, 81, var(--tw-text-opacity));
+	color: rgba(107, 114, 128, var(--tw-text-opacity));
 }
 .text-indigo-600 {
 	--tw-text-opacity: 1;
 	color: rgba(75, 85, 99, var(--tw-text-opacity));
 }
-.text-gray-500 {
+.text-indigo-700 {
 	--tw-text-opacity: 1;
-	color: rgba(107, 114, 128, var(--tw-text-opacity));
+	color: rgba(55, 65, 81, var(--tw-text-opacity));
 }
 .text-green-500 {
 	--tw-text-opacity: 1;
@@ -2139,6 +2145,11 @@ a.hover-smooth:hover::before {
 .hover\:text-gray-200:hover {
 	--tw-text-opacity: 1;
 	color: rgba(229, 231, 235, var(--tw-text-opacity));
+}
+
+.hover\:text-indigo-500:hover {
+	--tw-text-opacity: 1;
+	color: rgba(107, 114, 128, var(--tw-text-opacity));
 }
 
 .hover\:opacity-25:hover {

@@ -3,6 +3,7 @@ import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import { useLocaleInfo } from "./locale-info";
+import { useRouter } from "next/router";
 
 type NavProps = {
   items: {
@@ -17,6 +18,13 @@ type NavProps = {
 
 export const Nav = (props: NavProps) => {
   const localeInfo = useLocaleInfo();
+  const meh = useRouter();
+  const signUpLink =
+    meh.asPath === "/personal"
+      ? localeInfo.signUpLinkPersonal
+        ? localeInfo.signUpLinkPersonal
+        : localeInfo.signUpLink
+      : localeInfo.signUpLink;
   return (
     <div className="absolute top-0 left-0 right-0 z-50">
       <div className="relative py-6 sm:py-8">
@@ -62,7 +70,7 @@ export const Nav = (props: NavProps) => {
                     Sign in
                   </a>
                   <a
-                    href={localeInfo.signUpLink}
+                    href={signUpLink}
                     className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
                   >
                     Sign up
@@ -111,12 +119,37 @@ export const Nav = (props: NavProps) => {
                         </Link>
                       ))}
                     </div>
-                    <a
-                      href="https://oapfxptyltd.ebury.com/"
-                      className="block w-full px-5 py-3 text-center font-medium text-indigo-200 bg-gray-700 hover:bg-gray-600"
-                    >
-                      Log in
-                    </a>
+                    <div className="mb-8 px-4">
+                      <a
+                        href={signUpLink}
+                        className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                      >
+                        Sign up
+                      </a>
+                      <p className="mt-6 text-center text-base font-medium text-gray-100">
+                        Existing customer?{" "}
+                        <a
+                          href={localeInfo.signInLink}
+                          className="text-gray-200 hover:text-gray-300"
+                        >
+                          Sign in
+                        </a>
+                      </p>
+                    </div>
+                    {/* <div className="px-4 pb-2">
+                      <a
+                        href={signUpLink}
+                        className="block w-full px-5 py-3 text-center font-medium text-indigo-200 bg-gray-700 hover:bg-gray-600"
+                      >
+                        Sign Up
+                      </a>
+                      <a
+                        href={localeInfo.signInLink}
+                        className="block w-full px-5 py-3 text-center font-medium text-indigo-200 bg-gray-700 hover:bg-gray-600"
+                      >
+                        Log in
+                      </a>
+                    </div> */}
                   </div>
                 </Popover.Panel>
               </Transition>
