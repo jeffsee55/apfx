@@ -806,6 +806,10 @@
                           "value": "signUpLink"
                         },
                         {
+                          "label": "Sign Up Personal",
+                          "value": "signUpLinkPersonal"
+                        },
+                        {
                           "label": "Sign In",
                           "value": "signInLink"
                         }
@@ -854,6 +858,10 @@
                         {
                           "label": "Sign Up",
                           "value": "signUpLink"
+                        },
+                        {
+                          "label": "Sign Up Personal",
+                          "value": "signUpLinkPersonal"
                         },
                         {
                           "label": "Sign In",
@@ -1042,6 +1050,10 @@
                               "value": "signUpLink"
                             },
                             {
+                              "label": "Sign Up Personal",
+                              "value": "signUpLinkPersonal"
+                            },
+                            {
                               "label": "Sign In",
                               "value": "signInLink"
                             }
@@ -1093,6 +1105,10 @@
                             {
                               "label": "Sign Up",
                               "value": "signUpLink"
+                            },
+                            {
+                              "label": "Sign Up Personal",
+                              "value": "signUpLinkPersonal"
                             },
                             {
                               "label": "Sign In",
@@ -1383,6 +1399,10 @@
                           "value": "signUpLink"
                         },
                         {
+                          "label": "Sign Up Personal",
+                          "value": "signUpLinkPersonal"
+                        },
+                        {
                           "label": "Sign In",
                           "value": "signInLink"
                         }
@@ -1431,6 +1451,10 @@
                         {
                           "label": "Sign Up",
                           "value": "signUpLink"
+                        },
+                        {
+                          "label": "Sign Up Personal",
+                          "value": "signUpLinkPersonal"
                         },
                         {
                           "label": "Sign In",
@@ -1698,6 +1722,10 @@
                           "value": "signUpLink"
                         },
                         {
+                          "label": "Sign Up Personal",
+                          "value": "signUpLinkPersonal"
+                        },
+                        {
                           "label": "Sign In",
                           "value": "signInLink"
                         }
@@ -1746,6 +1774,10 @@
                         {
                           "label": "Sign Up",
                           "value": "signUpLink"
+                        },
+                        {
+                          "label": "Sign Up Personal",
+                          "value": "signUpLinkPersonal"
                         },
                         {
                           "label": "Sign In",
@@ -2720,6 +2752,10 @@
                           "value": "signUpLink"
                         },
                         {
+                          "label": "Sign Up Personal",
+                          "value": "signUpLinkPersonal"
+                        },
+                        {
                           "label": "Sign In",
                           "value": "signInLink"
                         }
@@ -2768,6 +2804,10 @@
                         {
                           "label": "Sign Up",
                           "value": "signUpLink"
+                        },
+                        {
+                          "label": "Sign Up Personal",
+                          "value": "signUpLinkPersonal"
                         },
                         {
                           "label": "Sign In",

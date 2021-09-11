@@ -85,6 +85,7 @@ const testimonial = {
 const linkOptions = [
   { label: "Tel", value: "tel" },
   { label: "Sign Up", value: "signUpLink" },
+  { label: "Sign Up Personal", value: "signUpLinkPersonal" },
   { label: "Sign In", value: "signInLink" },
 ];
 
