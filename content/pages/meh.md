@@ -91,7 +91,7 @@ blocks:
       - title: Risk Management
         description: "There is no shortage of advice or opinions on where exchange rates are going.\_ However, for those responsible for deciding how to manage their currency exposures it has never been more important to be pro-active in making informed decisions. The fact remains that nobody can reliably predict the currency market but despite this, currency purchasing decisions are still frequently based on a ‘best guess’ and therefore companies remain vulnerable to currency risk. \n\nAt APFX, we look to mitigate the problem of unpredictable exchange rates by developing strategies tailored to your business circumstances and in doing so, give you greater control over the impact exchange rate volatility has on your bottom line. learn more"
         image: >-
-          https://images.ctfassets.net/fn5fbjfhb3z0/1GQRbVRTQ9OJmignvZxPTd/43b7e889507f8801aa8268aef9d95083/opera-house-2.jpg?w=1600&h=1066&q=50
+          https://res.cloudinary.com/deuzrsg3m/image/upload/v1631389942/apfx/opera-house-2_ncjsad.jpg
       - title: Currency Accounts
         description: >-
           With APFX you can receive, hold and make payments in multiple
@@ -108,7 +108,7 @@ blocks:
           addressed to an account in your name Access your funds securely online
           at any time
         image: >-
-          https://images.ctfassets.net/fn5fbjfhb3z0/43WPBLQnokb9VmtMGq4JWE/7a68eaa362df36ed7b08b9db785e57f3/christopher-burns-D-fpL7F_MEI-unsplash.jpg?w=3200&h=1843&q=50
+          https://res.cloudinary.com/deuzrsg3m/image/upload/v1631389952/apfx/christopher-burns-D-fpL7F_MEI-unsplash_gvr4aj.jpg
       - title: Dedicated Relationship Manager
         description: >-
           Our dedicated relationship managers provide tailored and proactive
@@ -121,7 +121,7 @@ blocks:
           APFX can provide a far more consultative approach to managing FX risk
           or implementing a more effective payments operation.
         image: >-
-          https://images.ctfassets.net/fn5fbjfhb3z0/6fXyWmYnGmnNnW4Z0kdFfW/96d3830218d5af21b493756b03515582/kevin-bosc-oeqBJZd1GWY-unsplash.jpg?w=3200&h=2133&q=50
+          https://res.cloudinary.com/deuzrsg3m/image/upload/v1631389967/apfx/kevin-bosc-oeqBJZd1GWY-unsplash_rtuyot.jpg
         overlayColor: gray
         overlayOpacity: '8'
     _template: slideshow

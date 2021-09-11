@@ -84,9 +84,10 @@ export const UnsplashImg = React.forwardRef((props: ImgType, ref) => {
 });
 
 export const Img = React.forwardRef((props: ImgType, ref) => {
-  if (props.src.includes("unsplash")) {
+  const host = new URL(props.src).host;
+  if (host.includes("unsplash")) {
     return <UnsplashImg {...props} ref={ref} />;
-  } else if (props.src.includes("cloudinary")) {
+  } else if (host.includes("cloudinary")) {
     return <CloudinaryImg {...props} ref={ref} />;
   } else {
     // @ts-ignore
