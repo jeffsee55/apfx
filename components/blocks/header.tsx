@@ -43,6 +43,7 @@ export function FullScreenLogo(
     <div className={`relative ${overlayColor}`}>
       <div className="absolute inset-0">
         <Img
+          lazy={true}
           className="w-full h-full object-cover"
           src={props.image}
           alt=""
@@ -127,6 +128,7 @@ export function FullScreenHeaderWithBackground(
     <div className={`relative ${overlayColor}`}>
       <div className="absolute inset-0">
         <Img
+          lazy={true}
           className="w-full h-full object-cover"
           src={props.image}
           alt=""

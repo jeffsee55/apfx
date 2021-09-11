@@ -59,6 +59,7 @@ export function HeroWithSlantImage(props: HeroProps) {
           className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
           src={props.image}
           quality={90}
+          lazy={true}
           width={1400}
           alt=""
         />

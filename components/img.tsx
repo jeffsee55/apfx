@@ -6,6 +6,7 @@ type ImgType = {
   width?: number;
   quality?: number;
   className?: string;
+  lazy?: boolean;
   alt?: string;
 };
 
@@ -36,6 +37,7 @@ export const CloudinaryImg = React.forwardRef((props: ImgType, ref) => {
   return (
     <img
       className={props.className}
+      loading={props.lazy ? "lazy" : "eager"}
       // @ts-ignore
       ref={ref}
       src={newString}
@@ -75,6 +77,7 @@ export const UnsplashImg = React.forwardRef((props: ImgType, ref) => {
   return (
     <img
       className={props.className}
+      loading={props.lazy ? "lazy" : "eager"}
       // @ts-ignore
       ref={ref}
       src={newString}
