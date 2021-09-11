@@ -35,10 +35,12 @@ export default function Home(props: HomeProps) {
 }
 
 export const getStaticProps = async ({
-  params: { filename },
+  params,
 }: {
   params: { filename: string };
 }) => {
+  console.log(params);
+  const { filename } = params;
   const chain = Chain("http://localhost:4001/graphql", {});
   const chainWithQueryString = {
     query: async <
@@ -148,11 +150,18 @@ export const getStaticPaths = async () => {
       },
     ],
   });
+  const paths2 = paths.getNewsList.edges.map((edge) => {
+    return { params: { filename: edge.node.sys.filename } };
+  });
+  ["en-us", "en-gb", "en-au"].forEach((locale) => {
+    paths2.forEach((p2) => {
+      // @ts-ignore
+      p2.locale = locale;
+    });
+  });
   const meh = {
-    paths: paths.getNewsList.edges.map((edge) => {
-      return { params: { filename: edge.node.sys.filename } };
-    }),
-    fallback: false,
+    paths: paths2,
+    fallback: "blocking",
   };
   return meh;
 };
