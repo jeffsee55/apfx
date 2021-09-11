@@ -1,8 +1,9 @@
 import React from "react";
+import { Img } from "../img";
 import { useLocaleInfo } from "../locale-info";
 import { Markdown } from "../markdown";
 import { useTheme } from "../theme";
-import { DisplayText, Text } from "../typographqy";
+import { DisplayText } from "../typographqy";
 
 export type Action = {
   callToAction?: string;
@@ -31,7 +32,9 @@ export function HeroWithSlantImage(props: HeroProps) {
           {/* <main className="mx-auto max-w-7xl px-4 mt-10 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28"> */}
           <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-20">
             <div className="sm:text-center lg:text-left">
+              {/* <div data-tinaField="blocks.1.title"> */}
               <DisplayText variant={"light"}>{props.title}</DisplayText>
+              {/* </div> */}
               <Markdown classNames="mt-4 md:mt-8">{props.description}</Markdown>
               {props.action && <ActionBox action={props.action} />}
             </div>
@@ -52,9 +55,11 @@ export function HeroWithSlantImage(props: HeroProps) {
       </div>
       <div className="lg:absolute lg:inset-0">
         {/* <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2"> */}
-        <img
+        <Img
           className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
           src={props.image}
+          quality={90}
+          width={1400}
           alt=""
         />
         <div

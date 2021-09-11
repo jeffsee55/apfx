@@ -3,6 +3,7 @@ import Link from "next/link";
 import { DisplayText, SubTitleText, Text } from "../typographqy";
 import { Action, ActionSlim } from "./hero";
 import { Markdown } from "../markdown";
+import { Img } from "../img";
 
 type HeaderProps = {
   title: string;
@@ -41,7 +42,12 @@ export function FullScreenLogo(
   return (
     <div className={`relative ${overlayColor}`}>
       <div className="absolute inset-0">
-        <img className="w-full h-full object-cover" src={props.image} alt="" />
+        <Img
+          className="w-full h-full object-cover"
+          src={props.image}
+          alt=""
+          width={1400}
+        />
         <div
           className={`absolute inset-0 ${overlayColor} mix-blend-multiply ${overlayOpacity}`}
           aria-hidden="true"
@@ -120,7 +126,12 @@ export function FullScreenHeaderWithBackground(
   return (
     <div className={`relative ${overlayColor}`}>
       <div className="absolute inset-0">
-        <img className="w-full h-full object-cover" src={props.image} alt="" />
+        <Img
+          className="w-full h-full object-cover"
+          src={props.image}
+          alt=""
+          width={1400}
+        />
         <div
           className={`absolute inset-0 ${overlayColor} mix-blend-multiply ${overlayOpacity}`}
           aria-hidden="true"

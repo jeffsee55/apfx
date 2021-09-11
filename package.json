@@ -24,7 +24,7 @@
     "react-tinacms-editor": "^0.51.1",
     "smoothscroll-polyfill": "^0.4.4",
     "styled-components": "^5.3.0",
-    "tinacms": "^0.53.0"
+    "tinacms": "beta"
   },
   "devDependencies": {
     "@types/node": "^16.3.1",
