@@ -27,10 +27,22 @@ type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (
 type HomeProps = AsyncReturnType<typeof getStaticProps>["props"];
 
 export default function Home(props: HomeProps) {
+  const seo = props.data.getPageDocument.data.seo;
   return (
     <>
       <Head>
         <title>{props.data.getPageDocument.data.title}</title>
+        {seo && (
+          <>
+            <meta property="og:title" content={seo.title} />
+            <meta
+              name="description"
+              property="og:description"
+              content={seo.description}
+            />
+            <meta property="og:image" content={seo.image} />
+          </>
+        )}
       </Head>
 
       <main>
@@ -167,6 +179,11 @@ export const getStaticProps = async ({
         id: true,
         data: {
           title: true,
+          seo: {
+            title: true,
+            description: true,
+            image: true,
+          },
           blocks: {
             __typename: true,
             "...on PageBlocksComparisonTable": {

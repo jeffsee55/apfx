@@ -406,14 +406,12 @@ export type NavigationConnection = Connection & {
   edges?: Maybe<Array<Maybe<NavigationConnectionEdges>>>;
 };
 
-export type PageSeoSeoBasic = {
-  __typename?: 'PageSeoSeoBasic';
-  title: Scalars['String'];
-  subTitle?: Maybe<Scalars['String']>;
+export type PageSeo = {
+  __typename?: 'PageSeo';
+  title?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
   description: Scalars['String'];
 };
-
-export type PageSeo = PageSeoSeoBasic;
 
 export type PageBlocksNewsNewsItemsDocument = NewsDocument;
 
@@ -633,7 +631,7 @@ export type Page = {
   __typename?: 'Page';
   title: Scalars['String'];
   link: Scalars['String'];
-  seo: PageSeo;
+  seo?: Maybe<PageSeo>;
   blocks?: Maybe<Array<Maybe<PageBlocks>>>;
 };
 
@@ -794,14 +792,10 @@ export type NavigationMutation = {
   items?: Maybe<Array<Maybe<NavigationItemsMutation>>>;
 };
 
-export type PageSeoSeoBasicMutation = {
-  title?: Maybe<Scalars['String']>;
-  subTitle?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
-};
-
 export type PageSeoMutation = {
-  seoBasic?: Maybe<PageSeoSeoBasicMutation>;
+  title?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
 };
 
 export type PageBlocksNewsMutation = {

@@ -249,13 +249,11 @@ type NavigationConnection implements Connection {
   edges: [NavigationConnectionEdges]
 }
 
-type PageSeoSeoBasic {
-  title: String!
-  subTitle: String
+type PageSeo {
+  title: String
+  image: String
   description: String!
 }
-
-union PageSeo = PageSeoSeoBasic
 
 union PageBlocksNewsNewsItemsDocument = NewsDocument
 
@@ -444,7 +442,7 @@ union PageBlocks = PageBlocksNews | PageBlocksStatsWithImage | PageBlocksHero | 
 type Page {
   title: String!
   link: String!
-  seo: PageSeo!
+  seo: PageSeo
   blocks: [PageBlocks]
 }
 
@@ -551,14 +549,10 @@ input NavigationMutation {
   items: [NavigationItemsMutation]
 }
 
-input PageSeoSeoBasicMutation {
-  title: String
-  subTitle: String
-  description: String
-}
-
 input PageSeoMutation {
-  seoBasic: PageSeoSeoBasicMutation
+  title: String
+  image: String
+  description: String
 }
 
 input PageBlocksNewsMutation {

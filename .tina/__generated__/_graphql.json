@@ -3511,7 +3511,7 @@
       "directives": [],
       "name": {
         "kind": "Name",
-        "value": "PageSeoSeoBasic"
+        "value": "PageSeo"
       },
       "fields": [
         {
@@ -3522,13 +3522,10 @@
           },
           "arguments": [],
           "type": {
-            "kind": "NonNullType",
-            "type": {
-              "kind": "NamedType",
-              "name": {
-                "kind": "Name",
-                "value": "String"
-              }
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
             }
           }
         },
@@ -3536,7 +3533,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "subTitle"
+            "value": "image"
           },
           "arguments": [],
           "type": {
@@ -3563,23 +3560,6 @@
                 "value": "String"
               }
             }
-          }
-        }
-      ]
-    },
-    {
-      "kind": "UnionTypeDefinition",
-      "name": {
-        "kind": "Name",
-        "value": "PageSeo"
-      },
-      "directives": [],
-      "types": [
-        {
-          "kind": "NamedType",
-          "name": {
-            "kind": "Name",
-            "value": "PageSeoSeoBasic"
           }
         }
       ]
@@ -5888,13 +5868,10 @@
           },
           "arguments": [],
           "type": {
-            "kind": "NonNullType",
-            "type": {
-              "kind": "NamedType",
-              "name": {
-                "kind": "Name",
-                "value": "PageSeo"
-              }
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "PageSeo"
             }
           }
         },
@@ -7254,7 +7231,7 @@
       "kind": "InputObjectTypeDefinition",
       "name": {
         "kind": "Name",
-        "value": "PageSeoSeoBasicMutation"
+        "value": "PageSeoMutation"
       },
       "fields": [
         {
@@ -7275,7 +7252,7 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
-            "value": "subTitle"
+            "value": "image"
           },
           "type": {
             "kind": "NamedType",
@@ -7296,29 +7273,6 @@
             "name": {
               "kind": "Name",
               "value": "String"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "kind": "InputObjectTypeDefinition",
-      "name": {
-        "kind": "Name",
-        "value": "PageSeoMutation"
-      },
-      "fields": [
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "seoBasic"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "PageSeoSeoBasicMutation"
             }
           }
         }

@@ -6,6 +6,7 @@ import { TinaEditProvider } from "tinacms/dist/edit-state";
 import { Theme } from "../components/theme";
 import React from "react";
 import { LocaleContext } from "../components/locale-info";
+import Head from "next/head";
 const Tina = dynamic(() => import("../components/tina"), { ssr: false });
 
 function MyApp({ Component, pageProps }) {
@@ -37,6 +38,9 @@ const Page = ({ pageProps, Component }) => {
     ] || {};
   return (
     <LocaleContext.Provider value={currentLocaleInfo}>
+      <Head>
+        <link rel="icon" type="image/png" href="/favicon.png" />
+      </Head>
       {theme && <Theme theme={theme} />}
       <Component {...pageProps} />
       <script

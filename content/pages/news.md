@@ -1,10 +1,13 @@
 ---
 title: News & Insights
 link: /news
+seo:
+  title: News & Insights
+  description: Get the latest insights
 blocks:
   - title: News & Insights
     subTitle: Get the latest
-    description: ""
+    description: ''
     newsItems:
       - content/news/welcome.md
       - content/news/dollar-gains.md
@@ -14,3 +17,4 @@ blocks:
       - content/news/volatile-week.md
     _template: news
 ---
+

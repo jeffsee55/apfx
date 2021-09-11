@@ -1,4 +1,4 @@
-import { defineSchema } from "@tinacms/cli";
+import { defineSchema, TinaField } from "@tinacms/cli";
 import * as Icons from "@heroicons/react/outline";
 
 const overlayControls = [
@@ -145,7 +145,7 @@ const action = {
   ],
 };
 
-const textFields = [
+const textFields: TinaField[] = [
   {
     label: "Title",
     name: "title",
@@ -155,6 +155,29 @@ const textFields = [
   {
     label: "Sub-Title",
     name: "subTitle",
+    type: "string",
+  },
+  {
+    label: "Description",
+    name: "description",
+    type: "string" as const,
+    required: true,
+    ui: {
+      component: "markdown",
+    },
+  },
+];
+
+const textFieldsSeo: TinaField[] = [
+  {
+    label: "Title",
+    name: "title",
+    type: "string" as const,
+    // required: true,
+  },
+  {
+    label: "Image",
+    name: "image",
     type: "string",
   },
   {
@@ -374,14 +397,8 @@ export default defineSchema({
           label: "SEO",
           name: "seo",
           type: "object",
-          required: true,
-          templates: [
-            {
-              label: "Seo Basic",
-              name: "seoBasic",
-              fields: textFields,
-            },
-          ],
+          // required: true,
+          fields: textFieldsSeo,
         },
         {
           label: "Blocks",

@@ -19,6 +19,15 @@ export default function Home(props: HomeProps) {
     <>
       <Head>
         <title>{props.data.getNewsDocument.data.title}</title>
+        <meta
+          property="og:title"
+          content={props.data.getNewsDocument.data.title}
+        />
+        <meta name="description" property="og:description" content={""} />
+        <meta
+          property="og:image"
+          content={props.data.getNewsDocument.data.image}
+        />
       </Head>
 
       <main>

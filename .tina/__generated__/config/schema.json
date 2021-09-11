@@ -269,33 +269,25 @@
           "label": "SEO",
           "name": "seo",
           "type": "object",
-          "required": true,
-          "templates": [
+          "fields": [
             {
-              "label": "Seo Basic",
-              "name": "seoBasic",
-              "fields": [
-                {
-                  "label": "Title",
-                  "name": "title",
-                  "type": "string",
-                  "required": true
-                },
-                {
-                  "label": "Sub-Title",
-                  "name": "subTitle",
-                  "type": "string"
-                },
-                {
-                  "label": "Description",
-                  "name": "description",
-                  "type": "string",
-                  "required": true,
-                  "ui": {
-                    "component": "markdown"
-                  }
-                }
-              ]
+              "label": "Title",
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "label": "Image",
+              "name": "image",
+              "type": "string"
+            },
+            {
+              "label": "Description",
+              "name": "description",
+              "type": "string",
+              "required": true,
+              "ui": {
+                "component": "markdown"
+              }
             }
           ]
         },

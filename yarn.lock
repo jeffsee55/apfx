@@ -2190,14 +2190,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tinacms/cli@npm:^0.53.2":
-  version: 0.53.2
-  resolution: "@tinacms/cli@npm:0.53.2"
+"@tinacms/cli@npm:^0.55.2":
+  version: 0.55.2
+  resolution: "@tinacms/cli@npm:0.55.2"
   dependencies:
     "@graphql-codegen/core": ^1.17.0
     "@graphql-codegen/typescript": ^1.17.0
     "@graphql-codegen/typescript-operations": ^1.17.0
-    "@tinacms/graphql": 0.52.1
+    "@tinacms/graphql": 0.54.3
     ajv: ^6.12.3
     altair-express-middleware: 4.0.6
     axios: 0.19.0
@@ -2223,17 +2223,18 @@ __metadata:
     yup: ^0.32.9
   bin:
     tinacms: bin/tinacms
-  checksum: 88e98fb752a7f7553d665b7e7437d75c2484b665dd9b55e8516731492c097a0f4255aa94e8dc96d64bcc05c609aacb190af24a430d0b480c4525aee423c39277
+  checksum: 5c4344add18b23212b8f394dba8211c53f89fc4698940ac4654018d545690174376064272437f1ad899d7a8be1d7dbfe23914c210113ead53795cf3481696592
   languageName: node
   linkType: hard
 
-"@tinacms/graphql@npm:0.52.1":
-  version: 0.52.1
-  resolution: "@tinacms/graphql@npm:0.52.1"
+"@tinacms/graphql@npm:0.54.3":
+  version: 0.54.3
+  resolution: "@tinacms/graphql@npm:0.54.3"
   dependencies:
     "@octokit/auth-app": ^2.6.0
     "@octokit/graphql": ^4.5.6
     "@octokit/rest": 18.0.6
+    "@types/aws-sdk": ^2.7.0
     aws-sdk: ^2.930.0
     body-parser: ^1.19.0
     cors: ^2.8.5
@@ -2263,46 +2264,7 @@ __metadata:
     vfile: ^4.2.0
     ws: ^7.3.1
     yup: ^0.32.9
-  checksum: d2006b3eb656e57168194964955a8951e6326d59a78b61ce8096987ed9cf424df28367ad703e8204cec28111be0ccb4e25a036cc098d59c196105e5d1de5e1e5
-  languageName: node
-  linkType: hard
-
-"@tinacms/toolkit@npm:0.0.0-2021810161959":
-  version: 0.0.0-2021810161959
-  resolution: "@tinacms/toolkit@npm:0.0.0-2021810161959"
-  dependencies:
-    "@sambego/storybook-styles": ^1.0.0
-    "@types/atob": ^2.1.2
-    "@types/cors": ^2.8.12
-    "@types/express": ^4.17.13
-    "@types/multer": ^1.4.7
-    "@types/prop-types": ^15.7.4
-    atob: 2.1.2
-    color-string: ^1.5.3
-    cors: ^2.8.5
-    express: ^4.17.1
-    final-form: ^4.20.2
-    final-form-arrays: ^3.0.1
-    lodash.get: ^4.4.2
-    moment: ">=2 <=3"
-    multer: 1.4.2
-    path: ^0.12.7
-    prop-types: 15.7.2
-    react-beautiful-dnd: ^11.0.5
-    react-color: ^2.17.3
-    react-datetime: ^2.16.3
-    react-dismissible: ^1.3.0
-    react-dropzone: 10.1.8
-    react-final-form: ^6.3.0
-    simple-git: 1.126.0
-    tsup: ^3.7.0
-    typescript: ^4.3.5
-    webfontloader: 1.6.28
-  peerDependencies:
-    react: ">=16.8"
-    react-dom: ">=16.8"
-    styled-components: ">=4.1"
-  checksum: aa6fd5deb0f99b93d9e56f3f2d67b3b42ede879f718b8b8c7abb1cbaae6c2c3cff49ab2396c74c7d91e73ce83123c836451282fbcc6a7dfd57d16986de07399b
+  checksum: ce21a28ddd0ebcfc58648d69886b28530f360e00fc1278f8b02d9fbc463eba7e73c2aff717a27c3f30b474df9744159812a823171059c49e019b016ee66486ab
   languageName: node
   linkType: hard
 
@@ -2339,6 +2301,45 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tinacms/toolkit@npm:0.53.0":
+  version: 0.53.0
+  resolution: "@tinacms/toolkit@npm:0.53.0"
+  dependencies:
+    "@sambego/storybook-styles": ^1.0.0
+    "@types/atob": ^2.1.2
+    "@types/cors": ^2.8.12
+    "@types/express": ^4.17.13
+    "@types/multer": ^1.4.7
+    "@types/prop-types": ^15.7.4
+    atob: 2.1.2
+    color-string: ^1.5.3
+    cors: ^2.8.5
+    express: ^4.17.1
+    final-form: ^4.20.2
+    final-form-arrays: ^3.0.1
+    lodash.get: ^4.4.2
+    moment: ">=2 <=3"
+    multer: 1.4.2
+    path: ^0.12.7
+    prop-types: 15.7.2
+    react-beautiful-dnd: ^11.0.5
+    react-color: ^2.17.3
+    react-datetime: ^2.16.3
+    react-dismissible: ^1.3.0
+    react-dropzone: 10.1.8
+    react-final-form: ^6.3.0
+    simple-git: 1.126.0
+    tsup: ^3.7.0
+    typescript: ^4.3.5
+    webfontloader: 1.6.28
+  peerDependencies:
+    react: ">=16.8"
+    react-dom: ">=16.8"
+    styled-components: ">=4.1"
+  checksum: fa88a97776d1ddfe7c289e1a271ab391e964d43ae23a7440dcb33444d3107051e1a28327b1a0227b37da93f4731c6482d14f925e1b1a120eacaf7f5d46d9b819
+  languageName: node
+  linkType: hard
+
 "@tootallnate/once@npm:1":
   version: 1.1.2
   resolution: "@tootallnate/once@npm:1.1.2"
@@ -2350,6 +2351,15 @@ __metadata:
   version: 2.1.2
   resolution: "@types/atob@npm:2.1.2"
   checksum: df8e9efd3c4f842a5183b9a11877adb96d78b1d1559280afa87bc2c77c04ef1abd0004ab1947de0265292ab032497c679b6c1b954efce5eb6b455fb2404ab348
+  languageName: node
+  linkType: hard
+
+"@types/aws-sdk@npm:^2.7.0":
+  version: 2.7.0
+  resolution: "@types/aws-sdk@npm:2.7.0"
+  dependencies:
+    aws-sdk: "*"
+  checksum: ae3633e0e2ecde42d7fbf8d2ac441d710869d6e9474b679d0743a26be6f911a2b89dd038dc1dba4125166e448d0e9d503f59018b18f67d1515dfeb00d312757b
   languageName: node
   linkType: hard
 
@@ -3104,7 +3114,7 @@ __metadata:
     "@tailwindcss/aspect-ratio": ^0.2.1
     "@tailwindcss/forms": ^0.3.3
     "@tailwindcss/typography": ^0.4.1
-    "@tinacms/cli": ^0.53.2
+    "@tinacms/cli": ^0.55.2
     "@types/node": ^16.3.1
     "@types/react": ^17.0.14
     autoprefixer: ^10.2.6
@@ -3119,7 +3129,7 @@ __metadata:
     smoothscroll-polyfill: ^0.4.4
     styled-components: ^5.3.0
     tailwindcss: ^2.2.4
-    tinacms: beta
+    tinacms: ^0.55.2
     typescript: ^4.3.5
   languageName: unknown
   linkType: soft
@@ -3357,6 +3367,23 @@ __metadata:
   version: 1.0.4
   resolution: "available-typed-arrays@npm:1.0.4"
   checksum: 9474a48bed7a4bfa5ea9389acc73da5e321fac5fc299b9ba58ee9fd41d6489b6f92663a76d1b723e80c06dfe340c6b3b9f2b08762db009c53ce891e68fb0a61c
+  languageName: node
+  linkType: hard
+
+"aws-sdk@npm:*":
+  version: 2.987.0
+  resolution: "aws-sdk@npm:2.987.0"
+  dependencies:
+    buffer: 4.9.2
+    events: 1.1.1
+    ieee754: 1.1.13
+    jmespath: 0.15.0
+    querystring: 0.2.0
+    sax: 1.2.1
+    url: 0.10.3
+    uuid: 3.3.2
+    xml2js: 0.4.19
+  checksum: 250dce951ee254dc9b9cc7c839f75343b88d7da1e86342594afdc41422159744864111f87ac091f07eea2c39be108db3f97ce8849f8664376f16038898ae337d
   languageName: node
   linkType: hard
 
@@ -12807,14 +12834,14 @@ next@latest:
   languageName: node
   linkType: hard
 
-"tinacms@npm:beta":
-  version: 0.0.0-2021810161959
-  resolution: "tinacms@npm:0.0.0-2021810161959"
+"tinacms@npm:^0.55.2":
+  version: 0.55.2
+  resolution: "tinacms@npm:0.55.2"
   dependencies:
     "@graphql-codegen/core": ^1.15.4
     "@graphql-codegen/typescript": ^1.15.4
     "@graphql-codegen/typescript-operations": ^1.15.4
-    "@tinacms/toolkit": 0.0.0-2021810161959
+    "@tinacms/toolkit": 0.53.0
     "@xstate/react": ^1.1.0
     codemirror: ^5.55.0
     cors: ^2.8.5
@@ -12839,7 +12866,7 @@ next@latest:
     react-dom: ">=16.8"
     react-is: ^16.13.1 || <18.0.0
     styled-components: "*"
-  checksum: 4ec8f214ce7a5aad730b54bf78bf3201bc73056ea04d47dfe1f181ed2f8c5f3fe05c8191a9744feab6d17401451f98f9c3f774f56b7bf1e25e5afada303af37a
+  checksum: 1006e109d3532d2b0d9ee22874101e586533596996ed90789219213f597f03fdda73f875f3e6def6b75f431b404c740ece062703bdcb24bde10e563ea4f92900
   languageName: node
   linkType: hard
 

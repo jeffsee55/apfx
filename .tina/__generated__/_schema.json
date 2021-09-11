@@ -429,55 +429,39 @@
           "label": "SEO",
           "name": "seo",
           "type": "object",
-          "required": true,
-          "templates": [
+          "fields": [
             {
-              "label": "Seo Basic",
-              "name": "seoBasic",
-              "fields": [
-                {
-                  "label": "Title",
-                  "name": "title",
-                  "type": "string",
-                  "required": true,
-                  "namespace": [
-                    "page",
-                    "seo",
-                    "seoBasic",
-                    "title"
-                  ]
-                },
-                {
-                  "label": "Sub-Title",
-                  "name": "subTitle",
-                  "type": "string",
-                  "namespace": [
-                    "page",
-                    "seo",
-                    "seoBasic",
-                    "subTitle"
-                  ]
-                },
-                {
-                  "label": "Description",
-                  "name": "description",
-                  "type": "string",
-                  "required": true,
-                  "ui": {
-                    "component": "markdown"
-                  },
-                  "namespace": [
-                    "page",
-                    "seo",
-                    "seoBasic",
-                    "description"
-                  ]
-                }
-              ],
+              "label": "Title",
+              "name": "title",
+              "type": "string",
               "namespace": [
                 "page",
                 "seo",
-                "seoBasic"
+                "title"
+              ]
+            },
+            {
+              "label": "Image",
+              "name": "image",
+              "type": "string",
+              "namespace": [
+                "page",
+                "seo",
+                "image"
+              ]
+            },
+            {
+              "label": "Description",
+              "name": "description",
+              "type": "string",
+              "required": true,
+              "ui": {
+                "component": "markdown"
+              },
+              "namespace": [
+                "page",
+                "seo",
+                "description"
               ]
             }
           ],
