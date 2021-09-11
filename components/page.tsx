@@ -40,6 +40,7 @@ export default function Home(props: HomeProps) {
               property="og:description"
               content={seo.description}
             />
+            {/* @ts-ignore */}
             <meta property="og:image" content={seo.image} />
           </>
         )}
@@ -180,6 +181,7 @@ export const getStaticProps = async ({
         data: {
           title: true,
           seo: {
+            // @ts-ignore not sure why it's not getting updated
             title: true,
             description: true,
             image: true,
