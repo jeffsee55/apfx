@@ -152,10 +152,10 @@ blocks:
           management strategy, we negotiated new terms with our supplier, we saw
           a dramatic improvement in pricing and efficiency in our operation"_
     action:
-      callToAction: Get in touch today
-      linkText: Find out more
+      callToAction: Speak with one of our experts today
+      linkText: Get in touch
       link: signUpLink
-      secondaryText: Get in touch
+      secondaryText: ''
       secondaryLink: tel
     _template: comparisonTable
 ---
