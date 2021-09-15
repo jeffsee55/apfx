@@ -19,7 +19,7 @@ blocks:
     action:
       linkText: Sign up for an APFX Private account
       link: signUpLink
-      secondaryText: Get a live quote
+      secondaryText: Get in touch
       secondaryLink: tel
     _template: hero
   - items:
