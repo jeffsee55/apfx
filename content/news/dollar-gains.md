@@ -1,9 +1,7 @@
 ---
-title: Dollar Extends Gains Early on Bullard’s Hawkish Comments
+title: Fed indicates November QE taper announcement on the way
 subTitle: Federal Reserve
-description: >-
-  After a very busy and volatile 36 hours after the Federal Reserve meeting,
-  markets were largely quiet to start the day.
+description: ''
 image: >-
   https://images.unsplash.com/photo-1580519542036-c47de6196ba5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3151&q=80
 ---
