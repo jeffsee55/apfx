@@ -140,7 +140,7 @@ blocks:
           - Bank beating exchange rates
           - Multi currency bank accounts
           - 'Industry specialists '
-          - International Payments
+          - Expert guidance
       - title: Dont just take our word for it
         subTitle: What our clients have to say
         description: >-
