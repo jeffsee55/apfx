@@ -6,11 +6,11 @@ type NewsProps = {
   title: string;
   subTitle?: string;
   newsItems: {
-    article?: {
+    article: {
       data: {
         title: string;
         subTitle?: string;
-        description: string;
+        description?: string;
       };
       sys: {
         filename: string;
