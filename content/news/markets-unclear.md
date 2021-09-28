@@ -3,7 +3,7 @@ title: Norwegian Krone soars as Norges bank launches the post-COVID hiking cycle
 subTitle: Markets
 description: ''
 image: >-
-  https://images.unsplash.com/photo-1583752028088-91e3e9880b46?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2767&q=80
+  https://images.unsplash.com/photo-1520769669658-f07657f5a307?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80
 ---
 We have been pushing for a while the idea that currency markets will now be mostly, if not exclusively, about the relative pace of central bank policy tightening, with inflation data a close second.
 
