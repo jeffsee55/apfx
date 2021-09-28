@@ -1,5 +1,5 @@
 ---
-title: Norwegian Krone soars as Norges bank launches the post-COVID hiking cycle
+title: Skyrocketing energy prices buoy oil exporting currencies
 subTitle: Markets
 description: ''
 image: >-
