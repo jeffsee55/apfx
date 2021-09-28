@@ -255,24 +255,17 @@ type PageSeo {
   description: String!
 }
 
-union PageBlocksNewsNewsItemsDocument = NewsDocument
+union PageBlocksNewsNewsItemsArticleDocument = NewsDocument
 
-type PageBlocksNewsNewsItemsConnectionEdges {
-  cursor: String
-  node: PageBlocksNewsNewsItemsDocument
-}
-
-type PageBlocksNewsNewsItemsConnection implements Connection {
-  pageInfo: PageInfo
-  totalCount: Int!
-  edges: [PageBlocksNewsNewsItemsConnectionEdges]
+type PageBlocksNewsNewsItems {
+  article: PageBlocksNewsNewsItemsArticleDocument!
 }
 
 type PageBlocksNews {
   title: String!
   subTitle: String
   description: String!
-  newsItems(before: String, after: String, first: Int, last: Int): PageBlocksNewsNewsItemsConnection!
+  newsItems: [PageBlocksNewsNewsItems!]!
 }
 
 type PageBlocksStatsWithImageStats {
@@ -555,11 +548,15 @@ input PageSeoMutation {
   description: String
 }
 
+input PageBlocksNewsNewsItemsMutation {
+  article: String
+}
+
 input PageBlocksNewsMutation {
   title: String
   subTitle: String
   description: String
-  newsItems: [String]
+  newsItems: [PageBlocksNewsNewsItemsMutation]
 }
 
 input PageBlocksStatsWithImageStatsMutation {

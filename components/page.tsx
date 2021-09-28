@@ -260,26 +260,20 @@ export const getStaticProps = async ({
             "...on PageBlocksNews": {
               title: true,
               subTitle: true,
-              newsItems: [
-                {},
-                {
-                  edges: {
-                    node: {
-                      "...on NewsDocument": {
-                        sys: {
-                          filename: true,
-                        },
-                        data: {
-                          title: true,
-                          subTitle: true,
-                          description: true,
-                          image: true,
-                        },
-                      },
+              newsItems: {
+                article: {
+                  "...on NewsDocument": {
+                    data: {
+                      title: true,
+                      image: true,
+                      subTitle: true,
+                    },
+                    sys: {
+                      filename: true,
                     },
                   },
                 },
-              ],
+              },
             },
             "...on PageBlocksFullScreenLogo": {
               slogan: true,

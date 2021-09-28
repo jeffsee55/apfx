@@ -6,19 +6,17 @@ type NewsProps = {
   title: string;
   subTitle?: string;
   newsItems: {
-    edges?: {
-      node?: {
-        data: {
-          title: string;
-          subTitle?: string;
-          description: string;
-        };
-        sys: {
-          filename: string;
-        };
+    article?: {
+      data: {
+        title: string;
+        subTitle?: string;
+        description: string;
       };
-    }[];
-  };
+      sys: {
+        filename: string;
+      };
+    };
+  }[];
 } & {};
 
 export const News = (props: NewsProps) => {
@@ -44,10 +42,10 @@ export const News = (props: NewsProps) => {
         {/* @ts-ignore */}
         <Header {...props} centered={true} />
         <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
-          {props.newsItems.edges?.map((edge) => (
-            <Link href={`/news/${edge.node.sys.filename}`}>
+          {props.newsItems.map((item) => (
+            <Link href={`/news/${item.article.sys.filename}`}>
               <a
-                key={edge.node.sys.filename}
+                key={item.article.sys.filename}
                 className="flex flex-col rounded-lg shadow-lg overflow-hidden bg-gray-700"
               >
                 <div className="flex-shrink-0">
@@ -56,7 +54,7 @@ export const News = (props: NewsProps) => {
                     width={400}
                     src={
                       // @ts-ignore
-                      edge.node.data.image ||
+                      item.article.data.image ||
                       "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3150&q=80"
                     }
                     alt=""
@@ -66,12 +64,12 @@ export const News = (props: NewsProps) => {
                   <div className="flex-1">
                     <p className="text-sm font-medium text-indigo-200">
                       <span className="uppercase">
-                        {edge.node.data.subTitle}
+                        {item.article.data.subTitle}
                       </span>
                     </p>
                     <span className="block mt-2">
                       <p className="text-xl font-semibold text-white">
-                        {edge.node.data.title}
+                        {item.article.data.title}
                       </p>
                     </span>
                   </div>

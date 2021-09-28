@@ -160,5 +160,23 @@
     "type": "LocaleInfoConnection",
     "resolveType": "collectionDocumentList",
     "collection": "localeInfo"
+  },
+  "PageBlocksNewsNewsItemsNewsItemsConnection": {
+    "type": "PageBlocksNewsNewsItemsNewsItemsConnection",
+    "resolveType": "multiCollectionDocumentList",
+    "collections": [
+      "news"
+    ]
+  },
+  "PageBlocksNewsNewsItemsArticleConnection": {
+    "type": "PageBlocksNewsNewsItemsArticleConnection",
+    "resolveType": "multiCollectionDocumentList",
+    "collections": [
+      "news"
+    ]
+  },
+  "PageBlocksNewsNewsItemsArticleDocument": {
+    "type": "PageBlocksNewsNewsItemsArticleDocument",
+    "resolveType": "multiCollectionDocument"
   }
 }

@@ -415,10 +415,18 @@ export default defineSchema({
                 {
                   label: "Items",
                   name: "newsItems",
-                  type: "reference",
+                  type: "object",
                   required: true,
                   list: true,
-                  collections: ["news"],
+                  fields: [
+                    {
+                      label: "Items",
+                      name: "article",
+                      type: "reference",
+                      required: true,
+                      collections: ["news"],
+                    },
+                  ],
                 },
               ],
               // ui: {

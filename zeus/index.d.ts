@@ -1,5 +1,5 @@
 type ZEUS_INTERFACES = GraphQLTypes["Node"] | GraphQLTypes["Document"] | GraphQLTypes["Connection"]
-type ZEUS_UNIONS = GraphQLTypes["DocumentNode"] | GraphQLTypes["NavigationItemsPageDocument"] | GraphQLTypes["PageBlocksNewsNewsItemsDocument"] | GraphQLTypes["PageBlocks"]
+type ZEUS_UNIONS = GraphQLTypes["DocumentNode"] | GraphQLTypes["NavigationItemsPageDocument"] | GraphQLTypes["PageBlocksNewsNewsItemsArticleDocument"] | GraphQLTypes["PageBlocks"]
 
 export type ValueTypes = {
     /** References another document, used as a foreign key */
@@ -53,7 +53,6 @@ breadcrumbs?: [{	excludeExtension?:boolean},true],
 		['...on FooterConnection']?: Omit<ValueTypes["FooterConnection"],keyof ValueTypes["Connection"]>;
 		['...on ThemeConnection']?: Omit<ValueTypes["ThemeConnection"],keyof ValueTypes["Connection"]>;
 		['...on NavigationConnection']?: Omit<ValueTypes["NavigationConnection"],keyof ValueTypes["Connection"]>;
-		['...on PageBlocksNewsNewsItemsConnection']?: Omit<ValueTypes["PageBlocksNewsNewsItemsConnection"],keyof ValueTypes["Connection"]>;
 		['...on PageConnection']?: Omit<ValueTypes["PageConnection"],keyof ValueTypes["Connection"]>;
 		__typename?: true
 }>;
@@ -280,25 +279,18 @@ documents?: [{	before?:string,	after?:string,	first?:number,	last?:number},Value
 	description?:true,
 		__typename?: true
 }>;
-	["PageBlocksNewsNewsItemsDocument"]: AliasType<{		["...on NewsDocument"] : ValueTypes["NewsDocument"]
+	["PageBlocksNewsNewsItemsArticleDocument"]: AliasType<{		["...on NewsDocument"] : ValueTypes["NewsDocument"]
 		__typename?: true
 }>;
-	["PageBlocksNewsNewsItemsConnectionEdges"]: AliasType<{
-	cursor?:true,
-	node?:ValueTypes["PageBlocksNewsNewsItemsDocument"],
-		__typename?: true
-}>;
-	["PageBlocksNewsNewsItemsConnection"]: AliasType<{
-	pageInfo?:ValueTypes["PageInfo"],
-	totalCount?:true,
-	edges?:ValueTypes["PageBlocksNewsNewsItemsConnectionEdges"],
+	["PageBlocksNewsNewsItems"]: AliasType<{
+	article?:ValueTypes["PageBlocksNewsNewsItemsArticleDocument"],
 		__typename?: true
 }>;
 	["PageBlocksNews"]: AliasType<{
 	title?:true,
 	subTitle?:true,
 	description?:true,
-newsItems?: [{	before?:string,	after?:string,	first?:number,	last?:number},ValueTypes["PageBlocksNewsNewsItemsConnection"]],
+	newsItems?:ValueTypes["PageBlocksNewsNewsItems"],
 		__typename?: true
 }>;
 	["PageBlocksStatsWithImageStats"]: AliasType<{
@@ -577,11 +569,14 @@ updatePageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},
 	image?:string,
 	description?:string
 };
+	["PageBlocksNewsNewsItemsMutation"]: {
+	article?:string
+};
 	["PageBlocksNewsMutation"]: {
 	title?:string,
 	subTitle?:string,
 	description?:string,
-	newsItems?:(string | undefined)[]
+	newsItems?:(ValueTypes["PageBlocksNewsNewsItemsMutation"] | undefined)[]
 };
 	["PageBlocksStatsWithImageStatsMutation"]: {
 	title?:string,
@@ -768,7 +763,7 @@ export type ModelTypes = {
 	["Node"]: ModelTypes["LocaleInfoDocument"] | ModelTypes["NewsDocument"] | ModelTypes["FooterDocument"] | ModelTypes["ThemeDocument"] | ModelTypes["NavigationDocument"] | ModelTypes["PageDocument"];
 	["Document"]: ModelTypes["LocaleInfoDocument"] | ModelTypes["NewsDocument"] | ModelTypes["FooterDocument"] | ModelTypes["ThemeDocument"] | ModelTypes["NavigationDocument"] | ModelTypes["PageDocument"];
 	/** A relay-compliant pagination connection */
-["Connection"]: ModelTypes["DocumentConnection"] | ModelTypes["LocaleInfoConnection"] | ModelTypes["NewsConnection"] | ModelTypes["FooterConnection"] | ModelTypes["ThemeConnection"] | ModelTypes["NavigationConnection"] | ModelTypes["PageBlocksNewsNewsItemsConnection"] | ModelTypes["PageConnection"];
+["Connection"]: ModelTypes["DocumentConnection"] | ModelTypes["LocaleInfoConnection"] | ModelTypes["NewsConnection"] | ModelTypes["FooterConnection"] | ModelTypes["ThemeConnection"] | ModelTypes["NavigationConnection"] | ModelTypes["PageConnection"];
 	["Query"]: {
 		getCollection:ModelTypes["Collection"],
 	getCollections:ModelTypes["Collection"][],
@@ -952,21 +947,15 @@ export type ModelTypes = {
 	image?:string,
 	description:string
 };
-	["PageBlocksNewsNewsItemsDocument"]:ModelTypes["NewsDocument"];
-	["PageBlocksNewsNewsItemsConnectionEdges"]: {
-		cursor?:string,
-	node?:ModelTypes["PageBlocksNewsNewsItemsDocument"]
-};
-	["PageBlocksNewsNewsItemsConnection"]: {
-		pageInfo?:ModelTypes["PageInfo"],
-	totalCount:number,
-	edges?:(ModelTypes["PageBlocksNewsNewsItemsConnectionEdges"] | undefined)[]
+	["PageBlocksNewsNewsItemsArticleDocument"]:ModelTypes["NewsDocument"];
+	["PageBlocksNewsNewsItems"]: {
+		article:ModelTypes["PageBlocksNewsNewsItemsArticleDocument"]
 };
 	["PageBlocksNews"]: {
 		title:string,
 	subTitle?:string,
 	description:string,
-	newsItems:ModelTypes["PageBlocksNewsNewsItemsConnection"]
+	newsItems:ModelTypes["PageBlocksNewsNewsItems"][]
 };
 	["PageBlocksStatsWithImageStats"]: {
 		title:string,
@@ -1158,6 +1147,7 @@ export type ModelTypes = {
 	["NavigationItemsMutation"]: GraphQLTypes["NavigationItemsMutation"];
 	["NavigationMutation"]: GraphQLTypes["NavigationMutation"];
 	["PageSeoMutation"]: GraphQLTypes["PageSeoMutation"];
+	["PageBlocksNewsNewsItemsMutation"]: GraphQLTypes["PageBlocksNewsNewsItemsMutation"];
 	["PageBlocksNewsMutation"]: GraphQLTypes["PageBlocksNewsMutation"];
 	["PageBlocksStatsWithImageStatsMutation"]: GraphQLTypes["PageBlocksStatsWithImageStatsMutation"];
 	["PageBlocksStatsWithImageMutation"]: GraphQLTypes["PageBlocksStatsWithImageMutation"];
@@ -1228,7 +1218,7 @@ export type GraphQLTypes = {
 };
 	/** A relay-compliant pagination connection */
 ["Connection"]: {
-	__typename:"DocumentConnection" | "LocaleInfoConnection" | "NewsConnection" | "FooterConnection" | "ThemeConnection" | "NavigationConnection" | "PageBlocksNewsNewsItemsConnection" | "PageConnection"
+	__typename:"DocumentConnection" | "LocaleInfoConnection" | "NewsConnection" | "FooterConnection" | "ThemeConnection" | "NavigationConnection" | "PageConnection"
 	totalCount: number
 	['...on DocumentConnection']: '__union' & GraphQLTypes["DocumentConnection"];
 	['...on LocaleInfoConnection']: '__union' & GraphQLTypes["LocaleInfoConnection"];
@@ -1236,7 +1226,6 @@ export type GraphQLTypes = {
 	['...on FooterConnection']: '__union' & GraphQLTypes["FooterConnection"];
 	['...on ThemeConnection']: '__union' & GraphQLTypes["ThemeConnection"];
 	['...on NavigationConnection']: '__union' & GraphQLTypes["NavigationConnection"];
-	['...on PageBlocksNewsNewsItemsConnection']: '__union' & GraphQLTypes["PageBlocksNewsNewsItemsConnection"];
 	['...on PageConnection']: '__union' & GraphQLTypes["PageConnection"];
 };
 	["Query"]: {
@@ -1462,26 +1451,19 @@ export type GraphQLTypes = {
 	image?: string,
 	description: string
 };
-	["PageBlocksNewsNewsItemsDocument"]:{
+	["PageBlocksNewsNewsItemsArticleDocument"]:{
 	['...on NewsDocument']: '__union' & GraphQLTypes["NewsDocument"];
 };
-	["PageBlocksNewsNewsItemsConnectionEdges"]: {
-	__typename: "PageBlocksNewsNewsItemsConnectionEdges",
-	cursor?: string,
-	node?: GraphQLTypes["PageBlocksNewsNewsItemsDocument"]
-};
-	["PageBlocksNewsNewsItemsConnection"]: {
-	__typename: "PageBlocksNewsNewsItemsConnection",
-	pageInfo?: GraphQLTypes["PageInfo"],
-	totalCount: number,
-	edges?: Array<GraphQLTypes["PageBlocksNewsNewsItemsConnectionEdges"] | undefined>
+	["PageBlocksNewsNewsItems"]: {
+	__typename: "PageBlocksNewsNewsItems",
+	article: GraphQLTypes["PageBlocksNewsNewsItemsArticleDocument"]
 };
 	["PageBlocksNews"]: {
 	__typename: "PageBlocksNews",
 	title: string,
 	subTitle?: string,
 	description: string,
-	newsItems: GraphQLTypes["PageBlocksNewsNewsItemsConnection"]
+	newsItems: Array<GraphQLTypes["PageBlocksNewsNewsItems"]>
 };
 	["PageBlocksStatsWithImageStats"]: {
 	__typename: "PageBlocksStatsWithImageStats",
@@ -1759,11 +1741,14 @@ export type GraphQLTypes = {
 	image?: string,
 	description?: string
 };
+	["PageBlocksNewsNewsItemsMutation"]: {
+		article?: string
+};
 	["PageBlocksNewsMutation"]: {
 		title?: string,
 	subTitle?: string,
 	description?: string,
-	newsItems?: Array<string | undefined>
+	newsItems?: Array<GraphQLTypes["PageBlocksNewsNewsItemsMutation"] | undefined>
 };
 	["PageBlocksStatsWithImageStatsMutation"]: {
 		title?: string,

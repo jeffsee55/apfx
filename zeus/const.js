@@ -303,34 +303,6 @@ export const AllTypesProps = {
 			}
 		}
 	},
-	PageBlocksNews:{
-		newsItems:{
-			before:{
-				type:"String",
-				array:false,
-				arrayRequired:false,
-				required:false
-			},
-			after:{
-				type:"String",
-				array:false,
-				arrayRequired:false,
-				required:false
-			},
-			first:{
-				type:"Int",
-				array:false,
-				arrayRequired:false,
-				required:false
-			},
-			last:{
-				type:"Int",
-				array:false,
-				arrayRequired:false,
-				required:false
-			}
-		}
-	},
 	Mutation:{
 		addPendingDocument:{
 			collection:{
@@ -717,6 +689,14 @@ export const AllTypesProps = {
 			required:false
 		}
 	},
+	PageBlocksNewsNewsItemsMutation:{
+		article:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
 	PageBlocksNewsMutation:{
 		title:{
 			type:"String",
@@ -737,7 +717,7 @@ export const AllTypesProps = {
 			required:false
 		},
 		newsItems:{
-			type:"String",
+			type:"PageBlocksNewsNewsItemsMutation",
 			array:true,
 			arrayRequired:false,
 			required:false
@@ -1538,7 +1518,6 @@ export const ReturnTypes = {
 		"...on FooterConnection": "FooterConnection",
 		"...on ThemeConnection": "ThemeConnection",
 		"...on NavigationConnection": "NavigationConnection",
-		"...on PageBlocksNewsNewsItemsConnection": "PageBlocksNewsNewsItemsConnection",
 		"...on PageConnection": "PageConnection",
 		totalCount:"Int"
 	},
@@ -1734,23 +1713,17 @@ export const ReturnTypes = {
 		image:"String",
 		description:"String"
 	},
-	PageBlocksNewsNewsItemsDocument:{
+	PageBlocksNewsNewsItemsArticleDocument:{
 		"...on NewsDocument":"NewsDocument"
 	},
-	PageBlocksNewsNewsItemsConnectionEdges:{
-		cursor:"String",
-		node:"PageBlocksNewsNewsItemsDocument"
-	},
-	PageBlocksNewsNewsItemsConnection:{
-		pageInfo:"PageInfo",
-		totalCount:"Int",
-		edges:"PageBlocksNewsNewsItemsConnectionEdges"
+	PageBlocksNewsNewsItems:{
+		article:"PageBlocksNewsNewsItemsArticleDocument"
 	},
 	PageBlocksNews:{
 		title:"String",
 		subTitle:"String",
 		description:"String",
-		newsItems:"PageBlocksNewsNewsItemsConnection"
+		newsItems:"PageBlocksNewsNewsItems"
 	},
 	PageBlocksStatsWithImageStats:{
 		title:"String",

@@ -413,19 +413,11 @@ export type PageSeo = {
   description: Scalars['String'];
 };
 
-export type PageBlocksNewsNewsItemsDocument = NewsDocument;
+export type PageBlocksNewsNewsItemsArticleDocument = NewsDocument;
 
-export type PageBlocksNewsNewsItemsConnectionEdges = {
-  __typename?: 'PageBlocksNewsNewsItemsConnectionEdges';
-  cursor?: Maybe<Scalars['String']>;
-  node?: Maybe<PageBlocksNewsNewsItemsDocument>;
-};
-
-export type PageBlocksNewsNewsItemsConnection = Connection & {
-  __typename?: 'PageBlocksNewsNewsItemsConnection';
-  pageInfo?: Maybe<PageInfo>;
-  totalCount: Scalars['Int'];
-  edges?: Maybe<Array<Maybe<PageBlocksNewsNewsItemsConnectionEdges>>>;
+export type PageBlocksNewsNewsItems = {
+  __typename?: 'PageBlocksNewsNewsItems';
+  article: PageBlocksNewsNewsItemsArticleDocument;
 };
 
 export type PageBlocksNews = {
@@ -433,15 +425,7 @@ export type PageBlocksNews = {
   title: Scalars['String'];
   subTitle?: Maybe<Scalars['String']>;
   description: Scalars['String'];
-  newsItems: PageBlocksNewsNewsItemsConnection;
-};
-
-
-export type PageBlocksNewsNewsItemsArgs = {
-  before?: Maybe<Scalars['String']>;
-  after?: Maybe<Scalars['String']>;
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
+  newsItems: Array<PageBlocksNewsNewsItems>;
 };
 
 export type PageBlocksStatsWithImageStats = {
@@ -798,11 +782,15 @@ export type PageSeoMutation = {
   description?: Maybe<Scalars['String']>;
 };
 
+export type PageBlocksNewsNewsItemsMutation = {
+  article?: Maybe<Scalars['String']>;
+};
+
 export type PageBlocksNewsMutation = {
   title?: Maybe<Scalars['String']>;
   subTitle?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
-  newsItems?: Maybe<Array<Maybe<Scalars['String']>>>;
+  newsItems?: Maybe<Array<Maybe<PageBlocksNewsNewsItemsMutation>>>;
 };
 
 export type PageBlocksStatsWithImageStatsMutation = {
