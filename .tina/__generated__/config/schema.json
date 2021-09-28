@@ -474,6 +474,10 @@
                       "type": "string",
                       "options": [
                         {
+                          "label": "Link",
+                          "value": "link"
+                        },
+                        {
                           "label": "Tel",
                           "value": "tel"
                         },
@@ -506,6 +510,10 @@
                       "name": "secondaryLink",
                       "type": "string",
                       "options": [
+                        {
+                          "label": "Link",
+                          "value": "link"
+                        },
                         {
                           "label": "Tel",
                           "value": "tel"
@@ -621,6 +629,10 @@
                           "type": "string",
                           "options": [
                             {
+                              "label": "Link",
+                              "value": "link"
+                            },
+                            {
                               "label": "Tel",
                               "value": "tel"
                             },
@@ -653,6 +665,10 @@
                           "name": "secondaryLink",
                           "type": "string",
                           "options": [
+                            {
+                              "label": "Link",
+                              "value": "link"
+                            },
                             {
                               "label": "Tel",
                               "value": "tel"
@@ -832,6 +848,10 @@
                       "type": "string",
                       "options": [
                         {
+                          "label": "Link",
+                          "value": "link"
+                        },
+                        {
                           "label": "Tel",
                           "value": "tel"
                         },
@@ -864,6 +884,10 @@
                       "name": "secondaryLink",
                       "type": "string",
                       "options": [
+                        {
+                          "label": "Link",
+                          "value": "link"
+                        },
                         {
                           "label": "Tel",
                           "value": "tel"
@@ -1036,6 +1060,10 @@
                       "type": "string",
                       "options": [
                         {
+                          "label": "Link",
+                          "value": "link"
+                        },
+                        {
                           "label": "Tel",
                           "value": "tel"
                         },
@@ -1068,6 +1096,10 @@
                       "name": "secondaryLink",
                       "type": "string",
                       "options": [
+                        {
+                          "label": "Link",
+                          "value": "link"
+                        },
                         {
                           "label": "Tel",
                           "value": "tel"
@@ -1866,6 +1898,10 @@
                       "type": "string",
                       "options": [
                         {
+                          "label": "Link",
+                          "value": "link"
+                        },
+                        {
                           "label": "Tel",
                           "value": "tel"
                         },
@@ -1898,6 +1934,10 @@
                       "name": "secondaryLink",
                       "type": "string",
                       "options": [
+                        {
+                          "label": "Link",
+                          "value": "link"
+                        },
                         {
                           "label": "Tel",
                           "value": "tel"

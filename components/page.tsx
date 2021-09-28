@@ -214,8 +214,10 @@ export const getStaticProps = async ({
               action: {
                 link: true,
                 linkText: true,
+                linkOverride: true,
                 secondaryLink: true,
                 secondaryText: true,
+                secondaryLinkOverride: true,
               },
             },
             "...on PageBlocksFeature": {

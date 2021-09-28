@@ -4,7 +4,8 @@ title: >-
   ‘recalibration’
 subTitle: Europe
 description: ''
-image: 'https://source.unsplash.com/8Yw6tsB8tnc/1600x900'
+image: >-
+  https://images.unsplash.com/photo-1608817576203-3c27ed168bd2?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTYzMTY1OTQ3MA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600
 ---
 The stagflation concerns from the August payroll report in the US were confirmed by another labor market report (JOLTS), which showed unfilled job openings soaring to another all-time high in July.
 

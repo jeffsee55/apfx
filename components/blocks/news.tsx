@@ -29,7 +29,7 @@ export const News = (props: NewsProps) => {
   return (
     <div className="relative bg-gray-800 py-20 px-4 sm:px-6 lg:py-40 lg:px-8">
       <div className="absolute inset-0 overflow-hidden">
-        <img
+        <Img
           className="w-full object-cover h-1/3 sm:h-2/3"
           src={image}
           alt=""

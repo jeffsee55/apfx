@@ -9,8 +9,10 @@ export type Action = {
   callToAction?: string;
   link: string;
   linkText: string;
+  linkOverride?: string;
   secondaryText?: string;
   secondaryLink?: string;
+  secondaryLinkOverride?: string;
 };
 
 type HeroProps = {
@@ -74,14 +76,16 @@ export function HeroWithSlantImage(props: HeroProps) {
 
 const ActionBox = (props: { action: Action }) => {
   const localeInfo = useLocaleInfo();
-  const link =
-    props.action.link === "tel"
-      ? `tel: ${localeInfo[props.action.link]}`
-      : localeInfo[props.action.link];
-  const secondaryLink =
-    props.action.secondaryLink === "tel"
-      ? `tel: ${localeInfo[props.action.secondaryLink]}`
-      : localeInfo[props.action.secondaryLink];
+  const link = props.action.linkOverride
+    ? props.action.linkOverride
+    : props.action.link === "tel"
+    ? `tel: ${localeInfo[props.action.link]}`
+    : localeInfo[props.action.link];
+  const secondaryLink = props.action.secondaryLinkOverride
+    ? props.action.secondaryLinkOverride
+    : props.action.secondaryLink === "tel"
+    ? `tel: ${localeInfo[props.action.secondaryLink]}`
+    : localeInfo[props.action.secondaryLink];
 
   return (
     <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">

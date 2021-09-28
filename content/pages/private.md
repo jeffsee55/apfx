@@ -18,9 +18,10 @@ blocks:
       https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80
     action:
       linkText: Sign up for an APFX Private account
-      link: signUpLink
+      link: signUpLinkPersonal
       secondaryText: Get in touch
-      secondaryLink: tel
+      secondaryLink: link
+      secondaryLinkOverride: 'https://share.hsforms.com/1Zi7kaqn1THCrZt6hdDaGng5kdde'
     _template: hero
   - items:
       - title: International Payments
