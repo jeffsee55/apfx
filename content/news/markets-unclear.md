@@ -1,5 +1,5 @@
 ---
-title: Skyrocketing energy prices buoy oil exporting currencies
+title: Norwegian Krone soars as Norges bank launches the post-COVID hiking cycle
 subTitle: Markets
 description: ''
 image: >-
@@ -7,9 +7,7 @@ image: >-
 ---
 We have been pushing for a while the idea that currency markets will now be mostly, if not exclusively, about the relative pace of central bank policy tightening, with inflation data a close second.
 
-I
-
-n line with this narrative, the Norwegian Krone was the week’s best performer on the back of the first G10 hike of the cycle by Norges Bank. We add that market expectations of what these central banks will do and say seem to be remarkably dovish. The Federal Reserve seemed to do no more than validate most expectations with the suggestion that tapering will start in November, and yet investors sent yields violently higher, indicating that this was a hawkish surprise to most.
+In line with this narrative, the Norwegian Krone was the week’s best performer on the back of the first G10 hike of the cycle by Norges Bank. We add that market expectations of what these central banks will do and say seem to be remarkably dovish. The Federal Reserve seemed to do no more than validate most expectations with the suggestion that tapering will start in November, and yet investors sent yields violently higher, indicating that this was a hawkish surprise to most.
 
 The sell-off in US rates as markets braced for the withdrawal of monetary stimulus hammered major emerging market currencies, all of which ended the week down against the dollar, save the Russian Ruble, which was buoyed by rising energy prices, especially in Europe. Meanwhile, the fallout from the Evegrande crisis in China continues to be limited.
 
