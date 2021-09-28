@@ -1,8 +1,11 @@
 ---
-title: Dollar Steady; Peso Rallies as AMLO Losses Super-Majority
+title: Skyrocketing energy prices buoy oil exporting currencies
 subTitle: US Dollar
-image: https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2767&q=80
-description: Except for heavy losses versus the Mexican peso, the U.S. dollar opens the week fairly sleepy.
+description: >-
+  Except for heavy losses versus the Mexican peso, the U.S. dollar opens the
+  week fairly sleepy.
+image: >-
+  https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2767&q=80
 ---
 
 ## Overview
