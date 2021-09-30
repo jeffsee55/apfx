@@ -19,7 +19,8 @@ blocks:
       linkText: Find out more
       link: signUpLink
       secondaryText: Get in touch
-      secondaryLink: tel
+      secondaryLink: link
+      secondaryLinkOverride: 'https://share.hsforms.com/1Zi7kaqn1THCrZt6hdDaGng5kdde'
     _template: hero
   - title: International Payments
     description: >-
