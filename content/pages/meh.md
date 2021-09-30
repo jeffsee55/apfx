@@ -158,7 +158,7 @@ blocks:
       linkOverride: 'https://share.hsforms.com/1Zi7kaqn1THCrZt6hdDaGng5kdde'
       secondaryText: ''
       secondaryLink: ''
-      secondaryLinkOverride: 'https://share.hsforms.com/1Zi7kaqn1THCrZt6hdDaGng5kdde'
+      secondaryLinkOverride: ''
     _template: comparisonTable
 ---
 
