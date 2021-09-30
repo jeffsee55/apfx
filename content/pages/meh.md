@@ -155,7 +155,7 @@ blocks:
       callToAction: Speak with one of our experts today
       linkText: Get in touch
       link: link
-      linkOverride: 'https://share.hsforms.com/1Zi7kaqn1THCrZt6hdDaGng5kdde'
+      linkOverride: ''
       secondaryLink: link
     _template: comparisonTable
 ---
