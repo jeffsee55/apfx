@@ -162,14 +162,14 @@ export const getStaticPaths = async () => {
   const paths2 = paths.getNewsList.edges.map((edge) => {
     return { params: { filename: edge.node.sys.filename } };
   });
+  const paths3 = [];
   ["en-us", "en-gb", "en-au"].forEach((locale) => {
     paths2.forEach((p2) => {
-      // @ts-ignore
-      p2.locale = locale;
+      paths3.push({ ...p2, locale });
     });
   });
   const meh = {
-    paths: paths2,
+    paths: paths3,
     fallback: "blocking",
   };
   return meh;
