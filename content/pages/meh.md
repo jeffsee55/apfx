@@ -156,6 +156,7 @@ blocks:
       linkText: Get in touch
       link: link
       linkOverride: 'https://share.hsforms.com/1Zi7kaqn1THCrZt6hdDaGng5kdde'
+      secondaryLink: link
     _template: comparisonTable
 ---
 
