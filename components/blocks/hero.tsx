@@ -74,19 +74,24 @@ export function HeroWithSlantImage(props: HeroProps) {
   );
 }
 
-const ActionBox = (props: { action: Action }) => {
+export const getLinksFromAction = (action: Action) => {
   const localeInfo = useLocaleInfo();
-  const link = props.action.linkOverride
-    ? props.action.linkOverride
-    : props.action.link === "tel"
-    ? `tel: ${localeInfo[props.action.link]}`
-    : localeInfo[props.action.link];
-  const secondaryLink = props.action.secondaryLinkOverride
-    ? props.action.secondaryLinkOverride
-    : props.action.secondaryLink === "tel"
-    ? `tel: ${localeInfo[props.action.secondaryLink]}`
-    : localeInfo[props.action.secondaryLink];
+  const link = action.linkOverride
+    ? action.linkOverride
+    : action.link === "tel"
+    ? `tel: ${localeInfo[action.link]}`
+    : localeInfo[action.link];
+  const secondaryLink = action.secondaryLinkOverride
+    ? action.secondaryLinkOverride
+    : action.secondaryLink === "tel"
+    ? `tel: ${localeInfo[action.secondaryLink]}`
+    : localeInfo[action.secondaryLink];
 
+  return { link, secondaryLink };
+};
+
+export const ActionBox = (props: { action: Action }) => {
+  const { link, secondaryLink } = getLinksFromAction(props.action);
   return (
     <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
       <div className="rounded-md shadow">

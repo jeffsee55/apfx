@@ -3,7 +3,7 @@ import { CheckIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import { Markdown } from "../markdown";
 import { DisplayText, Text } from "../typographqy";
-import { Action } from "./hero";
+import { Action, ActionSlim, getLinksFromAction } from "./hero";
 
 type PricingProps = {
   title: string;
@@ -106,11 +106,12 @@ export function Pricing(props: PricingProps) {
 }
 
 function ActionButtons(props) {
+  const { link, secondaryLink } = getLinksFromAction(props.action);
   return (
     <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
       <div className="inline-flex rounded-md shadow">
         {props.action?.linkText && (
-          <Link href={props.action.link}>
+          <Link href={link}>
             <a className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
               {props.action.linkText}
             </a>
@@ -119,7 +120,7 @@ function ActionButtons(props) {
       </div>
       {props.action.secondaryText && (
         <div className="ml-3 inline-flex rounded-md shadow">
-          <Link href={props.action.secondaryLink}>
+          <Link href={secondaryLink}>
             <a className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50">
               {props.action.secondaryText}
             </a>

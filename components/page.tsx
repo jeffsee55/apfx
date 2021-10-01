@@ -196,8 +196,10 @@ export const getStaticProps = async ({
                 callToAction: true,
                 link: true,
                 linkText: true,
+                linkOverride: true,
                 secondaryLink: true,
                 secondaryText: true,
+                secondaryLinkOverride: true,
               },
               items: {
                 title: true,
