@@ -1,22 +1,32 @@
 ---
-title: Fed indicates November QE taper announcement on the way
-subTitle: Federal Reserve
+title: Norwegian Krone soars as Norges bank launches the post-COVID hiking cycle
+subTitle: Markets
 description: ''
 image: >-
-  https://images.unsplash.com/photo-1580519542036-c47de6196ba5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3151&q=80
+  https://images.unsplash.com/photo-1520769669658-f07657f5a307?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80
 ---
-Communications out of the meeting were broadly in line with our expectations. There was no official announcement of QE tapering, although according to the bank’s statement the Fed ‘judges that a moderation in the pace of asset purchases may soon be warranted’. Chair Jerome Powell was even more categorical during his accompanying press conference, stating that it was ‘time to begin’ tapering, and that the process of policy normalisation ‘could come as soon as the next meeting’ \[in November\]. While this was in line with market expectations, it was perhaps a slightly more explicit signal than some of the market had expected.
+We have been pushing for a while the idea that currency markets will now be mostly, if not exclusively, about the relative pace of central bank policy tightening, with inflation data a close second.
 
-As we had anticipated, the Fed’s interest rate projections (the ‘dot plot’) were revised higher. Nine of the eighteen committee members now see hikes in 2022, up from seven in June, with all but one of the members now envisaging at least one rate increase before the end of 2023 (Figure 1). The median dot suggests that the Fed may be on course to raise rates once before the end of next year and on three occasions in 2023 and 2024, a more aggressive pace than they had previously outlined. Again, this upward revision was more-or-less in line with what the market had priced in prior to the meeting, so no surprises there.
+In line with this narrative, the **Norwegian Krone** was the week’s best performer on the back of the first G10 hike of the cycle by Norges Bank. We add that market expectations of what these central banks will do and say seem to be remarkably dovish. The **Federal Reserve** seemed to do no more than validate most expectations with the suggestion that tapering will start in November, and yet investors sent yields violently higher, indicating that this was a hawkish surprise to most.
 
-**FOMC ‘Dot Plot’ \[September 2021\]**
+The **sell-off in US rates** as markets braced for the withdrawal of monetary stimulus hammered major emerging market currencies, all of which ended the week down against the dollar, save the Russian Ruble, which was buoyed by **rising energy prices, especially in Europe**. Meanwhile, the **fallout from the Evegrande crisis in China** continues to be limited.
 
-![](https://ebury.com/wp-content/uploads/2021/09/fomc.png)
+With major September central bank meetings out of the way, focus should now shift to **macroeconomic data, with inflation front and center**. The September flash inflation report for the Eurozone will be published, and markets are expecting another jump in both the headline and core numbers to bring **Eurozone inflation more in line with the US and the UK.**
 
-_Source: Refinitiv Datastream Date: 23/09/2021_
+### **GBP**
 
-The growth forecast for this year was downgraded rather sharply, in light of the recent aggressive spread of the delta variant. According to the Fed, the US economy is now expected to expand by 5.9%, down on the 7% that had been pencilled in back in July, although the 2022 and 2023 projections were shifted higher. PCE inflation forecasts were, on the other hand, upgraded, with the central bank now pencilling in price growth of 4.2% in 2021 and 2.2% in 2022. The projection for 2023 was unchanged at 2.2%. We are, however, slightly surprised by the Fed’s apparent lack of concern for rising inflationary pressures. Powell noted that supply-chain bottleneck effects had been ‘larger and longer-lasting than anticipated’, although the committee continues to see higher prices as transitory. This, in our view, is a dovish signal and we continue to think that high inflation is likely to prove more persistent than the Fed is currently anticipating.
+Sterling was torn between the undeniably hawkish meeting of the Bank of England and the newsflow of supply constraints, soaring energy prices and developing shortages. The big surprise from the BoE was that another MPC member, Dave Ramsden, joined existing hawk Michael Saunders in voting for an immediate reduction in the pace of QE purchases. Ultimately we think the former will have a longer lasting impact, especially as there is a decent chance rates in the UK will go up ahead of every other major G10 country, possibly before the end of this year or, more likely, in early 2022.
 
-The reaction in the FX market to the above was slightly counterintuitive, with the dollar briefly rallying against most of its major peers. EUR/USD ended the presser around half a percent lower, although the pair has since retraced almost all of its losses. We think that the initial move higher in the dollar was largely a reflection of the slightly more explicit indication of tapering. While a detailed timeline for the tapering path won’t be known until the actual announcement, Powell did state that it may end around mid-2022, which suggests hikes could be on the way not too long after. Markets did, however, largely take the announcement in its stride, although we do note the slight dichotomy between the initial reaction in the dollar and risk currencies, with the latter seemingly perceiving the tone as a more dovish one.
+We regard the recent weakness in sterling as a buying opportunity, as a tightening of monetary policy remains the key narrative for appreciation throughout the G10.
 
-Following Wednesday’s meeting, we are increasingly confident in our call for an official taper announcement in November, with the process to begin in December. We think the first hike in late-2022 is now likely, although again this will be highly dependent on the impact of the ongoing pandemic.
+### **EUR**
+
+As in the US, macroeconomic data from the Eurozone is starting to take stagflationary overtones. The September PMIs of business activity pulled back, albeit from very high levels, on a general theme of supply chain disruptions, constrained output and increased pricing power. We fully expect the key flash inflation report out this week to confirm this.
+
+Strategists have been busy revising their forecasts upward for both the headline and core numbers, but we still see room for a surprise. This would call into question whether the ECB can afford to lag other central banks in removing monetary accommodation and could be bullish for the common currency.
+
+### **USD**
+
+The Federal Reserve September meeting seemed to surprise markets that had expected a more dovish message, even if the suggestion that the taper will start as soon as the next meeting was widely anticipated. Markets may also have been spooked by the dot plot, in which half of the participants now expect a hike in 2022 rather than 2023. At any rate, bond yields in the US shot up and the dollar was dragged along with them, although perhaps not as much as may have been expected given the magnitude of the move in bonds.
+
+This week, we would fade any moves resulting from the debt ceiling fight, which we regard as pure political theater. We will be paying close attention to the publication of the PCE deflator numbers, which have traditionally been the Fed’s preferred measure of inflation.
