@@ -3,7 +3,7 @@ title: 'Worldwide inflation concerns boost dollar, Eastern European currencies'
 subTitle: Markets
 description: ''
 image: >-
-  https://images.unsplash.com/photo-1520769669658-f07657f5a307?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80
+  https://images.unsplash.com/photo-1574607408180-3b72da2969bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80
 ---
 Last week’s theme in markets continues to be aligned with our views and forecasts: burgeoning inflationary pressures worldwide and the possibility that central bankers, particularly in the developed world, may be already behind the curve in tightening policy.
 
