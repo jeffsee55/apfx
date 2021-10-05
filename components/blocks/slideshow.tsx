@@ -23,7 +23,7 @@ export const Slideshow = (props: SlideshowProps) => {
     setCurrent(true);
   }, []);
   if (!current) {
-    return <div>Hi</div>;
+    return <div></div>;
   }
   const items = props.items;
 
