@@ -4,6 +4,7 @@ import { DisplayText } from "./typographqy";
 import { useLocale } from "@react-aria/i18n";
 import { useRouter } from "next/router";
 import { Markdown } from "./markdown";
+import Link from "next/link";
 
 type Office = {
   location: string;
@@ -92,8 +93,12 @@ export function Footer(props: FooterProps) {
         </div>
         <div className="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
           <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
+            <Link href="/privacy-policy">Privacy Policy</Link>
+          </p>
+          <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
             &copy; 2020 APFX, Inc. All rights reserved.
           </p>
+
           <div className="mt-8 md:mt-0 text-gray-400">
             Follow us on
             <a
