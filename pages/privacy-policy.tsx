@@ -3,5 +3,5 @@ import Page, { getStaticProps as baseGetStaticProps } from "../components/page";
 export default Page;
 
 export const getStaticProps = () => {
-  return baseGetStaticProps({ relativePath: "privacy.md" });
+  return baseGetStaticProps({ relativePath: "privacy-policy.md" });
 };

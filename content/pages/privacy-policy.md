@@ -12,7 +12,6 @@ blocks:
     image: >-
       https://images.unsplash.com/photo-1633218388467-539651dcf81f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80
     overlayColor: gray
-    overlayOpacity: '9'
+    overlayOpacity: "9"
     _template: fullScreenHeader
 ---
-
