@@ -133,9 +133,9 @@ blocks:
       - title: The APFX difference
         subTitle: Why our clients love us
         description: >-
-          Transact in over 140 different currencies  you can send payments in
-          minutes in over 140 different currencies including exotics and market
-          leading rates.
+          Transact in over 140 different currencies you can send payments in
+          minutes in over 140 different currencies including exotics at market
+          leading rates
         bulletPoints:
           - Bank beating exchange rates
           - Multi currency bank accounts
