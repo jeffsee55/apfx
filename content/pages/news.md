@@ -7,9 +7,8 @@ seo:
 blocks:
   - title: News & Insights
     subTitle: Get the latest
-    description: ''
+    description: ""
     newsItems:
-      - {}
       - article: content/news/dollar-steady.md
       - article: content/news/markets-unclear.md
       - article: content/news/treasury-yields.md
