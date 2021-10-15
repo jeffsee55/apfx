@@ -13,7 +13,6 @@ blocks:
       - article: content/news/markets-unclear.md
       - article: content/news/dollar-gains.md
       - article: content/news/treasury-yields.md
-      - article: content/news/dollar-gains.md
       - article: content/news/welcome.md
       - article: content/news/volatile-week.md
     _template: news
