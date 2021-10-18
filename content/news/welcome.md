@@ -3,7 +3,7 @@ title: Dollar sells off after another strong US inflation report
 subTitle: united states
 description: ''
 image: >-
-  https://images.unsplash.com/photo-1608817576203-3c27ed168bd2?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTYzMTY1OTQ3MA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600
+  https://images.unsplash.com/photo-1534469650761-fce6cc26ac0d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2342&q=80
 ---
 
 One of the key correlations beginning to establish itself in the post-pandemic world seems to be the negative one between US inflation and the dollar.
