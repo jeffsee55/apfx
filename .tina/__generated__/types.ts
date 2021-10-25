@@ -49,6 +49,8 @@ export type Node = {
 export type Document = {
   sys?: Maybe<SystemInfo>;
   id: Scalars['ID'];
+  form: Scalars['JSON'];
+  values: Scalars['JSON'];
 };
 
 /** A relay-compliant pagination connection */
@@ -63,6 +65,7 @@ export type Query = {
   node: Node;
   getDocument: DocumentNode;
   getDocumentList: DocumentConnection;
+  getDocumentFields: Scalars['JSON'];
   getLocaleInfoDocument: LocaleInfoDocument;
   getLocaleInfoList: LocaleInfoConnection;
   getNewsDocument: NewsDocument;
@@ -646,12 +649,19 @@ export type Mutation = {
   __typename?: 'Mutation';
   addPendingDocument: DocumentNode;
   updateDocument: DocumentNode;
+  createDocument: DocumentNode;
   updateLocaleInfoDocument: LocaleInfoDocument;
+  createLocaleInfoDocument: LocaleInfoDocument;
   updateNewsDocument: NewsDocument;
+  createNewsDocument: NewsDocument;
   updateFooterDocument: FooterDocument;
+  createFooterDocument: FooterDocument;
   updateThemeDocument: ThemeDocument;
+  createThemeDocument: ThemeDocument;
   updateNavigationDocument: NavigationDocument;
+  createNavigationDocument: NavigationDocument;
   updatePageDocument: PageDocument;
+  createPageDocument: PageDocument;
 };
 
 
@@ -669,7 +679,20 @@ export type MutationUpdateDocumentArgs = {
 };
 
 
+export type MutationCreateDocumentArgs = {
+  collection: Scalars['String'];
+  relativePath: Scalars['String'];
+  params: DocumentMutation;
+};
+
+
 export type MutationUpdateLocaleInfoDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: LocaleInfoMutation;
+};
+
+
+export type MutationCreateLocaleInfoDocumentArgs = {
   relativePath: Scalars['String'];
   params: LocaleInfoMutation;
 };
@@ -681,7 +704,19 @@ export type MutationUpdateNewsDocumentArgs = {
 };
 
 
+export type MutationCreateNewsDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: NewsMutation;
+};
+
+
 export type MutationUpdateFooterDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: FooterMutation;
+};
+
+
+export type MutationCreateFooterDocumentArgs = {
   relativePath: Scalars['String'];
   params: FooterMutation;
 };
@@ -693,13 +728,31 @@ export type MutationUpdateThemeDocumentArgs = {
 };
 
 
+export type MutationCreateThemeDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: ThemeMutation;
+};
+
+
 export type MutationUpdateNavigationDocumentArgs = {
   relativePath: Scalars['String'];
   params: NavigationMutation;
 };
 
 
+export type MutationCreateNavigationDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: NavigationMutation;
+};
+
+
 export type MutationUpdatePageDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: PageMutation;
+};
+
+
+export type MutationCreatePageDocumentArgs = {
   relativePath: Scalars['String'];
   params: PageMutation;
 };

@@ -168,9 +168,8 @@ export const getStaticPaths = async () => {
       paths3.push({ ...p2, locale });
     });
   });
-  const meh = {
+  return {
     paths: paths3,
     fallback: "blocking",
   };
-  return meh;
 };

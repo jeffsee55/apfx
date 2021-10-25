@@ -17,12 +17,16 @@
   },
   "DocumentNode": {
     "type": "DocumentNode",
-    "resolveType": "multiCollectionDocument"
+    "resolveType": "multiCollectionDocument",
+    "createDocument": "create",
+    "updateDocument": "update"
   },
   "PageDocument": {
     "type": "PageDocument",
     "resolveType": "collectionDocument",
-    "collection": "page"
+    "collection": "page",
+    "createPageDocument": "create",
+    "updatePageDocument": "update"
   },
   "PageConnection": {
     "type": "PageConnection",
@@ -61,7 +65,9 @@
   "NavigationDocument": {
     "type": "NavigationDocument",
     "resolveType": "collectionDocument",
-    "collection": "navigation"
+    "collection": "navigation",
+    "createNavigationDocument": "create",
+    "updateNavigationDocument": "update"
   },
   "NavigationConnection": {
     "type": "NavigationConnection",
@@ -70,12 +76,16 @@
   },
   "NavigationItemsPageDocument": {
     "type": "NavigationItemsPageDocument",
-    "resolveType": "multiCollectionDocument"
+    "resolveType": "multiCollectionDocument",
+    "createDocument": "create",
+    "updateDocument": "update"
   },
   "FooterDocument": {
     "type": "FooterDocument",
     "resolveType": "collectionDocument",
-    "collection": "footer"
+    "collection": "footer",
+    "createFooterDocument": "create",
+    "updateFooterDocument": "update"
   },
   "FooterConnection": {
     "type": "FooterConnection",
@@ -113,7 +123,9 @@
   "ThemeDocument": {
     "type": "ThemeDocument",
     "resolveType": "collectionDocument",
-    "collection": "theme"
+    "collection": "theme",
+    "createThemeDocument": "create",
+    "updateThemeDocument": "update"
   },
   "ThemeConnection": {
     "type": "ThemeConnection",
@@ -123,7 +135,9 @@
   "NewsDocument": {
     "type": "NewsDocument",
     "resolveType": "collectionDocument",
-    "collection": "news"
+    "collection": "news",
+    "createNewsDocument": "create",
+    "updateNewsDocument": "update"
   },
   "NewsConnection": {
     "type": "NewsConnection",
@@ -154,7 +168,9 @@
   "LocaleInfoDocument": {
     "type": "LocaleInfoDocument",
     "resolveType": "collectionDocument",
-    "collection": "localeInfo"
+    "collection": "localeInfo",
+    "createLocaleInfoDocument": "create",
+    "updateLocaleInfoDocument": "update"
   },
   "LocaleInfoConnection": {
     "type": "LocaleInfoConnection",
@@ -177,6 +193,8 @@
   },
   "PageBlocksNewsNewsItemsArticleDocument": {
     "type": "PageBlocksNewsNewsItemsArticleDocument",
-    "resolveType": "multiCollectionDocument"
+    "resolveType": "multiCollectionDocument",
+    "createDocument": "create",
+    "updateDocument": "update"
   }
 }

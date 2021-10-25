@@ -32,6 +32,8 @@ interface Node {
 interface Document {
   sys: SystemInfo
   id: ID!
+  form: JSON!
+  values: JSON!
 }
 
 """A relay-compliant pagination connection"""
@@ -45,6 +47,7 @@ type Query {
   node(id: String): Node!
   getDocument(collection: String, relativePath: String): DocumentNode!
   getDocumentList(before: String, after: String, first: Int, last: Int): DocumentConnection!
+  getDocumentFields: JSON!
   getLocaleInfoDocument(relativePath: String): LocaleInfoDocument!
   getLocaleInfoList(before: String, after: String, first: Int, last: Int): LocaleInfoConnection!
   getNewsDocument(relativePath: String): NewsDocument!
@@ -462,12 +465,19 @@ type PageConnection implements Connection {
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String!, relativePath: String!, params: DocumentMutation!): DocumentNode!
+  createDocument(collection: String!, relativePath: String!, params: DocumentMutation!): DocumentNode!
   updateLocaleInfoDocument(relativePath: String!, params: LocaleInfoMutation!): LocaleInfoDocument!
+  createLocaleInfoDocument(relativePath: String!, params: LocaleInfoMutation!): LocaleInfoDocument!
   updateNewsDocument(relativePath: String!, params: NewsMutation!): NewsDocument!
+  createNewsDocument(relativePath: String!, params: NewsMutation!): NewsDocument!
   updateFooterDocument(relativePath: String!, params: FooterMutation!): FooterDocument!
+  createFooterDocument(relativePath: String!, params: FooterMutation!): FooterDocument!
   updateThemeDocument(relativePath: String!, params: ThemeMutation!): ThemeDocument!
+  createThemeDocument(relativePath: String!, params: ThemeMutation!): ThemeDocument!
   updateNavigationDocument(relativePath: String!, params: NavigationMutation!): NavigationDocument!
+  createNavigationDocument(relativePath: String!, params: NavigationMutation!): NavigationDocument!
   updatePageDocument(relativePath: String!, params: PageMutation!): PageDocument!
+  createPageDocument(relativePath: String!, params: PageMutation!): PageDocument!
 }
 
 input DocumentMutation {

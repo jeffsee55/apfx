@@ -18,9 +18,9 @@ type NavProps = {
 
 export const Nav = (props: NavProps) => {
   const localeInfo = useLocaleInfo();
-  const meh = useRouter();
+  const router = useRouter();
   const signUpLink =
-    meh.asPath === "/personal"
+    router.asPath === "/personal"
       ? localeInfo.signUpLinkPersonal
         ? localeInfo.signUpLinkPersonal
         : localeInfo.signUpLink

@@ -6,8 +6,8 @@ const TinaLoader = ({ pageProps, children }) => {
     <Tina
       branch="main"
       clientId="d94095b9-fb25-40a6-a3ea-277ad5653cb0"
-      isLocalClient={!!process.env.NEXT_PUBLIC_TINA_LOCAL || false}
-      // isLocalClient={true}
+      // isLocalClient={!!process.env.NEXT_PUBLIC_TINA_LOCAL || false}
+      isLocalClient={true}
       cmsCallback={(cms) => {
         cms.plugins.add(MarkdownFieldPlugin);
         return cms;
