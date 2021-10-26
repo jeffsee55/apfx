@@ -4,7 +4,7 @@ import { MarkdownFieldPlugin } from "react-tinacms-editor";
 const TinaLoader = ({ pageProps, children }) => {
   return (
     <Tina
-      branch="main"
+      branch="testing-mdx"
       clientId="d94095b9-fb25-40a6-a3ea-277ad5653cb0"
       isLocalClient={!!process.env.NEXT_PUBLIC_TINA_LOCAL || false}
       // isLocalClient={true}
