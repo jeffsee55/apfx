@@ -1,17 +1,40 @@
 ---
-title: 'Inflation worries send bond yields higher, dollar lower'
+title: "Inflation worries send bond yields higher, dollar lower"
 subTitle: Markets
-description: ''
+description: ""
 image: >-
   https://images.unsplash.com/photo-1574607408180-3b72da2969bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80
 ---
 
-Inflation fears were further stoked by a massive upward surprise in quarterly inflation out of New Zealand last week.
+The general tone in financial news is that of growing worries that **inflationary pressures** may not be wholly transitory, and that bottlenecks, shortages and price hikes are here to stay, fuelled by extraordinarily stimulative fiscal and monetary conditions. The biggest winners last week were again the currencies of commodity exporting countries: **the Norwegian kroner, Russian ruble, and the Chilean peso**.
 
- Sovereign bonds worldwide continue to sell-off, but as yet risk sentiment and, in particular, stock prices are proving resilient, as investors bet that corporations are well-placed to pass costs along and benefit from extremely stimulative monetary policy. The dollar’s relationship with rising inflation expectations remains uneasy, and the greenback fell against every other G10 currency except the Canadian dollar. The Chinese yuan deserves a special mention, as it continues to ignore real estate troubles in China and rises relentlessly against all of its major peers.  We expect the key event for currency markets this week to be the ECB October meeting on Thursday. Market expectations have been guided downward by recent dovish communications. Any hint that a hawkish faction is developing in the Council could be supportive for the euro. Also key will be the Eurozone preliminary inflation number for October out on Friday, and US third quarter growth and inflation numbers, on Thursday and Friday respectively.
+A side event to the **Fed meeting** that warrants attention is the developments around the troubled Chinese property developer Evergrande. For now, the impact on the yuan has been minimal, though some of the Pacific currencies more exposed to Chinese trade have suffered.
 
- GBP Bank of England Governor Bailey and Chief Economist Pill suggested last week that a hike in interest rates may be on the cards as early as the next meeting of the MPC in early-November. Futures markets have reacted aggressively, and are now fully pricing in the first pandemi era rate hike at next Thursday’s MPC meeting. We expect to see a 15 basis point move in rates, with another 25 basis point hike now looking likely to follow in February. Strong increases in house prices and overall inflation continued in October and September respectively, while the PMIs also surprised pleasantly to the upside last week, despite ongoing supply shortages. All in all, the rather muted reaction to the positive news in sterling is a bit puzzling, albeit the UK currency continues to trade just shy of its strongest position since mid-September versus the dollar. This week, all eyes should be on the release of the UK government’s budget on Wednesday. We will be paying close attention to the impact of sooner-than-expected interest rate hikes on the government’s updated growth forecasts.
+**Central banks** take front and center this week. Of course, the main event will be the Federal Reserve meeting on Wednesday. However, the **Bank of England** on Thursday will also provide for volatility, as will the meetings of the Norwegian, Swedish, Swiss and Japanese central banks.
 
- EUR In contrast to the US and the UK, the Eurozone PMIs slipped, although they remain at high levels consistent with continued strong growth. The key event for this week is, of course, the European Central Bank’s October meeting on Thursday. Once again, no change in policy is expected, and the focus will be on communications from the council, with markets expecting a very dovish ECB. However, it’s worth noting that the gap between the ECB’s September projections for future inflation and reality has only widened. Another increase is expected when the October preliminary data is released the day after the ECB meeting. Given market expectations, even a neutral tone from President Lagarde would probably result in a sharp euro rally.
+### **GBP**
 
- USD While higher Treasury rates have usually been a positive for the US dollar, on this occasion this backup is being entirely driven by rising inflation expectations rather than hope for better real returns. Chair Powell last week all but confirmed that the taper will begin in November, but this provided little help to the greenback, which dropped against most of its G10 peers. This week’s combination of third-quarter growth and inflation data should provide clarity on the stagflation issue; we are of the view that the current environment is clearly inflationary, but also relatively growth friendly, and expect positive surprises on both fronts. We still see plenty of room for market’s projections of Fed hikes to be brought further forward in time, in spite of recent moves in that direction.
+Yet another strong **inflation report out of the UK**, together with encouraging employment data, saw traders bring forward their expectations for Bank of England hikes. However, even after this adjustment there is no hike priced in until the summer of 2022, and we wonder if the relentless upward pressure on prices will bring forward expectations for hikes into Q1 next year.
+
+The **Bank of England meeting on Thursday** will be key in this regard. Market expectations about the meeting are too relaxed, and we would not be surprised to see more dissenters join Michael Saunders in calling for an immediate reduction in QE purchases, which would provide solid support for the pound.
+
+### **EUR**
+
+- Item one
+- Item two
+  - Item two 1
+  - Item two 2
+
+1. Ordered one
+2. Ordered two
+3. Ordered two 1
+
+**Skyrocketing gas prices in Europe** and the resulting hike in energy costs for consumers and producers throughout the Eurozone seem to have blindsided the ECB. Signs are emerging that some within the central bank are uneasy with its forecasts of below target inflation as far as the eye can see, and that market expectations of no hikes until at least 2025 may be too dovish.
+
+At any rate, we expect these disagreements and inflation data to remain the main drivers of euro trading for the foreseeable future. Market views of future ECB policy are so dovish that the risk is clearly toward an earlier than expected tightening of monetary policy, which would be positive for the common currency. Meanwhile, the **German federal election on Sunday** will be closely monitored by investors, although we think that the actual impact on the euro will be rather limited.
+
+### **USD**
+
+**Inflation in August** remained very high, though the headline and core numbers were slightly softer than expected. There were signs that the spikes in inflation are spreading from pandemic-related shortages such as used cars to more persistent areas such as housing. Regardless, markets did not seem reassured by the inflation numbers and sent Treasury yields higher for the week.
+
+The above provides an interesting backdrop for the [September FOMC meeting on Wednesday](https://ebury.com/e-blog/blog/ebury_post/fomc-september-meeting-preview-will-the-fed-announce-a-qe-taper/). We think the doves will carry the day for now, and no taper will be announced at this meeting. However, the hawks are likely to express their rising dissent in the “dot plot” where each member records their expectations for rates in successive years. We are likely to see quite a few outliers expecting hikes much sooner than the market, though the dollar’s reaction will be anyone’s guess.
