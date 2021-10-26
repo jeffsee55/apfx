@@ -278,7 +278,7 @@ export type News = {
   subTitle?: Maybe<Scalars['String']>;
   description: Scalars['String'];
   image?: Maybe<Scalars['String']>;
-  body?: Maybe<Scalars['String']>;
+  body?: Maybe<Scalars['JSON']>;
 };
 
 export type NewsDocument = Node & Document & {
@@ -798,7 +798,7 @@ export type NewsMutation = {
   subTitle?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   image?: Maybe<Scalars['String']>;
-  body?: Maybe<Scalars['String']>;
+  body?: Maybe<Scalars['JSON']>;
 };
 
 export type FooterOfficesMutation = {

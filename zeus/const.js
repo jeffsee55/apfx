@@ -344,7 +344,41 @@ export const AllTypesProps = {
 				required:true
 			}
 		},
+		createDocument:{
+			collection:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:true
+			},
+			relativePath:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:true
+			},
+			params:{
+				type:"DocumentMutation",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
 		updateLocaleInfoDocument:{
+			relativePath:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:true
+			},
+			params:{
+				type:"LocaleInfoMutation",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		createLocaleInfoDocument:{
 			relativePath:{
 				type:"String",
 				array:false,
@@ -372,7 +406,35 @@ export const AllTypesProps = {
 				required:true
 			}
 		},
+		createNewsDocument:{
+			relativePath:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:true
+			},
+			params:{
+				type:"NewsMutation",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
 		updateFooterDocument:{
+			relativePath:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:true
+			},
+			params:{
+				type:"FooterMutation",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		createFooterDocument:{
 			relativePath:{
 				type:"String",
 				array:false,
@@ -400,6 +462,20 @@ export const AllTypesProps = {
 				required:true
 			}
 		},
+		createThemeDocument:{
+			relativePath:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:true
+			},
+			params:{
+				type:"ThemeMutation",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
 		updateNavigationDocument:{
 			relativePath:{
 				type:"String",
@@ -414,7 +490,35 @@ export const AllTypesProps = {
 				required:true
 			}
 		},
+		createNavigationDocument:{
+			relativePath:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:true
+			},
+			params:{
+				type:"NavigationMutation",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
 		updatePageDocument:{
+			relativePath:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:true
+			},
+			params:{
+				type:"PageMutation",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		createPageDocument:{
 			relativePath:{
 				type:"String",
 				array:false,
@@ -591,7 +695,7 @@ export const AllTypesProps = {
 			required:false
 		},
 		body:{
-			type:"String",
+			type:"JSON",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -1509,7 +1613,9 @@ export const ReturnTypes = {
 		"...on NavigationDocument": "NavigationDocument",
 		"...on PageDocument": "PageDocument",
 		sys:"SystemInfo",
-		id:"ID"
+		id:"ID",
+		form:"JSON",
+		values:"JSON"
 	},
 	Connection:{
 		"...on DocumentConnection": "DocumentConnection",
@@ -1527,6 +1633,7 @@ export const ReturnTypes = {
 		node:"Node",
 		getDocument:"DocumentNode",
 		getDocumentList:"DocumentConnection",
+		getDocumentFields:"JSON",
 		getLocaleInfoDocument:"LocaleInfoDocument",
 		getLocaleInfoList:"LocaleInfoConnection",
 		getNewsDocument:"NewsDocument",
@@ -1613,7 +1720,7 @@ export const ReturnTypes = {
 		subTitle:"String",
 		description:"String",
 		image:"String",
-		body:"String"
+		body:"JSON"
 	},
 	NewsDocument:{
 		id:"ID",
@@ -1905,11 +2012,18 @@ export const ReturnTypes = {
 	Mutation:{
 		addPendingDocument:"DocumentNode",
 		updateDocument:"DocumentNode",
+		createDocument:"DocumentNode",
 		updateLocaleInfoDocument:"LocaleInfoDocument",
+		createLocaleInfoDocument:"LocaleInfoDocument",
 		updateNewsDocument:"NewsDocument",
+		createNewsDocument:"NewsDocument",
 		updateFooterDocument:"FooterDocument",
+		createFooterDocument:"FooterDocument",
 		updateThemeDocument:"ThemeDocument",
+		createThemeDocument:"ThemeDocument",
 		updateNavigationDocument:"NavigationDocument",
-		updatePageDocument:"PageDocument"
+		createNavigationDocument:"NavigationDocument",
+		updatePageDocument:"PageDocument",
+		createPageDocument:"PageDocument"
 	}
 }

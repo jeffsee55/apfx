@@ -35,7 +35,9 @@ breadcrumbs?: [{	excludeExtension?:boolean},true],
 }>;
 	["Document"]:AliasType<{
 		sys?:ValueTypes["SystemInfo"],
-	id?:true;
+	id?:true,
+	form?:true,
+	values?:true;
 		['...on LocaleInfoDocument']?: Omit<ValueTypes["LocaleInfoDocument"],keyof ValueTypes["Document"]>;
 		['...on NewsDocument']?: Omit<ValueTypes["NewsDocument"],keyof ValueTypes["Document"]>;
 		['...on FooterDocument']?: Omit<ValueTypes["FooterDocument"],keyof ValueTypes["Document"]>;
@@ -62,6 +64,7 @@ getCollection?: [{	collection?:string},ValueTypes["Collection"]],
 node?: [{	id?:string},ValueTypes["Node"]],
 getDocument?: [{	collection?:string,	relativePath?:string},ValueTypes["DocumentNode"]],
 getDocumentList?: [{	before?:string,	after?:string,	first?:number,	last?:number},ValueTypes["DocumentConnection"]],
+	getDocumentFields?:true,
 getLocaleInfoDocument?: [{	relativePath?:string},ValueTypes["LocaleInfoDocument"]],
 getLocaleInfoList?: [{	before?:string,	after?:string,	first?:number,	last?:number},ValueTypes["LocaleInfoConnection"]],
 getNewsDocument?: [{	relativePath?:string},ValueTypes["NewsDocument"]],
@@ -496,12 +499,19 @@ documents?: [{	before?:string,	after?:string,	first?:number,	last?:number},Value
 	["Mutation"]: AliasType<{
 addPendingDocument?: [{	collection:string,	relativePath:string,	template?:string},ValueTypes["DocumentNode"]],
 updateDocument?: [{	collection:string,	relativePath:string,	params:ValueTypes["DocumentMutation"]},ValueTypes["DocumentNode"]],
+createDocument?: [{	collection:string,	relativePath:string,	params:ValueTypes["DocumentMutation"]},ValueTypes["DocumentNode"]],
 updateLocaleInfoDocument?: [{	relativePath:string,	params:ValueTypes["LocaleInfoMutation"]},ValueTypes["LocaleInfoDocument"]],
+createLocaleInfoDocument?: [{	relativePath:string,	params:ValueTypes["LocaleInfoMutation"]},ValueTypes["LocaleInfoDocument"]],
 updateNewsDocument?: [{	relativePath:string,	params:ValueTypes["NewsMutation"]},ValueTypes["NewsDocument"]],
+createNewsDocument?: [{	relativePath:string,	params:ValueTypes["NewsMutation"]},ValueTypes["NewsDocument"]],
 updateFooterDocument?: [{	relativePath:string,	params:ValueTypes["FooterMutation"]},ValueTypes["FooterDocument"]],
+createFooterDocument?: [{	relativePath:string,	params:ValueTypes["FooterMutation"]},ValueTypes["FooterDocument"]],
 updateThemeDocument?: [{	relativePath:string,	params:ValueTypes["ThemeMutation"]},ValueTypes["ThemeDocument"]],
+createThemeDocument?: [{	relativePath:string,	params:ValueTypes["ThemeMutation"]},ValueTypes["ThemeDocument"]],
 updateNavigationDocument?: [{	relativePath:string,	params:ValueTypes["NavigationMutation"]},ValueTypes["NavigationDocument"]],
+createNavigationDocument?: [{	relativePath:string,	params:ValueTypes["NavigationMutation"]},ValueTypes["NavigationDocument"]],
 updatePageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},ValueTypes["PageDocument"]],
+createPageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},ValueTypes["PageDocument"]],
 		__typename?: true
 }>;
 	["DocumentMutation"]: {
@@ -540,7 +550,7 @@ updatePageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},
 	subTitle?:string,
 	description?:string,
 	image?:string,
-	body?:string
+	body?:ValueTypes["JSON"]
 };
 	["FooterOfficesMutation"]: {
 	location?:string,
@@ -770,6 +780,7 @@ export type ModelTypes = {
 	node:ModelTypes["Node"],
 	getDocument:ModelTypes["DocumentNode"],
 	getDocumentList:ModelTypes["DocumentConnection"],
+	getDocumentFields:ModelTypes["JSON"],
 	getLocaleInfoDocument:ModelTypes["LocaleInfoDocument"],
 	getLocaleInfoList:ModelTypes["LocaleInfoConnection"],
 	getNewsDocument:ModelTypes["NewsDocument"],
@@ -849,7 +860,7 @@ export type ModelTypes = {
 	subTitle?:string,
 	description:string,
 	image?:string,
-	body?:string
+	body?:ModelTypes["JSON"]
 };
 	["NewsDocument"]: {
 		id:string,
@@ -1127,12 +1138,19 @@ export type ModelTypes = {
 	["Mutation"]: {
 		addPendingDocument:ModelTypes["DocumentNode"],
 	updateDocument:ModelTypes["DocumentNode"],
+	createDocument:ModelTypes["DocumentNode"],
 	updateLocaleInfoDocument:ModelTypes["LocaleInfoDocument"],
+	createLocaleInfoDocument:ModelTypes["LocaleInfoDocument"],
 	updateNewsDocument:ModelTypes["NewsDocument"],
+	createNewsDocument:ModelTypes["NewsDocument"],
 	updateFooterDocument:ModelTypes["FooterDocument"],
+	createFooterDocument:ModelTypes["FooterDocument"],
 	updateThemeDocument:ModelTypes["ThemeDocument"],
+	createThemeDocument:ModelTypes["ThemeDocument"],
 	updateNavigationDocument:ModelTypes["NavigationDocument"],
-	updatePageDocument:ModelTypes["PageDocument"]
+	createNavigationDocument:ModelTypes["NavigationDocument"],
+	updatePageDocument:ModelTypes["PageDocument"],
+	createPageDocument:ModelTypes["PageDocument"]
 };
 	["DocumentMutation"]: GraphQLTypes["DocumentMutation"];
 	["LocaleInfoAuMutation"]: GraphQLTypes["LocaleInfoAuMutation"];
@@ -1208,7 +1226,9 @@ export type GraphQLTypes = {
 	["Document"]: {
 	__typename:"LocaleInfoDocument" | "NewsDocument" | "FooterDocument" | "ThemeDocument" | "NavigationDocument" | "PageDocument"
 	sys?: GraphQLTypes["SystemInfo"],
-	id: string
+	id: string,
+	form: GraphQLTypes["JSON"],
+	values: GraphQLTypes["JSON"]
 	['...on LocaleInfoDocument']: '__union' & GraphQLTypes["LocaleInfoDocument"];
 	['...on NewsDocument']: '__union' & GraphQLTypes["NewsDocument"];
 	['...on FooterDocument']: '__union' & GraphQLTypes["FooterDocument"];
@@ -1235,6 +1255,7 @@ export type GraphQLTypes = {
 	node: GraphQLTypes["Node"],
 	getDocument: GraphQLTypes["DocumentNode"],
 	getDocumentList: GraphQLTypes["DocumentConnection"],
+	getDocumentFields: GraphQLTypes["JSON"],
 	getLocaleInfoDocument: GraphQLTypes["LocaleInfoDocument"],
 	getLocaleInfoList: GraphQLTypes["LocaleInfoConnection"],
 	getNewsDocument: GraphQLTypes["NewsDocument"],
@@ -1332,7 +1353,7 @@ export type GraphQLTypes = {
 	subTitle?: string,
 	description: string,
 	image?: string,
-	body?: string
+	body?: GraphQLTypes["JSON"]
 };
 	["NewsDocument"]: {
 	__typename: "NewsDocument",
@@ -1669,12 +1690,19 @@ export type GraphQLTypes = {
 	__typename: "Mutation",
 	addPendingDocument: GraphQLTypes["DocumentNode"],
 	updateDocument: GraphQLTypes["DocumentNode"],
+	createDocument: GraphQLTypes["DocumentNode"],
 	updateLocaleInfoDocument: GraphQLTypes["LocaleInfoDocument"],
+	createLocaleInfoDocument: GraphQLTypes["LocaleInfoDocument"],
 	updateNewsDocument: GraphQLTypes["NewsDocument"],
+	createNewsDocument: GraphQLTypes["NewsDocument"],
 	updateFooterDocument: GraphQLTypes["FooterDocument"],
+	createFooterDocument: GraphQLTypes["FooterDocument"],
 	updateThemeDocument: GraphQLTypes["ThemeDocument"],
+	createThemeDocument: GraphQLTypes["ThemeDocument"],
 	updateNavigationDocument: GraphQLTypes["NavigationDocument"],
-	updatePageDocument: GraphQLTypes["PageDocument"]
+	createNavigationDocument: GraphQLTypes["NavigationDocument"],
+	updatePageDocument: GraphQLTypes["PageDocument"],
+	createPageDocument: GraphQLTypes["PageDocument"]
 };
 	["DocumentMutation"]: {
 		localeInfo?: GraphQLTypes["LocaleInfoMutation"],
@@ -1712,7 +1740,7 @@ export type GraphQLTypes = {
 	subTitle?: string,
 	description?: string,
 	image?: string,
-	body?: string
+	body?: GraphQLTypes["JSON"]
 };
 	["FooterOfficesMutation"]: {
 		location?: string,

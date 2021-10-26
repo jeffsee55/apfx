@@ -210,13 +210,10 @@
           ]
         },
         {
-          "type": "string",
           "name": "body",
           "isBody": true,
           "label": "Body",
-          "ui": {
-            "component": "markdown"
-          },
+          "type": "rich-text",
           "namespace": [
             "news",
             "body"

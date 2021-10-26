@@ -1744,25 +1744,29 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(226, 232, 240, var(--tw-text-opacity));
 }
-.text-gray-500 {
+.text-gray-200 {
 	--tw-text-opacity: 1;
-	color: rgba(107, 114, 128, var(--tw-text-opacity));
+	color: rgba(229, 231, 235, var(--tw-text-opacity));
 }
-.text-indigo-600 {
+.text-red-500 {
 	--tw-text-opacity: 1;
-	color: rgba(71, 85, 105, var(--tw-text-opacity));
+	color: rgba(239, 68, 68, var(--tw-text-opacity));
 }
 .text-indigo-700 {
 	--tw-text-opacity: 1;
 	color: rgba(51, 65, 85, var(--tw-text-opacity));
 }
+.text-indigo-600 {
+	--tw-text-opacity: 1;
+	color: rgba(71, 85, 105, var(--tw-text-opacity));
+}
+.text-gray-500 {
+	--tw-text-opacity: 1;
+	color: rgba(107, 114, 128, var(--tw-text-opacity));
+}
 .text-green-500 {
 	--tw-text-opacity: 1;
 	color: rgba(16, 185, 129, var(--tw-text-opacity));
-}
-.text-gray-200 {
-	--tw-text-opacity: 1;
-	color: rgba(229, 231, 235, var(--tw-text-opacity));
 }
 .text-indigo-300 {
 	--tw-text-opacity: 1;
@@ -2145,11 +2149,6 @@ a.hover-smooth:hover::before {
 .hover\:text-gray-200:hover {
 	--tw-text-opacity: 1;
 	color: rgba(229, 231, 235, var(--tw-text-opacity));
-}
-
-.hover\:text-indigo-500:hover {
-	--tw-text-opacity: 1;
-	color: rgba(100, 116, 139, var(--tw-text-opacity));
 }
 
 .hover\:opacity-25:hover {

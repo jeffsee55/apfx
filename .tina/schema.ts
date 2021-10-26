@@ -254,13 +254,14 @@ export default defineSchema({
           type: "string",
         },
         {
-          type: "string",
           name: "body",
           isBody: true,
           label: "Body",
-          ui: {
-            component: "markdown",
-          },
+          type: "rich-text",
+          // type: "string",
+          // ui: {
+          //   component: "markdown",
+          // },
         },
       ],
     },

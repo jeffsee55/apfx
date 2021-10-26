@@ -24,14 +24,7 @@ export function Footer(props: FooterProps) {
   const [selected, setSelected] = React.useState(null);
   const router = useRouter();
 
-  // React.useEffect(() => {
-  //   console.log({ locale, chosenLocale });
-  //   router.push(router.asPath, null, {
-  //     locale: chosenLocale,
-  //   });
-  // }, [chosenLocale]);
   React.useEffect(() => {
-    console.log(router.locale);
     setSelected(router.locale);
   }, [router.locale]);
 

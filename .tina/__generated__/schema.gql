@@ -139,7 +139,7 @@ type News {
   subTitle: String
   description: String!
   image: String
-  body: String
+  body: JSON
 }
 
 type NewsDocument implements Node & Document {
@@ -521,7 +521,7 @@ input NewsMutation {
   subTitle: String
   description: String
   image: String
-  body: String
+  body: JSON
 }
 
 input FooterOfficesMutation {

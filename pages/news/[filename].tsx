@@ -48,7 +48,6 @@ export const getStaticProps = async ({
 }: {
   params: { filename: string };
 }) => {
-  console.log(params);
   const { filename } = params;
   const chain = Chain("http://localhost:4001/graphql", {});
   const chainWithQueryString = {

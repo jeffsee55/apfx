@@ -18,6 +18,7 @@
 import React from "react";
 import { Header } from "./blocks/feature";
 import { Markdown } from "./markdown";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
 
 export const News = (props) => {
   return (
@@ -90,7 +91,16 @@ export const News = (props) => {
       <div>
         <div className="relative px-4 sm:px-6 lg:px-8">
           <div className="py-12 md:py-24 max-w-prose prose-lg text-white mx-auto">
-            <Markdown>{props.body}</Markdown>
+            <TinaMarkdown
+              content={props.body}
+              components={{
+                a: (props) => (
+                  <a href={props.url} className="text-red-500">
+                    {props.children}
+                  </a>
+                ),
+              }}
+            />
           </div>
         </div>
       </div>
