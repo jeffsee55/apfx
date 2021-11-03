@@ -1,4 +1,4 @@
-import Tina from "tinacms";
+import Tina, { Form, GlobalFormPlugin } from "tinacms";
 import { MarkdownFieldPlugin } from "react-tinacms-editor";
 
 const TinaLoader = ({ pageProps, children }) => {
@@ -12,7 +12,7 @@ const TinaLoader = ({ pageProps, children }) => {
         cms.plugins.add(MarkdownFieldPlugin);
         return cms;
       }}
-      formifyCallback={(args) => {
+      formifyCallback={(args, cms) => {
         if (
           [
             "getNavigationDocument",
@@ -21,7 +21,9 @@ const TinaLoader = ({ pageProps, children }) => {
             "getThemeDocument",
           ].includes(args.formConfig.id)
         ) {
-          return args.createGlobalForm(args.formConfig);
+          const form = new Form(args.formConfig);
+          cms.plugins.add(new GlobalFormPlugin(form, null, "fullscreen"));
+          return form;
         }
         return args.createForm(args.formConfig);
       }}
