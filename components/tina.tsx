@@ -4,10 +4,13 @@ import { MarkdownFieldPlugin } from "react-tinacms-editor";
 const TinaLoader = ({ pageProps, children }) => {
   return (
     <Tina
-      branch="main"
-      clientId="d94095b9-fb25-40a6-a3ea-277ad5653cb0"
+      // branch="main"
+      branch="local-dev"
+      clientId="950fddaa-788b-4f82-8cf7-8de3581ed936"
+      isLocalClient={false}
+      // clientId="d94095b9-fb25-40a6-a3ea-277ad5653cb0"
       // isLocalClient={!!process.env.NEXT_PUBLIC_TINA_LOCAL || false}
-      isLocalClient={true}
+      // isLocalClient={true}
       cmsCallback={(cms) => {
         cms.plugins.add(MarkdownFieldPlugin);
         return cms;
