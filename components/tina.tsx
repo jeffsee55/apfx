@@ -8,6 +8,11 @@ const TinaLoader = ({ pageProps, children }) => {
       branch="local-dev"
       clientId="950fddaa-788b-4f82-8cf7-8de3581ed936"
       isLocalClient={false}
+      tinaioConfig={{
+        contentApiUrlOverride: "https://content.jsee.tinajs.dev",
+        frontendUrlOverride: "https://jsee.tinajs.dev",
+        identityApiUrlOverride: "https://identity.jsee.tinajs.dev",
+      }}
       // clientId="d94095b9-fb25-40a6-a3ea-277ad5653cb0"
       // isLocalClient={!!process.env.NEXT_PUBLIC_TINA_LOCAL || false}
       // isLocalClient={true}
