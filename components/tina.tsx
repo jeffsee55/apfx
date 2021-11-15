@@ -10,7 +10,7 @@ const TinaLoader = ({ pageProps, children }) => {
       isLocalClient={false}
       tinaioConfig={{
         contentApiUrlOverride: "https://content.jsee.tinajs.dev",
-        frontendUrlOverride: "https://jsee.tinajs.dev",
+        frontendUrlOverride: "http://localhost:3002",
         identityApiUrlOverride: "https://identity.jsee.tinajs.dev",
       }}
       // clientId="d94095b9-fb25-40a6-a3ea-277ad5653cb0"
