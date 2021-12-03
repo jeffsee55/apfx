@@ -4,6 +4,7 @@ import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import { useLocaleInfo } from "./locale-info";
 import { useRouter } from "next/router";
+import { CountrySelector, CountrySelector2 } from "./footer";
 
 type NavProps = {
   items: {
@@ -63,6 +64,9 @@ export const Nav = (props: NavProps) => {
                   </div>
                 </div>
                 <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+                  <div className="pr-4">
+                    <CountrySelector2 />
+                  </div>
                   <a
                     href={localeInfo.signInLink}
                     className="whitespace-nowrap text-base font-medium text-gray-100 hover:text-gray-200"
@@ -100,7 +104,10 @@ export const Nav = (props: NavProps) => {
                           <Logo classNames="h-8 w-auto" />
                         </a>
                       </Link>
-                      <div className="-mr-2">
+                      <div className="-mr-2 flex items-center">
+                        <div className="pr-2">
+                          <CountrySelector2 />
+                        </div>
                         <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                           <span className="sr-only">Close menu</span>
                           <XIcon className="h-6 w-6" aria-hidden="true" />

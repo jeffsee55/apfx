@@ -24,12 +24,6 @@ export function Footer(props: FooterProps) {
   const [selected, setSelected] = React.useState(null);
   const router = useRouter();
 
-  // React.useEffect(() => {
-  //   console.log({ locale, chosenLocale });
-  //   router.push(router.asPath, null, {
-  //     locale: chosenLocale,
-  //   });
-  // }, [chosenLocale]);
   React.useEffect(() => {
     console.log(router.locale);
     setSelected(router.locale);
@@ -48,48 +42,7 @@ export function Footer(props: FooterProps) {
               return <Markdown variant="small">{disclaimer.body}</Markdown>;
             })}
           </div>
-          <div className="mt-12 xl:mt-0">
-            <h3 className="text-sm font-semibold text-gray-100 tracking-wider uppercase">
-              Country
-            </h3>
-            <form className="mt-4 sm:max-w-xs">
-              <fieldset className="w-full">
-                <label htmlFor="language" className="sr-only">
-                  Country
-                </label>
-                <div className="relative">
-                  <select
-                    id="language"
-                    name="language"
-                    onChange={(event) => {
-                      router.push(router.asPath, null, {
-                        locale: event.target.value,
-                        scroll: false,
-                      });
-                      // setChosenLocale(event.target.value);
-                    }}
-                    className="appearance-none block w-full bg-none bg-white border border-gray-300 rounded-md py-2 pl-3 pr-10 text-base text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  >
-                    <option selected={selected === "en-au"} value="en-au">
-                      Australia
-                    </option>
-                    <option selected={selected === "en-gb"} value="en-gb">
-                      United Kingdom
-                    </option>
-                    <option selected={selected === "en-us"} value="en-us">
-                      United States
-                    </option>
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 px-2 flex items-center">
-                    <ChevronDownIcon
-                      className="h-4 w-4 text-gray-400"
-                      aria-hidden="true"
-                    />
-                  </div>
-                </div>
-              </fieldset>
-            </form>
-          </div>
+          <CountrySelector />
         </div>
         <div className="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
           <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
@@ -114,6 +67,129 @@ export function Footer(props: FooterProps) {
     </footer>
   );
 }
+
+/* This example requires Tailwind CSS v2.0+ */
+import { Fragment } from "react";
+import { Menu, Transition } from "@headlessui/react";
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
+export function CountrySelector2() {
+  const router = useRouter();
+  const locales = {
+    "en-us": "US",
+    "en-gb": "UK",
+    "en-au": "AU",
+  };
+  return (
+    <Menu as="div" className="relative inline-block text-left">
+      <div>
+        <Menu.Button className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-transparent text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+          {locales[router.locale]}
+          <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
+        </Menu.Button>
+      </div>
+
+      <Transition
+        as={Fragment}
+        enter="transition ease-out duration-100"
+        enterFrom="transform opacity-0 scale-95"
+        enterTo="transform opacity-100 scale-100"
+        leave="transition ease-in duration-75"
+        leaveFrom="transform opacity-100 scale-100"
+        leaveTo="transform opacity-0 scale-95"
+      >
+        <Menu.Items className="origin-top-right absolute right-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <div className="py-1">
+            <Menu.Item>
+              {({ active }) => (
+                <button
+                  type="button"
+                  onClick={() => {
+                    router.push(router.asPath, null, {
+                      locale: "en-au",
+                      scroll: false,
+                    });
+                  }}
+                  className={classNames(
+                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                    "block px-4 py-2 text-sm"
+                  )}
+                >
+                  AU
+                </button>
+              )}
+            </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <button
+                  type="button"
+                  onClick={() => {
+                    console.log("doit");
+                    router.push(router.asPath, null, {
+                      locale: "en-us",
+                      scroll: false,
+                    });
+                  }}
+                  className={classNames(
+                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                    "block px-4 py-2 text-sm"
+                  )}
+                >
+                  US
+                </button>
+              )}
+            </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <button
+                  type="button"
+                  onClick={() => {
+                    router.push(router.asPath, null, {
+                      locale: "en-gb",
+                      scroll: false,
+                    });
+                  }}
+                  className={classNames(
+                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                    "block px-4 py-2 text-sm"
+                  )}
+                >
+                  UK
+                </button>
+              )}
+            </Menu.Item>
+          </div>
+        </Menu.Items>
+      </Transition>
+    </Menu>
+  );
+}
+
+export const CountrySelector = () => {
+  const [selected, setSelected] = React.useState(null);
+  const router = useRouter();
+
+  return (
+    <div className="mt-12 xl:mt-0 flex items-center h-4 gap-4">
+      <h3 className="text-sm font-semibold text-gray-100 tracking-wider uppercase">
+        Country
+      </h3>
+      <form className="sm:max-w-xs">
+        <fieldset className="w-full">
+          <label htmlFor="language" className="sr-only">
+            Country
+          </label>
+          <div className="relative">
+            <CountrySelector2 />
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  );
+};
 
 const LinkedIn = () => {
   return (
