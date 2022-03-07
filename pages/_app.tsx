@@ -16,9 +16,7 @@ function MyApp({ Component, pageProps }) {
         showEditButton={false}
         editMode={
           <Tina pageProps={pageProps}>
-            {(livePageProps) => (
-              <Page pageProps={livePageProps} Component={Component} />
-            )}
+            <Page pageProps={pageProps} Component={Component} />
           </Tina>
         }
       >
@@ -30,7 +28,6 @@ function MyApp({ Component, pageProps }) {
 
 const Page = ({ pageProps, Component }) => {
   const router = useRouter();
-
   const theme = pageProps.data?.getThemeDocument?.dataJSON;
   const currentLocaleInfo =
     pageProps.data?.getLocaleInfoDocument?.dataJSON[

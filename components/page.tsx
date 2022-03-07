@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useTina } from "tinacms/dist/edit-state";
 import { Chain, Zeus } from "../zeus";
 import { HeroWithSlantImage } from "../components/blocks/hero";
 import {
@@ -26,8 +27,10 @@ type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (
   : any;
 type HomeProps = AsyncReturnType<typeof getStaticProps>["props"];
 
-export default function Home(props: HomeProps) {
+export default function Home(p: HomeProps) {
+  const props = useTina(p);
   const seo = props.data.getPageDocument.data.seo;
+
   return (
     <>
       <Head>

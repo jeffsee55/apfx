@@ -1,5 +1,4 @@
-import Tina from "tinacms";
-import { MarkdownFieldPlugin } from "react-tinacms-editor";
+import Tina from 'tinacms'
 
 const TinaLoader = ({ pageProps, children }) => {
   return (
@@ -9,27 +8,27 @@ const TinaLoader = ({ pageProps, children }) => {
       // isLocalClient={!!process.env.NEXT_PUBLIC_TINA_LOCAL || false}
       isLocalClient={true}
       cmsCallback={(cms) => {
-        cms.plugins.add(MarkdownFieldPlugin);
-        return cms;
+        cms.flags.set('use-unstable-formify', true)
+        return cms
       }}
       formifyCallback={(args) => {
         if (
           [
-            "getNavigationDocument",
-            "getLocaleInfoDocument",
-            "getFooterDocument",
-            "getThemeDocument",
+            'content/navigation/main.md',
+            'content/localeInfo/main.md',
+            'content/footer/main.md',
+            'content/theme/main.json',
           ].includes(args.formConfig.id)
         ) {
-          return args.createGlobalForm(args.formConfig);
+          return args.createGlobalForm(args.formConfig)
         }
-        return args.createForm(args.formConfig);
+        return args.createForm(args.formConfig)
       }}
       {...pageProps}
     >
-      {(livePageProps) => children(livePageProps)}
+      {children}
     </Tina>
-  );
-};
+  )
+}
 
-export default TinaLoader;
+export default TinaLoader

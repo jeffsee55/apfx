@@ -56,9 +56,6 @@ const testimonial = {
       name: "quote",
       required: true,
       type: "string",
-      ui: {
-        component: "markdown",
-      },
     },
     {
       type: "object",
@@ -103,9 +100,6 @@ const action = {
       label: "Call to Action",
       name: "callToAction",
       type: "string",
-      ui: {
-        component: "markdown",
-      },
     },
     {
       label: "Link Text",
@@ -163,9 +157,6 @@ const textFields: TinaField[] = [
     name: "description",
     type: "string" as const,
     required: true,
-    ui: {
-      component: "markdown",
-    },
   },
 ];
 
@@ -186,9 +177,6 @@ const textFieldsSeo: TinaField[] = [
     name: "description",
     type: "string" as const,
     required: true,
-    ui: {
-      component: "markdown",
-    },
   },
 ];
 
@@ -258,9 +246,6 @@ export default defineSchema({
           name: "body",
           isBody: true,
           label: "Body",
-          ui: {
-            component: "markdown",
-          },
         },
       ],
     },
@@ -293,9 +278,6 @@ export default defineSchema({
               name: "address",
               required: true,
               type: "string",
-              ui: {
-                component: "markdown",
-              },
             },
             {
               label: "Phone",
@@ -316,9 +298,6 @@ export default defineSchema({
               label: "Body",
               name: "body",
               type: "string",
-              ui: {
-                component: "markdown",
-              },
             },
           ],
         },
@@ -688,9 +667,6 @@ export default defineSchema({
                       name: "description",
                       required: true,
                       type: "string",
-                      ui: {
-                        component: "markdown",
-                      },
                     },
                   ],
                 },

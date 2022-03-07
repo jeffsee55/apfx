@@ -199,9 +199,6 @@
           "name": "description",
           "type": "string",
           "required": true,
-          "ui": {
-            "component": "markdown"
-          },
           "namespace": [
             "news",
             "description"
@@ -221,9 +218,6 @@
           "name": "body",
           "isBody": true,
           "label": "Body",
-          "ui": {
-            "component": "markdown"
-          },
           "namespace": [
             "news",
             "body"
@@ -268,9 +262,6 @@
               "name": "address",
               "required": true,
               "type": "string",
-              "ui": {
-                "component": "markdown"
-              },
               "namespace": [
                 "footer",
                 "offices",
@@ -305,9 +296,6 @@
               "label": "Body",
               "name": "body",
               "type": "string",
-              "ui": {
-                "component": "markdown"
-              },
               "namespace": [
                 "footer",
                 "disclaimers",
@@ -462,9 +450,6 @@
               "name": "description",
               "type": "string",
               "required": true,
-              "ui": {
-                "component": "markdown"
-              },
               "namespace": [
                 "page",
                 "seo",
@@ -515,9 +500,6 @@
                   "name": "description",
                   "type": "string",
                   "required": true,
-                  "ui": {
-                    "component": "markdown"
-                  },
                   "namespace": [
                     "page",
                     "blocks",
@@ -595,9 +577,6 @@
                   "name": "description",
                   "type": "string",
                   "required": true,
-                  "ui": {
-                    "component": "markdown"
-                  },
                   "namespace": [
                     "page",
                     "blocks",
@@ -659,9 +638,6 @@
                       "name": "description",
                       "type": "string",
                       "required": true,
-                      "ui": {
-                        "component": "markdown"
-                      },
                       "namespace": [
                         "page",
                         "blocks",
@@ -724,9 +700,6 @@
                   "name": "description",
                   "type": "string",
                   "required": true,
-                  "ui": {
-                    "component": "markdown"
-                  },
                   "namespace": [
                     "page",
                     "blocks",
@@ -773,9 +746,6 @@
                       "label": "Call to Action",
                       "name": "callToAction",
                       "type": "string",
-                      "ui": {
-                        "component": "markdown"
-                      },
                       "namespace": [
                         "page",
                         "blocks",
@@ -971,9 +941,6 @@
                       "name": "description",
                       "type": "string",
                       "required": true,
-                      "ui": {
-                        "component": "markdown"
-                      },
                       "namespace": [
                         "page",
                         "blocks",
@@ -1023,9 +990,6 @@
                           "label": "Call to Action",
                           "name": "callToAction",
                           "type": "string",
-                          "ui": {
-                            "component": "markdown"
-                          },
                           "namespace": [
                             "page",
                             "blocks",
@@ -1291,9 +1255,6 @@
                   "name": "description",
                   "type": "string",
                   "required": true,
-                  "ui": {
-                    "component": "markdown"
-                  },
                   "namespace": [
                     "page",
                     "blocks",
@@ -1337,9 +1298,6 @@
                       "name": "description",
                       "type": "string",
                       "required": true,
-                      "ui": {
-                        "component": "markdown"
-                      },
                       "namespace": [
                         "page",
                         "blocks",
@@ -1382,9 +1340,6 @@
                       "label": "Call to Action",
                       "name": "callToAction",
                       "type": "string",
-                      "ui": {
-                        "component": "markdown"
-                      },
                       "namespace": [
                         "page",
                         "blocks",
@@ -1690,9 +1645,6 @@
                   "name": "description",
                   "type": "string",
                   "required": true,
-                  "ui": {
-                    "component": "markdown"
-                  },
                   "namespace": [
                     "page",
                     "blocks",
@@ -1713,9 +1665,6 @@
                       "label": "Call to Action",
                       "name": "callToAction",
                       "type": "string",
-                      "ui": {
-                        "component": "markdown"
-                      },
                       "namespace": [
                         "page",
                         "blocks",
@@ -2004,9 +1953,6 @@
                   "name": "description",
                   "type": "string",
                   "required": true,
-                  "ui": {
-                    "component": "markdown"
-                  },
                   "namespace": [
                     "page",
                     "blocks",
@@ -2308,9 +2254,6 @@
                       "name": "description",
                       "required": true,
                       "type": "string",
-                      "ui": {
-                        "component": "markdown"
-                      },
                       "namespace": [
                         "page",
                         "blocks",
@@ -2460,9 +2403,6 @@
                   "name": "description",
                   "type": "string",
                   "required": true,
-                  "ui": {
-                    "component": "markdown"
-                  },
                   "namespace": [
                     "page",
                     "blocks",
@@ -2753,9 +2693,6 @@
                       "label": "Call to Action",
                       "name": "callToAction",
                       "type": "string",
-                      "ui": {
-                        "component": "markdown"
-                      },
                       "namespace": [
                         "page",
                         "blocks",
@@ -2907,9 +2844,6 @@
                       "name": "quote",
                       "required": true,
                       "type": "string",
-                      "ui": {
-                        "component": "markdown"
-                      },
                       "namespace": [
                         "page",
                         "blocks",

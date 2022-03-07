@@ -1,48 +1,48 @@
 // FIXME: this is loading everything for convenience, once we've nailed down a few
 // should just use those
-import * as Icons from "@heroicons/react/outline";
-import React from "react";
-import { Img, UnsplashImg } from "../img";
-import { Markdown } from "../markdown";
-import { DisplayText, SubTitleText, Text } from "../typographqy";
-import { Action, ActionSlim } from "./hero";
+import * as Icons from '@heroicons/react/outline'
+import React from 'react'
+import { Img, UnsplashImg } from '../img'
+import { Markdown } from '../markdown'
+import { DisplayText, SubTitleText, Text } from '../typographqy'
+import { Action, ActionSlim } from './hero'
 
 type Feature = {
-  name: string;
-  description: string;
-  icon: string;
-};
+  name: string
+  description: string
+  icon: string
+}
 type FeatureProps = {
-  title: string;
-  subTitle?: string;
-  description: string;
-  features: Feature[];
-  image?: string;
-  overlayColor?: string;
-  overlayOpacity?: string;
-  textColor?: string;
-};
+  title: string
+  subTitle?: string
+  description: string
+  features: Feature[]
+  image?: string
+  overlayColor?: string
+  overlayOpacity?: string
+  textColor?: string
+}
 
 type Testimonial = {
-  quote: string;
+  quote: string
   author?: {
-    name: string;
-    avatar: string;
-  };
-};
+    name: string
+    avatar: string
+  }
+}
 
 type ScreenShopFeatureProps = {
-  title: string;
-  subTitle?: string;
-  description: string;
-  image?: string;
-  icon?: string;
-  action?: Action;
-  testimonial?: Testimonial;
-};
+  title: string
+  subTitle?: string
+  description: string
+  image?: string
+  icon?: string
+  action?: Action
+  testimonial?: Testimonial
+}
 
 export function ScreenshotFeatureLeft(props: ScreenShopFeatureProps) {
-  const Icon = Icons[props.icon] || Icons.InboxIcon;
+  const Icon = Icons[props.icon] || Icons.InboxIcon
   return (
     <div className="relative bg-gray-800 pt-16 pb-32 overflow-hidden">
       <div className="relative">
@@ -86,10 +86,10 @@ export function ScreenshotFeatureLeft(props: ScreenShopFeatureProps) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 export function ScreenshotFeatureRight(props: ScreenShopFeatureProps) {
-  const Icon = Icons[props.icon] || Icons.SparklesIcon;
+  const Icon = Icons[props.icon] || Icons.SparklesIcon
   return (
     <div className="relative bg-gray-800 pt-16 pb-32 overflow-hidden">
       <div className="mt-24">
@@ -132,7 +132,7 @@ export function ScreenshotFeatureRight(props: ScreenShopFeatureProps) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 const Wrapper = (props: { children: React.ReactNode }) => {
@@ -157,19 +157,22 @@ const Wrapper = (props: { children: React.ReactNode }) => {
         {props.children}
       </div>
     </div>
-  );
-};
+  )
+}
 
 const Icon = (props: { feature: Feature }) => {
-  const InnerIcon = Icons[props.feature.icon];
+  const InnerIcon = Icons[props.feature.icon]
+  if (!InnerIcon) {
+    return null
+  }
   return (
     <div>
       <span className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500">
         <InnerIcon className="h-6 w-6 text-white" aria-hidden="true" />
       </span>
     </div>
-  );
-};
+  )
+}
 
 export function FourWideGrid(props: FeatureProps) {
   return (
@@ -187,19 +190,19 @@ export function FourWideGrid(props: FeatureProps) {
                 </p>
               </div>
             </div>
-          );
+          )
         })}
       </div>
     </Wrapper>
-  );
+  )
 }
 
 function Hr({ centered }: { centered?: boolean }) {
   return (
-    <div className={`flex items-center ${centered && "lg:justify-center"}`}>
+    <div className={`flex items-center ${centered && 'lg:justify-center'}`}>
       <div className="w-48 h-1 mt-8 bg-white rounded-sm" />
     </div>
-  );
+  )
 }
 
 export function TwoWideGrid(props: FeatureProps) {
@@ -209,7 +212,7 @@ export function TwoWideGrid(props: FeatureProps) {
       <div className="mt-10">
         <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
           {props.features.map((feature, index) => {
-            const Icon = Icons[feature.icon];
+            const Icon = Icons[feature.icon]
             return (
               <div key={feature.name + index} className="relative">
                 <dt>
@@ -222,12 +225,12 @@ export function TwoWideGrid(props: FeatureProps) {
                   {feature.description}
                 </dd>
               </div>
-            );
+            )
           })}
         </dl>
       </div>
     </Wrapper>
-  );
+  )
 }
 
 export function ThreeWideGrid(props: FeatureProps) {
@@ -236,7 +239,7 @@ export function ThreeWideGrid(props: FeatureProps) {
       <Header {...props} centered={true} />
       <dl className="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-8">
         {props.features.map((feature, index) => {
-          const Icon = Icons[feature.icon];
+          const Icon = Icons[feature.icon]
           return (
             <div key={feature.name + index}>
               <dt>
@@ -249,11 +252,11 @@ export function ThreeWideGrid(props: FeatureProps) {
                 {feature.description}
               </dd>
             </div>
-          );
+          )
         })}
       </dl>
     </Wrapper>
-  );
+  )
 }
 
 const Testimonial = ({ testimonial }: { testimonial: Testimonial }) => {
@@ -281,12 +284,12 @@ const Testimonial = ({ testimonial }: { testimonial: Testimonial }) => {
         </footer>
       </blockquote>
     </div>
-  );
-};
+  )
+}
 
 export const Header = (props: FeatureProps & { centered?: boolean }) => {
   return (
-    <div className={`${props.centered && "lg:text-center"} pb-4 md:pb-12`}>
+    <div className={`${props.centered && 'lg:text-center'} pb-4 md:pb-12`}>
       <SubTitleText>{props.subTitle}</SubTitleText>
       <DisplayText classNames="mt-4" size="text-4xl sm:text-5xl">
         {props.title}
@@ -294,16 +297,16 @@ export const Header = (props: FeatureProps & { centered?: boolean }) => {
       <Hr centered={props.centered} />
       <Markdown classNames="mt-8">{props.description}</Markdown>
     </div>
-  );
-};
+  )
+}
 
 const FeatureName = (props: {
-  classNames?: string;
-  children: React.ReactNode;
+  classNames?: string
+  children: React.ReactNode
 }) => {
   return (
     <h3 className={`text-lg mt-4 font-medium text-white ${props.classNames}`}>
       {props.children}
     </h3>
-  );
-};
+  )
+}

@@ -13,13 +13,6 @@ seo:
     an advanced technology platform, as well as a number of strategic liquidity
     providers to ensure the most competitive pricing in the industry.
 blocks:
-  - slogan: Your global payments partner
-    image: >-
-      https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3150&q=80
-    textColor: light
-    overlayColor: brand
-    overlayOpacity: '6'
-    _template: fullScreenLogo
   - title: About Us
     subTitle: Transforming the way you operate your business globally
     description: >-
@@ -45,6 +38,13 @@ blocks:
       secondaryLink: link
       secondaryLinkOverride: 'https://share.hsforms.com/1Zi7kaqn1THCrZt6hdDaGng5kdde'
     _template: hero
+  - slogan: Your global payments partner
+    image: >-
+      https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3150&q=80
+    textColor: light
+    overlayColor: brand
+    overlayOpacity: '6'
+    _template: fullScreenLogo
   - title: Overview
     subTitle: ''
     description: ''
