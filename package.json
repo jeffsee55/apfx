@@ -14,7 +14,7 @@
     "@tailwindcss/aspect-ratio": "^0.2.1",
     "@tailwindcss/forms": "^0.3.3",
     "@tailwindcss/typography": "^0.4.1",
-    "@tinacms/cli": "0.60.8",
+    "@tinacms/cli": "0.0.0-202227191224",
     "graphql-zeus": "^3.1.0",
     "next": "11.0.1",
     "react": "^17.0.2",
@@ -23,7 +23,7 @@
     "react-markdown": "^6.0.2",
     "smoothscroll-polyfill": "^0.4.4",
     "styled-components": "^5.3.0",
-    "tinacms": "0.66.7"
+    "tinacms": "0.0.0-202227191224"
   },
   "devDependencies": {
     "@types/node": "^16.3.1",

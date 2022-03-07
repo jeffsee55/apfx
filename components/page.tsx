@@ -53,7 +53,7 @@ export default function Home(p: HomeProps) {
         {props.data.getNavigationDocument.data && (
           <Nav {...props.data.getNavigationDocument.data} />
         )}
-        {props.data.getPageDocument.data.blocks?.map((block) => {
+        {props.data.getPageDocument.data.blocks?.map((block, i) => {
           switch (block.__typename) {
             case "PageBlocksFullScreenLogo":
               return <FullScreenLogo {...block} />;

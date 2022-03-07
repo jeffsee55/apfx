@@ -397,9 +397,14 @@ export default defineSchema({
                   type: "object",
                   required: true,
                   list: true,
+                  ui: {
+                    defaultItem: {
+                      article: "content/news/dollar-gains.md",
+                    },
+                  },
                   fields: [
                     {
-                      label: "Items",
+                      label: "Article",
                       name: "article",
                       type: "reference",
                       required: true,
@@ -408,15 +413,18 @@ export default defineSchema({
                   ],
                 },
               ],
-              // ui: {
-              //   defaultItem: {
-              //     title: "Get in touch",
-              //     description:
-              //       "Mattis amet hendrerit dolor, quisque lorem pharetra. Pellentesque lacus nisi urna, arcu sociis eu. Orci vel lectus nisl eget eget ut consectetur. Sit justo viverra non adipisicing elit distinctio.",
-              //     image:
-              //       "https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100",
-              //   },
-              // },
+              ui: {
+                defaultItem: {
+                  title: "Get in touch",
+                  description:
+                    "Mattis amet hendrerit dolor, quisque lorem pharetra. Pellentesque lacus nisi urna, arcu sociis eu. Orci vel lectus nisl eget eget ut consectetur. Sit justo viverra non adipisicing elit distinctio.",
+                  newsItems: [
+                    {
+                      article: "content/news/dollar-gains.md",
+                    },
+                  ],
+                },
+              },
             },
             {
               label: "Stats With Image",

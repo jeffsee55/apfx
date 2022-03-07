@@ -513,9 +513,14 @@
                   "type": "object",
                   "required": true,
                   "list": true,
+                  "ui": {
+                    "defaultItem": {
+                      "article": "content/news/dollar-gains.md"
+                    }
+                  },
                   "fields": [
                     {
-                      "label": "Items",
+                      "label": "Article",
                       "name": "article",
                       "type": "reference",
                       "required": true,
@@ -539,6 +544,17 @@
                   ]
                 }
               ],
+              "ui": {
+                "defaultItem": {
+                  "title": "Get in touch",
+                  "description": "Mattis amet hendrerit dolor, quisque lorem pharetra. Pellentesque lacus nisi urna, arcu sociis eu. Orci vel lectus nisl eget eget ut consectetur. Sit justo viverra non adipisicing elit distinctio.",
+                  "newsItems": [
+                    {
+                      "article": "content/news/dollar-gains.md"
+                    }
+                  ]
+                }
+              },
               "namespace": [
                 "page",
                 "blocks",
