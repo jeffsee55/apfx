@@ -2,13 +2,14 @@
 import { CheckIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import { Markdown } from "../markdown";
-import { DisplayText, Text } from "../typographqy";
-import { Action, ActionSlim, getLinksFromAction } from "./hero";
+import { DisplayText } from "../typographqy";
+import { Action, getLinksFromAction } from "./hero";
+import type { TinaMarkdownContent } from "tinacms/dist/rich-text";
 
 type PricingProps = {
   title: string;
   subTitle?: string;
-  description: string;
+  description: TinaMarkdownContent;
   action?: Action;
   items?: {
     title: string;

@@ -4,11 +4,12 @@ import { DisplayText, SubTitleText, Text } from "../typographqy";
 import { Action, ActionSlim } from "./hero";
 import { Markdown } from "../markdown";
 import { Img } from "../img";
+import type { TinaMarkdownContent } from "tinacms/dist/rich-text";
 
 type HeaderProps = {
   title: string;
   subTitle?: string;
-  description: string;
+  description: TinaMarkdownContent;
   image?: string;
   overlayColor?: string;
   overlayOpacity?: string;

@@ -14,6 +14,14 @@ export const AllTypesProps = {
 		}
 	},
 	Query:{
+		getOptimizedQuery:{
+			queryString:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
 		getCollection:{
 			collection:{
 				type:"String",
@@ -58,13 +66,13 @@ export const AllTypesProps = {
 				required:false
 			},
 			first:{
-				type:"Int",
+				type:"Float",
 				array:false,
 				arrayRequired:false,
 				required:false
 			},
 			last:{
-				type:"Int",
+				type:"Float",
 				array:false,
 				arrayRequired:false,
 				required:false
@@ -92,13 +100,13 @@ export const AllTypesProps = {
 				required:false
 			},
 			first:{
-				type:"Int",
+				type:"Float",
 				array:false,
 				arrayRequired:false,
 				required:false
 			},
 			last:{
-				type:"Int",
+				type:"Float",
 				array:false,
 				arrayRequired:false,
 				required:false
@@ -126,13 +134,13 @@ export const AllTypesProps = {
 				required:false
 			},
 			first:{
-				type:"Int",
+				type:"Float",
 				array:false,
 				arrayRequired:false,
 				required:false
 			},
 			last:{
-				type:"Int",
+				type:"Float",
 				array:false,
 				arrayRequired:false,
 				required:false
@@ -160,13 +168,13 @@ export const AllTypesProps = {
 				required:false
 			},
 			first:{
-				type:"Int",
+				type:"Float",
 				array:false,
 				arrayRequired:false,
 				required:false
 			},
 			last:{
-				type:"Int",
+				type:"Float",
 				array:false,
 				arrayRequired:false,
 				required:false
@@ -194,13 +202,13 @@ export const AllTypesProps = {
 				required:false
 			},
 			first:{
-				type:"Int",
+				type:"Float",
 				array:false,
 				arrayRequired:false,
 				required:false
 			},
 			last:{
-				type:"Int",
+				type:"Float",
 				array:false,
 				arrayRequired:false,
 				required:false
@@ -228,13 +236,13 @@ export const AllTypesProps = {
 				required:false
 			},
 			first:{
-				type:"Int",
+				type:"Float",
 				array:false,
 				arrayRequired:false,
 				required:false
 			},
 			last:{
-				type:"Int",
+				type:"Float",
 				array:false,
 				arrayRequired:false,
 				required:false
@@ -262,13 +270,13 @@ export const AllTypesProps = {
 				required:false
 			},
 			first:{
-				type:"Int",
+				type:"Float",
 				array:false,
 				arrayRequired:false,
 				required:false
 			},
 			last:{
-				type:"Int",
+				type:"Float",
 				array:false,
 				arrayRequired:false,
 				required:false
@@ -290,13 +298,13 @@ export const AllTypesProps = {
 				required:false
 			},
 			first:{
-				type:"Int",
+				type:"Float",
 				array:false,
 				arrayRequired:false,
 				required:false
 			},
 			last:{
-				type:"Int",
+				type:"Float",
 				array:false,
 				arrayRequired:false,
 				required:false
@@ -329,7 +337,27 @@ export const AllTypesProps = {
 				type:"String",
 				array:false,
 				arrayRequired:false,
+				required:false
+			},
+			relativePath:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
 				required:true
+			},
+			params:{
+				type:"DocumentMutation",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		createDocument:{
+			collection:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:false
 			},
 			relativePath:{
 				type:"String",
@@ -358,7 +386,35 @@ export const AllTypesProps = {
 				required:true
 			}
 		},
+		createLocaleInfoDocument:{
+			relativePath:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:true
+			},
+			params:{
+				type:"LocaleInfoMutation",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
 		updateNewsDocument:{
+			relativePath:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:true
+			},
+			params:{
+				type:"NewsMutation",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		createNewsDocument:{
 			relativePath:{
 				type:"String",
 				array:false,
@@ -386,7 +442,35 @@ export const AllTypesProps = {
 				required:true
 			}
 		},
+		createFooterDocument:{
+			relativePath:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:true
+			},
+			params:{
+				type:"FooterMutation",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
 		updateThemeDocument:{
+			relativePath:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:true
+			},
+			params:{
+				type:"ThemeMutation",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		createThemeDocument:{
 			relativePath:{
 				type:"String",
 				array:false,
@@ -414,7 +498,35 @@ export const AllTypesProps = {
 				required:true
 			}
 		},
+		createNavigationDocument:{
+			relativePath:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:true
+			},
+			params:{
+				type:"NavigationMutation",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
 		updatePageDocument:{
+			relativePath:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:true
+			},
+			params:{
+				type:"PageMutation",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		createPageDocument:{
 			relativePath:{
 				type:"String",
 				array:false,
@@ -578,12 +690,6 @@ export const AllTypesProps = {
 			arrayRequired:false,
 			required:false
 		},
-		description:{
-			type:"String",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		image:{
 			type:"String",
 			array:false,
@@ -591,7 +697,7 @@ export const AllTypesProps = {
 			required:false
 		},
 		body:{
-			type:"String",
+			type:"JSON",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -619,7 +725,7 @@ export const AllTypesProps = {
 	},
 	FooterDisclaimersMutation:{
 		body:{
-			type:"String",
+			type:"JSON",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -711,7 +817,7 @@ export const AllTypesProps = {
 			required:false
 		},
 		description:{
-			type:"String",
+			type:"JSON",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -737,7 +843,7 @@ export const AllTypesProps = {
 			required:false
 		},
 		description:{
-			type:"String",
+			type:"JSON",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -757,7 +863,7 @@ export const AllTypesProps = {
 			required:false
 		},
 		description:{
-			type:"String",
+			type:"JSON",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -833,7 +939,7 @@ export const AllTypesProps = {
 			required:false
 		},
 		description:{
-			type:"String",
+			type:"JSON",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -915,7 +1021,7 @@ export const AllTypesProps = {
 			required:false
 		},
 		description:{
-			type:"String",
+			type:"JSON",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -973,7 +1079,7 @@ export const AllTypesProps = {
 			required:false
 		},
 		description:{
-			type:"String",
+			type:"JSON",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -1043,7 +1149,7 @@ export const AllTypesProps = {
 			required:false
 		},
 		description:{
-			type:"String",
+			type:"JSON",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -1157,7 +1263,7 @@ export const AllTypesProps = {
 			required:false
 		},
 		description:{
-			type:"String",
+			type:"JSON",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -1227,7 +1333,7 @@ export const AllTypesProps = {
 			required:false
 		},
 		description:{
-			type:"String",
+			type:"JSON",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -1355,7 +1461,7 @@ export const AllTypesProps = {
 			required:false
 		},
 		description:{
-			type:"String",
+			type:"JSON",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -1509,7 +1615,9 @@ export const ReturnTypes = {
 		"...on NavigationDocument": "NavigationDocument",
 		"...on PageDocument": "PageDocument",
 		sys:"SystemInfo",
-		id:"ID"
+		id:"ID",
+		form:"JSON",
+		values:"JSON"
 	},
 	Connection:{
 		"...on DocumentConnection": "DocumentConnection",
@@ -1519,14 +1627,16 @@ export const ReturnTypes = {
 		"...on ThemeConnection": "ThemeConnection",
 		"...on NavigationConnection": "NavigationConnection",
 		"...on PageConnection": "PageConnection",
-		totalCount:"Int"
+		totalCount:"Float"
 	},
 	Query:{
+		getOptimizedQuery:"String",
 		getCollection:"Collection",
 		getCollections:"Collection",
 		node:"Node",
 		getDocument:"DocumentNode",
 		getDocumentList:"DocumentConnection",
+		getDocumentFields:"JSON",
 		getLocaleInfoDocument:"LocaleInfoDocument",
 		getLocaleInfoList:"LocaleInfoConnection",
 		getNewsDocument:"NewsDocument",
@@ -1546,7 +1656,7 @@ export const ReturnTypes = {
 	},
 	DocumentConnection:{
 		pageInfo:"PageInfo",
-		totalCount:"Int",
+		totalCount:"Float",
 		edges:"DocumentConnectionEdges"
 	},
 	Collection:{
@@ -1605,15 +1715,14 @@ export const ReturnTypes = {
 	},
 	LocaleInfoConnection:{
 		pageInfo:"PageInfo",
-		totalCount:"Int",
+		totalCount:"Float",
 		edges:"LocaleInfoConnectionEdges"
 	},
 	News:{
 		title:"String",
 		subTitle:"String",
-		description:"String",
 		image:"String",
-		body:"String"
+		body:"JSON"
 	},
 	NewsDocument:{
 		id:"ID",
@@ -1629,7 +1738,7 @@ export const ReturnTypes = {
 	},
 	NewsConnection:{
 		pageInfo:"PageInfo",
-		totalCount:"Int",
+		totalCount:"Float",
 		edges:"NewsConnectionEdges"
 	},
 	FooterOffices:{
@@ -1638,7 +1747,7 @@ export const ReturnTypes = {
 		phone:"String"
 	},
 	FooterDisclaimers:{
-		body:"String"
+		body:"JSON"
 	},
 	Footer:{
 		offices:"FooterOffices",
@@ -1658,7 +1767,7 @@ export const ReturnTypes = {
 	},
 	FooterConnection:{
 		pageInfo:"PageInfo",
-		totalCount:"Int",
+		totalCount:"Float",
 		edges:"FooterConnectionEdges"
 	},
 	Theme:{
@@ -1679,7 +1788,7 @@ export const ReturnTypes = {
 	},
 	ThemeConnection:{
 		pageInfo:"PageInfo",
-		totalCount:"Int",
+		totalCount:"Float",
 		edges:"ThemeConnectionEdges"
 	},
 	NavigationItemsPageDocument:{
@@ -1705,7 +1814,7 @@ export const ReturnTypes = {
 	},
 	NavigationConnection:{
 		pageInfo:"PageInfo",
-		totalCount:"Int",
+		totalCount:"Float",
 		edges:"NavigationConnectionEdges"
 	},
 	PageSeo:{
@@ -1722,18 +1831,18 @@ export const ReturnTypes = {
 	PageBlocksNews:{
 		title:"String",
 		subTitle:"String",
-		description:"String",
+		description:"JSON",
 		newsItems:"PageBlocksNewsNewsItems"
 	},
 	PageBlocksStatsWithImageStats:{
 		title:"String",
 		subTitle:"String",
-		description:"String"
+		description:"JSON"
 	},
 	PageBlocksStatsWithImage:{
 		title:"String",
 		subTitle:"String",
-		description:"String",
+		description:"JSON",
 		image:"String",
 		stats:"PageBlocksStatsWithImageStats"
 	},
@@ -1749,7 +1858,7 @@ export const ReturnTypes = {
 	PageBlocksHero:{
 		title:"String",
 		subTitle:"String",
-		description:"String",
+		description:"JSON",
 		style:"String",
 		image:"String",
 		action:"PageBlocksHeroAction"
@@ -1766,7 +1875,7 @@ export const ReturnTypes = {
 	PageBlocksSlideshowItems:{
 		title:"String",
 		subTitle:"String",
-		description:"String",
+		description:"JSON",
 		image:"String",
 		textColor:"String",
 		action:"PageBlocksSlideshowItemsAction",
@@ -1779,7 +1888,7 @@ export const ReturnTypes = {
 	PageBlocksComparisonTableItems:{
 		title:"String",
 		subTitle:"String",
-		description:"String",
+		description:"JSON",
 		bulletPoints:"String"
 	},
 	PageBlocksComparisonTableAction:{
@@ -1794,7 +1903,7 @@ export const ReturnTypes = {
 	PageBlocksComparisonTable:{
 		title:"String",
 		subTitle:"String",
-		description:"String",
+		description:"JSON",
 		items:"PageBlocksComparisonTableItems",
 		action:"PageBlocksComparisonTableAction"
 	},
@@ -1818,7 +1927,7 @@ export const ReturnTypes = {
 	PageBlocksFullScreenHeader:{
 		title:"String",
 		subTitle:"String",
-		description:"String",
+		description:"JSON",
 		action:"PageBlocksFullScreenHeaderAction",
 		image:"String",
 		textColor:"String",
@@ -1833,7 +1942,7 @@ export const ReturnTypes = {
 	PageBlocksFeature:{
 		title:"String",
 		subTitle:"String",
-		description:"String",
+		description:"JSON",
 		featureStyle:"String",
 		features:"PageBlocksFeatureFeatures",
 		image:"String",
@@ -1861,7 +1970,7 @@ export const ReturnTypes = {
 	PageBlocksScreenShotFeature:{
 		title:"String",
 		subTitle:"String",
-		description:"String",
+		description:"JSON",
 		image:"String",
 		alignment:"String",
 		icon:"String",
@@ -1899,17 +2008,24 @@ export const ReturnTypes = {
 	},
 	PageConnection:{
 		pageInfo:"PageInfo",
-		totalCount:"Int",
+		totalCount:"Float",
 		edges:"PageConnectionEdges"
 	},
 	Mutation:{
 		addPendingDocument:"DocumentNode",
 		updateDocument:"DocumentNode",
+		createDocument:"DocumentNode",
 		updateLocaleInfoDocument:"LocaleInfoDocument",
+		createLocaleInfoDocument:"LocaleInfoDocument",
 		updateNewsDocument:"NewsDocument",
+		createNewsDocument:"NewsDocument",
 		updateFooterDocument:"FooterDocument",
+		createFooterDocument:"FooterDocument",
 		updateThemeDocument:"ThemeDocument",
+		createThemeDocument:"ThemeDocument",
 		updateNavigationDocument:"NavigationDocument",
-		updatePageDocument:"PageDocument"
+		createNavigationDocument:"NavigationDocument",
+		updatePageDocument:"PageDocument",
+		createPageDocument:"PageDocument"
 	}
 }

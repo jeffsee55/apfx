@@ -4,6 +4,7 @@ import { useLocaleInfo } from "../locale-info";
 import { Markdown } from "../markdown";
 import { useTheme } from "../theme";
 import { DisplayText } from "../typographqy";
+import type { TinaMarkdownContent } from "tinacms/dist/rich-text";
 
 export type Action = {
   callToAction?: string;
@@ -17,7 +18,7 @@ export type Action = {
 
 type HeroProps = {
   title: string;
-  description: string;
+  description: TinaMarkdownContent;
   image?: string;
   action?: Action;
 };

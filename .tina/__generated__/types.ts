@@ -319,7 +319,7 @@ export type FooterOffices = {
 
 export type FooterDisclaimers = {
   __typename?: 'FooterDisclaimers';
-  body?: Maybe<Scalars['String']>;
+  body?: Maybe<Scalars['JSON']>;
 };
 
 export type Footer = {
@@ -813,7 +813,7 @@ export type FooterOfficesMutation = {
 };
 
 export type FooterDisclaimersMutation = {
-  body?: InputMaybe<Scalars['String']>;
+  body?: InputMaybe<Scalars['JSON']>;
 };
 
 export type FooterMutation = {
@@ -1036,7 +1036,7 @@ export type LocaleInfoPartsFragment = { __typename?: 'LocaleInfo', au?: { __type
 
 export type NewsPartsFragment = { __typename?: 'News', title: string, subTitle?: string | null, image?: string | null, body?: any | null };
 
-export type FooterPartsFragment = { __typename?: 'Footer', offices?: Array<{ __typename: 'FooterOffices', location: string, address: string, phone: string } | null> | null, disclaimers: Array<{ __typename: 'FooterDisclaimers', body?: string | null }> };
+export type FooterPartsFragment = { __typename?: 'Footer', offices?: Array<{ __typename: 'FooterOffices', location: string, address: string, phone: string } | null> | null, disclaimers: Array<{ __typename: 'FooterDisclaimers', body?: any | null }> };
 
 export type ThemePartsFragment = { __typename?: 'Theme', displayFont?: string | null, colorMode?: string | null };
 
@@ -1073,12 +1073,12 @@ export type GetFooterDocumentQueryVariables = Exact<{
 }>;
 
 
-export type GetFooterDocumentQuery = { __typename?: 'Query', getFooterDocument: { __typename?: 'FooterDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Footer', offices?: Array<{ __typename: 'FooterOffices', location: string, address: string, phone: string } | null> | null, disclaimers: Array<{ __typename: 'FooterDisclaimers', body?: string | null }> } } };
+export type GetFooterDocumentQuery = { __typename?: 'Query', getFooterDocument: { __typename?: 'FooterDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Footer', offices?: Array<{ __typename: 'FooterOffices', location: string, address: string, phone: string } | null> | null, disclaimers: Array<{ __typename: 'FooterDisclaimers', body?: any | null }> } } };
 
 export type GetFooterListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetFooterListQuery = { __typename?: 'Query', getFooterList: { __typename?: 'FooterConnection', totalCount: number, edges?: Array<{ __typename?: 'FooterConnectionEdges', node?: { __typename?: 'FooterDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Footer', offices?: Array<{ __typename: 'FooterOffices', location: string, address: string, phone: string } | null> | null, disclaimers: Array<{ __typename: 'FooterDisclaimers', body?: string | null }> } } | null } | null> | null } };
+export type GetFooterListQuery = { __typename?: 'Query', getFooterList: { __typename?: 'FooterConnection', totalCount: number, edges?: Array<{ __typename?: 'FooterConnectionEdges', node?: { __typename?: 'FooterDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Footer', offices?: Array<{ __typename: 'FooterOffices', location: string, address: string, phone: string } | null> | null, disclaimers: Array<{ __typename: 'FooterDisclaimers', body?: any | null }> } } | null } | null> | null } };
 
 export type GetThemeDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];

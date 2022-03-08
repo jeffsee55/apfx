@@ -5,6 +5,7 @@ import { useLocale } from "@react-aria/i18n";
 import { useRouter } from "next/router";
 import { Markdown } from "./markdown";
 import Link from "next/link";
+import type { TinaMarkdownContent } from "tinacms/dist/rich-text";
 
 type Office = {
   location: string;
@@ -15,7 +16,7 @@ type Office = {
 type FooterProps = {
   offices?: Office[];
   disclaimers: {
-    body?: string;
+    body?: TinaMarkdownContent;
   }[];
 };
 
@@ -39,7 +40,11 @@ export function Footer(props: FooterProps) {
         <div className="pb-8 xl:grid xl:grid-cols-5 xl:gap-8">
           <div className="grid gap-8 xl:col-span-4">
             {props.disclaimers.map((disclaimer) => {
-              return <Markdown variant="small">{disclaimer.body}</Markdown>;
+              return (
+                <Markdown classNames="italic" variant="small">
+                  {disclaimer.body}
+                </Markdown>
+              );
             })}
           </div>
           <CountrySelector />

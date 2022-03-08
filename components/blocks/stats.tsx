@@ -1,10 +1,11 @@
-import { DisplayText, Text } from "../typographqy";
+import { DisplayText } from "../typographqy";
 import { Markdown } from "../markdown";
+import type { TinaMarkdownContent } from "tinacms/dist/rich-text";
 
 type StatsProps = {
   title: string;
   subTitle?: string;
-  description: string;
+  description: TinaMarkdownContent;
   stats: {
     title: string;
     description: string;

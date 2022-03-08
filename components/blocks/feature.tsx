@@ -6,16 +6,17 @@ import { Img, UnsplashImg } from "../img";
 import { Markdown } from "../markdown";
 import { DisplayText, SubTitleText, Text } from "../typographqy";
 import { Action, ActionSlim } from "./hero";
+import type { TinaMarkdownContent } from "tinacms/dist/rich-text";
 
 type Feature = {
   name: string;
-  description: string;
+  description: TinaMarkdownContent;
   icon: string;
 };
 type FeatureProps = {
   title: string;
   subTitle?: string;
-  description: string;
+  description: TinaMarkdownContent;
   features: Feature[];
   image?: string;
   overlayColor?: string;
@@ -34,7 +35,7 @@ type Testimonial = {
 type ScreenShopFeatureProps = {
   title: string;
   subTitle?: string;
-  description: string;
+  description: TinaMarkdownContent;
   image?: string;
   icon?: string;
   action?: Action;

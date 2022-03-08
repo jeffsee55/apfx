@@ -35,7 +35,9 @@ breadcrumbs?: [{	excludeExtension?:boolean},true],
 }>;
 	["Document"]:AliasType<{
 		sys?:ValueTypes["SystemInfo"],
-	id?:true;
+	id?:true,
+	form?:true,
+	values?:true;
 		['...on LocaleInfoDocument']?: Omit<ValueTypes["LocaleInfoDocument"],keyof ValueTypes["Document"]>;
 		['...on NewsDocument']?: Omit<ValueTypes["NewsDocument"],keyof ValueTypes["Document"]>;
 		['...on FooterDocument']?: Omit<ValueTypes["FooterDocument"],keyof ValueTypes["Document"]>;
@@ -57,11 +59,13 @@ breadcrumbs?: [{	excludeExtension?:boolean},true],
 		__typename?: true
 }>;
 	["Query"]: AliasType<{
+getOptimizedQuery?: [{	queryString:string},true],
 getCollection?: [{	collection?:string},ValueTypes["Collection"]],
 	getCollections?:ValueTypes["Collection"],
 node?: [{	id?:string},ValueTypes["Node"]],
 getDocument?: [{	collection?:string,	relativePath?:string},ValueTypes["DocumentNode"]],
 getDocumentList?: [{	before?:string,	after?:string,	first?:number,	last?:number},ValueTypes["DocumentConnection"]],
+	getDocumentFields?:true,
 getLocaleInfoDocument?: [{	relativePath?:string},ValueTypes["LocaleInfoDocument"]],
 getLocaleInfoList?: [{	before?:string,	after?:string,	first?:number,	last?:number},ValueTypes["LocaleInfoConnection"]],
 getNewsDocument?: [{	relativePath?:string},ValueTypes["NewsDocument"]],
@@ -157,7 +161,6 @@ documents?: [{	before?:string,	after?:string,	first?:number,	last?:number},Value
 	["News"]: AliasType<{
 	title?:true,
 	subTitle?:true,
-	description?:true,
 	image?:true,
 	body?:true,
 		__typename?: true
@@ -495,13 +498,20 @@ documents?: [{	before?:string,	after?:string,	first?:number,	last?:number},Value
 }>;
 	["Mutation"]: AliasType<{
 addPendingDocument?: [{	collection:string,	relativePath:string,	template?:string},ValueTypes["DocumentNode"]],
-updateDocument?: [{	collection:string,	relativePath:string,	params:ValueTypes["DocumentMutation"]},ValueTypes["DocumentNode"]],
+updateDocument?: [{	collection?:string,	relativePath:string,	params:ValueTypes["DocumentMutation"]},ValueTypes["DocumentNode"]],
+createDocument?: [{	collection?:string,	relativePath:string,	params:ValueTypes["DocumentMutation"]},ValueTypes["DocumentNode"]],
 updateLocaleInfoDocument?: [{	relativePath:string,	params:ValueTypes["LocaleInfoMutation"]},ValueTypes["LocaleInfoDocument"]],
+createLocaleInfoDocument?: [{	relativePath:string,	params:ValueTypes["LocaleInfoMutation"]},ValueTypes["LocaleInfoDocument"]],
 updateNewsDocument?: [{	relativePath:string,	params:ValueTypes["NewsMutation"]},ValueTypes["NewsDocument"]],
+createNewsDocument?: [{	relativePath:string,	params:ValueTypes["NewsMutation"]},ValueTypes["NewsDocument"]],
 updateFooterDocument?: [{	relativePath:string,	params:ValueTypes["FooterMutation"]},ValueTypes["FooterDocument"]],
+createFooterDocument?: [{	relativePath:string,	params:ValueTypes["FooterMutation"]},ValueTypes["FooterDocument"]],
 updateThemeDocument?: [{	relativePath:string,	params:ValueTypes["ThemeMutation"]},ValueTypes["ThemeDocument"]],
+createThemeDocument?: [{	relativePath:string,	params:ValueTypes["ThemeMutation"]},ValueTypes["ThemeDocument"]],
 updateNavigationDocument?: [{	relativePath:string,	params:ValueTypes["NavigationMutation"]},ValueTypes["NavigationDocument"]],
+createNavigationDocument?: [{	relativePath:string,	params:ValueTypes["NavigationMutation"]},ValueTypes["NavigationDocument"]],
 updatePageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},ValueTypes["PageDocument"]],
+createPageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},ValueTypes["PageDocument"]],
 		__typename?: true
 }>;
 	["DocumentMutation"]: {
@@ -538,9 +548,8 @@ updatePageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},
 	["NewsMutation"]: {
 	title?:string,
 	subTitle?:string,
-	description?:string,
 	image?:string,
-	body?:string
+	body?:ValueTypes["JSON"]
 };
 	["FooterOfficesMutation"]: {
 	location?:string,
@@ -548,7 +557,7 @@ updatePageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},
 	phone?:string
 };
 	["FooterDisclaimersMutation"]: {
-	body?:string
+	body?:ValueTypes["JSON"]
 };
 	["FooterMutation"]: {
 	offices?:(ValueTypes["FooterOfficesMutation"] | undefined)[],
@@ -575,18 +584,18 @@ updatePageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},
 	["PageBlocksNewsMutation"]: {
 	title?:string,
 	subTitle?:string,
-	description?:string,
+	description?:ValueTypes["JSON"],
 	newsItems?:(ValueTypes["PageBlocksNewsNewsItemsMutation"] | undefined)[]
 };
 	["PageBlocksStatsWithImageStatsMutation"]: {
 	title?:string,
 	subTitle?:string,
-	description?:string
+	description?:ValueTypes["JSON"]
 };
 	["PageBlocksStatsWithImageMutation"]: {
 	title?:string,
 	subTitle?:string,
-	description?:string,
+	description?:ValueTypes["JSON"],
 	image?:string,
 	stats?:(ValueTypes["PageBlocksStatsWithImageStatsMutation"] | undefined)[]
 };
@@ -602,7 +611,7 @@ updatePageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},
 	["PageBlocksHeroMutation"]: {
 	title?:string,
 	subTitle?:string,
-	description?:string,
+	description?:ValueTypes["JSON"],
 	style?:string,
 	image?:string,
 	action?:ValueTypes["PageBlocksHeroActionMutation"]
@@ -619,7 +628,7 @@ updatePageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},
 	["PageBlocksSlideshowItemsMutation"]: {
 	title?:string,
 	subTitle?:string,
-	description?:string,
+	description?:ValueTypes["JSON"],
 	image?:string,
 	textColor?:string,
 	action?:ValueTypes["PageBlocksSlideshowItemsActionMutation"],
@@ -632,7 +641,7 @@ updatePageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},
 	["PageBlocksComparisonTableItemsMutation"]: {
 	title?:string,
 	subTitle?:string,
-	description?:string,
+	description?:ValueTypes["JSON"],
 	bulletPoints?:(string | undefined)[]
 };
 	["PageBlocksComparisonTableActionMutation"]: {
@@ -647,7 +656,7 @@ updatePageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},
 	["PageBlocksComparisonTableMutation"]: {
 	title?:string,
 	subTitle?:string,
-	description?:string,
+	description?:ValueTypes["JSON"],
 	items?:(ValueTypes["PageBlocksComparisonTableItemsMutation"] | undefined)[],
 	action?:ValueTypes["PageBlocksComparisonTableActionMutation"]
 };
@@ -671,7 +680,7 @@ updatePageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},
 	["PageBlocksFullScreenHeaderMutation"]: {
 	title?:string,
 	subTitle?:string,
-	description?:string,
+	description?:ValueTypes["JSON"],
 	action?:ValueTypes["PageBlocksFullScreenHeaderActionMutation"],
 	image?:string,
 	textColor?:string,
@@ -686,7 +695,7 @@ updatePageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},
 	["PageBlocksFeatureMutation"]: {
 	title?:string,
 	subTitle?:string,
-	description?:string,
+	description?:ValueTypes["JSON"],
 	featureStyle?:string,
 	features?:(ValueTypes["PageBlocksFeatureFeaturesMutation"] | undefined)[],
 	image?:string,
@@ -714,7 +723,7 @@ updatePageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},
 	["PageBlocksScreenShotFeatureMutation"]: {
 	title?:string,
 	subTitle?:string,
-	description?:string,
+	description?:ValueTypes["JSON"],
 	image?:string,
 	alignment?:string,
 	icon?:string,
@@ -765,11 +774,13 @@ export type ModelTypes = {
 	/** A relay-compliant pagination connection */
 ["Connection"]: ModelTypes["DocumentConnection"] | ModelTypes["LocaleInfoConnection"] | ModelTypes["NewsConnection"] | ModelTypes["FooterConnection"] | ModelTypes["ThemeConnection"] | ModelTypes["NavigationConnection"] | ModelTypes["PageConnection"];
 	["Query"]: {
-		getCollection:ModelTypes["Collection"],
+		getOptimizedQuery?:string,
+	getCollection:ModelTypes["Collection"],
 	getCollections:ModelTypes["Collection"][],
 	node:ModelTypes["Node"],
 	getDocument:ModelTypes["DocumentNode"],
 	getDocumentList:ModelTypes["DocumentConnection"],
+	getDocumentFields:ModelTypes["JSON"],
 	getLocaleInfoDocument:ModelTypes["LocaleInfoDocument"],
 	getLocaleInfoList:ModelTypes["LocaleInfoConnection"],
 	getNewsDocument:ModelTypes["NewsDocument"],
@@ -795,7 +806,7 @@ export type ModelTypes = {
 	["Collection"]: {
 		name:string,
 	slug:string,
-	label:string,
+	label?:string,
 	path:string,
 	format?:string,
 	matches?:string,
@@ -847,9 +858,8 @@ export type ModelTypes = {
 	["News"]: {
 		title:string,
 	subTitle?:string,
-	description:string,
 	image?:string,
-	body?:string
+	body?:ModelTypes["JSON"]
 };
 	["NewsDocument"]: {
 		id:string,
@@ -874,7 +884,7 @@ export type ModelTypes = {
 	phone:string
 };
 	["FooterDisclaimers"]: {
-		body?:string
+		body?:ModelTypes["JSON"]
 };
 	["Footer"]: {
 		offices?:(ModelTypes["FooterOffices"] | undefined)[],
@@ -954,18 +964,18 @@ export type ModelTypes = {
 	["PageBlocksNews"]: {
 		title:string,
 	subTitle?:string,
-	description:string,
+	description:ModelTypes["JSON"],
 	newsItems:ModelTypes["PageBlocksNewsNewsItems"][]
 };
 	["PageBlocksStatsWithImageStats"]: {
 		title:string,
 	subTitle?:string,
-	description:string
+	description:ModelTypes["JSON"]
 };
 	["PageBlocksStatsWithImage"]: {
 		title:string,
 	subTitle?:string,
-	description:string,
+	description:ModelTypes["JSON"],
 	image?:string,
 	stats:ModelTypes["PageBlocksStatsWithImageStats"][]
 };
@@ -981,7 +991,7 @@ export type ModelTypes = {
 	["PageBlocksHero"]: {
 		title:string,
 	subTitle?:string,
-	description:string,
+	description:ModelTypes["JSON"],
 	style?:string,
 	image?:string,
 	action?:ModelTypes["PageBlocksHeroAction"]
@@ -998,7 +1008,7 @@ export type ModelTypes = {
 	["PageBlocksSlideshowItems"]: {
 		title:string,
 	subTitle?:string,
-	description:string,
+	description:ModelTypes["JSON"],
 	image?:string,
 	textColor?:string,
 	action?:ModelTypes["PageBlocksSlideshowItemsAction"],
@@ -1011,7 +1021,7 @@ export type ModelTypes = {
 	["PageBlocksComparisonTableItems"]: {
 		title:string,
 	subTitle?:string,
-	description:string,
+	description:ModelTypes["JSON"],
 	bulletPoints?:(string | undefined)[]
 };
 	["PageBlocksComparisonTableAction"]: {
@@ -1026,7 +1036,7 @@ export type ModelTypes = {
 	["PageBlocksComparisonTable"]: {
 		title:string,
 	subTitle?:string,
-	description:string,
+	description:ModelTypes["JSON"],
 	items?:(ModelTypes["PageBlocksComparisonTableItems"] | undefined)[],
 	action?:ModelTypes["PageBlocksComparisonTableAction"]
 };
@@ -1050,7 +1060,7 @@ export type ModelTypes = {
 	["PageBlocksFullScreenHeader"]: {
 		title:string,
 	subTitle?:string,
-	description:string,
+	description:ModelTypes["JSON"],
 	action?:ModelTypes["PageBlocksFullScreenHeaderAction"],
 	image?:string,
 	textColor?:string,
@@ -1065,7 +1075,7 @@ export type ModelTypes = {
 	["PageBlocksFeature"]: {
 		title:string,
 	subTitle?:string,
-	description:string,
+	description:ModelTypes["JSON"],
 	featureStyle?:string,
 	features:ModelTypes["PageBlocksFeatureFeatures"][],
 	image?:string,
@@ -1093,7 +1103,7 @@ export type ModelTypes = {
 	["PageBlocksScreenShotFeature"]: {
 		title:string,
 	subTitle?:string,
-	description:string,
+	description:ModelTypes["JSON"],
 	image?:string,
 	alignment?:string,
 	icon?:string,
@@ -1127,12 +1137,19 @@ export type ModelTypes = {
 	["Mutation"]: {
 		addPendingDocument:ModelTypes["DocumentNode"],
 	updateDocument:ModelTypes["DocumentNode"],
+	createDocument:ModelTypes["DocumentNode"],
 	updateLocaleInfoDocument:ModelTypes["LocaleInfoDocument"],
+	createLocaleInfoDocument:ModelTypes["LocaleInfoDocument"],
 	updateNewsDocument:ModelTypes["NewsDocument"],
+	createNewsDocument:ModelTypes["NewsDocument"],
 	updateFooterDocument:ModelTypes["FooterDocument"],
+	createFooterDocument:ModelTypes["FooterDocument"],
 	updateThemeDocument:ModelTypes["ThemeDocument"],
+	createThemeDocument:ModelTypes["ThemeDocument"],
 	updateNavigationDocument:ModelTypes["NavigationDocument"],
-	updatePageDocument:ModelTypes["PageDocument"]
+	createNavigationDocument:ModelTypes["NavigationDocument"],
+	updatePageDocument:ModelTypes["PageDocument"],
+	createPageDocument:ModelTypes["PageDocument"]
 };
 	["DocumentMutation"]: GraphQLTypes["DocumentMutation"];
 	["LocaleInfoAuMutation"]: GraphQLTypes["LocaleInfoAuMutation"];
@@ -1208,7 +1225,9 @@ export type GraphQLTypes = {
 	["Document"]: {
 	__typename:"LocaleInfoDocument" | "NewsDocument" | "FooterDocument" | "ThemeDocument" | "NavigationDocument" | "PageDocument"
 	sys?: GraphQLTypes["SystemInfo"],
-	id: string
+	id: string,
+	form: GraphQLTypes["JSON"],
+	values: GraphQLTypes["JSON"]
 	['...on LocaleInfoDocument']: '__union' & GraphQLTypes["LocaleInfoDocument"];
 	['...on NewsDocument']: '__union' & GraphQLTypes["NewsDocument"];
 	['...on FooterDocument']: '__union' & GraphQLTypes["FooterDocument"];
@@ -1230,11 +1249,13 @@ export type GraphQLTypes = {
 };
 	["Query"]: {
 	__typename: "Query",
+	getOptimizedQuery?: string,
 	getCollection: GraphQLTypes["Collection"],
 	getCollections: Array<GraphQLTypes["Collection"]>,
 	node: GraphQLTypes["Node"],
 	getDocument: GraphQLTypes["DocumentNode"],
 	getDocumentList: GraphQLTypes["DocumentConnection"],
+	getDocumentFields: GraphQLTypes["JSON"],
 	getLocaleInfoDocument: GraphQLTypes["LocaleInfoDocument"],
 	getLocaleInfoList: GraphQLTypes["LocaleInfoConnection"],
 	getNewsDocument: GraphQLTypes["NewsDocument"],
@@ -1263,7 +1284,7 @@ export type GraphQLTypes = {
 	__typename: "Collection",
 	name: string,
 	slug: string,
-	label: string,
+	label?: string,
 	path: string,
 	format?: string,
 	matches?: string,
@@ -1330,9 +1351,8 @@ export type GraphQLTypes = {
 	__typename: "News",
 	title: string,
 	subTitle?: string,
-	description: string,
 	image?: string,
-	body?: string
+	body?: GraphQLTypes["JSON"]
 };
 	["NewsDocument"]: {
 	__typename: "NewsDocument",
@@ -1362,7 +1382,7 @@ export type GraphQLTypes = {
 };
 	["FooterDisclaimers"]: {
 	__typename: "FooterDisclaimers",
-	body?: string
+	body?: GraphQLTypes["JSON"]
 };
 	["Footer"]: {
 	__typename: "Footer",
@@ -1462,20 +1482,20 @@ export type GraphQLTypes = {
 	__typename: "PageBlocksNews",
 	title: string,
 	subTitle?: string,
-	description: string,
+	description: GraphQLTypes["JSON"],
 	newsItems: Array<GraphQLTypes["PageBlocksNewsNewsItems"]>
 };
 	["PageBlocksStatsWithImageStats"]: {
 	__typename: "PageBlocksStatsWithImageStats",
 	title: string,
 	subTitle?: string,
-	description: string
+	description: GraphQLTypes["JSON"]
 };
 	["PageBlocksStatsWithImage"]: {
 	__typename: "PageBlocksStatsWithImage",
 	title: string,
 	subTitle?: string,
-	description: string,
+	description: GraphQLTypes["JSON"],
 	image?: string,
 	stats: Array<GraphQLTypes["PageBlocksStatsWithImageStats"]>
 };
@@ -1493,7 +1513,7 @@ export type GraphQLTypes = {
 	__typename: "PageBlocksHero",
 	title: string,
 	subTitle?: string,
-	description: string,
+	description: GraphQLTypes["JSON"],
 	style?: string,
 	image?: string,
 	action?: GraphQLTypes["PageBlocksHeroAction"]
@@ -1512,7 +1532,7 @@ export type GraphQLTypes = {
 	__typename: "PageBlocksSlideshowItems",
 	title: string,
 	subTitle?: string,
-	description: string,
+	description: GraphQLTypes["JSON"],
 	image?: string,
 	textColor?: string,
 	action?: GraphQLTypes["PageBlocksSlideshowItemsAction"],
@@ -1527,7 +1547,7 @@ export type GraphQLTypes = {
 	__typename: "PageBlocksComparisonTableItems",
 	title: string,
 	subTitle?: string,
-	description: string,
+	description: GraphQLTypes["JSON"],
 	bulletPoints?: Array<string | undefined>
 };
 	["PageBlocksComparisonTableAction"]: {
@@ -1544,7 +1564,7 @@ export type GraphQLTypes = {
 	__typename: "PageBlocksComparisonTable",
 	title: string,
 	subTitle?: string,
-	description: string,
+	description: GraphQLTypes["JSON"],
 	items?: Array<GraphQLTypes["PageBlocksComparisonTableItems"] | undefined>,
 	action?: GraphQLTypes["PageBlocksComparisonTableAction"]
 };
@@ -1571,7 +1591,7 @@ export type GraphQLTypes = {
 	__typename: "PageBlocksFullScreenHeader",
 	title: string,
 	subTitle?: string,
-	description: string,
+	description: GraphQLTypes["JSON"],
 	action?: GraphQLTypes["PageBlocksFullScreenHeaderAction"],
 	image?: string,
 	textColor?: string,
@@ -1588,7 +1608,7 @@ export type GraphQLTypes = {
 	__typename: "PageBlocksFeature",
 	title: string,
 	subTitle?: string,
-	description: string,
+	description: GraphQLTypes["JSON"],
 	featureStyle?: string,
 	features: Array<GraphQLTypes["PageBlocksFeatureFeatures"]>,
 	image?: string,
@@ -1620,7 +1640,7 @@ export type GraphQLTypes = {
 	__typename: "PageBlocksScreenShotFeature",
 	title: string,
 	subTitle?: string,
-	description: string,
+	description: GraphQLTypes["JSON"],
 	image?: string,
 	alignment?: string,
 	icon?: string,
@@ -1669,12 +1689,19 @@ export type GraphQLTypes = {
 	__typename: "Mutation",
 	addPendingDocument: GraphQLTypes["DocumentNode"],
 	updateDocument: GraphQLTypes["DocumentNode"],
+	createDocument: GraphQLTypes["DocumentNode"],
 	updateLocaleInfoDocument: GraphQLTypes["LocaleInfoDocument"],
+	createLocaleInfoDocument: GraphQLTypes["LocaleInfoDocument"],
 	updateNewsDocument: GraphQLTypes["NewsDocument"],
+	createNewsDocument: GraphQLTypes["NewsDocument"],
 	updateFooterDocument: GraphQLTypes["FooterDocument"],
+	createFooterDocument: GraphQLTypes["FooterDocument"],
 	updateThemeDocument: GraphQLTypes["ThemeDocument"],
+	createThemeDocument: GraphQLTypes["ThemeDocument"],
 	updateNavigationDocument: GraphQLTypes["NavigationDocument"],
-	updatePageDocument: GraphQLTypes["PageDocument"]
+	createNavigationDocument: GraphQLTypes["NavigationDocument"],
+	updatePageDocument: GraphQLTypes["PageDocument"],
+	createPageDocument: GraphQLTypes["PageDocument"]
 };
 	["DocumentMutation"]: {
 		localeInfo?: GraphQLTypes["LocaleInfoMutation"],
@@ -1710,9 +1737,8 @@ export type GraphQLTypes = {
 	["NewsMutation"]: {
 		title?: string,
 	subTitle?: string,
-	description?: string,
 	image?: string,
-	body?: string
+	body?: GraphQLTypes["JSON"]
 };
 	["FooterOfficesMutation"]: {
 		location?: string,
@@ -1720,7 +1746,7 @@ export type GraphQLTypes = {
 	phone?: string
 };
 	["FooterDisclaimersMutation"]: {
-		body?: string
+		body?: GraphQLTypes["JSON"]
 };
 	["FooterMutation"]: {
 		offices?: Array<GraphQLTypes["FooterOfficesMutation"] | undefined>,
@@ -1747,18 +1773,18 @@ export type GraphQLTypes = {
 	["PageBlocksNewsMutation"]: {
 		title?: string,
 	subTitle?: string,
-	description?: string,
+	description?: GraphQLTypes["JSON"],
 	newsItems?: Array<GraphQLTypes["PageBlocksNewsNewsItemsMutation"] | undefined>
 };
 	["PageBlocksStatsWithImageStatsMutation"]: {
 		title?: string,
 	subTitle?: string,
-	description?: string
+	description?: GraphQLTypes["JSON"]
 };
 	["PageBlocksStatsWithImageMutation"]: {
 		title?: string,
 	subTitle?: string,
-	description?: string,
+	description?: GraphQLTypes["JSON"],
 	image?: string,
 	stats?: Array<GraphQLTypes["PageBlocksStatsWithImageStatsMutation"] | undefined>
 };
@@ -1774,7 +1800,7 @@ export type GraphQLTypes = {
 	["PageBlocksHeroMutation"]: {
 		title?: string,
 	subTitle?: string,
-	description?: string,
+	description?: GraphQLTypes["JSON"],
 	style?: string,
 	image?: string,
 	action?: GraphQLTypes["PageBlocksHeroActionMutation"]
@@ -1791,7 +1817,7 @@ export type GraphQLTypes = {
 	["PageBlocksSlideshowItemsMutation"]: {
 		title?: string,
 	subTitle?: string,
-	description?: string,
+	description?: GraphQLTypes["JSON"],
 	image?: string,
 	textColor?: string,
 	action?: GraphQLTypes["PageBlocksSlideshowItemsActionMutation"],
@@ -1804,7 +1830,7 @@ export type GraphQLTypes = {
 	["PageBlocksComparisonTableItemsMutation"]: {
 		title?: string,
 	subTitle?: string,
-	description?: string,
+	description?: GraphQLTypes["JSON"],
 	bulletPoints?: Array<string | undefined>
 };
 	["PageBlocksComparisonTableActionMutation"]: {
@@ -1819,7 +1845,7 @@ export type GraphQLTypes = {
 	["PageBlocksComparisonTableMutation"]: {
 		title?: string,
 	subTitle?: string,
-	description?: string,
+	description?: GraphQLTypes["JSON"],
 	items?: Array<GraphQLTypes["PageBlocksComparisonTableItemsMutation"] | undefined>,
 	action?: GraphQLTypes["PageBlocksComparisonTableActionMutation"]
 };
@@ -1843,7 +1869,7 @@ export type GraphQLTypes = {
 	["PageBlocksFullScreenHeaderMutation"]: {
 		title?: string,
 	subTitle?: string,
-	description?: string,
+	description?: GraphQLTypes["JSON"],
 	action?: GraphQLTypes["PageBlocksFullScreenHeaderActionMutation"],
 	image?: string,
 	textColor?: string,
@@ -1858,7 +1884,7 @@ export type GraphQLTypes = {
 	["PageBlocksFeatureMutation"]: {
 		title?: string,
 	subTitle?: string,
-	description?: string,
+	description?: GraphQLTypes["JSON"],
 	featureStyle?: string,
 	features?: Array<GraphQLTypes["PageBlocksFeatureFeaturesMutation"] | undefined>,
 	image?: string,
@@ -1886,7 +1912,7 @@ export type GraphQLTypes = {
 	["PageBlocksScreenShotFeatureMutation"]: {
 		title?: string,
 	subTitle?: string,
-	description?: string,
+	description?: GraphQLTypes["JSON"],
 	image?: string,
 	alignment?: string,
 	icon?: string,

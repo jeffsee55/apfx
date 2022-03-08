@@ -1,11 +1,12 @@
 import React from "react";
 import { FullScreenHeaderWithBackground } from "./header";
 import { Action } from "./hero";
+import type { TinaMarkdownContent } from "tinacms/dist/rich-text";
 
 type SlideshowItem = {
   title: string;
   image?: string;
-  description: string;
+  description: TinaMarkdownContent;
   overlayColor?: string;
   overlayOpacity?: string;
   textColor?: string;

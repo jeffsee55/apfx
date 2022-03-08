@@ -285,7 +285,7 @@
             {
               "label": "Body",
               "name": "body",
-              "type": "string",
+              "type": "rich-text",
               "namespace": [
                 "footer",
                 "disclaimers",

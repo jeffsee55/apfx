@@ -169,7 +169,7 @@ type FooterOffices {
 }
 
 type FooterDisclaimers {
-  body: String
+  body: JSON
 }
 
 type Footer {
@@ -530,7 +530,7 @@ input FooterOfficesMutation {
 }
 
 input FooterDisclaimersMutation {
-  body: String
+  body: JSON
 }
 
 input FooterMutation {

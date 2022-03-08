@@ -1,4 +1,6 @@
-import { defineSchema, TinaField } from "@tinacms/cli";
+// @ts-nocheck FIXME
+import { defineSchema, defineConfig } from "tinacms";
+import type { TinaField } from "tinacms";
 import * as Icons from "@heroicons/react/outline";
 
 const overlayControls = [
@@ -145,6 +147,7 @@ const textFields: TinaField[] = [
     label: "Title",
     name: "title",
     type: "string" as const,
+    // @ts-ignore
     required: true,
   },
   {
@@ -156,6 +159,7 @@ const textFields: TinaField[] = [
     label: "Description",
     name: "description",
     type: "rich-text" as const,
+    // @ts-ignore
     required: true,
   },
 ];
@@ -180,7 +184,7 @@ const textFieldsSeo: TinaField[] = [
   },
 ];
 
-const localeStrings = [
+const localeStrings: TinaField[] = [
   {
     label: "Tel",
     name: "tel",
@@ -290,6 +294,7 @@ export default defineSchema({
         {
           label: "Disclaimers",
           name: "disclaimers",
+          // @ts-ignore
           required: true,
           type: "object",
           list: true,
@@ -297,7 +302,7 @@ export default defineSchema({
             {
               label: "Body",
               name: "body",
-              type: "string",
+              type: "rich-text",
             },
           ],
         },
@@ -342,6 +347,7 @@ export default defineSchema({
         {
           label: "Items",
           name: "items",
+          // @ts-ignore
           required: true,
           type: "object",
           list: true,
@@ -395,6 +401,7 @@ export default defineSchema({
                   label: "Items",
                   name: "newsItems",
                   type: "object",
+                  // @ts-ignore
                   required: true,
                   list: true,
                   ui: {
@@ -407,6 +414,7 @@ export default defineSchema({
                       label: "Article",
                       name: "article",
                       type: "reference",
+                      // @ts-ignore
                       required: true,
                       collections: ["news"],
                     },
@@ -440,6 +448,7 @@ export default defineSchema({
                   label: "Stats",
                   name: "stats",
                   type: "object",
+                  // @ts-ignore
                   required: true,
                   list: true,
                   ui: {
@@ -721,4 +730,32 @@ export default defineSchema({
       ],
     },
   ],
+});
+
+const branch = process.env.VERCEL_GIT_COMMIT_REF || "main";
+const apiURL =
+  process.env.NODE_ENV == "development"
+    ? "http://localhost:4001/graphql"
+    : `https://content.tinajs.io/content/d94095b9-fb25-40a6-a3ea-277ad5653cb0/github/${branch}`;
+
+export const tinaConfig = defineConfig({
+  apiURL,
+  cmsCallback: (cms) => {
+    cms.flags.set("branch-switcher", true);
+    cms.flags.set("use-unstable-formify", true);
+    return cms;
+  },
+  formifyCallback: ({ formConfig, createForm, createGlobalForm }) => {
+    if (
+      [
+        "content/navigation/main.md",
+        "content/localeInfo/main.md",
+        "content/footer/main.md",
+        "content/theme/main.json",
+      ].includes(formConfig.id)
+    ) {
+      return createGlobalForm(formConfig);
+    }
+    return createForm(formConfig);
+  },
 });
