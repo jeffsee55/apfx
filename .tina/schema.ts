@@ -501,6 +501,19 @@ export default defineSchema({
             {
               label: "Slideshow",
               name: "slideshow",
+              ui: {
+                defaultItem: {
+                  items: [
+                    {
+                      title: "What we do",
+                      description:
+                        "We work as your trusted business partner to help you more effectively operate your business globally. Ebury's global payment solutions enable you to efficiently and securely send payments across the world in over 140 currencies. Offering a sophisticated suite of products and an advanced technology platform, as well as a panel of the biggest, global banks to ensure the most competitive pricing in the industry.",
+                      image:
+                        "https://images.ctfassets.net/fn5fbjfhb3z0/1GQRbVRTQ9OJmignvZxPTd/43b7e889507f8801aa8268aef9d95083/opera-house-2.jpg?w=1600&h=1066&q=50",
+                    },
+                  ],
+                },
+              },
               fields: [
                 {
                   label: "Items",
@@ -661,8 +674,17 @@ export default defineSchema({
                     defaultItem: {
                       icon: "HeartIcon",
                       name: "This is some dummy content",
-                      description:
-                        "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
+                      description: {
+                        type: "root",
+                        children: [
+                          {
+                            type: "p",
+                            children: [
+                              "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
+                            ],
+                          },
+                        ],
+                      },
                     },
                   },
                   fields: [
@@ -683,7 +705,7 @@ export default defineSchema({
                       label: "Description",
                       name: "description",
                       required: true,
-                      type: "string",
+                      type: "rich-text",
                     },
                   ],
                 },

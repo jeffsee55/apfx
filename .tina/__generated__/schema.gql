@@ -387,7 +387,7 @@ type PageBlocksFullScreenHeader {
 type PageBlocksFeatureFeatures {
   icon: String!
   name: String!
-  description: String!
+  description: JSON!
 }
 
 type PageBlocksFeature {
@@ -684,7 +684,7 @@ input PageBlocksFullScreenHeaderMutation {
 input PageBlocksFeatureFeaturesMutation {
   icon: String
   name: String
-  description: String
+  description: JSON
 }
 
 input PageBlocksFeatureMutation {
