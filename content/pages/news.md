@@ -5,7 +5,7 @@ seo:
   title: News & Insights
   description: Get the latest insights
 blocks:
-  - title: News & Insights!
+  - title: News & Insights
     subTitle: Get the latest
     description: ''
     newsItems:
