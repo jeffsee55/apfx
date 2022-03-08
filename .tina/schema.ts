@@ -155,7 +155,7 @@ const textFields: TinaField[] = [
   {
     label: "Description",
     name: "description",
-    type: "string" as const,
+    type: "rich-text" as const,
     required: true,
   },
 ];
@@ -235,14 +235,14 @@ export default defineSchema({
       name: "news",
       path: "content/news",
       fields: [
-        ...textFields,
+        ...textFields.filter((textField) => textField.name !== "description"),
         {
           label: "Image",
           name: "image",
           type: "string",
         },
         {
-          type: "string",
+          type: "rich-text",
           name: "body",
           isBody: true,
           label: "Body",

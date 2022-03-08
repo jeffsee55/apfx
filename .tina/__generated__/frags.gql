@@ -25,7 +25,6 @@ fragment LocaleInfoParts on LocaleInfo {
 fragment NewsParts on News {
   title
   subTitle
-  description
   image
   body
 }

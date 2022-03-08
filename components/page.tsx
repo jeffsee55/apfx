@@ -28,7 +28,7 @@ type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (
 type HomeProps = AsyncReturnType<typeof getStaticProps>["props"];
 
 export default function Home(p: HomeProps) {
-  const props = useTina(p);
+  const props = useTina<typeof p>(p);
   const seo = props.data.getPageDocument.data.seo;
 
   return (
@@ -113,229 +113,230 @@ export const getStaticProps = async ({
       queryObject: T,
       variables?: B
     ) => {
+      console.log(Zeus.query(queryObject));
       return {
         query: Zeus.query(queryObject),
         data: await chain.query(queryObject, variables),
       };
     },
   };
-  // try {
-  const listCardsAndDraw = await chainWithQueryString.query({
-    getLocaleInfoDocument: [
-      {
-        relativePath: "main.md",
-      },
-      {
-        dataJSON: true,
-      },
-    ],
-    getPageList: [
-      {},
-      {
-        edges: {
-          node: {
-            id: true,
-          },
+  try {
+    const listCardsAndDraw = await chainWithQueryString.query({
+      getLocaleInfoDocument: [
+        {
+          relativePath: "main.md",
         },
-      },
-    ],
-    getNavigationDocument: [
-      { relativePath: "main.md" },
-      {
-        data: {
-          items: {
-            page: {
-              "...on PageDocument": {
-                data: {
-                  title: true,
-                  link: true,
-                },
-              },
+        {
+          dataJSON: true,
+        },
+      ],
+      getPageList: [
+        {},
+        {
+          edges: {
+            node: {
+              id: true,
             },
           },
         },
-      },
-    ],
-    getFooterDocument: [
-      { relativePath: "main.md" },
-      {
-        data: {
-          offices: {
-            address: true,
-            location: true,
-            phone: true,
-          },
-          disclaimers: {
-            body: true,
-          },
-        },
-      },
-    ],
-    getThemeDocument: [
-      { relativePath: "main.json" },
-      {
-        dataJSON: true,
-      },
-    ],
-    getPageDocument: [
-      { relativePath },
-      {
-        id: true,
-        data: {
-          title: true,
-          seo: {
-            // @ts-ignore not sure why it's not getting updated
-            title: true,
-            description: true,
-            image: true,
-          },
-          blocks: {
-            __typename: true,
-            "...on PageBlocksComparisonTable": {
-              title: true,
-              subTitle: true,
-              description: true,
-              action: {
-                callToAction: true,
-                link: true,
-                linkText: true,
-                linkOverride: true,
-                secondaryLink: true,
-                secondaryText: true,
-                secondaryLinkOverride: true,
-              },
-              items: {
-                title: true,
-                subTitle: true,
-                description: true,
-                bulletPoints: true,
-              },
-            },
-            "...on PageBlocksHero": {
-              title: true,
-              description: true,
-              image: true,
-              style: true,
-              action: {
-                link: true,
-                linkText: true,
-                linkOverride: true,
-                secondaryLink: true,
-                secondaryText: true,
-                secondaryLinkOverride: true,
-              },
-            },
-            "...on PageBlocksFeature": {
-              title: true,
-              description: true,
-              subTitle: true,
-              featureStyle: true,
-              features: {
-                icon: true,
-                name: true,
-                description: true,
-              },
-              image: true,
-              overlayColor: true,
-              overlayOpacity: true,
-              textColor: true,
-            },
-            "...on PageBlocksScreenShotFeature": {
-              title: true,
-              description: true,
-              subTitle: true,
-              image: true,
-              icon: true,
-              alignment: true,
-              testimonial: {
-                quote: true,
-                author: {
-                  avatar: true,
-                  name: true,
-                },
-              },
-              action: {
-                callToAction: true,
-                link: true,
-                linkText: true,
-                secondaryLink: true,
-                secondaryText: true,
-              },
-            },
-            "...on PageBlocksNews": {
-              title: true,
-              subTitle: true,
-              newsItems: {
-                article: {
-                  "...on NewsDocument": {
-                    data: {
-                      title: true,
-                      image: true,
-                      subTitle: true,
-                    },
-                    sys: {
-                      filename: true,
-                    },
+      ],
+      getNavigationDocument: [
+        { relativePath: "main.md" },
+        {
+          data: {
+            items: {
+              page: {
+                "...on PageDocument": {
+                  data: {
+                    title: true,
+                    link: true,
                   },
                 },
               },
             },
-            "...on PageBlocksFullScreenLogo": {
-              slogan: true,
-              link: true,
-              image: true,
-              overlayColor: true,
-              overlayOpacity: true,
+          },
+        },
+      ],
+      getFooterDocument: [
+        { relativePath: "main.md" },
+        {
+          data: {
+            offices: {
+              address: true,
+              location: true,
+              phone: true,
             },
-            "...on PageBlocksFullScreenHeader": {
+            disclaimers: {
+              body: true,
+            },
+          },
+        },
+      ],
+      getThemeDocument: [
+        { relativePath: "main.json" },
+        {
+          dataJSON: true,
+        },
+      ],
+      getPageDocument: [
+        { relativePath },
+        {
+          id: true,
+          data: {
+            title: true,
+            seo: {
+              // @ts-ignore not sure why it's not getting updated
               title: true,
               description: true,
               image: true,
-              overlayColor: true,
-              overlayOpacity: true,
-              action: {
-                link: true,
-                linkText: true,
-                secondaryLink: true,
-                secondaryText: true,
-              },
-              textColor: true,
             },
-            "...on PageBlocksStatsWithImage": {
-              title: true,
-              description: true,
-              image: true,
-              subTitle: true,
-              stats: {
+            blocks: {
+              __typename: true,
+              "...on PageBlocksComparisonTable": {
                 title: true,
+                subTitle: true,
                 description: true,
+                action: {
+                  callToAction: true,
+                  link: true,
+                  linkText: true,
+                  linkOverride: true,
+                  secondaryLink: true,
+                  secondaryText: true,
+                  secondaryLinkOverride: true,
+                },
+                items: {
+                  title: true,
+                  subTitle: true,
+                  description: true,
+                  bulletPoints: true,
+                },
               },
-            },
-            "...on PageBlocksSlideshow": {
-              items: {
+              "...on PageBlocksHero": {
                 title: true,
                 description: true,
                 image: true,
+                style: true,
+                action: {
+                  link: true,
+                  linkText: true,
+                  linkOverride: true,
+                  secondaryLink: true,
+                  secondaryText: true,
+                  secondaryLinkOverride: true,
+                },
+              },
+              "...on PageBlocksFeature": {
+                title: true,
+                description: true,
+                subTitle: true,
+                featureStyle: true,
+                features: {
+                  icon: true,
+                  name: true,
+                  description: true,
+                },
+                image: true,
+                overlayColor: true,
+                overlayOpacity: true,
+                textColor: true,
+              },
+              "...on PageBlocksScreenShotFeature": {
+                title: true,
+                description: true,
+                subTitle: true,
+                image: true,
+                icon: true,
+                alignment: true,
+                testimonial: {
+                  quote: true,
+                  author: {
+                    avatar: true,
+                    name: true,
+                  },
+                },
+                action: {
+                  callToAction: true,
+                  link: true,
+                  linkText: true,
+                  secondaryLink: true,
+                  secondaryText: true,
+                },
+              },
+              "...on PageBlocksNews": {
+                title: true,
+                subTitle: true,
+                newsItems: {
+                  article: {
+                    "...on NewsDocument": {
+                      data: {
+                        title: true,
+                        image: true,
+                        subTitle: true,
+                      },
+                      sys: {
+                        filename: true,
+                      },
+                    },
+                  },
+                },
+              },
+              "...on PageBlocksFullScreenLogo": {
+                slogan: true,
+                link: true,
+                image: true,
+                overlayColor: true,
+                overlayOpacity: true,
+              },
+              "...on PageBlocksFullScreenHeader": {
+                title: true,
+                description: true,
+                image: true,
+                overlayColor: true,
+                overlayOpacity: true,
                 action: {
                   link: true,
                   linkText: true,
                   secondaryLink: true,
                   secondaryText: true,
                 },
-                overlayColor: true,
-                overlayOpacity: true,
                 textColor: true,
+              },
+              "...on PageBlocksStatsWithImage": {
+                title: true,
+                description: true,
+                image: true,
+                subTitle: true,
+                stats: {
+                  title: true,
+                  description: true,
+                },
+              },
+              "...on PageBlocksSlideshow": {
+                items: {
+                  title: true,
+                  description: true,
+                  image: true,
+                  action: {
+                    link: true,
+                    linkText: true,
+                    secondaryLink: true,
+                    secondaryText: true,
+                  },
+                  overlayColor: true,
+                  overlayOpacity: true,
+                  textColor: true,
+                },
               },
             },
           },
         },
-      },
-    ],
-  });
-  return { props: listCardsAndDraw };
-  // } catch (e) {
-  //   return {
-  //     props: JSON.parse(JSON.stringify(e)).response,
-  //   };
-  // }
+      ],
+    });
+    return { props: listCardsAndDraw };
+  } catch (e) {
+    return {
+      props: JSON.parse(JSON.stringify(e)).response,
+    };
+  }
 };

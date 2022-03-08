@@ -1,4 +1,5 @@
 import ReactMarkdown from "react-markdown";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
 
 export const Markdown = (props: {
   variant?: "standard" | "small";
@@ -9,6 +10,16 @@ export const Markdown = (props: {
   const variant = props.variant || "standard";
   const colorVariant = props.colorVariant || "light";
   const selectedVariant = variants[variant];
+  if (typeof props.children !== "string") {
+    return (
+      <div className={`${selectedVariant.root} ${props.classNames}`}>
+        <TinaMarkdown
+          components={selectedVariant(colorVariant)}
+          content={props.children}
+        />
+      </div>
+    );
+  }
   return (
     // @ts-ignore
     <div className={`${selectedVariant.root} ${props.classNames}`}>

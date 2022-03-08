@@ -78,7 +78,8 @@ export function Pricing(props: PricingProps) {
             <DisplayText size={"text-3xl lg:text-5xl py-4"}>
               {props.title}
             </DisplayText>
-            {props.description && <Text>{props.description}</Text>}
+            {/* {props.description && <Text>{props.description}</Text>} */}
+            {props.description && <Markdown>{props.description}</Markdown>}
           </div>
         </div>
       </div>

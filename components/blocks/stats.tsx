@@ -1,4 +1,5 @@
 import { DisplayText, Text } from "../typographqy";
+import { Markdown } from "../markdown";
 
 type StatsProps = {
   title: string;
@@ -42,9 +43,10 @@ export function StatsWithImage(props: StatsProps) {
           >
             {props.title}
           </DisplayText>
-          <Text variant={"light"} classNames="lg:max-w-xl">
+          <Markdown>{props.description}</Markdown>
+          {/* <Text variant={"light"} classNames="lg:max-w-xl">
             {props.description}
-          </Text>
+          </Text> */}
           <div className="mt-12 grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-2">
             {props.stats?.map((item, index) => (
               <p key={item.title + index}>

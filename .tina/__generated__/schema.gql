@@ -138,9 +138,8 @@ type LocaleInfoConnection implements Connection {
 type News {
   title: String!
   subTitle: String
-  description: String!
   image: String
-  body: String
+  body: JSON
 }
 
 type NewsDocument implements Node & Document {
@@ -268,20 +267,20 @@ type PageBlocksNewsNewsItems {
 type PageBlocksNews {
   title: String!
   subTitle: String
-  description: String!
+  description: JSON!
   newsItems: [PageBlocksNewsNewsItems!]!
 }
 
 type PageBlocksStatsWithImageStats {
   title: String!
   subTitle: String
-  description: String!
+  description: JSON!
 }
 
 type PageBlocksStatsWithImage {
   title: String!
   subTitle: String
-  description: String!
+  description: JSON!
   image: String
   stats: [PageBlocksStatsWithImageStats!]!
 }
@@ -299,7 +298,7 @@ type PageBlocksHeroAction {
 type PageBlocksHero {
   title: String!
   subTitle: String
-  description: String!
+  description: JSON!
   style: String
   image: String
   action: PageBlocksHeroAction
@@ -318,7 +317,7 @@ type PageBlocksSlideshowItemsAction {
 type PageBlocksSlideshowItems {
   title: String!
   subTitle: String
-  description: String!
+  description: JSON!
   image: String
   textColor: String
   action: PageBlocksSlideshowItemsAction
@@ -333,7 +332,7 @@ type PageBlocksSlideshow {
 type PageBlocksComparisonTableItems {
   title: String!
   subTitle: String
-  description: String!
+  description: JSON!
   bulletPoints: [String]
 }
 
@@ -350,7 +349,7 @@ type PageBlocksComparisonTableAction {
 type PageBlocksComparisonTable {
   title: String!
   subTitle: String
-  description: String!
+  description: JSON!
   items: [PageBlocksComparisonTableItems]
   action: PageBlocksComparisonTableAction
 }
@@ -377,7 +376,7 @@ type PageBlocksFullScreenHeaderAction {
 type PageBlocksFullScreenHeader {
   title: String!
   subTitle: String
-  description: String!
+  description: JSON!
   action: PageBlocksFullScreenHeaderAction
   image: String
   textColor: String
@@ -394,7 +393,7 @@ type PageBlocksFeatureFeatures {
 type PageBlocksFeature {
   title: String!
   subTitle: String
-  description: String!
+  description: JSON!
   featureStyle: String
   features: [PageBlocksFeatureFeatures!]!
   image: String
@@ -426,7 +425,7 @@ type PageBlocksScreenShotFeatureTestimonial {
 type PageBlocksScreenShotFeature {
   title: String!
   subTitle: String
-  description: String!
+  description: JSON!
   image: String
   alignment: String
   icon: String
@@ -520,9 +519,8 @@ input LocaleInfoMutation {
 input NewsMutation {
   title: String
   subTitle: String
-  description: String
   image: String
-  body: String
+  body: JSON
 }
 
 input FooterOfficesMutation {
@@ -566,20 +564,20 @@ input PageBlocksNewsNewsItemsMutation {
 input PageBlocksNewsMutation {
   title: String
   subTitle: String
-  description: String
+  description: JSON
   newsItems: [PageBlocksNewsNewsItemsMutation]
 }
 
 input PageBlocksStatsWithImageStatsMutation {
   title: String
   subTitle: String
-  description: String
+  description: JSON
 }
 
 input PageBlocksStatsWithImageMutation {
   title: String
   subTitle: String
-  description: String
+  description: JSON
   image: String
   stats: [PageBlocksStatsWithImageStatsMutation]
 }
@@ -597,7 +595,7 @@ input PageBlocksHeroActionMutation {
 input PageBlocksHeroMutation {
   title: String
   subTitle: String
-  description: String
+  description: JSON
   style: String
   image: String
   action: PageBlocksHeroActionMutation
@@ -616,7 +614,7 @@ input PageBlocksSlideshowItemsActionMutation {
 input PageBlocksSlideshowItemsMutation {
   title: String
   subTitle: String
-  description: String
+  description: JSON
   image: String
   textColor: String
   action: PageBlocksSlideshowItemsActionMutation
@@ -631,7 +629,7 @@ input PageBlocksSlideshowMutation {
 input PageBlocksComparisonTableItemsMutation {
   title: String
   subTitle: String
-  description: String
+  description: JSON
   bulletPoints: [String]
 }
 
@@ -648,7 +646,7 @@ input PageBlocksComparisonTableActionMutation {
 input PageBlocksComparisonTableMutation {
   title: String
   subTitle: String
-  description: String
+  description: JSON
   items: [PageBlocksComparisonTableItemsMutation]
   action: PageBlocksComparisonTableActionMutation
 }
@@ -675,7 +673,7 @@ input PageBlocksFullScreenHeaderActionMutation {
 input PageBlocksFullScreenHeaderMutation {
   title: String
   subTitle: String
-  description: String
+  description: JSON
   action: PageBlocksFullScreenHeaderActionMutation
   image: String
   textColor: String
@@ -692,7 +690,7 @@ input PageBlocksFeatureFeaturesMutation {
 input PageBlocksFeatureMutation {
   title: String
   subTitle: String
-  description: String
+  description: JSON
   featureStyle: String
   features: [PageBlocksFeatureFeaturesMutation]
   image: String
@@ -724,7 +722,7 @@ input PageBlocksScreenShotFeatureTestimonialMutation {
 input PageBlocksScreenShotFeatureMutation {
   title: String
   subTitle: String
-  description: String
+  description: JSON
   image: String
   alignment: String
   icon: String

@@ -2393,9 +2393,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tinacms/cli@npm:0.0.0-202227191224":
-  version: 0.0.0-202227191224
-  resolution: "@tinacms/cli@npm:0.0.0-202227191224"
+"@tinacms/cli@npm:0.0.0-202227231214":
+  version: 0.0.0-202227231214
+  resolution: "@tinacms/cli@npm:0.0.0-202227231214"
   dependencies:
     "@graphql-codegen/core": ^2.1.0
     "@graphql-codegen/plugin-helpers": latest
@@ -2406,7 +2406,7 @@ __metadata:
     "@graphql-tools/graphql-file-loader": ^7.2.0
     "@graphql-tools/load": ^7.3.2
     "@tinacms/datalayer": 0.0.2
-    "@tinacms/graphql": 0.0.0-202227191224
+    "@tinacms/graphql": 0.0.0-202227231214
     "@tinacms/metrics": 0.0.2
     "@yarnpkg/esbuild-plugin-pnp": ^2.0.1-rc.3
     add: ^2.0.6
@@ -2436,7 +2436,7 @@ __metadata:
     yup: ^0.32.9
   bin:
     tinacms: bin/tinacms
-  checksum: f514f998c7cddbe163689d1946a930a100cba79077ca8b59495723be249bc9d110697f77107568122cc526702d1f31ec36d357e4497be2dc619d2e1dd65eb728
+  checksum: c29898891a71ce43c5b1d700fe3a582c98f8dceff5e34f0771a75b838c8e78780bf3e23108fa4a62c039ecb7ee4baa657cf14a0bd80a66caf09f354deceac646
   languageName: node
   linkType: hard
 
@@ -2464,9 +2464,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tinacms/graphql@npm:0.0.0-202227191224":
-  version: 0.0.0-202227191224
-  resolution: "@tinacms/graphql@npm:0.0.0-202227191224"
+"@tinacms/graphql@npm:0.0.0-202227231214":
+  version: 0.0.0-202227231214
+  resolution: "@tinacms/graphql@npm:0.0.0-202227231214"
   dependencies:
     "@graphql-tools/relay-operation-optimizer": ^6.4.1
     body-parser: ^1.19.0
@@ -2509,7 +2509,7 @@ __metadata:
     vfile: ^4.2.0
     ws: ^7.3.1
     yup: ^0.32.9
-  checksum: 44a9d63e442199b67a544453d57bf4a7560be87fc919db2bcbfcab6927d03ed7821d0efb265c452e5b2609ca63d936abc50497ba9749c59f489acc82d0d2f162
+  checksum: 3b846ed5ab38eb16c382a20213f081920062244cf19fa60359e5f62ded34d688a1a7df4f6e0ef6fd5f2fb9297b612f2c3327c922bdbfa0896ae9cb7d269dee17
   languageName: node
   linkType: hard
 
@@ -2535,9 +2535,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tinacms/toolkit@npm:0.0.0-202227191224":
-  version: 0.0.0-202227191224
-  resolution: "@tinacms/toolkit@npm:0.0.0-202227191224"
+"@tinacms/toolkit@npm:0.0.0-202227231214":
+  version: 0.0.0-202227231214
+  resolution: "@tinacms/toolkit@npm:0.0.0-202227231214"
   dependencies:
     "@floating-ui/dom": ^0.1.7
     "@floating-ui/react-dom": ^0.3.3
@@ -2607,7 +2607,7 @@ __metadata:
     react-dom: ">=16.14"
     react-is: ">=16.14.0"
     styled-components: ">=4.1"
-  checksum: be97d608cefcdab5dedc2d874ba2bd5e3485cd188d67406d184dad89dac917868b907707679c1090fbbe7636be5d1d88a21e1eec36ac2a70af6aa5326dadfc61
+  checksum: 366db9bd845fa0b56bdbe42e09e4647ada823eda08abece00520dce122e78308011b93a7df0f9d3b3ff588c5175a65ea50bd824667b0b0dff95af0bdd047d43d
   languageName: node
   linkType: hard
 
@@ -4752,7 +4752,7 @@ __metadata:
     "@tailwindcss/aspect-ratio": ^0.2.1
     "@tailwindcss/forms": ^0.3.3
     "@tailwindcss/typography": ^0.4.1
-    "@tinacms/cli": 0.0.0-202227191224
+    "@tinacms/cli": 0.0.0-202227231214
     "@types/node": ^16.3.1
     "@types/react": ^17.0.14
     autoprefixer: ^10.2.6
@@ -4766,7 +4766,7 @@ __metadata:
     smoothscroll-polyfill: ^0.4.4
     styled-components: ^5.3.0
     tailwindcss: ^2.2.4
-    tinacms: 0.0.0-202227191224
+    tinacms: 0.0.0-202227231214
     typescript: 4.3.5
   languageName: unknown
   linkType: soft
@@ -13596,15 +13596,15 @@ resolve@^1.20.0:
   languageName: node
   linkType: hard
 
-"tinacms@npm:0.0.0-202227191224":
-  version: 0.0.0-202227191224
-  resolution: "tinacms@npm:0.0.0-202227191224"
+"tinacms@npm:0.0.0-202227231214":
+  version: 0.0.0-202227231214
+  resolution: "tinacms@npm:0.0.0-202227231214"
   dependencies:
     "@graphql-tools/relay-operation-optimizer": ^6.4.1
     "@headlessui/react": ^1.4.1
     "@heroicons/react": ^1.0.4
     "@tinacms/sharedctx": 0.1.0
-    "@tinacms/toolkit": 0.0.0-202227191224
+    "@tinacms/toolkit": 0.0.0-202227231214
     crypto-js: ^4.0.0
     final-form: 4.20.1
     graphql: ^15.1.0
@@ -13619,7 +13619,7 @@ resolve@^1.20.0:
     react-dom: ">=16.14.0"
     react-is: ^16.13.1 || <18.0.0
     styled-components: "*"
-  checksum: fafd6d2663f5e0501eab84e6f24ebe5cacbfec768620ff019fc09e8158605175546bb472f30aafda1ebf1ad2f817da227dcc8f641cbbbce702aa15a91a5afeaf
+  checksum: 18906df90a40ce2835b31ed29013a335968b03f25eb97231a311af17743a09eaeae069868a5d5e4ce230499d7bd07a16b19762cd87335bcf2728e44cc3b2c1b4
   languageName: node
   linkType: hard
 

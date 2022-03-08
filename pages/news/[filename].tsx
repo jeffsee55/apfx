@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useTina } from "tinacms/dist/edit-state";
 import { Chain, Zeus } from "../../zeus";
 import { News } from "../../components/news";
 import { Nav } from "../../components/nav";
@@ -11,7 +12,8 @@ type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (
   : any;
 type HomeProps = AsyncReturnType<typeof getStaticProps>["props"];
 
-export default function Home(props: HomeProps) {
+export default function Home(p: HomeProps) {
+  const props = useTina<typeof p>(p);
   if (!props.data) {
     return <div>No data</div>;
   }
@@ -48,7 +50,6 @@ export const getStaticProps = async ({
 }: {
   params: { filename: string };
 }) => {
-  console.log(params);
   const { filename } = params;
   const chain = Chain("http://localhost:4001/graphql", {});
   const chainWithQueryString = {
@@ -65,82 +66,82 @@ export const getStaticProps = async ({
       };
     },
   };
-  // try {
-  const listCardsAndDraw = await chainWithQueryString.query({
-    getLocaleInfoDocument: [
-      {
-        relativePath: "main.md",
-      },
-      {
-        dataJSON: true,
-      },
-    ],
-    getPageList: [
-      {},
-      {
-        edges: {
-          node: {
-            id: true,
+  try {
+    const listCardsAndDraw = await chainWithQueryString.query({
+      getLocaleInfoDocument: [
+        {
+          relativePath: "main.md",
+        },
+        {
+          dataJSON: true,
+        },
+      ],
+      getPageList: [
+        {},
+        {
+          edges: {
+            node: {
+              id: true,
+            },
           },
         },
-      },
-    ],
-    getNavigationDocument: [
-      { relativePath: "main.md" },
-      {
-        data: {
-          items: {
-            page: {
-              "...on PageDocument": {
-                data: {
-                  title: true,
-                  link: true,
+      ],
+      getNavigationDocument: [
+        { relativePath: "main.md" },
+        {
+          data: {
+            items: {
+              page: {
+                "...on PageDocument": {
+                  data: {
+                    title: true,
+                    link: true,
+                  },
                 },
               },
             },
           },
         },
-      },
-    ],
-    getFooterDocument: [
-      { relativePath: "main.md" },
-      {
-        data: {
-          offices: {
-            address: true,
-            location: true,
-            phone: true,
+      ],
+      getFooterDocument: [
+        { relativePath: "main.md" },
+        {
+          data: {
+            offices: {
+              address: true,
+              location: true,
+              phone: true,
+            },
+            disclaimers: {
+              body: true,
+            },
           },
-          disclaimers: {
+        },
+      ],
+      getThemeDocument: [
+        { relativePath: "main.json" },
+        {
+          dataJSON: true,
+        },
+      ],
+      getNewsDocument: [
+        { relativePath: `${filename}.md` },
+        {
+          data: {
+            title: true,
+            image: true,
+            subTitle: true,
             body: true,
           },
         },
-      },
-    ],
-    getThemeDocument: [
-      { relativePath: "main.json" },
-      {
-        dataJSON: true,
-      },
-    ],
-    getNewsDocument: [
-      { relativePath: `${filename}.md` },
-      {
-        data: {
-          title: true,
-          image: true,
-          subTitle: true,
-          body: true,
-        },
-      },
-    ],
-  });
-  return { props: listCardsAndDraw };
-  // } catch (e) {
-  //   return {
-  //     props: JSON.parse(JSON.stringify(e)).response,
-  //   };
-  // }
+      ],
+    });
+    return { props: listCardsAndDraw };
+  } catch (e) {
+    return {
+      props: JSON.parse(JSON.stringify(e)).response,
+    };
+  }
 };
 
 export const getStaticPaths = async () => {

@@ -2300,24 +2300,6 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "description"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "NonNullType",
-            "type": {
-              "kind": "NamedType",
-              "name": {
-                "kind": "Name",
-                "value": "String"
-              }
-            }
-          }
-        },
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
             "value": "image"
           },
           "arguments": [],
@@ -2340,7 +2322,7 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "String"
+              "value": "JSON"
             }
           }
         }
@@ -3749,7 +3731,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "String"
+                "value": "JSON"
               }
             }
           }
@@ -3835,7 +3817,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "String"
+                "value": "JSON"
               }
             }
           }
@@ -3897,7 +3879,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "String"
+                "value": "JSON"
               }
             }
           }
@@ -4120,7 +4102,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "String"
+                "value": "JSON"
               }
             }
           }
@@ -4349,7 +4331,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "String"
+                "value": "JSON"
               }
             }
           }
@@ -4515,7 +4497,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "String"
+                "value": "JSON"
               }
             }
           }
@@ -4717,7 +4699,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "String"
+                "value": "JSON"
               }
             }
           }
@@ -5035,7 +5017,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "String"
+                "value": "JSON"
               }
             }
           }
@@ -5237,7 +5219,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "String"
+                "value": "JSON"
               }
             }
           }
@@ -5611,7 +5593,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "String"
+                "value": "JSON"
               }
             }
           }
@@ -7317,20 +7299,6 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
-            "value": "description"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        },
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
             "value": "image"
           },
           "type": {
@@ -7351,7 +7319,7 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "String"
+              "value": "JSON"
             }
           }
         }
@@ -7679,7 +7647,7 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "String"
+              "value": "JSON"
             }
           }
         },
@@ -7747,7 +7715,7 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "String"
+              "value": "JSON"
             }
           }
         }
@@ -7798,7 +7766,7 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "String"
+              "value": "JSON"
             }
           }
         },
@@ -7987,7 +7955,7 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "String"
+              "value": "JSON"
             }
           }
         },
@@ -8187,7 +8155,7 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "String"
+              "value": "JSON"
             }
           }
         },
@@ -8334,7 +8302,7 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "String"
+              "value": "JSON"
             }
           }
         },
@@ -8509,7 +8477,7 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "String"
+              "value": "JSON"
             }
           }
         },
@@ -8791,7 +8759,7 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "String"
+              "value": "JSON"
             }
           }
         },
@@ -8963,7 +8931,7 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "String"
+              "value": "JSON"
             }
           }
         },
@@ -9282,7 +9250,7 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "String"
+              "value": "JSON"
             }
           }
         },
