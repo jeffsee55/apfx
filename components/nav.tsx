@@ -178,20 +178,6 @@ export const Nav = (props: NavProps) => {
                         </a>
                       </p>
                     </div>
-                    {/* <div className="px-4 pb-2">
-                      <a
-                        href={signUpLink}
-                        className="block w-full px-5 py-3 text-center font-medium text-indigo-200 bg-gray-700 hover:bg-gray-600"
-                      >
-                        Sign Up
-                      </a>
-                      <a
-                        href={localeInfo.signInLink}
-                        className="block w-full px-5 py-3 text-center font-medium text-indigo-200 bg-gray-700 hover:bg-gray-600"
-                      >
-                        Log in
-                      </a>
-                    </div> */}
                   </div>
                 </Popover.Panel>
               </Transition>

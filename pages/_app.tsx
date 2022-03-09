@@ -8,6 +8,7 @@ import React from "react";
 import { LocaleContext } from "../components/locale-info";
 import Head from "next/head";
 const Tina = dynamic(() => import("../components/tina"), { ssr: false });
+import { useTina } from "tinacms/dist/edit-state";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -28,9 +29,10 @@ function MyApp({ Component, pageProps }) {
 
 const Page = ({ pageProps, Component }) => {
   const router = useRouter();
+  const props = useTina(pageProps);
   const theme = pageProps.data?.getThemeDocument?.dataJSON;
   const currentLocaleInfo =
-    pageProps.data?.getLocaleInfoDocument?.dataJSON[
+    pageProps.data?.getLocaleInfoDocument?.data[
       router.locale.replace("en-", "") || "au"
     ] || {};
   return (
@@ -39,7 +41,7 @@ const Page = ({ pageProps, Component }) => {
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       {theme && <Theme theme={theme} />}
-      <Component {...pageProps} />
+      <Component {...props} />
       <script
         type="text/javascript"
         id="hs-script-loader"

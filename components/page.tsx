@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { useTina } from "tinacms/dist/edit-state";
 import { Chain, Zeus } from "../zeus";
 import {
   heroTemplate,
@@ -44,6 +43,7 @@ import {
 } from "../components/blocks/slideshow";
 import { blockNewsQuery, newsTemplate, News } from "./blocks/news";
 import type { TinaCollection } from "tinacms";
+import { localeQuery } from "./locale-info";
 
 export const blockTemplate = (
   textFields,
@@ -103,8 +103,7 @@ type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (
   : any;
 type HomeProps = AsyncReturnType<typeof run>;
 
-export default function Home(p: HomeProps) {
-  const props = useTina<HomeProps["data"]>({ ...p, variables: {} });
+export default function Home(props: HomeProps) {
   if (!props) {
     return null;
   }
@@ -213,19 +212,7 @@ const run = async ({ variables }) => {
         {
           relativePath: "main.md",
         },
-        {
-          dataJSON: true,
-        },
-      ],
-      getPageList: [
-        {},
-        {
-          edges: {
-            node: {
-              id: true,
-            },
-          },
-        },
+        localeQuery,
       ],
       getNavigationDocument: [{ relativePath: "main.md" }, navQuery],
       getFooterDocument: [{ relativePath: "main.md" }, footerQuery],

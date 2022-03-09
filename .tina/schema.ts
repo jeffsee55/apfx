@@ -1,22 +1,10 @@
 // @ts-nocheck FIXME
 import { defineSchema, defineConfig } from "tinacms";
 import type { TinaField } from "tinacms";
-import { heroTemplate } from "../components/blocks/hero.tsx";
-import { newsTemplate } from "../components/blocks/news";
-import { statsWithImageTemplate } from "../components/blocks/stats";
-import { pageBlocksComparisonTableTemplate } from "../components/blocks/pricing";
-import { slideshowTemplate } from "../components/blocks/slideshow";
-import {
-  featureTemplate,
-  screenshotFeatureTemplate,
-} from "../components/blocks/feature";
-import {
-  fullScreenLogoTemplate,
-  fullScreenHeaderTemplate,
-} from "../components/blocks/header";
 import { blockTemplate } from "../components/page";
 import { footerTemplate } from "../components/footer";
 import { navTemplate } from "../components/nav";
+import { localeCollection } from "../components/locale-info";
 
 const overlayControls = [
   {
@@ -195,56 +183,9 @@ const textFieldsSeo: TinaField[] = [
   },
 ];
 
-const localeStrings: TinaField[] = [
-  {
-    label: "Tel",
-    name: "tel",
-    type: "string",
-  },
-  {
-    label: "Sign Up Link",
-    name: "signUpLink",
-    type: "string",
-  },
-  {
-    label: "Sign Up Link Personal",
-    name: "signUpLinkPersonal",
-    type: "string",
-  },
-  {
-    label: "Sign In Link",
-    name: "signInLink",
-    type: "string",
-  },
-];
-
 export default defineSchema({
   collections: [
-    {
-      label: "Locale Information",
-      name: "localeInfo",
-      path: "content/localeInfo",
-      fields: [
-        {
-          type: "object",
-          label: "AU",
-          name: "au",
-          fields: localeStrings,
-        },
-        {
-          type: "object",
-          label: "US",
-          name: "us",
-          fields: localeStrings,
-        },
-        {
-          type: "object",
-          label: "GB",
-          name: "gb",
-          fields: localeStrings,
-        },
-      ],
-    },
+    localeCollection(),
     {
       label: "News & Insights",
       name: "news",
