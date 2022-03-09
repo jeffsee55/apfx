@@ -1,7 +1,11 @@
 import Head from "next/head";
 import { useTina } from "tinacms/dist/edit-state";
-import { Chain, Selector, Zeus, Thunder } from "../zeus";
-import { blockHeroQuery, HeroWithSlantImage } from "../components/blocks/hero";
+import { Chain, Zeus } from "../zeus";
+import {
+  heroTemplate,
+  blockHeroQuery,
+  HeroWithSlantImage,
+} from "../components/blocks/hero";
 import {
   TwoWideGrid,
   ThreeWideGrid,
@@ -10,34 +14,36 @@ import {
   ScreenshotFeatureLeft,
   blockFeatureQuery,
   blockScreenshotFeatureQuery,
+  featureTemplate,
+  screenshotFeatureTemplate,
 } from "../components/blocks/feature";
 import {
   blockFullScreenHeaderQuery,
   blockFullScreenLogoQuery,
   FullScreenHeaderWithBackground,
   FullScreenLogo,
-} from "../components/blocks/header";
-import { StatsWithImage } from "../components/blocks/stats";
-import { Nav, navQuery } from "../components/nav";
-import { Footer, footerQuery } from "../components/footer";
-import { blockComparisonTable, Pricing } from "../components/blocks/pricing";
-import { blockSlideshowQuery, Slideshow } from "../components/blocks/slideshow";
-import { blockNewsQuery, News } from "./blocks/news";
-import { blockStatsWithImageQuery } from "./blocks/stats";
-import type { TinaCollection } from "tinacms";
-import { heroTemplate } from "./blocks/hero";
-import { newsTemplate } from "./blocks/news";
-import { statsWithImageTemplate } from "../components/blocks/stats";
-import { pageBlocksComparisonTableTemplate } from "../components/blocks/pricing";
-import { slideshowTemplate } from "../components/blocks/slideshow";
-import {
-  featureTemplate,
-  screenshotFeatureTemplate,
-} from "../components/blocks/feature";
-import {
   fullScreenLogoTemplate,
   fullScreenHeaderTemplate,
 } from "../components/blocks/header";
+import {
+  StatsWithImage,
+  blockStatsWithImageQuery,
+  statsWithImageTemplate,
+} from "../components/blocks/stats";
+import { Nav, navQuery } from "../components/nav";
+import { Footer, footerQuery } from "../components/footer";
+import {
+  blockComparisonTable,
+  pageBlocksComparisonTableTemplate,
+  Pricing,
+} from "../components/blocks/pricing";
+import {
+  blockSlideshowQuery,
+  slideshowTemplate,
+  Slideshow,
+} from "../components/blocks/slideshow";
+import { blockNewsQuery, newsTemplate, News } from "./blocks/news";
+import type { TinaCollection } from "tinacms";
 
 export const blockTemplate = (
   textFields,
