@@ -317,9 +317,9 @@ type PageBlocksSlideshowItems {
   title: String!
   subTitle: String
   description: JSON!
+  action: PageBlocksSlideshowItemsAction
   image: String
   textColor: String
-  action: PageBlocksSlideshowItemsAction
   overlayColor: String
   overlayOpacity: String
 }
@@ -613,9 +613,9 @@ input PageBlocksSlideshowItemsMutation {
   title: String
   subTitle: String
   description: JSON
+  action: PageBlocksSlideshowItemsActionMutation
   image: String
   textColor: String
-  action: PageBlocksSlideshowItemsActionMutation
   overlayColor: String
   overlayOpacity: String
 }

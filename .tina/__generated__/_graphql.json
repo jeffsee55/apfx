@@ -4307,6 +4307,21 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
+            "value": "action"
+          },
+          "arguments": [],
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "PageBlocksSlideshowItemsAction"
+            }
+          }
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
             "value": "image"
           },
           "arguments": [],
@@ -4330,21 +4345,6 @@
             "name": {
               "kind": "Name",
               "value": "String"
-            }
-          }
-        },
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "action"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "PageBlocksSlideshowItemsAction"
             }
           }
         },
@@ -8098,6 +8098,20 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
+            "value": "action"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "PageBlocksSlideshowItemsActionMutation"
+            }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": {
+            "kind": "Name",
             "value": "image"
           },
           "type": {
@@ -8119,20 +8133,6 @@
             "name": {
               "kind": "Name",
               "value": "String"
-            }
-          }
-        },
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "action"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "PageBlocksSlideshowItemsActionMutation"
             }
           }
         },

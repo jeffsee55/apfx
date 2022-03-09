@@ -489,9 +489,9 @@ export type PageBlocksSlideshowItems = {
   title: Scalars['String'];
   subTitle?: Maybe<Scalars['String']>;
   description: Scalars['JSON'];
+  action?: Maybe<PageBlocksSlideshowItemsAction>;
   image?: Maybe<Scalars['String']>;
   textColor?: Maybe<Scalars['String']>;
-  action?: Maybe<PageBlocksSlideshowItemsAction>;
   overlayColor?: Maybe<Scalars['String']>;
   overlayOpacity?: Maybe<Scalars['String']>;
 };
@@ -896,9 +896,9 @@ export type PageBlocksSlideshowItemsMutation = {
   title?: InputMaybe<Scalars['String']>;
   subTitle?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['JSON']>;
+  action?: InputMaybe<PageBlocksSlideshowItemsActionMutation>;
   image?: InputMaybe<Scalars['String']>;
   textColor?: InputMaybe<Scalars['String']>;
-  action?: InputMaybe<PageBlocksSlideshowItemsActionMutation>;
   overlayColor?: InputMaybe<Scalars['String']>;
   overlayOpacity?: InputMaybe<Scalars['String']>;
 };
@@ -1238,8 +1238,6 @@ export const PagePartsFragmentDoc = gql`
         title
         subTitle
         description
-        image
-        textColor
         action {
           __typename
           callToAction
@@ -1250,6 +1248,8 @@ export const PagePartsFragmentDoc = gql`
           secondaryLink
           secondaryLinkOverride
         }
+        image
+        textColor
         overlayColor
         overlayOpacity
       }

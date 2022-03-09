@@ -4,7 +4,11 @@ import type { TinaTemplate } from "tinacms";
 import { Selector } from "../../zeus";
 import { Response } from "../util";
 
-export const slideshowTemplate = (textFields, action): TinaTemplate => {
+export const slideshowTemplate = (
+  textFields,
+  action,
+  overlayControls
+): TinaTemplate => {
   return {
     label: "Slideshow",
     name: "slideshow",
@@ -36,44 +40,7 @@ export const slideshowTemplate = (textFields, action): TinaTemplate => {
               "https://images.ctfassets.net/fn5fbjfhb3z0/1GQRbVRTQ9OJmignvZxPTd/43b7e889507f8801aa8268aef9d95083/opera-house-2.jpg?w=1600&h=1066&q=50",
           },
         },
-        fields: [
-          ...textFields,
-          {
-            label: "Image",
-            name: "image",
-            type: "string",
-          },
-          {
-            label: "Text Color",
-            name: "textColor",
-            type: "string",
-            options: ["light", "dark"],
-          },
-          action,
-          {
-            label: "Overlay Color",
-            name: "overlayColor",
-            type: "string",
-            options: ["brand", "gray"],
-          },
-          {
-            label: "Overlay Opacity",
-            name: "overlayOpacity",
-            type: "string",
-            options: [
-              { label: "10", value: "1" },
-              { label: "20", value: "2" },
-              { label: "30", value: "3" },
-              { label: "40", value: "4" },
-              { label: "50", value: "5" },
-              { label: "60", value: "6" },
-              { label: "70", value: "7" },
-              { label: "80", value: "8" },
-              { label: "90", value: "9" },
-              { label: "100", value: "10" },
-            ],
-          },
-        ],
+        fields: [...textFields, action, ...overlayControls],
       },
     ],
   };

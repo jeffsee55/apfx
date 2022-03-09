@@ -1,7 +1,6 @@
 // @ts-nocheck FIXME
 import { defineSchema, defineConfig } from "tinacms";
 import type { TinaField } from "tinacms";
-import * as Icons from "@heroicons/react/outline";
 import { heroTemplate } from "../components/blocks/hero.tsx";
 import { newsTemplate } from "../components/blocks/news";
 import { statsWithImageTemplate } from "../components/blocks/stats";
@@ -392,7 +391,6 @@ export default defineSchema({
           label: "SEO",
           name: "seo",
           type: "object",
-          // required: true,
           fields: textFieldsSeo,
         },
         {
@@ -404,7 +402,7 @@ export default defineSchema({
             newsTemplate(textFields),
             statsWithImageTemplate(textFields),
             heroTemplate(textFields, action),
-            slideshowTemplate(textFields, action),
+            slideshowTemplate(textFields, action, overlayControls),
             pageBlocksComparisonTableTemplate(textFields, action),
             featureTemplate(textFields, overlayControls),
             screenshotFeatureTemplate(textFields, action, testimonial),

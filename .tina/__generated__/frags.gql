@@ -116,8 +116,6 @@ fragment PageParts on Page {
         title
         subTitle
         description
-        image
-        textColor
         action {
           __typename
           callToAction
@@ -128,6 +126,8 @@ fragment PageParts on Page {
           secondaryLink
           secondaryLinkOverride
         }
+        image
+        textColor
         overlayColor
         overlayOpacity
       }

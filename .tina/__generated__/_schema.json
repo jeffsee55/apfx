@@ -932,34 +932,6 @@
                       ]
                     },
                     {
-                      "label": "Image",
-                      "name": "image",
-                      "type": "string",
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "slideshow",
-                        "items",
-                        "image"
-                      ]
-                    },
-                    {
-                      "label": "Text Color",
-                      "name": "textColor",
-                      "type": "string",
-                      "options": [
-                        "light",
-                        "dark"
-                      ],
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "slideshow",
-                        "items",
-                        "textColor"
-                      ]
-                    },
-                    {
                       "label": "Action",
                       "name": "action",
                       "type": "object",
@@ -1106,6 +1078,34 @@
                         "slideshow",
                         "items",
                         "action"
+                      ]
+                    },
+                    {
+                      "label": "Image",
+                      "name": "image",
+                      "type": "string",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "slideshow",
+                        "items",
+                        "image"
+                      ]
+                    },
+                    {
+                      "label": "Text Color",
+                      "name": "textColor",
+                      "type": "string",
+                      "options": [
+                        "light",
+                        "dark"
+                      ],
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "slideshow",
+                        "items",
+                        "textColor"
                       ]
                     },
                     {

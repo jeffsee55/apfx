@@ -29,23 +29,28 @@ export const heroTemplate = (textFields, action): TinaTemplate => ({
   },
 });
 
+const actionQuery = Selector("PageBlocksScreenShotFeatureAction")({
+  callToAction: true,
+  link: true,
+  linkText: true,
+  linkOverride: true,
+  secondaryLink: true,
+  secondaryText: true,
+  secondaryLinkOverride: true,
+});
+
 export const blockHeroQuery = Selector("PageBlocksHero")({
   title: true,
   description: true,
   image: true,
-  action: {
-    callToAction: true,
-    link: true,
-    linkText: true,
-    linkOverride: true,
-    secondaryLink: true,
-    secondaryText: true,
-    secondaryLinkOverride: true,
-  },
+  action: actionQuery,
 });
 
 type Hero = Response<"PageBlocksHero", typeof blockHeroQuery>;
-export type Action = Hero["action"];
+export type Action = Response<
+  "PageBlocksScreenShotFeatureAction",
+  typeof actionQuery
+>;
 
 export function HeroWithSlantImage(props: Hero) {
   const bg = "bg-gray-900";
