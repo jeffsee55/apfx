@@ -1,18 +1,48 @@
 import { DisplayText } from "../typographqy";
 import { Markdown } from "../markdown";
-import type { TinaMarkdownContent } from "tinacms/dist/rich-text";
+import type { TinaTemplate } from "tinacms";
+import { Selector } from "../../zeus";
+import { Response } from "../util";
 
-type StatsProps = {
-  title: string;
-  subTitle?: string;
-  description: TinaMarkdownContent;
-  stats: {
-    title: string;
-    description: string;
-  }[];
+export const statsWithImageTemplate = (textFields): TinaTemplate => {
+  return {
+    label: "Stats With Image",
+    name: "statsWithImage",
+    fields: [
+      ...textFields,
+      {
+        label: "Image",
+        name: "image",
+        type: "string",
+      },
+      {
+        label: "Stats",
+        name: "stats",
+        type: "object",
+        list: true,
+        fields: textFields,
+      },
+    ],
+  };
 };
 
-export function StatsWithImage(props: StatsProps) {
+export const blockStatsWithImageQuery = Selector("PageBlocksStatsWithImage")({
+  title: true,
+  description: true,
+  image: true,
+  subTitle: true,
+  stats: {
+    title: true,
+    description: true,
+  },
+});
+
+type StatsWithImageType = Response<
+  "PageBlocksStatsWithImage",
+  typeof blockStatsWithImageQuery
+>;
+
+export function StatsWithImage(props: StatsWithImageType) {
   return (
     <div className="relative bg-gray-800">
       <div className="h-80 w-full absolute bottom-0 xl:inset-0 xl:h-full">
@@ -45,9 +75,6 @@ export function StatsWithImage(props: StatsProps) {
             {props.title}
           </DisplayText>
           <Markdown>{props.description}</Markdown>
-          {/* <Text variant={"light"} classNames="lg:max-w-xl">
-            {props.description}
-          </Text> */}
           <div className="mt-12 grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-2">
             {props.stats?.map((item, index) => (
               <p key={item.title + index}>

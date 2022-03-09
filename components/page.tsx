@@ -8,6 +8,8 @@ import {
   FourWideGrid,
   ScreenshotFeatureRight,
   ScreenshotFeatureLeft,
+  blockFeatureQuery,
+  blockScreenshotFeatureQuery,
 } from "../components/blocks/feature";
 import {
   FullScreenHeaderWithBackground,
@@ -16,19 +18,20 @@ import {
 import { StatsWithImage } from "../components/blocks/stats";
 import { Nav } from "../components/nav";
 import { Footer } from "../components/footer";
-import { Pricing } from "../components/blocks/pricing";
-import { Slideshow } from "../components/blocks/slideshow";
-import { News } from "./blocks/news";
+import { blockComparisonTable, Pricing } from "../components/blocks/pricing";
+import { blockSlideshowQuery, Slideshow } from "../components/blocks/slideshow";
+import { blockNewsQuery, News } from "./blocks/news";
+import { blockStatsWithImageQuery } from "./blocks/stats";
 
 type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (
   ...args: any
 ) => Promise<infer R>
   ? R
   : any;
-type HomeProps = AsyncReturnType<typeof getStaticProps>["props"];
+type HomeProps = AsyncReturnType<typeof run>;
 
 export default function Home(p: HomeProps) {
-  const props = useTina<typeof p>(p);
+  const props = useTina<HomeProps["data"]>({ ...p, variables: {} });
   if (!props) {
     return null;
   }
@@ -62,9 +65,6 @@ export default function Home(p: HomeProps) {
             case "PageBlocksFullScreenLogo":
               return <FullScreenLogo {...block} />;
             case "PageBlocksHero":
-              if (block.style === "slanted") {
-                return <HeroWithSlantImage {...block} />;
-              }
               return <HeroWithSlantImage {...block} />;
             case "PageBlocksNews":
               return <News {...block} />;
@@ -108,6 +108,17 @@ export const getStaticProps = async ({
 }: {
   relativePath: string;
 }) => {
+  try {
+    return { props: await run({ variables: { relativePath } }) };
+  } catch (e) {
+    console.log(e);
+    return {
+      props: JSON.parse(JSON.stringify(e)).response,
+    };
+  }
+};
+
+const run = async ({ variables }) => {
   const chain = Chain("http://localhost:4001/graphql");
   const queryChain = chain("query");
   const chainWithQueryString = {
@@ -124,8 +135,8 @@ export const getStaticProps = async ({
       };
     },
   };
-  try {
-    const listCardsAndDraw = await chainWithQueryString.query({
+  return chainWithQueryString.query(
+    {
       getLocaleInfoDocument: [
         {
           relativePath: "main.md",
@@ -183,7 +194,7 @@ export const getStaticProps = async ({
         },
       ],
       getPageDocument: [
-        { relativePath },
+        { relativePath: variables.relativePath },
         {
           id: true,
           data: {
@@ -196,82 +207,11 @@ export const getStaticProps = async ({
             },
             blocks: {
               __typename: true,
-              "...on PageBlocksComparisonTable": {
-                title: true,
-                subTitle: true,
-                description: true,
-                action: {
-                  callToAction: true,
-                  link: true,
-                  linkText: true,
-                  linkOverride: true,
-                  secondaryLink: true,
-                  secondaryText: true,
-                  secondaryLinkOverride: true,
-                },
-                items: {
-                  title: true,
-                  subTitle: true,
-                  description: true,
-                  bulletPoints: true,
-                },
-              },
+              "...on PageBlocksComparisonTable": blockComparisonTable,
               "...on PageBlocksHero": blockHeroQuery,
-              "...on PageBlocksFeature": {
-                title: true,
-                description: true,
-                subTitle: true,
-                featureStyle: true,
-                features: {
-                  icon: true,
-                  name: true,
-                  description: true,
-                },
-                image: true,
-                overlayColor: true,
-                overlayOpacity: true,
-                textColor: true,
-              },
-              "...on PageBlocksScreenShotFeature": {
-                title: true,
-                description: true,
-                subTitle: true,
-                image: true,
-                icon: true,
-                alignment: true,
-                testimonial: {
-                  quote: true,
-                  author: {
-                    avatar: true,
-                    name: true,
-                  },
-                },
-                action: {
-                  callToAction: true,
-                  link: true,
-                  linkText: true,
-                  secondaryLink: true,
-                  secondaryText: true,
-                },
-              },
-              "...on PageBlocksNews": {
-                title: true,
-                subTitle: true,
-                newsItems: {
-                  article: {
-                    "...on NewsDocument": {
-                      data: {
-                        title: true,
-                        image: true,
-                        subTitle: true,
-                      },
-                      sys: {
-                        filename: true,
-                      },
-                    },
-                  },
-                },
-              },
+              "...on PageBlocksFeature": blockFeatureQuery,
+              "...on PageBlocksScreenShotFeature": blockScreenshotFeatureQuery,
+              "...on PageBlocksNews": blockNewsQuery,
               "...on PageBlocksFullScreenLogo": {
                 slogan: true,
                 link: true,
@@ -293,42 +233,13 @@ export const getStaticProps = async ({
                 },
                 textColor: true,
               },
-              "...on PageBlocksStatsWithImage": {
-                title: true,
-                description: true,
-                image: true,
-                subTitle: true,
-                stats: {
-                  title: true,
-                  description: true,
-                },
-              },
-              "...on PageBlocksSlideshow": {
-                items: {
-                  title: true,
-                  description: true,
-                  image: true,
-                  action: {
-                    link: true,
-                    linkText: true,
-                    secondaryLink: true,
-                    secondaryText: true,
-                  },
-                  overlayColor: true,
-                  overlayOpacity: true,
-                  textColor: true,
-                },
-              },
+              "...on PageBlocksStatsWithImage": blockStatsWithImageQuery,
+              "...on PageBlocksSlideshow": blockSlideshowQuery,
             },
           },
         },
       ],
-    });
-    return { props: listCardsAndDraw };
-  } catch (e) {
-    console.log(e);
-    return {
-      props: JSON.parse(JSON.stringify(e)).response,
-    };
-  }
+    },
+    variables
+  );
 };

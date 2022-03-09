@@ -282,7 +282,7 @@ type PageBlocksStatsWithImage {
   subTitle: String
   description: JSON!
   image: String
-  stats: [PageBlocksStatsWithImageStats!]!
+  stats: [PageBlocksStatsWithImageStats]
 }
 
 type PageBlocksHeroAction {
@@ -353,36 +353,6 @@ type PageBlocksComparisonTable {
   action: PageBlocksComparisonTableAction
 }
 
-type PageBlocksFullScreenLogo {
-  slogan: String
-  link: String
-  image: String
-  textColor: String
-  overlayColor: String
-  overlayOpacity: String
-}
-
-type PageBlocksFullScreenHeaderAction {
-  callToAction: String
-  linkText: String
-  link: String
-  linkOverride: String
-  secondaryText: String
-  secondaryLink: String
-  secondaryLinkOverride: String
-}
-
-type PageBlocksFullScreenHeader {
-  title: String!
-  subTitle: String
-  description: JSON!
-  action: PageBlocksFullScreenHeaderAction
-  image: String
-  textColor: String
-  overlayColor: String
-  overlayOpacity: String
-}
-
 type PageBlocksFeatureFeatures {
   icon: String!
   name: String!
@@ -432,7 +402,28 @@ type PageBlocksScreenShotFeature {
   testimonial: PageBlocksScreenShotFeatureTestimonial
 }
 
-union PageBlocks = PageBlocksNews | PageBlocksStatsWithImage | PageBlocksHero | PageBlocksSlideshow | PageBlocksComparisonTable | PageBlocksFullScreenLogo | PageBlocksFullScreenHeader | PageBlocksFeature | PageBlocksScreenShotFeature
+type PageBlocksFullScreenHeaderAction {
+  callToAction: String
+  linkText: String
+  link: String
+  linkOverride: String
+  secondaryText: String
+  secondaryLink: String
+  secondaryLinkOverride: String
+}
+
+type PageBlocksFullScreenHeader {
+  title: String!
+  subTitle: String
+  description: JSON!
+  action: PageBlocksFullScreenHeaderAction
+  image: String
+  textColor: String
+  overlayColor: String
+  overlayOpacity: String
+}
+
+union PageBlocks = PageBlocksNews | PageBlocksStatsWithImage | PageBlocksHero | PageBlocksSlideshow | PageBlocksComparisonTable | PageBlocksFeature | PageBlocksScreenShotFeature | PageBlocksFullScreenHeader
 
 type Page {
   title: String!
@@ -649,36 +640,6 @@ input PageBlocksComparisonTableMutation {
   action: PageBlocksComparisonTableActionMutation
 }
 
-input PageBlocksFullScreenLogoMutation {
-  slogan: String
-  link: String
-  image: String
-  textColor: String
-  overlayColor: String
-  overlayOpacity: String
-}
-
-input PageBlocksFullScreenHeaderActionMutation {
-  callToAction: String
-  linkText: String
-  link: String
-  linkOverride: String
-  secondaryText: String
-  secondaryLink: String
-  secondaryLinkOverride: String
-}
-
-input PageBlocksFullScreenHeaderMutation {
-  title: String
-  subTitle: String
-  description: JSON
-  action: PageBlocksFullScreenHeaderActionMutation
-  image: String
-  textColor: String
-  overlayColor: String
-  overlayOpacity: String
-}
-
 input PageBlocksFeatureFeaturesMutation {
   icon: String
   name: String
@@ -728,16 +689,36 @@ input PageBlocksScreenShotFeatureMutation {
   testimonial: PageBlocksScreenShotFeatureTestimonialMutation
 }
 
+input PageBlocksFullScreenHeaderActionMutation {
+  callToAction: String
+  linkText: String
+  link: String
+  linkOverride: String
+  secondaryText: String
+  secondaryLink: String
+  secondaryLinkOverride: String
+}
+
+input PageBlocksFullScreenHeaderMutation {
+  title: String
+  subTitle: String
+  description: JSON
+  action: PageBlocksFullScreenHeaderActionMutation
+  image: String
+  textColor: String
+  overlayColor: String
+  overlayOpacity: String
+}
+
 input PageBlocksMutation {
   news: PageBlocksNewsMutation
   statsWithImage: PageBlocksStatsWithImageMutation
   hero: PageBlocksHeroMutation
   slideshow: PageBlocksSlideshowMutation
   comparisonTable: PageBlocksComparisonTableMutation
-  fullScreenLogo: PageBlocksFullScreenLogoMutation
-  fullScreenHeader: PageBlocksFullScreenHeaderMutation
   feature: PageBlocksFeatureMutation
   screenShotFeature: PageBlocksScreenShotFeatureMutation
+  fullScreenHeader: PageBlocksFullScreenHeaderMutation
 }
 
 input PageMutation {

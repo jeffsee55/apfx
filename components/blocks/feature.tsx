@@ -7,40 +7,179 @@ import { Markdown } from "../markdown";
 import { DisplayText, SubTitleText, Text } from "../typographqy";
 import { Action, ActionSlim } from "./hero";
 import type { TinaMarkdownContent } from "tinacms/dist/rich-text";
+import type { TinaTemplate } from "tinacms";
+import { Selector } from "../../zeus";
+import { Response } from "../util";
 
-type Feature = {
-  name: string;
-  description: TinaMarkdownContent;
-  icon: string;
-};
-type FeatureProps = {
-  title: string;
-  subTitle?: string;
-  description: TinaMarkdownContent;
-  features: Feature[];
-  image?: string;
-  overlayColor?: string;
-  overlayOpacity?: string;
-  textColor?: string;
-};
-
-type Testimonial = {
-  quote: string;
-  author?: {
-    name: string;
-    avatar: string;
+export const featureTemplate = (textFields, overlayControls): TinaTemplate => {
+  return {
+    label: "Feature List",
+    name: "feature",
+    ui: {
+      defaultItem: {
+        title: "This is the default feature list title",
+        description: "And something here too",
+        featureStyle: "4-wide-grid",
+        // This doesn't work
+        features: [
+          {
+            icon: "HeartIcon",
+            name: "This is some dummy content",
+            description:
+              "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
+          },
+        ],
+      },
+    },
+    fields: [
+      ...textFields,
+      {
+        label: "Style",
+        name: "featureStyle",
+        type: "string",
+        options: ["4-wide-grid", "2-wide-grid", "3-column"],
+      },
+      {
+        label: "Features",
+        name: "features",
+        type: "object",
+        required: true,
+        list: true,
+        ui: {
+          defaultItem: {
+            icon: "HeartIcon",
+            name: "This is some dummy content",
+            description: {
+              type: "root",
+              children: [
+                {
+                  type: "p",
+                  children: [
+                    "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
+                  ],
+                },
+              ],
+            },
+          },
+        },
+        fields: [
+          {
+            label: "Icon",
+            name: "icon",
+            type: "string",
+            required: true,
+            options: Object.keys(Icons),
+          },
+          {
+            label: "Label",
+            name: "name",
+            required: true,
+            type: "string",
+          },
+          {
+            label: "Description",
+            name: "description",
+            required: true,
+            type: "rich-text",
+          },
+        ],
+      },
+      ...overlayControls,
+    ],
   };
 };
 
-type ScreenShopFeatureProps = {
-  title: string;
-  subTitle?: string;
-  description: TinaMarkdownContent;
-  image?: string;
-  icon?: string;
-  action?: Action;
-  testimonial?: Testimonial;
+export const blockFeatureQuery = Selector("PageBlocksFeature")({
+  title: true,
+  description: true,
+  subTitle: true,
+  featureStyle: true,
+  features: {
+    icon: true,
+    name: true,
+    description: true,
+  },
+  image: true,
+  overlayColor: true,
+  overlayOpacity: true,
+  textColor: true,
+});
+
+type FeatureProps = Response<"PageBlocksFeature", typeof blockFeatureQuery>;
+type Feature = FeatureProps["features"][number];
+
+type ScreenShopFeatureProps = Response<
+  "PageBlocksScreenShotFeature",
+  typeof blockScreenshotFeatureQuery
+>;
+type Testimonial = ScreenShopFeatureProps["testimonial"];
+
+export const screenshotFeatureTemplate = (
+  textFields,
+  action,
+  testimonial
+): TinaTemplate => {
+  return {
+    label: "Screen Shot Feature",
+    name: "screenShotFeature",
+    fields: [
+      ...textFields,
+      {
+        label: "Image",
+        name: "image",
+        type: "string",
+      },
+      {
+        label: "Alignment",
+        name: "alignment",
+        type: "string",
+        options: ["left", "right"],
+      },
+      {
+        label: "Icon",
+        name: "icon",
+        type: "string",
+        options: Object.keys(Icons),
+      },
+      action,
+      testimonial,
+    ],
+    ui: {
+      defaultItem: {
+        title: "Stay on top of customer support",
+        description:
+          "Semper curabitur ullamcorper posuere nunc sed. Ornare iaculis bibendum malesuada faucibus lacinia porttitor. Pulvinar laoreet sagittis viverra duis. In venenatis sem arcu pretium pharetra at. Lectus viverra dui tellus ornare pharetra.",
+        image:
+          "https://tailwindui.com/img/component-images/inbox-app-screenshot-1.jpg",
+      },
+    },
+  };
 };
+
+export const blockScreenshotFeatureQuery = Selector(
+  "PageBlocksScreenShotFeature"
+)({
+  title: true,
+  description: true,
+  subTitle: true,
+  image: true,
+  icon: true,
+  alignment: true,
+  testimonial: {
+    quote: true,
+    author: {
+      avatar: true,
+      name: true,
+    },
+  },
+  action: {
+    callToAction: true,
+    link: true,
+    linkText: true,
+    secondaryLink: true,
+    secondaryText: true,
+  },
+});
 
 export function ScreenshotFeatureLeft(props: ScreenShopFeatureProps) {
   const Icon = Icons[props.icon] || Icons.InboxIcon;

@@ -102,10 +102,9 @@
       "hero": "PageBlocksHero",
       "slideshow": "PageBlocksSlideshow",
       "comparisonTable": "PageBlocksComparisonTable",
-      "fullScreenLogo": "PageBlocksFullScreenLogo",
-      "fullScreenHeader": "PageBlocksFullScreenHeader",
       "feature": "PageBlocksFeature",
-      "screenShotFeature": "PageBlocksScreenShotFeature"
+      "screenShotFeature": "PageBlocksScreenShotFeature",
+      "fullScreenHeader": "PageBlocksFullScreenHeader"
     }
   },
   "PageDocument": {

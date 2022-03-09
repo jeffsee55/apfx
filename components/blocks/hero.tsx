@@ -4,7 +4,7 @@ import { useLocaleInfo } from "../locale-info";
 import { Markdown } from "../markdown";
 import { useTheme } from "../theme";
 import { DisplayText } from "../typographqy";
-import type { TinaTemplate } from "tinacms";
+import type { TinaTemplate, TinaCollection } from "tinacms";
 import { Selector } from "../../zeus";
 import { Response } from "../util";
 
@@ -45,7 +45,7 @@ export const blockHeroQuery = Selector("PageBlocksHero")({
 });
 
 type Hero = Response<"PageBlocksHero", typeof blockHeroQuery>;
-type Action = Hero["action"];
+export type Action = Hero["action"];
 
 export function HeroWithSlantImage(props: Hero) {
   const bg = "bg-gray-900";

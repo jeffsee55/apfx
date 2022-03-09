@@ -605,14 +605,7 @@
                   "label": "Stats",
                   "name": "stats",
                   "type": "object",
-                  "required": true,
                   "list": true,
-                  "ui": {
-                    "defaultItem": {
-                      "title": "8k",
-                      "description": "Companies use laoreet amet lacus nibh integer quis."
-                    }
-                  },
                   "fields": [
                     {
                       "label": "Title",
@@ -661,13 +654,6 @@
                   ]
                 }
               ],
-              "ui": {
-                "defaultItem": {
-                  "title": "Get in touch",
-                  "description": "Mattis amet hendrerit dolor, quisque lorem pharetra. Pellentesque lacus nisi urna, arcu sociis eu. Orci vel lectus nisl eget eget ut consectetur. Sit justo viverra non adipisicing elit distinctio.",
-                  "image": "https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100"
-                }
-              },
               "namespace": [
                 "page",
                 "blocks",
@@ -1463,426 +1449,6 @@
                 "page",
                 "blocks",
                 "comparisonTable"
-              ]
-            },
-            {
-              "label": "Full Screen Logo",
-              "name": "fullScreenLogo",
-              "fields": [
-                {
-                  "label": "Slogan",
-                  "name": "slogan",
-                  "type": "string",
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenLogo",
-                    "slogan"
-                  ]
-                },
-                {
-                  "label": "Link",
-                  "name": "link",
-                  "type": "string",
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenLogo",
-                    "link"
-                  ]
-                },
-                {
-                  "label": "Image",
-                  "name": "image",
-                  "type": "string",
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenLogo",
-                    "image"
-                  ]
-                },
-                {
-                  "label": "Text Color",
-                  "name": "textColor",
-                  "type": "string",
-                  "options": [
-                    "light",
-                    "dark"
-                  ],
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenLogo",
-                    "textColor"
-                  ]
-                },
-                {
-                  "label": "Overlay Color",
-                  "name": "overlayColor",
-                  "type": "string",
-                  "options": [
-                    "brand",
-                    "gray"
-                  ],
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenLogo",
-                    "overlayColor"
-                  ]
-                },
-                {
-                  "label": "Overlay Opacity",
-                  "name": "overlayOpacity",
-                  "type": "string",
-                  "options": [
-                    {
-                      "label": "10",
-                      "value": "1"
-                    },
-                    {
-                      "label": "20",
-                      "value": "2"
-                    },
-                    {
-                      "label": "30",
-                      "value": "3"
-                    },
-                    {
-                      "label": "40",
-                      "value": "4"
-                    },
-                    {
-                      "label": "50",
-                      "value": "5"
-                    },
-                    {
-                      "label": "60",
-                      "value": "6"
-                    },
-                    {
-                      "label": "70",
-                      "value": "7"
-                    },
-                    {
-                      "label": "80",
-                      "value": "8"
-                    },
-                    {
-                      "label": "90",
-                      "value": "9"
-                    },
-                    {
-                      "label": "100",
-                      "value": "10"
-                    }
-                  ],
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenLogo",
-                    "overlayOpacity"
-                  ]
-                }
-              ],
-              "ui": {
-                "defaultItem": {
-                  "image": "https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100"
-                }
-              },
-              "namespace": [
-                "page",
-                "blocks",
-                "fullScreenLogo"
-              ]
-            },
-            {
-              "label": "Full Screen Header",
-              "name": "fullScreenHeader",
-              "fields": [
-                {
-                  "label": "Title",
-                  "name": "title",
-                  "type": "string",
-                  "required": true,
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenHeader",
-                    "title"
-                  ]
-                },
-                {
-                  "label": "Sub-Title",
-                  "name": "subTitle",
-                  "type": "string",
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenHeader",
-                    "subTitle"
-                  ]
-                },
-                {
-                  "label": "Description",
-                  "name": "description",
-                  "type": "rich-text",
-                  "required": true,
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenHeader",
-                    "description"
-                  ]
-                },
-                {
-                  "label": "Action",
-                  "name": "action",
-                  "type": "object",
-                  "fields": [
-                    {
-                      "label": "Call to Action",
-                      "name": "callToAction",
-                      "type": "string",
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "fullScreenHeader",
-                        "action",
-                        "callToAction"
-                      ]
-                    },
-                    {
-                      "label": "Link Text",
-                      "name": "linkText",
-                      "type": "string",
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "fullScreenHeader",
-                        "action",
-                        "linkText"
-                      ]
-                    },
-                    {
-                      "label": "Link",
-                      "name": "link",
-                      "type": "string",
-                      "options": [
-                        {
-                          "label": "Link",
-                          "value": "link"
-                        },
-                        {
-                          "label": "Tel",
-                          "value": "tel"
-                        },
-                        {
-                          "label": "Sign Up",
-                          "value": "signUpLink"
-                        },
-                        {
-                          "label": "Sign Up Personal",
-                          "value": "signUpLinkPersonal"
-                        },
-                        {
-                          "label": "Sign In",
-                          "value": "signInLink"
-                        }
-                      ],
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "fullScreenHeader",
-                        "action",
-                        "link"
-                      ]
-                    },
-                    {
-                      "label": "Link Override",
-                      "name": "linkOverride",
-                      "type": "string",
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "fullScreenHeader",
-                        "action",
-                        "linkOverride"
-                      ]
-                    },
-                    {
-                      "label": "Secondary Text",
-                      "name": "secondaryText",
-                      "type": "string",
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "fullScreenHeader",
-                        "action",
-                        "secondaryText"
-                      ]
-                    },
-                    {
-                      "label": "Secondary Link",
-                      "name": "secondaryLink",
-                      "type": "string",
-                      "options": [
-                        {
-                          "label": "Link",
-                          "value": "link"
-                        },
-                        {
-                          "label": "Tel",
-                          "value": "tel"
-                        },
-                        {
-                          "label": "Sign Up",
-                          "value": "signUpLink"
-                        },
-                        {
-                          "label": "Sign Up Personal",
-                          "value": "signUpLinkPersonal"
-                        },
-                        {
-                          "label": "Sign In",
-                          "value": "signInLink"
-                        }
-                      ],
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "fullScreenHeader",
-                        "action",
-                        "secondaryLink"
-                      ]
-                    },
-                    {
-                      "label": "Secondary Link Override",
-                      "name": "secondaryLinkOverride",
-                      "type": "string",
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "fullScreenHeader",
-                        "action",
-                        "secondaryLinkOverride"
-                      ]
-                    }
-                  ],
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenHeader",
-                    "action"
-                  ]
-                },
-                {
-                  "label": "Image",
-                  "name": "image",
-                  "type": "string",
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenHeader",
-                    "image"
-                  ]
-                },
-                {
-                  "label": "Text Color",
-                  "name": "textColor",
-                  "type": "string",
-                  "options": [
-                    "light",
-                    "dark"
-                  ],
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenHeader",
-                    "textColor"
-                  ]
-                },
-                {
-                  "label": "Overlay Color",
-                  "name": "overlayColor",
-                  "type": "string",
-                  "options": [
-                    "brand",
-                    "gray"
-                  ],
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenHeader",
-                    "overlayColor"
-                  ]
-                },
-                {
-                  "label": "Overlay Opacity",
-                  "name": "overlayOpacity",
-                  "type": "string",
-                  "options": [
-                    {
-                      "label": "10",
-                      "value": "1"
-                    },
-                    {
-                      "label": "20",
-                      "value": "2"
-                    },
-                    {
-                      "label": "30",
-                      "value": "3"
-                    },
-                    {
-                      "label": "40",
-                      "value": "4"
-                    },
-                    {
-                      "label": "50",
-                      "value": "5"
-                    },
-                    {
-                      "label": "60",
-                      "value": "6"
-                    },
-                    {
-                      "label": "70",
-                      "value": "7"
-                    },
-                    {
-                      "label": "80",
-                      "value": "8"
-                    },
-                    {
-                      "label": "90",
-                      "value": "9"
-                    },
-                    {
-                      "label": "100",
-                      "value": "10"
-                    }
-                  ],
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenHeader",
-                    "overlayOpacity"
-                  ]
-                }
-              ],
-              "ui": {
-                "defaultItem": {
-                  "title": "What we do",
-                  "description": "Mattis amet hendrerit dolor, quisque lorem pharetra. Pellentesque lacus nisi urna, arcu sociis eu. Orci vel lectus nisl eget eget ut consectetur. Sit justo viverra non adipisicing elit distinctio.",
-                  "image": "https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100"
-                }
-              },
-              "namespace": [
-                "page",
-                "blocks",
-                "fullScreenHeader"
               ]
             },
             {
@@ -2896,6 +2462,294 @@
                 "page",
                 "blocks",
                 "screenShotFeature"
+              ]
+            },
+            {
+              "label": "Full Screen Header",
+              "name": "fullScreenHeader",
+              "fields": [
+                {
+                  "label": "Title",
+                  "name": "title",
+                  "type": "string",
+                  "required": true,
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "fullScreenHeader",
+                    "title"
+                  ]
+                },
+                {
+                  "label": "Sub-Title",
+                  "name": "subTitle",
+                  "type": "string",
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "fullScreenHeader",
+                    "subTitle"
+                  ]
+                },
+                {
+                  "label": "Description",
+                  "name": "description",
+                  "type": "rich-text",
+                  "required": true,
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "fullScreenHeader",
+                    "description"
+                  ]
+                },
+                {
+                  "label": "Action",
+                  "name": "action",
+                  "type": "object",
+                  "fields": [
+                    {
+                      "label": "Call to Action",
+                      "name": "callToAction",
+                      "type": "string",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "fullScreenHeader",
+                        "action",
+                        "callToAction"
+                      ]
+                    },
+                    {
+                      "label": "Link Text",
+                      "name": "linkText",
+                      "type": "string",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "fullScreenHeader",
+                        "action",
+                        "linkText"
+                      ]
+                    },
+                    {
+                      "label": "Link",
+                      "name": "link",
+                      "type": "string",
+                      "options": [
+                        {
+                          "label": "Link",
+                          "value": "link"
+                        },
+                        {
+                          "label": "Tel",
+                          "value": "tel"
+                        },
+                        {
+                          "label": "Sign Up",
+                          "value": "signUpLink"
+                        },
+                        {
+                          "label": "Sign Up Personal",
+                          "value": "signUpLinkPersonal"
+                        },
+                        {
+                          "label": "Sign In",
+                          "value": "signInLink"
+                        }
+                      ],
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "fullScreenHeader",
+                        "action",
+                        "link"
+                      ]
+                    },
+                    {
+                      "label": "Link Override",
+                      "name": "linkOverride",
+                      "type": "string",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "fullScreenHeader",
+                        "action",
+                        "linkOverride"
+                      ]
+                    },
+                    {
+                      "label": "Secondary Text",
+                      "name": "secondaryText",
+                      "type": "string",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "fullScreenHeader",
+                        "action",
+                        "secondaryText"
+                      ]
+                    },
+                    {
+                      "label": "Secondary Link",
+                      "name": "secondaryLink",
+                      "type": "string",
+                      "options": [
+                        {
+                          "label": "Link",
+                          "value": "link"
+                        },
+                        {
+                          "label": "Tel",
+                          "value": "tel"
+                        },
+                        {
+                          "label": "Sign Up",
+                          "value": "signUpLink"
+                        },
+                        {
+                          "label": "Sign Up Personal",
+                          "value": "signUpLinkPersonal"
+                        },
+                        {
+                          "label": "Sign In",
+                          "value": "signInLink"
+                        }
+                      ],
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "fullScreenHeader",
+                        "action",
+                        "secondaryLink"
+                      ]
+                    },
+                    {
+                      "label": "Secondary Link Override",
+                      "name": "secondaryLinkOverride",
+                      "type": "string",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "fullScreenHeader",
+                        "action",
+                        "secondaryLinkOverride"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "fullScreenHeader",
+                    "action"
+                  ]
+                },
+                {
+                  "label": "Image",
+                  "name": "image",
+                  "type": "string",
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "fullScreenHeader",
+                    "image"
+                  ]
+                },
+                {
+                  "label": "Text Color",
+                  "name": "textColor",
+                  "type": "string",
+                  "options": [
+                    "light",
+                    "dark"
+                  ],
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "fullScreenHeader",
+                    "textColor"
+                  ]
+                },
+                {
+                  "label": "Overlay Color",
+                  "name": "overlayColor",
+                  "type": "string",
+                  "options": [
+                    "brand",
+                    "gray"
+                  ],
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "fullScreenHeader",
+                    "overlayColor"
+                  ]
+                },
+                {
+                  "label": "Overlay Opacity",
+                  "name": "overlayOpacity",
+                  "type": "string",
+                  "options": [
+                    {
+                      "label": "10",
+                      "value": "1"
+                    },
+                    {
+                      "label": "20",
+                      "value": "2"
+                    },
+                    {
+                      "label": "30",
+                      "value": "3"
+                    },
+                    {
+                      "label": "40",
+                      "value": "4"
+                    },
+                    {
+                      "label": "50",
+                      "value": "5"
+                    },
+                    {
+                      "label": "60",
+                      "value": "6"
+                    },
+                    {
+                      "label": "70",
+                      "value": "7"
+                    },
+                    {
+                      "label": "80",
+                      "value": "8"
+                    },
+                    {
+                      "label": "90",
+                      "value": "9"
+                    },
+                    {
+                      "label": "100",
+                      "value": "10"
+                    }
+                  ],
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "fullScreenHeader",
+                    "overlayOpacity"
+                  ]
+                }
+              ],
+              "ui": {
+                "defaultItem": {
+                  "title": "What we do",
+                  "description": "Mattis amet hendrerit dolor, quisque lorem pharetra. Pellentesque lacus nisi urna, arcu sociis eu. Orci vel lectus nisl eget eget ut consectetur. Sit justo viverra non adipisicing elit distinctio.",
+                  "image": "https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100"
+                }
+              },
+              "namespace": [
+                "page",
+                "blocks",
+                "fullScreenHeader"
               ]
             }
           ],

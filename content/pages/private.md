@@ -9,11 +9,16 @@ seo:
     Bank beating FX rates, intuitive mulit-currency online platform and superior
     customer support for individuals
 blocks:
+  - title: Get in touch
+    description: |
+      Testing
+    newsItems:
+      - article: content/news/dollar-gains.md
+    _template: news
   - title: Private Client Services
-    description: >-
+    description: >
       Bank beating FX rates, intuitive mulit-currency online platform and
       superior customer support for individuals
-    style: slanted
     image: >-
       https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80
     action:
@@ -26,7 +31,7 @@ blocks:
   - items:
       - title: International Payments
         subTitle: ''
-        description: >-
+        description: >
           APFX's market leading suite of payments products are also available to
           individuals.
 
@@ -44,7 +49,7 @@ blocks:
         image: >-
           https://images.unsplash.com/photo-1561728130-afd430af0493?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3300&q=80
       - title: Currency Accounts
-        description: >-
+        description: >
           With a private APFX Global account you have the flexibility to send
           and receive in multiple currencies.
 
@@ -66,7 +71,7 @@ blocks:
         image: >-
           https://images.unsplash.com/photo-1473042904451-00171c69419d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3475&q=80
       - title: Why APFX?
-        description: >-
+        description: >
           We understand how important it is for private individuals to move
           their own money around the world in a more cost and time effective
           way.

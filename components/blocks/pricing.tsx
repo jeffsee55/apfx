@@ -5,19 +5,71 @@ import { Markdown } from "../markdown";
 import { DisplayText } from "../typographqy";
 import { Action, getLinksFromAction } from "./hero";
 import type { TinaMarkdownContent } from "tinacms/dist/rich-text";
+import type { TinaTemplate } from "tinacms";
+import { Selector } from "../../zeus";
+import { Response } from "../util";
 
-type PricingProps = {
-  title: string;
-  subTitle?: string;
-  description: TinaMarkdownContent;
-  action?: Action;
-  items?: {
-    title: string;
-    subTitle?: string;
-    description: string;
-    bulletPoints?: string[];
-  }[];
+export const pageBlocksComparisonTableTemplate = (
+  textFields,
+  action
+): TinaTemplate => {
+  return {
+    label: "Comparison Table",
+    name: "comparisonTable",
+    ui: {
+      defaultItem: {
+        title: "The right price for you, whoever you are",
+        description:
+          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum sequi unde repudiandae natus.",
+      },
+    },
+    fields: [
+      ...textFields,
+      {
+        label: "Items",
+        name: "items",
+        type: "object",
+        list: true,
+        fields: [
+          ...textFields,
+          {
+            label: "Bullet points",
+            name: "bulletPoints",
+            type: "string",
+            list: true,
+          },
+        ],
+      },
+      action,
+    ],
+  };
 };
+
+export const blockComparisonTable = Selector("PageBlocksComparisonTable")({
+  title: true,
+  subTitle: true,
+  description: true,
+  action: {
+    callToAction: true,
+    link: true,
+    linkText: true,
+    linkOverride: true,
+    secondaryLink: true,
+    secondaryText: true,
+    secondaryLinkOverride: true,
+  },
+  items: {
+    title: true,
+    subTitle: true,
+    description: true,
+    bulletPoints: true,
+  },
+});
+
+type ComparisonTableType = Response<
+  "PageBlocksComparisonTable",
+  typeof blockComparisonTable
+>;
 
 function Pill(props) {
   return (
@@ -65,7 +117,7 @@ function ComparisonCard(props) {
   );
 }
 
-export function Pricing(props: PricingProps) {
+export function Pricing(props: ComparisonTableType) {
   return (
     <div className="bg-gray-900">
       <div className="pt-12 sm:pt-16 lg:pt-24">

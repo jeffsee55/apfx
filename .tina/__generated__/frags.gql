@@ -154,33 +154,6 @@ fragment PageParts on Page {
         secondaryLinkOverride
       }
     }
-    ... on PageBlocksFullScreenLogo {
-      slogan
-      link
-      image
-      textColor
-      overlayColor
-      overlayOpacity
-    }
-    ... on PageBlocksFullScreenHeader {
-      title
-      subTitle
-      description
-      action {
-        __typename
-        callToAction
-        linkText
-        link
-        linkOverride
-        secondaryText
-        secondaryLink
-        secondaryLinkOverride
-      }
-      image
-      textColor
-      overlayColor
-      overlayOpacity
-    }
     ... on PageBlocksFeature {
       title
       subTitle
@@ -223,6 +196,25 @@ fragment PageParts on Page {
           avatar
         }
       }
+    }
+    ... on PageBlocksFullScreenHeader {
+      title
+      subTitle
+      description
+      action {
+        __typename
+        callToAction
+        linkText
+        link
+        linkOverride
+        secondaryText
+        secondaryLink
+        secondaryLinkOverride
+      }
+      image
+      textColor
+      overlayColor
+      overlayOpacity
     }
   }
 }

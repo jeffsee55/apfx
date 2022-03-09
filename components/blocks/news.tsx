@@ -1,25 +1,74 @@
 import { Header } from "./feature";
 import Link from "next/link";
+import type { TinaTemplate } from "tinacms";
 import { Img } from "../img";
+import { Selector } from "../../zeus";
+import { Response } from "../util";
 
-type NewsProps = {
-  title: string;
-  subTitle?: string;
+export const newsTemplate = (textFields): TinaTemplate => ({
+  label: "News",
+  name: "news",
+  fields: [
+    ...textFields,
+    {
+      label: "Items",
+      name: "newsItems",
+      type: "object",
+      // @ts-ignore
+      required: true,
+      list: true,
+      ui: {
+        defaultItem: {
+          article: "content/news/dollar-gains.md",
+        },
+      },
+      fields: [
+        {
+          label: "Article",
+          name: "article",
+          type: "reference",
+          // @ts-ignore
+          required: true,
+          collections: ["news"],
+        },
+      ],
+    },
+  ],
+  ui: {
+    defaultItem: {
+      title: "Get in touch",
+      description:
+        "Mattis amet hendrerit dolor, quisque lorem pharetra. Pellentesque lacus nisi urna, arcu sociis eu. Orci vel lectus nisl eget eget ut consectetur. Sit justo viverra non adipisicing elit distinctio.",
+      newsItems: [
+        {
+          article: "content/news/dollar-gains.md",
+        },
+      ],
+    },
+  },
+});
+
+export const blockNewsQuery = Selector("PageBlocksNews")({
+  title: true,
+  subTitle: true,
   newsItems: {
     article: {
-      data: {
-        title: string;
-        subTitle?: string;
-        description?: string;
-      };
-      sys: {
-        filename: string;
-      };
-    };
-  }[];
-} & {};
+      "...on NewsDocument": {
+        data: {
+          title: true,
+          image: true,
+          subTitle: true,
+        },
+        sys: {
+          filename: true,
+        },
+      },
+    },
+  },
+});
+type NewsType = Response<"PageBlocksNews", typeof blockNewsQuery>;
 
-export const News = (props: NewsProps) => {
+export const News = (props: NewsType) => {
   const overlayColor = "bg-gray-800";
   const overlayOpacity = "opacity-90";
   const image =
