@@ -4,8 +4,9 @@ import { useLocaleInfo } from "../locale-info";
 import { Markdown } from "../markdown";
 import { useTheme } from "../theme";
 import { DisplayText } from "../typographqy";
-import type { TinaMarkdownContent } from "tinacms/dist/rich-text";
-import type { TinaField, TinaTemplate } from "tinacms";
+import type { TinaTemplate } from "tinacms";
+import { Selector } from "../../zeus";
+import { Response } from "../util";
 
 export const heroTemplate = (textFields, action): TinaTemplate => ({
   label: "Hero",
@@ -28,24 +29,25 @@ export const heroTemplate = (textFields, action): TinaTemplate => ({
   },
 });
 
-export type Action = {
-  callToAction?: string;
-  link: string;
-  linkText: string;
-  linkOverride?: string;
-  secondaryText?: string;
-  secondaryLink?: string;
-  secondaryLinkOverride?: string;
-};
+export const blockHeroQuery = Selector("PageBlocksHero")({
+  title: true,
+  description: true,
+  image: true,
+  action: {
+    callToAction: true,
+    link: true,
+    linkText: true,
+    linkOverride: true,
+    secondaryLink: true,
+    secondaryText: true,
+    secondaryLinkOverride: true,
+  },
+});
 
-type HeroProps = {
-  title: string;
-  description: TinaMarkdownContent;
-  image?: string;
-  action?: Action;
-};
+type Hero = Response<"PageBlocksHero", typeof blockHeroQuery>;
+type Action = Hero["action"];
 
-export function HeroWithSlantImage(props: HeroProps) {
+export function HeroWithSlantImage(props: Hero) {
   const bg = "bg-gray-900";
   const text = "text-gray-900";
   return (
@@ -79,7 +81,6 @@ export function HeroWithSlantImage(props: HeroProps) {
         </svg>
       </div>
       <div className="lg:absolute lg:inset-0">
-        {/* <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2"> */}
         <Img
           className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
           src={props.image}

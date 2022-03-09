@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useTina } from "tinacms/dist/edit-state";
-import { Chain, Zeus } from "../zeus";
-import { HeroWithSlantImage } from "../components/blocks/hero";
+import { Chain, Selector, Zeus, Thunder } from "../zeus";
+import { blockHeroQuery, HeroWithSlantImage } from "../components/blocks/hero";
 import {
   TwoWideGrid,
   ThreeWideGrid,
@@ -29,6 +29,10 @@ type HomeProps = AsyncReturnType<typeof getStaticProps>["props"];
 
 export default function Home(p: HomeProps) {
   const props = useTina<typeof p>(p);
+  if (!props) {
+    return null;
+  }
+  console.log("prpos", props);
   const seo = props.data.getPageDocument.data.seo;
 
   return (
@@ -104,18 +108,19 @@ export const getStaticProps = async ({
 }: {
   relativePath: string;
 }) => {
-  const chain = Chain("http://localhost:4001/graphql", {});
+  const chain = Chain("http://localhost:4001/graphql");
+  const queryChain = chain("query");
   const chainWithQueryString = {
     query: async <
-      T extends Parameters<typeof chain.query>[0],
-      B extends Parameters<typeof chain.query>[1]
+      T extends Parameters<typeof queryChain>[0],
+      B extends Parameters<typeof queryChain>[1]
     >(
       queryObject: T,
       variables?: B
     ) => {
       return {
-        query: Zeus.query(queryObject),
-        data: await chain.query(queryObject, variables),
+        query: Zeus("query", queryObject),
+        data: await queryChain(queryObject, variables),
       };
     },
   };
@@ -211,19 +216,7 @@ export const getStaticProps = async ({
                   bulletPoints: true,
                 },
               },
-              "...on PageBlocksHero": {
-                title: true,
-                description: true,
-                image: true,
-                action: {
-                  link: true,
-                  linkText: true,
-                  linkOverride: true,
-                  secondaryLink: true,
-                  secondaryText: true,
-                  secondaryLinkOverride: true,
-                },
-              },
+              "...on PageBlocksHero": blockHeroQuery,
               "...on PageBlocksFeature": {
                 title: true,
                 description: true,
@@ -333,6 +326,7 @@ export const getStaticProps = async ({
     });
     return { props: listCardsAndDraw };
   } catch (e) {
+    console.log(e);
     return {
       props: JSON.parse(JSON.stringify(e)).response,
     };
