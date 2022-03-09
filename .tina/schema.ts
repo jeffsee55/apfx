@@ -2,6 +2,7 @@
 import { defineSchema, defineConfig } from "tinacms";
 import type { TinaField } from "tinacms";
 import * as Icons from "@heroicons/react/outline";
+import { heroTemplate } from "../components/blocks/hero.tsx";
 
 const overlayControls = [
   {
@@ -93,10 +94,6 @@ const action = {
   label: "Action",
   name: "action",
   type: "object",
-  ui: {
-    linkText: "Give us a call!",
-    link: "tel",
-  },
   fields: [
     {
       label: "Call to Action",
@@ -106,13 +103,13 @@ const action = {
     {
       label: "Link Text",
       name: "linkText",
-      required: true,
+      // required: true,
       type: "string",
     },
     {
       label: "Link",
       name: "link",
-      required: true,
+      // required: true,
       type: "string",
       options: linkOptions,
     },
@@ -471,33 +468,7 @@ export default defineSchema({
                 },
               },
             },
-
-            {
-              label: "Hero",
-              name: "hero",
-              fields: [
-                ...textFields,
-                {
-                  label: "Style",
-                  name: "style",
-                  type: "string",
-                  options: ["slanted", "withSignup"],
-                },
-                {
-                  label: "Image",
-                  name: "image",
-                  type: "string",
-                },
-                action,
-              ],
-              ui: {
-                defaultItem: {
-                  title: "Let's put something down here...",
-                  description: "And something here too",
-                  image: "https://placehold.it/2000x1500",
-                },
-              },
-            },
+            heroTemplate(textFields, action),
             {
               label: "Slideshow",
               name: "slideshow",

@@ -98,7 +98,6 @@ fragment PageParts on Page {
       title
       subTitle
       description
-      style
       image
       action {
         __typename

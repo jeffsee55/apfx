@@ -714,21 +714,6 @@
                   ]
                 },
                 {
-                  "label": "Style",
-                  "name": "style",
-                  "type": "string",
-                  "options": [
-                    "slanted",
-                    "withSignup"
-                  ],
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "hero",
-                    "style"
-                  ]
-                },
-                {
                   "label": "Image",
                   "name": "image",
                   "type": "string",
@@ -743,10 +728,6 @@
                   "label": "Action",
                   "name": "action",
                   "type": "object",
-                  "ui": {
-                    "linkText": "Give us a call!",
-                    "link": "tel"
-                  },
                   "fields": [
                     {
                       "label": "Call to Action",
@@ -763,7 +744,6 @@
                     {
                       "label": "Link Text",
                       "name": "linkText",
-                      "required": true,
                       "type": "string",
                       "namespace": [
                         "page",
@@ -776,7 +756,6 @@
                     {
                       "label": "Link",
                       "name": "link",
-                      "required": true,
                       "type": "string",
                       "options": [
                         {
@@ -998,10 +977,6 @@
                       "label": "Action",
                       "name": "action",
                       "type": "object",
-                      "ui": {
-                        "linkText": "Give us a call!",
-                        "link": "tel"
-                      },
                       "fields": [
                         {
                           "label": "Call to Action",
@@ -1019,7 +994,6 @@
                         {
                           "label": "Link Text",
                           "name": "linkText",
-                          "required": true,
                           "type": "string",
                           "namespace": [
                             "page",
@@ -1033,7 +1007,6 @@
                         {
                           "label": "Link",
                           "name": "link",
-                          "required": true,
                           "type": "string",
                           "options": [
                             {
@@ -1348,10 +1321,6 @@
                   "label": "Action",
                   "name": "action",
                   "type": "object",
-                  "ui": {
-                    "linkText": "Give us a call!",
-                    "link": "tel"
-                  },
                   "fields": [
                     {
                       "label": "Call to Action",
@@ -1368,7 +1337,6 @@
                     {
                       "label": "Link Text",
                       "name": "linkText",
-                      "required": true,
                       "type": "string",
                       "namespace": [
                         "page",
@@ -1381,7 +1349,6 @@
                     {
                       "label": "Link",
                       "name": "link",
-                      "required": true,
                       "type": "string",
                       "options": [
                         {
@@ -1673,10 +1640,6 @@
                   "label": "Action",
                   "name": "action",
                   "type": "object",
-                  "ui": {
-                    "linkText": "Give us a call!",
-                    "link": "tel"
-                  },
                   "fields": [
                     {
                       "label": "Call to Action",
@@ -1693,7 +1656,6 @@
                     {
                       "label": "Link Text",
                       "name": "linkText",
-                      "required": true,
                       "type": "string",
                       "namespace": [
                         "page",
@@ -1706,7 +1668,6 @@
                     {
                       "label": "Link",
                       "name": "link",
-                      "required": true,
                       "type": "string",
                       "options": [
                         {
@@ -2711,10 +2672,6 @@
                   "label": "Action",
                   "name": "action",
                   "type": "object",
-                  "ui": {
-                    "linkText": "Give us a call!",
-                    "link": "tel"
-                  },
                   "fields": [
                     {
                       "label": "Call to Action",
@@ -2731,7 +2688,6 @@
                     {
                       "label": "Link Text",
                       "name": "linkText",
-                      "required": true,
                       "type": "string",
                       "namespace": [
                         "page",
@@ -2744,7 +2700,6 @@
                     {
                       "label": "Link",
                       "name": "link",
-                      "required": true,
                       "type": "string",
                       "options": [
                         {

@@ -5,6 +5,28 @@ import { Markdown } from "../markdown";
 import { useTheme } from "../theme";
 import { DisplayText } from "../typographqy";
 import type { TinaMarkdownContent } from "tinacms/dist/rich-text";
+import type { TinaField, TinaTemplate } from "tinacms";
+
+export const heroTemplate = (textFields, action): TinaTemplate => ({
+  label: "Hero",
+  name: "hero",
+  fields: [
+    ...textFields,
+    {
+      label: "Image",
+      name: "image",
+      type: "string",
+    },
+    action,
+  ],
+  ui: {
+    defaultItem: {
+      title: "Let's put something down here...",
+      description: "And something here too",
+      image: "https://placehold.it/2000x1500",
+    },
+  },
+});
 
 export type Action = {
   callToAction?: string;

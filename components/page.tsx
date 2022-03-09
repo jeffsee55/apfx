@@ -113,7 +113,6 @@ export const getStaticProps = async ({
       queryObject: T,
       variables?: B
     ) => {
-      console.log(Zeus.query(queryObject));
       return {
         query: Zeus.query(queryObject),
         data: await chain.query(queryObject, variables),
@@ -216,7 +215,6 @@ export const getStaticProps = async ({
                 title: true,
                 description: true,
                 image: true,
-                style: true,
                 action: {
                   link: true,
                   linkText: true,

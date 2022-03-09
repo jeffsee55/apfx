@@ -287,8 +287,8 @@ type PageBlocksStatsWithImage {
 
 type PageBlocksHeroAction {
   callToAction: String
-  linkText: String!
-  link: String!
+  linkText: String
+  link: String
   linkOverride: String
   secondaryText: String
   secondaryLink: String
@@ -299,15 +299,14 @@ type PageBlocksHero {
   title: String!
   subTitle: String
   description: JSON!
-  style: String
   image: String
   action: PageBlocksHeroAction
 }
 
 type PageBlocksSlideshowItemsAction {
   callToAction: String
-  linkText: String!
-  link: String!
+  linkText: String
+  link: String
   linkOverride: String
   secondaryText: String
   secondaryLink: String
@@ -338,8 +337,8 @@ type PageBlocksComparisonTableItems {
 
 type PageBlocksComparisonTableAction {
   callToAction: String
-  linkText: String!
-  link: String!
+  linkText: String
+  link: String
   linkOverride: String
   secondaryText: String
   secondaryLink: String
@@ -365,8 +364,8 @@ type PageBlocksFullScreenLogo {
 
 type PageBlocksFullScreenHeaderAction {
   callToAction: String
-  linkText: String!
-  link: String!
+  linkText: String
+  link: String
   linkOverride: String
   secondaryText: String
   secondaryLink: String
@@ -404,8 +403,8 @@ type PageBlocksFeature {
 
 type PageBlocksScreenShotFeatureAction {
   callToAction: String
-  linkText: String!
-  link: String!
+  linkText: String
+  link: String
   linkOverride: String
   secondaryText: String
   secondaryLink: String
@@ -596,7 +595,6 @@ input PageBlocksHeroMutation {
   title: String
   subTitle: String
   description: JSON
-  style: String
   image: String
   action: PageBlocksHeroActionMutation
 }
