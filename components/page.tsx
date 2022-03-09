@@ -12,6 +12,8 @@ import {
   blockScreenshotFeatureQuery,
 } from "../components/blocks/feature";
 import {
+  blockFullScreenHeaderQuery,
+  blockFullScreenLogoQuery,
   FullScreenHeaderWithBackground,
   FullScreenLogo,
 } from "../components/blocks/header";
@@ -212,27 +214,8 @@ const run = async ({ variables }) => {
               "...on PageBlocksFeature": blockFeatureQuery,
               "...on PageBlocksScreenShotFeature": blockScreenshotFeatureQuery,
               "...on PageBlocksNews": blockNewsQuery,
-              "...on PageBlocksFullScreenLogo": {
-                slogan: true,
-                link: true,
-                image: true,
-                overlayColor: true,
-                overlayOpacity: true,
-              },
-              "...on PageBlocksFullScreenHeader": {
-                title: true,
-                description: true,
-                image: true,
-                overlayColor: true,
-                overlayOpacity: true,
-                action: {
-                  link: true,
-                  linkText: true,
-                  secondaryLink: true,
-                  secondaryText: true,
-                },
-                textColor: true,
-              },
+              "...on PageBlocksFullScreenLogo": blockFullScreenLogoQuery,
+              "...on PageBlocksFullScreenHeader": blockFullScreenHeaderQuery,
               "...on PageBlocksStatsWithImage": blockStatsWithImageQuery,
               "...on PageBlocksSlideshow": blockSlideshowQuery,
             },

@@ -1,28 +1,98 @@
 import { Logo, LogoJumbo } from "../nav";
 import Link from "next/link";
 import { DisplayText, SubTitleText, Text } from "../typographqy";
-import { Action, ActionSlim } from "./hero";
+import { ActionSlim } from "./hero";
 import { Markdown } from "../markdown";
 import { Img } from "../img";
-import type { TinaMarkdownContent } from "tinacms/dist/rich-text";
+import type { TinaTemplate } from "tinacms";
+import { Selector } from "../../zeus";
+import { Response } from "../util";
 
-type HeaderProps = {
-  title: string;
-  subTitle?: string;
-  description: TinaMarkdownContent;
-  image?: string;
-  overlayColor?: string;
-  overlayOpacity?: string;
-  textColor?: string;
-  action?: Action;
+export const fullScreenLogoTemplate = (overlayControls): TinaTemplate => {
+  return {
+    label: "Full Screen Logo",
+    name: "fullScreenLogo",
+    fields: [
+      {
+        label: "Slogan",
+        name: "slogan",
+        type: "string",
+      },
+      {
+        label: "Link",
+        name: "link",
+        type: "string",
+      },
+      ...overlayControls,
+    ],
+    ui: {
+      defaultItem: {
+        image:
+          "https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100",
+      },
+    },
+  };
 };
 
-export function FullScreenLogo(
-  props: Omit<HeaderProps, "header" | "title" | "description"> & {
-    link?: string;
-    slogan?: string;
-  }
-) {
+export const fullScreenHeaderTemplate = (
+  textFields,
+  action,
+  overlayControls
+): TinaTemplate => {
+  return {
+    label: "Full Screen Header",
+    name: "fullScreenHeader",
+    fields: [...textFields, action, ...overlayControls],
+    ui: {
+      defaultItem: {
+        title: "What we do",
+        description:
+          "Mattis amet hendrerit dolor, quisque lorem pharetra. Pellentesque lacus nisi urna, arcu sociis eu. Orci vel lectus nisl eget eget ut consectetur. Sit justo viverra non adipisicing elit distinctio.",
+        image:
+          "https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100",
+      },
+    },
+  };
+};
+
+export const blockFullScreenLogoQuery = Selector("PageBlocksFullScreenLogo")({
+  slogan: true,
+  link: true,
+  image: true,
+  textColor: true,
+  overlayColor: true,
+  overlayOpacity: true,
+});
+
+type FullScreenLogoType = Response<
+  "PageBlocksFullScreenLogo",
+  typeof blockFullScreenLogoQuery
+>;
+
+export const blockFullScreenHeaderQuery = Selector(
+  "PageBlocksFullScreenHeader"
+)({
+  title: true,
+  subTitle: true,
+  description: true,
+  image: true,
+  overlayColor: true,
+  overlayOpacity: true,
+  action: {
+    link: true,
+    linkText: true,
+    secondaryLink: true,
+    secondaryText: true,
+  },
+  textColor: true,
+});
+
+type HeaderProps = Response<
+  "PageBlocksFullScreenHeader",
+  typeof blockFullScreenHeaderQuery
+>;
+
+export function FullScreenLogo(props: FullScreenLogoType) {
   const overlayColor =
     props.overlayColor === "brand" ? "bg-indigo-800" : "bg-gray-800";
   const opacityMap = {

@@ -11,6 +11,7 @@ import {
   featureTemplate,
   screenshotFeatureTemplate,
 } from "../components/blocks/feature";
+import { fullScreenLogoTemplate } from "../components/blocks/header";
 
 const overlayControls = [
   {
@@ -404,20 +405,8 @@ export default defineSchema({
             pageBlocksComparisonTableTemplate(textFields, action),
             featureTemplate(textFields, overlayControls),
             screenshotFeatureTemplate(textFields, action, testimonial),
-            {
-              label: "Full Screen Header",
-              name: "fullScreenHeader",
-              fields: [...textFields, action, ...overlayControls],
-              ui: {
-                defaultItem: {
-                  title: "What we do",
-                  description:
-                    "Mattis amet hendrerit dolor, quisque lorem pharetra. Pellentesque lacus nisi urna, arcu sociis eu. Orci vel lectus nisl eget eget ut consectetur. Sit justo viverra non adipisicing elit distinctio.",
-                  image:
-                    "https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100",
-                },
-              },
-            },
+            fullScreenLogoTemplate(overlayControls),
+            fullScreenHeaderTemplate(textFields, action, overlayControls),
           ],
         },
       ],
