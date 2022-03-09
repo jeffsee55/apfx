@@ -1,12 +1,9 @@
-// FIXME: this is loading everything for convenience, once we've nailed down a few
-// should just use those
 import * as Icons from "@heroicons/react/outline";
 import React from "react";
-import { Img, UnsplashImg } from "../img";
+import { Img } from "../img";
 import { Markdown } from "../markdown";
 import { DisplayText, SubTitleText, Text } from "../typographqy";
-import { Action, ActionSlim } from "./hero";
-import type { TinaMarkdownContent } from "tinacms/dist/rich-text";
+import { ActionSlim } from "./hero";
 import type { TinaTemplate } from "tinacms";
 import { Selector } from "../../zeus";
 import { Response } from "../util";

@@ -11,7 +11,10 @@ import {
   featureTemplate,
   screenshotFeatureTemplate,
 } from "../components/blocks/feature";
-import { fullScreenLogoTemplate } from "../components/blocks/header";
+import {
+  fullScreenLogoTemplate,
+  fullScreenHeaderTemplate,
+} from "../components/blocks/header";
 
 const overlayControls = [
   {

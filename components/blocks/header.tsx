@@ -1,6 +1,6 @@
-import { Logo, LogoJumbo } from "../nav";
+import { LogoJumbo } from "../nav";
 import Link from "next/link";
-import { DisplayText, SubTitleText, Text } from "../typographqy";
+import { DisplayText, SubTitleText } from "../typographqy";
 import { ActionSlim } from "./hero";
 import { Markdown } from "../markdown";
 import { Img } from "../img";

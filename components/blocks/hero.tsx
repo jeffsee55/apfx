@@ -4,7 +4,7 @@ import { useLocaleInfo } from "../locale-info";
 import { Markdown } from "../markdown";
 import { useTheme } from "../theme";
 import { DisplayText } from "../typographqy";
-import type { TinaTemplate, TinaCollection } from "tinacms";
+import type { TinaTemplate } from "tinacms";
 import { Selector } from "../../zeus";
 import { Response } from "../util";
 

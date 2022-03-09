@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Markdown } from "../markdown";
 import { DisplayText } from "../typographqy";
 import { Action, getLinksFromAction } from "./hero";
-import type { TinaMarkdownContent } from "tinacms/dist/rich-text";
 import type { TinaTemplate } from "tinacms";
 import { Selector } from "../../zeus";
 import { Response } from "../util";
@@ -93,7 +92,6 @@ function ComparisonCard(props) {
         >
           {props.item.title}
         </DisplayText>
-        {/* <p className="mt-5 text-lg text-gray-500">{props.item.description}</p> */}
         <Markdown colorVariant="dark">{props.item.description}</Markdown>
       </div>
       {props.item.bulletPoints?.length > 0 && (
@@ -131,7 +129,6 @@ export function Pricing(props: ComparisonTableType) {
             <DisplayText size={"text-3xl lg:text-5xl py-4"}>
               {props.title}
             </DisplayText>
-            {/* {props.description && <Text>{props.description}</Text>} */}
             {props.description && <Markdown>{props.description}</Markdown>}
           </div>
         </div>

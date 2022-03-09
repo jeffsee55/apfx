@@ -14,7 +14,6 @@ export const newsTemplate = (textFields): TinaTemplate => ({
       label: "Items",
       name: "newsItems",
       type: "object",
-      // @ts-ignore
       required: true,
       list: true,
       ui: {
@@ -27,7 +26,6 @@ export const newsTemplate = (textFields): TinaTemplate => ({
           label: "Article",
           name: "article",
           type: "reference",
-          // @ts-ignore
           required: true,
           collections: ["news"],
         },
