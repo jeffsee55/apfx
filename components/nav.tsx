@@ -5,17 +5,52 @@ import Link from "next/link";
 import { useLocaleInfo } from "./locale-info";
 import { useRouter } from "next/router";
 import { CountrySelector, CountrySelector2 } from "./footer";
+import type { TinaTemplate, TinaCollection } from "tinacms";
+import { Selector } from "../zeus";
+import { Response } from "./util";
 
-type NavProps = {
-  items: {
-    page?: {
-      data: {
-        title: string;
-        link: string;
-      };
-    } & {};
-  }[];
+export const navTemplate = (): TinaCollection => {
+  return {
+    label: "Navigation",
+    name: "navigation",
+    path: "content/navigation",
+    fields: [
+      {
+        label: "Items",
+        name: "items",
+        // @ts-ignore
+        required: true,
+        type: "object",
+        list: true,
+        fields: [
+          {
+            label: "Page",
+            name: "page",
+            type: "reference",
+            collections: ["page"],
+          },
+        ],
+      },
+    ],
+  };
 };
+
+export const navQuery = Selector("NavigationDocument")({
+  data: {
+    items: {
+      page: {
+        "...on PageDocument": {
+          data: {
+            title: true,
+            link: true,
+          },
+        },
+      },
+    },
+  },
+});
+
+type NavProps = Response<"NavigationDocument", typeof navQuery>["data"];
 
 export const Nav = (props: NavProps) => {
   const localeInfo = useLocaleInfo();

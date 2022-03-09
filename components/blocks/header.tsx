@@ -5,7 +5,7 @@ import { ActionSlim } from "./hero";
 import { Markdown } from "../markdown";
 import { Img } from "../img";
 import type { TinaTemplate } from "tinacms";
-import { Selector } from "../../zeus";
+import { Selector, TypesPropsResolver } from "../../zeus";
 import { Response } from "../util";
 
 export const fullScreenLogoTemplate = (overlayControls): TinaTemplate => {
@@ -92,7 +92,12 @@ type HeaderProps = Response<
   typeof blockFullScreenHeaderQuery
 >;
 
-export function FullScreenLogo(props: FullScreenLogoType) {
+export const Overlay = ({
+  children,
+  ...props
+}: Pick<HeaderProps, "overlayColor" | "overlayOpacity" | "image"> & {
+  children: JSX.Element | JSX.Element[];
+}) => {
   const overlayColor =
     props.overlayColor === "brand" ? "bg-indigo-800" : "bg-gray-800";
   const opacityMap = {
@@ -108,8 +113,6 @@ export function FullScreenLogo(props: FullScreenLogoType) {
     10: "opacity-100",
   };
   const overlayOpacity = opacityMap[props.overlayOpacity] || "opacity-90";
-  const textColor = props.textColor === "dark" ? "text-gray-800" : "text-white";
-
   return (
     <div className={`relative ${overlayColor}`}>
       <div className="absolute inset-0">
@@ -125,6 +128,16 @@ export function FullScreenLogo(props: FullScreenLogoType) {
           aria-hidden="true"
         />
       </div>
+      {children}
+    </div>
+  );
+};
+
+export function FullScreenLogo(props: FullScreenLogoType) {
+  const textColor = props.textColor === "dark" ? "text-gray-800" : "text-white";
+
+  return (
+    <Overlay {...props}>
       <div className="relative max-w-7xl mx-auto py-36 px-4 sm:py-72 sm:px-6 lg:px-8 min-h-full">
         <div className="fade-in-text">
           <div className="flex items-center justify-center">
@@ -171,7 +184,7 @@ export function FullScreenLogo(props: FullScreenLogoType) {
           )}
         </div>
       </div>
-    </div>
+    </Overlay>
   );
 }
 
@@ -179,44 +192,15 @@ export function FullScreenLogo(props: FullScreenLogoType) {
 export function FullScreenHeaderWithBackground(
   props: HeaderProps & { slideshow?: boolean }
 ) {
-  const overlayColor =
-    props.overlayColor === "brand" ? "bg-indigo-800" : "bg-gray-800";
-  const opacityMap = {
-    1: "opacity-10",
-    2: "opacity-20",
-    3: "opacity-30",
-    4: "opacity-40",
-    5: "opacity-50",
-    6: "opacity-60",
-    7: "opacity-70",
-    8: "opacity-80",
-    9: "opacity-90",
-    10: "opacity-100",
-  };
-  const overlayOpacity = opacityMap[props.overlayOpacity] || "opacity-50";
-
   return (
-    <div className={`relative ${overlayColor}`}>
-      <div className="absolute inset-0">
-        <Img
-          lazy={true}
-          className="w-full h-full object-cover"
-          src={props.image}
-          alt=""
-          width={1400}
-        />
-        <div
-          className={`absolute inset-0 ${overlayColor} mix-blend-multiply ${overlayOpacity}`}
-          aria-hidden="true"
-        />
-      </div>
+    <Overlay {...props}>
       <div className="relative max-w-7xl mx-auto py-36 px-4 sm:py-72 md:py-96 sm:px-6 lg:px-8">
         <div className={`${props.slideshow && "slideshow-text"}`}>
           <TextBlurb {...props} />
           <ActionSlim action={props.action} />
         </div>
       </div>
-    </div>
+    </Overlay>
   );
 }
 

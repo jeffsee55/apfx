@@ -7,6 +7,7 @@ import { ActionSlim } from "./hero";
 import type { TinaTemplate } from "tinacms";
 import { Selector } from "../../zeus";
 import { Response } from "../util";
+import { Overlay } from "./header";
 
 export const featureTemplate = (textFields, overlayControls): TinaTemplate => {
   return {

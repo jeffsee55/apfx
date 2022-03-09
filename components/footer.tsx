@@ -1,34 +1,89 @@
 import React from "react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { DisplayText } from "./typographqy";
-import { useLocale } from "@react-aria/i18n";
 import { useRouter } from "next/router";
 import { Markdown } from "./markdown";
 import Link from "next/link";
-import type { TinaMarkdownContent } from "tinacms/dist/rich-text";
+import type { TinaCollection } from "tinacms";
+import { Selector } from "../zeus";
+import { Response } from "./util";
 
-type Office = {
-  location: string;
-  address: string;
-  phone: string;
-};
+export const footerQuery = Selector("FooterDocument")({
+  data: {
+    offices: {
+      address: true,
+      location: true,
+      phone: true,
+    },
+    disclaimers: {
+      body: true,
+    },
+  },
+});
 
-type FooterProps = {
-  offices?: Office[];
-  disclaimers: {
-    body?: TinaMarkdownContent;
-  }[];
+type FooterProps = Response<"FooterDocument", typeof footerQuery>["data"];
+type Office = FooterProps["offices"][number];
+
+export const footerTemplate = (): TinaCollection => {
+  return {
+    label: "Footer",
+    name: "footer",
+    path: "content/footer",
+    fields: [
+      {
+        label: "Offices",
+        name: "offices",
+        type: "object",
+        list: true,
+        ui: {
+          defaultItem: {
+            location: "London",
+            address: "Some Address\nInLondon\nUnited Kingdom",
+            phone: "+44 123 456",
+          },
+        },
+        fields: [
+          {
+            label: "Location",
+            name: "location",
+            required: true,
+            type: "string",
+          },
+          {
+            label: "Address",
+            name: "address",
+            required: true,
+            type: "string",
+          },
+          {
+            label: "Phone",
+            name: "phone",
+            required: true,
+            type: "string",
+          },
+        ],
+      },
+      {
+        label: "Disclaimers",
+        name: "disclaimers",
+        // @ts-ignore
+        required: true,
+        type: "object",
+        list: true,
+        fields: [
+          {
+            label: "Body",
+            name: "body",
+            type: "rich-text",
+          },
+        ],
+      },
+    ],
+  };
 };
 
 export function Footer(props: FooterProps) {
-  const [chosenLocale, setChosenLocale] = React.useState(null);
-  const [selected, setSelected] = React.useState(null);
   const router = useRouter();
-
-  React.useEffect(() => {
-    console.log(router.locale);
-    setSelected(router.locale);
-  }, [router.locale]);
 
   return (
     <footer className="bg-gray-800" aria-labelledby="footer-heading">

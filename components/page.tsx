@@ -18,12 +18,77 @@ import {
   FullScreenLogo,
 } from "../components/blocks/header";
 import { StatsWithImage } from "../components/blocks/stats";
-import { Nav } from "../components/nav";
-import { Footer } from "../components/footer";
+import { Nav, navQuery } from "../components/nav";
+import { Footer, footerQuery } from "../components/footer";
 import { blockComparisonTable, Pricing } from "../components/blocks/pricing";
 import { blockSlideshowQuery, Slideshow } from "../components/blocks/slideshow";
 import { blockNewsQuery, News } from "./blocks/news";
 import { blockStatsWithImageQuery } from "./blocks/stats";
+import type { TinaCollection } from "tinacms";
+import { heroTemplate } from "./blocks/hero";
+import { newsTemplate } from "./blocks/news";
+import { statsWithImageTemplate } from "../components/blocks/stats";
+import { pageBlocksComparisonTableTemplate } from "../components/blocks/pricing";
+import { slideshowTemplate } from "../components/blocks/slideshow";
+import {
+  featureTemplate,
+  screenshotFeatureTemplate,
+} from "../components/blocks/feature";
+import {
+  fullScreenLogoTemplate,
+  fullScreenHeaderTemplate,
+} from "../components/blocks/header";
+
+export const blockTemplate = (
+  textFields,
+  action,
+  overlayControls,
+  textFieldsSeo,
+  testimonial
+): TinaCollection => {
+  return {
+    label: "Page",
+    name: "page",
+    path: "content/pages",
+    fields: [
+      {
+        label: "Title",
+        name: "title",
+        required: true,
+        type: "string",
+      },
+      {
+        label: "Link",
+        name: "link",
+        required: true,
+        type: "string",
+      },
+      {
+        label: "SEO",
+        name: "seo",
+        type: "object",
+        fields: textFieldsSeo,
+      },
+      {
+        label: "Blocks",
+        name: "blocks",
+        type: "object",
+        list: true,
+        templates: [
+          newsTemplate(textFields),
+          statsWithImageTemplate(textFields),
+          heroTemplate(textFields, action),
+          slideshowTemplate(textFields, action, overlayControls),
+          pageBlocksComparisonTableTemplate(textFields, action),
+          featureTemplate(textFields, overlayControls),
+          screenshotFeatureTemplate(textFields, action, testimonial),
+          fullScreenLogoTemplate(overlayControls),
+          fullScreenHeaderTemplate(textFields, action, overlayControls),
+        ],
+      },
+    ],
+  };
+};
 
 type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (
   ...args: any
@@ -37,7 +102,6 @@ export default function Home(p: HomeProps) {
   if (!props) {
     return null;
   }
-  console.log("prpos", props);
   const seo = props.data.getPageDocument.data.seo;
 
   return (
@@ -157,38 +221,8 @@ const run = async ({ variables }) => {
           },
         },
       ],
-      getNavigationDocument: [
-        { relativePath: "main.md" },
-        {
-          data: {
-            items: {
-              page: {
-                "...on PageDocument": {
-                  data: {
-                    title: true,
-                    link: true,
-                  },
-                },
-              },
-            },
-          },
-        },
-      ],
-      getFooterDocument: [
-        { relativePath: "main.md" },
-        {
-          data: {
-            offices: {
-              address: true,
-              location: true,
-              phone: true,
-            },
-            disclaimers: {
-              body: true,
-            },
-          },
-        },
-      ],
+      getNavigationDocument: [{ relativePath: "main.md" }, navQuery],
+      getFooterDocument: [{ relativePath: "main.md" }, footerQuery],
       getThemeDocument: [
         { relativePath: "main.json" },
         {

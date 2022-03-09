@@ -14,6 +14,9 @@ import {
   fullScreenLogoTemplate,
   fullScreenHeaderTemplate,
 } from "../components/blocks/header";
+import { blockTemplate } from "../components/page";
+import { footerTemplate } from "../components/footer";
+import { navTemplate } from "../components/nav";
 
 const overlayControls = [
   {
@@ -261,61 +264,7 @@ export default defineSchema({
         },
       ],
     },
-    {
-      label: "Footer",
-      name: "footer",
-      path: "content/footer",
-      fields: [
-        {
-          label: "Offices",
-          name: "offices",
-          type: "object",
-          list: true,
-          ui: {
-            defaultItem: {
-              location: "London",
-              address: "Some Address\nInLondon\nUnited Kingdom",
-              phone: "+44 123 456",
-            },
-          },
-          fields: [
-            {
-              label: "Location",
-              name: "location",
-              required: true,
-              type: "string",
-            },
-            {
-              label: "Address",
-              name: "address",
-              required: true,
-              type: "string",
-            },
-            {
-              label: "Phone",
-              name: "phone",
-              required: true,
-              type: "string",
-            },
-          ],
-        },
-        {
-          label: "Disclaimers",
-          name: "disclaimers",
-          // @ts-ignore
-          required: true,
-          type: "object",
-          list: true,
-          fields: [
-            {
-              label: "Body",
-              name: "body",
-              type: "rich-text",
-            },
-          ],
-        },
-      ],
-    },
+    footerTemplate(),
     {
       label: "Theme",
       name: "theme",
@@ -347,71 +296,14 @@ export default defineSchema({
         },
       ],
     },
-    {
-      label: "Navigation",
-      name: "navigation",
-      path: "content/navigation",
-      fields: [
-        {
-          label: "Items",
-          name: "items",
-          // @ts-ignore
-          required: true,
-          type: "object",
-          list: true,
-          fields: [
-            {
-              label: "Page",
-              name: "page",
-              type: "reference",
-              collections: ["page"],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: "Page",
-      name: "page",
-      path: "content/pages",
-      fields: [
-        {
-          label: "Title",
-          name: "title",
-          required: true,
-          type: "string",
-        },
-        {
-          label: "Link",
-          name: "link",
-          required: true,
-          type: "string",
-        },
-        {
-          label: "SEO",
-          name: "seo",
-          type: "object",
-          fields: textFieldsSeo,
-        },
-        {
-          label: "Blocks",
-          name: "blocks",
-          type: "object",
-          list: true,
-          templates: [
-            newsTemplate(textFields),
-            statsWithImageTemplate(textFields),
-            heroTemplate(textFields, action),
-            slideshowTemplate(textFields, action, overlayControls),
-            pageBlocksComparisonTableTemplate(textFields, action),
-            featureTemplate(textFields, overlayControls),
-            screenshotFeatureTemplate(textFields, action, testimonial),
-            fullScreenLogoTemplate(overlayControls),
-            fullScreenHeaderTemplate(textFields, action, overlayControls),
-          ],
-        },
-      ],
-    },
+    navTemplate(),
+    blockTemplate(
+      textFields,
+      action,
+      overlayControls,
+      textFieldsSeo,
+      testimonial
+    ),
   ],
 });
 
