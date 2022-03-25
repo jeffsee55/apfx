@@ -93,6 +93,14 @@
     "createDocument": "create",
     "updateDocument": "update"
   },
+  "PageBlocksComparisonTableItemsMeta": {
+    "type": "PageBlocksComparisonTableItemsMeta",
+    "resolveType": "unionData",
+    "typeMap": {
+      "a": "PageBlocksComparisonTableItemsMetaA",
+      "b": "PageBlocksComparisonTableItemsMetaB"
+    }
+  },
   "PageBlocks": {
     "type": "PageBlocks",
     "resolveType": "unionData",
@@ -103,7 +111,6 @@
       "slideshow": "PageBlocksSlideshow",
       "comparisonTable": "PageBlocksComparisonTable",
       "feature": "PageBlocksFeature",
-      "screenShotFeature": "PageBlocksScreenShotFeature",
       "fullScreenLogo": "PageBlocksFullScreenLogo",
       "fullScreenHeader": "PageBlocksFullScreenHeader"
     }

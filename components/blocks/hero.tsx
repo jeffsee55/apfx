@@ -8,7 +8,64 @@ import type { TinaTemplate } from "tinacms";
 import { Selector } from "../../zeus";
 import { Response } from "../util";
 
-export const heroTemplate = (textFields, action): TinaTemplate => ({
+const linkOptions = [
+  { label: "Link", value: "link" },
+  { label: "Tel", value: "tel" },
+  { label: "Sign Up", value: "signUpLink" },
+  { label: "Sign Up Personal", value: "signUpLinkPersonal" },
+  { label: "Sign In", value: "signInLink" },
+];
+
+export const action = {
+  label: "Action",
+  name: "action",
+  type: "object",
+  fields: [
+    {
+      label: "Call to Action",
+      name: "callToAction",
+      type: "string",
+    },
+    {
+      label: "Link Text",
+      name: "linkText",
+      // required: true,
+      type: "string",
+    },
+    {
+      label: "Link",
+      name: "link",
+      // required: true,
+      type: "string",
+      options: linkOptions,
+    },
+    {
+      label: "Link Override",
+      name: "linkOverride",
+      // description: "Provide a raw value to link (can't be internationalized)",
+      type: "string",
+    },
+    {
+      label: "Secondary Text",
+      name: "secondaryText",
+      type: "string",
+    },
+    {
+      label: "Secondary Link",
+      name: "secondaryLink",
+      type: "string",
+      options: linkOptions,
+    },
+    {
+      label: "Secondary Link Override",
+      name: "secondaryLinkOverride",
+      // description: "Provide a raw value to link (can't be internationalized)",
+      type: "string",
+    },
+  ],
+};
+
+export const heroTemplate = (textFields): TinaTemplate => ({
   label: "Hero",
   name: "hero",
   fields: [
@@ -16,7 +73,7 @@ export const heroTemplate = (textFields, action): TinaTemplate => ({
     {
       label: "Image",
       name: "image",
-      type: "string",
+      type: "image",
     },
     action,
   ],
@@ -29,7 +86,7 @@ export const heroTemplate = (textFields, action): TinaTemplate => ({
   },
 });
 
-const actionQuery = Selector("PageBlocksScreenShotFeatureAction")({
+export const actionQuery = Selector("PageBlocksHeroAction")({
   callToAction: true,
   link: true,
   linkText: true,
@@ -47,10 +104,7 @@ export const blockHeroQuery = Selector("PageBlocksHero")({
 });
 
 type Hero = Response<"PageBlocksHero", typeof blockHeroQuery>;
-export type Action = Response<
-  "PageBlocksScreenShotFeatureAction",
-  typeof actionQuery
->;
+export type Action = Response<"PageBlocksHeroAction", typeof actionQuery>;
 
 export function HeroWithSlantImage(props: Hero) {
   const bg = "bg-gray-900";

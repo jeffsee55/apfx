@@ -1,14 +1,11 @@
 import React from "react";
-import { FullScreenHeaderWithBackground } from "./header";
+import { FullScreenHeaderWithBackground, overlayField } from "./header";
 import type { TinaTemplate } from "tinacms";
 import { Selector } from "../../zeus";
 import { Response } from "../util";
+import { action } from "./hero";
 
-export const slideshowTemplate = (
-  textFields,
-  action,
-  overlayControls
-): TinaTemplate => {
+export const slideshowTemplate = (textFields): TinaTemplate => {
   return {
     label: "Slideshow",
     name: "slideshow",
@@ -40,7 +37,7 @@ export const slideshowTemplate = (
               "https://images.ctfassets.net/fn5fbjfhb3z0/1GQRbVRTQ9OJmignvZxPTd/43b7e889507f8801aa8268aef9d95083/opera-house-2.jpg?w=1600&h=1066&q=50",
           },
         },
-        fields: [...textFields, action, ...overlayControls],
+        fields: [...textFields, action, overlayField],
       },
     ],
   };
@@ -50,16 +47,17 @@ export const blockSlideshowQuery = Selector("PageBlocksSlideshow")({
   items: {
     title: true,
     description: true,
-    image: true,
     action: {
       link: true,
       linkText: true,
       secondaryLink: true,
       secondaryText: true,
     },
-    overlayColor: true,
-    overlayOpacity: true,
-    textColor: true,
+    overlay: {
+      image: true,
+      overlayColor: true,
+      overlayOpacity: true,
+    },
   },
 });
 

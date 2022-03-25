@@ -1,5 +1,38 @@
 import Head from "next/head";
 import React from "react";
+import type { TinaCollection } from "tinacms";
+
+export const themeTemplate: TinaCollection = {
+  label: "Theme",
+  name: "theme",
+  path: "content/theme",
+  format: "json",
+  fields: [
+    {
+      label: "Display Font",
+      name: "displayFont",
+      type: "string",
+      options: [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "Ardent",
+        "Article",
+        "Pulse",
+        "OpenSans",
+      ],
+    },
+    {
+      label: "Color mode",
+      name: "colorMode",
+      type: "string",
+      options: ["steel", "black", "indigo"],
+    },
+  ],
+};
 
 export const Theme = ({
   theme,
@@ -47,10 +80,9 @@ export const Theme = ({
   );
 };
 
-type ThemeVariant = "standard" | "modern" | "classic";
-
-const ThemeContext: React.Context<{ variant: ThemeVariant }> =
-  React.createContext({ variant: "standard" });
+const ThemeContext: React.Context<{ variant: string }> = React.createContext({
+  variant: "standard",
+});
 
 export const useTheme = () => {
   return React.useContext(ThemeContext);

@@ -9,7 +9,7 @@ blocks:
     subTitle: Get the latest
     description: ''
     newsItems:
-      - article: content/news/welcome.md
+      - article: content/news/dollar-gains.sp.md
       - article: content/news/markets-unclear.md
       - article: content/news/treasury-yields.md
       - article: content/news/welcome.md

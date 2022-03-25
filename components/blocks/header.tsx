@@ -1,14 +1,53 @@
 import { LogoJumbo } from "../nav";
 import Link from "next/link";
 import { DisplayText, SubTitleText } from "../typographqy";
-import { ActionSlim } from "./hero";
+import { ActionSlim, action } from "./hero";
 import { Markdown } from "../markdown";
 import { Img } from "../img";
-import type { TinaTemplate } from "tinacms";
-import { Selector, TypesPropsResolver } from "../../zeus";
+import type { TinaTemplate, TinaField } from "tinacms";
+import { Selector } from "../../zeus";
 import { Response } from "../util";
 
-export const fullScreenLogoTemplate = (overlayControls): TinaTemplate => {
+const overlayControls: TinaField[] = [
+  {
+    label: "Image",
+    name: "image",
+    // type: 'string',
+    type: "image",
+  },
+  {
+    label: "Overlay Color",
+    name: "overlayColor",
+    type: "string",
+    options: ["brand", "gray"],
+  },
+  {
+    label: "Overlay Opacity",
+    name: "overlayOpacity",
+    type: "string",
+    options: [
+      { label: "10", value: "1" },
+      { label: "20", value: "2" },
+      { label: "30", value: "3" },
+      { label: "40", value: "4" },
+      { label: "50", value: "5" },
+      { label: "60", value: "6" },
+      { label: "70", value: "7" },
+      { label: "80", value: "8" },
+      { label: "90", value: "9" },
+      { label: "100", value: "10" },
+    ],
+  },
+];
+
+export const overlayField: TinaField = {
+  type: "object",
+  name: "overlay",
+  label: "Overlay",
+  fields: overlayControls,
+};
+
+export const fullScreenLogoTemplate = (): TinaTemplate => {
   return {
     label: "Full Screen Logo",
     name: "fullScreenLogo",
@@ -23,33 +62,33 @@ export const fullScreenLogoTemplate = (overlayControls): TinaTemplate => {
         name: "link",
         type: "string",
       },
-      ...overlayControls,
+      overlayField,
     ],
     ui: {
       defaultItem: {
-        image:
-          "https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100",
+        overlay: {
+          image:
+            "https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100",
+        },
       },
     },
   };
 };
 
-export const fullScreenHeaderTemplate = (
-  textFields,
-  action,
-  overlayControls
-): TinaTemplate => {
+export const fullScreenHeaderTemplate = (textFields): TinaTemplate => {
   return {
     label: "Full Screen Header",
     name: "fullScreenHeader",
-    fields: [...textFields, action, ...overlayControls],
+    fields: [...textFields, action, overlayField],
     ui: {
       defaultItem: {
         title: "What we do",
         description:
           "Mattis amet hendrerit dolor, quisque lorem pharetra. Pellentesque lacus nisi urna, arcu sociis eu. Orci vel lectus nisl eget eget ut consectetur. Sit justo viverra non adipisicing elit distinctio.",
-        image:
-          "https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100",
+        overlay: {
+          image:
+            "https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100",
+        },
       },
     },
   };
@@ -58,10 +97,11 @@ export const fullScreenHeaderTemplate = (
 export const blockFullScreenLogoQuery = Selector("PageBlocksFullScreenLogo")({
   slogan: true,
   link: true,
-  image: true,
-  textColor: true,
-  overlayColor: true,
-  overlayOpacity: true,
+  overlay: {
+    image: true,
+    overlayColor: true,
+    overlayOpacity: true,
+  },
 });
 
 type FullScreenLogoType = Response<
@@ -75,16 +115,17 @@ export const blockFullScreenHeaderQuery = Selector(
   title: true,
   subTitle: true,
   description: true,
-  image: true,
-  overlayColor: true,
-  overlayOpacity: true,
+  overlay: {
+    image: true,
+    overlayColor: true,
+    overlayOpacity: true,
+  },
   action: {
     link: true,
     linkText: true,
     secondaryLink: true,
     secondaryText: true,
   },
-  textColor: true,
 });
 
 type HeaderProps = Response<
@@ -92,10 +133,12 @@ type HeaderProps = Response<
   typeof blockFullScreenHeaderQuery
 >;
 
+type OverlayProps = HeaderProps["overlay"];
+
 export const Overlay = ({
   children,
   ...props
-}: Pick<HeaderProps, "overlayColor" | "overlayOpacity" | "image"> & {
+}: OverlayProps & {
   children: JSX.Element | JSX.Element[];
 }) => {
   const overlayColor =
@@ -116,13 +159,15 @@ export const Overlay = ({
   return (
     <div className={`relative ${overlayColor}`}>
       <div className="absolute inset-0">
-        <Img
-          lazy={true}
-          className="w-full h-full object-cover"
-          src={props.image}
-          alt=""
-          width={1400}
-        />
+        {props.image && (
+          <Img
+            lazy={true}
+            className="w-full h-full object-cover"
+            src={props.image}
+            alt=""
+            width={1400}
+          />
+        )}
         <div
           className={`absolute inset-0 ${overlayColor} mix-blend-multiply ${overlayOpacity}`}
           aria-hidden="true"
@@ -134,15 +179,15 @@ export const Overlay = ({
 };
 
 export function FullScreenLogo(props: FullScreenLogoType) {
-  const textColor = props.textColor === "dark" ? "text-gray-800" : "text-white";
+  const textColor = "text-white";
 
   return (
-    <Overlay {...props}>
+    <Overlay {...props.overlay}>
       <div className="relative max-w-7xl mx-auto py-36 px-4 sm:py-72 sm:px-6 lg:px-8 min-h-full">
         <div className="fade-in-text">
           <div className="flex items-center justify-center">
             <LogoJumbo
-              variant={props.textColor}
+              // variant={props.overlay.textColor}
               classNames="w-32 sm:w-64 lg:w-96"
             />
           </div>
@@ -193,7 +238,7 @@ export function FullScreenHeaderWithBackground(
   props: HeaderProps & { slideshow?: boolean }
 ) {
   return (
-    <Overlay {...props}>
+    <Overlay {...props.overlay}>
       <div className="relative max-w-7xl mx-auto py-36 px-4 sm:py-72 md:py-96 sm:px-6 lg:px-8">
         <div className={`${props.slideshow && "slideshow-text"}`}>
           <TextBlurb {...props} />

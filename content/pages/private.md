@@ -9,12 +9,6 @@ seo:
     Bank beating FX rates, intuitive mulit-currency online platform and superior
     customer support for individuals
 blocks:
-  - title: Get in touch
-    description: |
-      Testing
-    newsItems:
-      - article: content/news/dollar-gains.md
-    _template: news
   - title: Private Client Services
     description: >
       Bank beating FX rates, intuitive mulit-currency online platform and
@@ -26,11 +20,11 @@ blocks:
       link: signUpLinkPersonal
       secondaryText: Get in touch
       secondaryLink: link
-      secondaryLinkOverride: 'https://share.hsforms.com/1Zi7kaqn1THCrZt6hdDaGng5kdde'
+      secondaryLinkOverride: "https://share.hsforms.com/1Zi7kaqn1THCrZt6hdDaGng5kdde"
     _template: hero
   - items:
       - title: International Payments
-        subTitle: ''
+        subTitle: ""
         description: >
           APFX's market leading suite of payments products are also available to
           individuals.
@@ -88,4 +82,3 @@ blocks:
           https://images.unsplash.com/photo-1526459808813-57c44a8cf699?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3466&q=80
     _template: slideshow
 ---
-

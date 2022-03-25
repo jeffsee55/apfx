@@ -28,20 +28,34 @@ function MyApp({ Component, pageProps }) {
 }
 
 const Page = ({ pageProps, Component }) => {
-  const router = useRouter();
+  const { locale } = useRouter();
   const props = useTina(pageProps);
   const theme = pageProps.data?.getThemeDocument?.dataJSON;
   const currentLocaleInfo =
     pageProps.data?.getLocaleInfoDocument?.data[
-      router.locale.replace("en-", "") || "au"
+      locale.replace("en-", "") || "au"
     ] || {};
+
+  const [isBrowser, setIsBrowser] = React.useState(false);
+  React.useEffect(() => {
+    setIsBrowser(true);
+  });
+
   return (
     <LocaleContext.Provider value={currentLocaleInfo}>
       <Head>
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       {theme && <Theme theme={theme} />}
+      {isBrowser && <ThirdParty />}
       <Component {...props} />
+    </LocaleContext.Provider>
+  );
+};
+
+const ThirdParty = () => {
+  return (
+    <>
       <script
         type="text/javascript"
         id="hs-script-loader"
@@ -72,7 +86,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);`}
           src="https://px.ads.linkedin.com/collect/?pid=3408244&fmt=gif"
         />
       </noscript> */}
-    </LocaleContext.Provider>
+    </>
   );
 };
 

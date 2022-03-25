@@ -2,7 +2,7 @@
 
 import { AllTypesProps, ReturnTypes } from './const';
 type ZEUS_INTERFACES = GraphQLTypes["Node"] | GraphQLTypes["Document"] | GraphQLTypes["Connection"]
-type ZEUS_UNIONS = GraphQLTypes["DocumentNode"] | GraphQLTypes["NavigationItemsPageDocument"] | GraphQLTypes["PageBlocksNewsNewsItemsArticleDocument"] | GraphQLTypes["PageBlocks"]
+type ZEUS_UNIONS = GraphQLTypes["DocumentNode"] | GraphQLTypes["NavigationItemsPageDocument"] | GraphQLTypes["PageBlocksNewsNewsItemsArticleDocument"] | GraphQLTypes["PageBlocksComparisonTableItemsMeta"] | GraphQLTypes["PageBlocks"]
 
 export type ValueTypes = {
     /** References another document, used as a foreign key */
@@ -341,19 +341,34 @@ documents?: [{	before?:string | null,	after?:string | null,	first?:number | null
 	secondaryLinkOverride?:boolean,
 		__typename?: boolean
 }>;
-	["PageBlocksSlideshowItems"]: AliasType<{
-	title?:boolean,
-	subTitle?:boolean,
-	description?:boolean,
+	["PageBlocksSlideshowItemsOverlay"]: AliasType<{
 	image?:boolean,
-	textColor?:boolean,
-	action?:ValueTypes["PageBlocksSlideshowItemsAction"],
 	overlayColor?:boolean,
 	overlayOpacity?:boolean,
 		__typename?: boolean
 }>;
+	["PageBlocksSlideshowItems"]: AliasType<{
+	title?:boolean,
+	subTitle?:boolean,
+	description?:boolean,
+	action?:ValueTypes["PageBlocksSlideshowItemsAction"],
+	overlay?:ValueTypes["PageBlocksSlideshowItemsOverlay"],
+		__typename?: boolean
+}>;
 	["PageBlocksSlideshow"]: AliasType<{
 	items?:ValueTypes["PageBlocksSlideshowItems"],
+		__typename?: boolean
+}>;
+	["PageBlocksComparisonTableItemsMetaA"]: AliasType<{
+	aOne?:boolean,
+		__typename?: boolean
+}>;
+	["PageBlocksComparisonTableItemsMetaB"]: AliasType<{
+	bOne?:boolean,
+		__typename?: boolean
+}>;
+	["PageBlocksComparisonTableItemsMeta"]: AliasType<{		["...on PageBlocksComparisonTableItemsMetaA"] : ValueTypes["PageBlocksComparisonTableItemsMetaA"],
+		["...on PageBlocksComparisonTableItemsMetaB"] : ValueTypes["PageBlocksComparisonTableItemsMetaB"]
 		__typename?: boolean
 }>;
 	["PageBlocksComparisonTableItems"]: AliasType<{
@@ -361,6 +376,7 @@ documents?: [{	before?:string | null,	after?:string | null,	first?:number | null
 	subTitle?:boolean,
 	description?:boolean,
 	bulletPoints?:boolean,
+	meta?:ValueTypes["PageBlocksComparisonTableItemsMeta"],
 		__typename?: boolean
 }>;
 	["PageBlocksComparisonTableAction"]: AliasType<{
@@ -381,13 +397,37 @@ documents?: [{	before?:string | null,	after?:string | null,	first?:number | null
 	action?:ValueTypes["PageBlocksComparisonTableAction"],
 		__typename?: boolean
 }>;
+	["PageBlocksFeatureFeatures"]: AliasType<{
+	icon?:boolean,
+	name?:boolean,
+	description?:boolean,
+		__typename?: boolean
+}>;
+	["PageBlocksFeatureOverlay"]: AliasType<{
+	image?:boolean,
+	overlayColor?:boolean,
+	overlayOpacity?:boolean,
+		__typename?: boolean
+}>;
+	["PageBlocksFeature"]: AliasType<{
+	title?:boolean,
+	subTitle?:boolean,
+	description?:boolean,
+	featureStyle?:boolean,
+	features?:ValueTypes["PageBlocksFeatureFeatures"],
+	overlay?:ValueTypes["PageBlocksFeatureOverlay"],
+		__typename?: boolean
+}>;
+	["PageBlocksFullScreenLogoOverlay"]: AliasType<{
+	image?:boolean,
+	overlayColor?:boolean,
+	overlayOpacity?:boolean,
+		__typename?: boolean
+}>;
 	["PageBlocksFullScreenLogo"]: AliasType<{
 	slogan?:boolean,
 	link?:boolean,
-	image?:boolean,
-	textColor?:boolean,
-	overlayColor?:boolean,
-	overlayOpacity?:boolean,
+	overlay?:ValueTypes["PageBlocksFullScreenLogoOverlay"],
 		__typename?: boolean
 }>;
 	["PageBlocksFullScreenHeaderAction"]: AliasType<{
@@ -400,64 +440,18 @@ documents?: [{	before?:string | null,	after?:string | null,	first?:number | null
 	secondaryLinkOverride?:boolean,
 		__typename?: boolean
 }>;
+	["PageBlocksFullScreenHeaderOverlay"]: AliasType<{
+	image?:boolean,
+	overlayColor?:boolean,
+	overlayOpacity?:boolean,
+		__typename?: boolean
+}>;
 	["PageBlocksFullScreenHeader"]: AliasType<{
 	title?:boolean,
 	subTitle?:boolean,
 	description?:boolean,
 	action?:ValueTypes["PageBlocksFullScreenHeaderAction"],
-	image?:boolean,
-	textColor?:boolean,
-	overlayColor?:boolean,
-	overlayOpacity?:boolean,
-		__typename?: boolean
-}>;
-	["PageBlocksFeatureFeatures"]: AliasType<{
-	icon?:boolean,
-	name?:boolean,
-	description?:boolean,
-		__typename?: boolean
-}>;
-	["PageBlocksFeature"]: AliasType<{
-	title?:boolean,
-	subTitle?:boolean,
-	description?:boolean,
-	featureStyle?:boolean,
-	features?:ValueTypes["PageBlocksFeatureFeatures"],
-	image?:boolean,
-	textColor?:boolean,
-	overlayColor?:boolean,
-	overlayOpacity?:boolean,
-		__typename?: boolean
-}>;
-	["PageBlocksScreenShotFeatureAction"]: AliasType<{
-	callToAction?:boolean,
-	linkText?:boolean,
-	link?:boolean,
-	linkOverride?:boolean,
-	secondaryText?:boolean,
-	secondaryLink?:boolean,
-	secondaryLinkOverride?:boolean,
-		__typename?: boolean
-}>;
-	["PageBlocksScreenShotFeatureTestimonialAuthor"]: AliasType<{
-	name?:boolean,
-	avatar?:boolean,
-		__typename?: boolean
-}>;
-	["PageBlocksScreenShotFeatureTestimonial"]: AliasType<{
-	quote?:boolean,
-	author?:ValueTypes["PageBlocksScreenShotFeatureTestimonialAuthor"],
-		__typename?: boolean
-}>;
-	["PageBlocksScreenShotFeature"]: AliasType<{
-	title?:boolean,
-	subTitle?:boolean,
-	description?:boolean,
-	image?:boolean,
-	alignment?:boolean,
-	icon?:boolean,
-	action?:ValueTypes["PageBlocksScreenShotFeatureAction"],
-	testimonial?:ValueTypes["PageBlocksScreenShotFeatureTestimonial"],
+	overlay?:ValueTypes["PageBlocksFullScreenHeaderOverlay"],
 		__typename?: boolean
 }>;
 	["PageBlocks"]: AliasType<{		["...on PageBlocksNews"] : ValueTypes["PageBlocksNews"],
@@ -465,10 +459,9 @@ documents?: [{	before?:string | null,	after?:string | null,	first?:number | null
 		["...on PageBlocksHero"] : ValueTypes["PageBlocksHero"],
 		["...on PageBlocksSlideshow"] : ValueTypes["PageBlocksSlideshow"],
 		["...on PageBlocksComparisonTable"] : ValueTypes["PageBlocksComparisonTable"],
-		["...on PageBlocksFullScreenLogo"] : ValueTypes["PageBlocksFullScreenLogo"],
-		["...on PageBlocksFullScreenHeader"] : ValueTypes["PageBlocksFullScreenHeader"],
 		["...on PageBlocksFeature"] : ValueTypes["PageBlocksFeature"],
-		["...on PageBlocksScreenShotFeature"] : ValueTypes["PageBlocksScreenShotFeature"]
+		["...on PageBlocksFullScreenLogo"] : ValueTypes["PageBlocksFullScreenLogo"],
+		["...on PageBlocksFullScreenHeader"] : ValueTypes["PageBlocksFullScreenHeader"]
 		__typename?: boolean
 }>;
 	["Page"]: AliasType<{
@@ -626,24 +619,37 @@ createPageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},
 	secondaryLink?:string | null,
 	secondaryLinkOverride?:string | null
 };
+	["PageBlocksSlideshowItemsOverlayMutation"]: {
+	image?:string | null,
+	overlayColor?:string | null,
+	overlayOpacity?:string | null
+};
 	["PageBlocksSlideshowItemsMutation"]: {
 	title?:string | null,
 	subTitle?:string | null,
 	description?:ValueTypes["JSON"] | null,
-	image?:string | null,
-	textColor?:string | null,
 	action?:ValueTypes["PageBlocksSlideshowItemsActionMutation"] | null,
-	overlayColor?:string | null,
-	overlayOpacity?:string | null
+	overlay?:ValueTypes["PageBlocksSlideshowItemsOverlayMutation"] | null
 };
 	["PageBlocksSlideshowMutation"]: {
 	items?:(ValueTypes["PageBlocksSlideshowItemsMutation"] | undefined | null)[]
+};
+	["PageBlocksComparisonTableItemsMetaAMutation"]: {
+	aOne?:string | null
+};
+	["PageBlocksComparisonTableItemsMetaBMutation"]: {
+	bOne?:string | null
+};
+	["PageBlocksComparisonTableItemsMetaMutation"]: {
+	a?:ValueTypes["PageBlocksComparisonTableItemsMetaAMutation"] | null,
+	b?:ValueTypes["PageBlocksComparisonTableItemsMetaBMutation"] | null
 };
 	["PageBlocksComparisonTableItemsMutation"]: {
 	title?:string | null,
 	subTitle?:string | null,
 	description?:ValueTypes["JSON"] | null,
-	bulletPoints?:(string | undefined | null)[]
+	bulletPoints?:(string | undefined | null)[],
+	meta?:(ValueTypes["PageBlocksComparisonTableItemsMetaMutation"] | undefined | null)[]
 };
 	["PageBlocksComparisonTableActionMutation"]: {
 	callToAction?:string | null,
@@ -661,13 +667,33 @@ createPageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},
 	items?:(ValueTypes["PageBlocksComparisonTableItemsMutation"] | undefined | null)[],
 	action?:ValueTypes["PageBlocksComparisonTableActionMutation"] | null
 };
+	["PageBlocksFeatureFeaturesMutation"]: {
+	icon?:string | null,
+	name?:string | null,
+	description?:ValueTypes["JSON"] | null
+};
+	["PageBlocksFeatureOverlayMutation"]: {
+	image?:string | null,
+	overlayColor?:string | null,
+	overlayOpacity?:string | null
+};
+	["PageBlocksFeatureMutation"]: {
+	title?:string | null,
+	subTitle?:string | null,
+	description?:ValueTypes["JSON"] | null,
+	featureStyle?:string | null,
+	features?:(ValueTypes["PageBlocksFeatureFeaturesMutation"] | undefined | null)[],
+	overlay?:ValueTypes["PageBlocksFeatureOverlayMutation"] | null
+};
+	["PageBlocksFullScreenLogoOverlayMutation"]: {
+	image?:string | null,
+	overlayColor?:string | null,
+	overlayOpacity?:string | null
+};
 	["PageBlocksFullScreenLogoMutation"]: {
 	slogan?:string | null,
 	link?:string | null,
-	image?:string | null,
-	textColor?:string | null,
-	overlayColor?:string | null,
-	overlayOpacity?:string | null
+	overlay?:ValueTypes["PageBlocksFullScreenLogoOverlayMutation"] | null
 };
 	["PageBlocksFullScreenHeaderActionMutation"]: {
 	callToAction?:string | null,
@@ -678,58 +704,17 @@ createPageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},
 	secondaryLink?:string | null,
 	secondaryLinkOverride?:string | null
 };
+	["PageBlocksFullScreenHeaderOverlayMutation"]: {
+	image?:string | null,
+	overlayColor?:string | null,
+	overlayOpacity?:string | null
+};
 	["PageBlocksFullScreenHeaderMutation"]: {
 	title?:string | null,
 	subTitle?:string | null,
 	description?:ValueTypes["JSON"] | null,
 	action?:ValueTypes["PageBlocksFullScreenHeaderActionMutation"] | null,
-	image?:string | null,
-	textColor?:string | null,
-	overlayColor?:string | null,
-	overlayOpacity?:string | null
-};
-	["PageBlocksFeatureFeaturesMutation"]: {
-	icon?:string | null,
-	name?:string | null,
-	description?:ValueTypes["JSON"] | null
-};
-	["PageBlocksFeatureMutation"]: {
-	title?:string | null,
-	subTitle?:string | null,
-	description?:ValueTypes["JSON"] | null,
-	featureStyle?:string | null,
-	features?:(ValueTypes["PageBlocksFeatureFeaturesMutation"] | undefined | null)[],
-	image?:string | null,
-	textColor?:string | null,
-	overlayColor?:string | null,
-	overlayOpacity?:string | null
-};
-	["PageBlocksScreenShotFeatureActionMutation"]: {
-	callToAction?:string | null,
-	linkText?:string | null,
-	link?:string | null,
-	linkOverride?:string | null,
-	secondaryText?:string | null,
-	secondaryLink?:string | null,
-	secondaryLinkOverride?:string | null
-};
-	["PageBlocksScreenShotFeatureTestimonialAuthorMutation"]: {
-	name?:string | null,
-	avatar?:string | null
-};
-	["PageBlocksScreenShotFeatureTestimonialMutation"]: {
-	quote?:string | null,
-	author?:ValueTypes["PageBlocksScreenShotFeatureTestimonialAuthorMutation"] | null
-};
-	["PageBlocksScreenShotFeatureMutation"]: {
-	title?:string | null,
-	subTitle?:string | null,
-	description?:ValueTypes["JSON"] | null,
-	image?:string | null,
-	alignment?:string | null,
-	icon?:string | null,
-	action?:ValueTypes["PageBlocksScreenShotFeatureActionMutation"] | null,
-	testimonial?:ValueTypes["PageBlocksScreenShotFeatureTestimonialMutation"] | null
+	overlay?:ValueTypes["PageBlocksFullScreenHeaderOverlayMutation"] | null
 };
 	["PageBlocksMutation"]: {
 	news?:ValueTypes["PageBlocksNewsMutation"] | null,
@@ -737,10 +722,9 @@ createPageDocument?: [{	relativePath:string,	params:ValueTypes["PageMutation"]},
 	hero?:ValueTypes["PageBlocksHeroMutation"] | null,
 	slideshow?:ValueTypes["PageBlocksSlideshowMutation"] | null,
 	comparisonTable?:ValueTypes["PageBlocksComparisonTableMutation"] | null,
-	fullScreenLogo?:ValueTypes["PageBlocksFullScreenLogoMutation"] | null,
-	fullScreenHeader?:ValueTypes["PageBlocksFullScreenHeaderMutation"] | null,
 	feature?:ValueTypes["PageBlocksFeatureMutation"] | null,
-	screenShotFeature?:ValueTypes["PageBlocksScreenShotFeatureMutation"] | null
+	fullScreenLogo?:ValueTypes["PageBlocksFullScreenLogoMutation"] | null,
+	fullScreenHeader?:ValueTypes["PageBlocksFullScreenHeaderMutation"] | null
 };
 	["PageMutation"]: {
 	title?:string | null,
@@ -978,7 +962,7 @@ export type ModelTypes = {
 	subTitle?:string,
 	description:ModelTypes["JSON"],
 	image?:string,
-	stats:ModelTypes["PageBlocksStatsWithImageStats"][]
+	stats?:(ModelTypes["PageBlocksStatsWithImageStats"] | undefined)[]
 };
 	["PageBlocksHeroAction"]: {
 		callToAction?:string,
@@ -1005,24 +989,34 @@ export type ModelTypes = {
 	secondaryLink?:string,
 	secondaryLinkOverride?:string
 };
+	["PageBlocksSlideshowItemsOverlay"]: {
+		image?:string,
+	overlayColor?:string,
+	overlayOpacity?:string
+};
 	["PageBlocksSlideshowItems"]: {
 		title:string,
 	subTitle?:string,
 	description:ModelTypes["JSON"],
-	image?:string,
-	textColor?:string,
 	action?:ModelTypes["PageBlocksSlideshowItemsAction"],
-	overlayColor?:string,
-	overlayOpacity?:string
+	overlay?:ModelTypes["PageBlocksSlideshowItemsOverlay"]
 };
 	["PageBlocksSlideshow"]: {
 		items?:(ModelTypes["PageBlocksSlideshowItems"] | undefined)[]
 };
+	["PageBlocksComparisonTableItemsMetaA"]: {
+		aOne?:string
+};
+	["PageBlocksComparisonTableItemsMetaB"]: {
+		bOne?:string
+};
+	["PageBlocksComparisonTableItemsMeta"]:ModelTypes["PageBlocksComparisonTableItemsMetaA"] | ModelTypes["PageBlocksComparisonTableItemsMetaB"];
 	["PageBlocksComparisonTableItems"]: {
 		title:string,
 	subTitle?:string,
 	description:ModelTypes["JSON"],
-	bulletPoints?:(string | undefined)[]
+	bulletPoints?:(string | undefined)[],
+	meta?:(ModelTypes["PageBlocksComparisonTableItemsMeta"] | undefined)[]
 };
 	["PageBlocksComparisonTableAction"]: {
 		callToAction?:string,
@@ -1040,13 +1034,33 @@ export type ModelTypes = {
 	items?:(ModelTypes["PageBlocksComparisonTableItems"] | undefined)[],
 	action?:ModelTypes["PageBlocksComparisonTableAction"]
 };
+	["PageBlocksFeatureFeatures"]: {
+		icon:string,
+	name:string,
+	description:ModelTypes["JSON"]
+};
+	["PageBlocksFeatureOverlay"]: {
+		image?:string,
+	overlayColor?:string,
+	overlayOpacity?:string
+};
+	["PageBlocksFeature"]: {
+		title:string,
+	subTitle?:string,
+	description:ModelTypes["JSON"],
+	featureStyle?:string,
+	features:ModelTypes["PageBlocksFeatureFeatures"][],
+	overlay?:ModelTypes["PageBlocksFeatureOverlay"]
+};
+	["PageBlocksFullScreenLogoOverlay"]: {
+		image?:string,
+	overlayColor?:string,
+	overlayOpacity?:string
+};
 	["PageBlocksFullScreenLogo"]: {
 		slogan?:string,
 	link?:string,
-	image?:string,
-	textColor?:string,
-	overlayColor?:string,
-	overlayOpacity?:string
+	overlay?:ModelTypes["PageBlocksFullScreenLogoOverlay"]
 };
 	["PageBlocksFullScreenHeaderAction"]: {
 		callToAction?:string,
@@ -1057,60 +1071,19 @@ export type ModelTypes = {
 	secondaryLink?:string,
 	secondaryLinkOverride?:string
 };
+	["PageBlocksFullScreenHeaderOverlay"]: {
+		image?:string,
+	overlayColor?:string,
+	overlayOpacity?:string
+};
 	["PageBlocksFullScreenHeader"]: {
 		title:string,
 	subTitle?:string,
 	description:ModelTypes["JSON"],
 	action?:ModelTypes["PageBlocksFullScreenHeaderAction"],
-	image?:string,
-	textColor?:string,
-	overlayColor?:string,
-	overlayOpacity?:string
+	overlay?:ModelTypes["PageBlocksFullScreenHeaderOverlay"]
 };
-	["PageBlocksFeatureFeatures"]: {
-		icon:string,
-	name:string,
-	description:ModelTypes["JSON"]
-};
-	["PageBlocksFeature"]: {
-		title:string,
-	subTitle?:string,
-	description:ModelTypes["JSON"],
-	featureStyle?:string,
-	features:ModelTypes["PageBlocksFeatureFeatures"][],
-	image?:string,
-	textColor?:string,
-	overlayColor?:string,
-	overlayOpacity?:string
-};
-	["PageBlocksScreenShotFeatureAction"]: {
-		callToAction?:string,
-	linkText?:string,
-	link?:string,
-	linkOverride?:string,
-	secondaryText?:string,
-	secondaryLink?:string,
-	secondaryLinkOverride?:string
-};
-	["PageBlocksScreenShotFeatureTestimonialAuthor"]: {
-		name:string,
-	avatar:string
-};
-	["PageBlocksScreenShotFeatureTestimonial"]: {
-		quote:string,
-	author?:ModelTypes["PageBlocksScreenShotFeatureTestimonialAuthor"]
-};
-	["PageBlocksScreenShotFeature"]: {
-		title:string,
-	subTitle?:string,
-	description:ModelTypes["JSON"],
-	image?:string,
-	alignment?:string,
-	icon?:string,
-	action?:ModelTypes["PageBlocksScreenShotFeatureAction"],
-	testimonial?:ModelTypes["PageBlocksScreenShotFeatureTestimonial"]
-};
-	["PageBlocks"]:ModelTypes["PageBlocksNews"] | ModelTypes["PageBlocksStatsWithImage"] | ModelTypes["PageBlocksHero"] | ModelTypes["PageBlocksSlideshow"] | ModelTypes["PageBlocksComparisonTable"] | ModelTypes["PageBlocksFullScreenLogo"] | ModelTypes["PageBlocksFullScreenHeader"] | ModelTypes["PageBlocksFeature"] | ModelTypes["PageBlocksScreenShotFeature"];
+	["PageBlocks"]:ModelTypes["PageBlocksNews"] | ModelTypes["PageBlocksStatsWithImage"] | ModelTypes["PageBlocksHero"] | ModelTypes["PageBlocksSlideshow"] | ModelTypes["PageBlocksComparisonTable"] | ModelTypes["PageBlocksFeature"] | ModelTypes["PageBlocksFullScreenLogo"] | ModelTypes["PageBlocksFullScreenHeader"];
 	["Page"]: {
 		title:string,
 	link:string,
@@ -1171,20 +1144,23 @@ export type ModelTypes = {
 	["PageBlocksHeroActionMutation"]: GraphQLTypes["PageBlocksHeroActionMutation"];
 	["PageBlocksHeroMutation"]: GraphQLTypes["PageBlocksHeroMutation"];
 	["PageBlocksSlideshowItemsActionMutation"]: GraphQLTypes["PageBlocksSlideshowItemsActionMutation"];
+	["PageBlocksSlideshowItemsOverlayMutation"]: GraphQLTypes["PageBlocksSlideshowItemsOverlayMutation"];
 	["PageBlocksSlideshowItemsMutation"]: GraphQLTypes["PageBlocksSlideshowItemsMutation"];
 	["PageBlocksSlideshowMutation"]: GraphQLTypes["PageBlocksSlideshowMutation"];
+	["PageBlocksComparisonTableItemsMetaAMutation"]: GraphQLTypes["PageBlocksComparisonTableItemsMetaAMutation"];
+	["PageBlocksComparisonTableItemsMetaBMutation"]: GraphQLTypes["PageBlocksComparisonTableItemsMetaBMutation"];
+	["PageBlocksComparisonTableItemsMetaMutation"]: GraphQLTypes["PageBlocksComparisonTableItemsMetaMutation"];
 	["PageBlocksComparisonTableItemsMutation"]: GraphQLTypes["PageBlocksComparisonTableItemsMutation"];
 	["PageBlocksComparisonTableActionMutation"]: GraphQLTypes["PageBlocksComparisonTableActionMutation"];
 	["PageBlocksComparisonTableMutation"]: GraphQLTypes["PageBlocksComparisonTableMutation"];
+	["PageBlocksFeatureFeaturesMutation"]: GraphQLTypes["PageBlocksFeatureFeaturesMutation"];
+	["PageBlocksFeatureOverlayMutation"]: GraphQLTypes["PageBlocksFeatureOverlayMutation"];
+	["PageBlocksFeatureMutation"]: GraphQLTypes["PageBlocksFeatureMutation"];
+	["PageBlocksFullScreenLogoOverlayMutation"]: GraphQLTypes["PageBlocksFullScreenLogoOverlayMutation"];
 	["PageBlocksFullScreenLogoMutation"]: GraphQLTypes["PageBlocksFullScreenLogoMutation"];
 	["PageBlocksFullScreenHeaderActionMutation"]: GraphQLTypes["PageBlocksFullScreenHeaderActionMutation"];
+	["PageBlocksFullScreenHeaderOverlayMutation"]: GraphQLTypes["PageBlocksFullScreenHeaderOverlayMutation"];
 	["PageBlocksFullScreenHeaderMutation"]: GraphQLTypes["PageBlocksFullScreenHeaderMutation"];
-	["PageBlocksFeatureFeaturesMutation"]: GraphQLTypes["PageBlocksFeatureFeaturesMutation"];
-	["PageBlocksFeatureMutation"]: GraphQLTypes["PageBlocksFeatureMutation"];
-	["PageBlocksScreenShotFeatureActionMutation"]: GraphQLTypes["PageBlocksScreenShotFeatureActionMutation"];
-	["PageBlocksScreenShotFeatureTestimonialAuthorMutation"]: GraphQLTypes["PageBlocksScreenShotFeatureTestimonialAuthorMutation"];
-	["PageBlocksScreenShotFeatureTestimonialMutation"]: GraphQLTypes["PageBlocksScreenShotFeatureTestimonialMutation"];
-	["PageBlocksScreenShotFeatureMutation"]: GraphQLTypes["PageBlocksScreenShotFeatureMutation"];
 	["PageBlocksMutation"]: GraphQLTypes["PageBlocksMutation"];
 	["PageMutation"]: GraphQLTypes["PageMutation"]
     }
@@ -1500,7 +1476,7 @@ export type GraphQLTypes = {
 	subTitle?: string,
 	description: GraphQLTypes["JSON"],
 	image?: string,
-	stats: Array<GraphQLTypes["PageBlocksStatsWithImageStats"]>
+	stats?: Array<GraphQLTypes["PageBlocksStatsWithImageStats"] | undefined>
 };
 	["PageBlocksHeroAction"]: {
 	__typename: "PageBlocksHeroAction",
@@ -1530,27 +1506,44 @@ export type GraphQLTypes = {
 	secondaryLink?: string,
 	secondaryLinkOverride?: string
 };
+	["PageBlocksSlideshowItemsOverlay"]: {
+	__typename: "PageBlocksSlideshowItemsOverlay",
+	image?: string,
+	overlayColor?: string,
+	overlayOpacity?: string
+};
 	["PageBlocksSlideshowItems"]: {
 	__typename: "PageBlocksSlideshowItems",
 	title: string,
 	subTitle?: string,
 	description: GraphQLTypes["JSON"],
-	image?: string,
-	textColor?: string,
 	action?: GraphQLTypes["PageBlocksSlideshowItemsAction"],
-	overlayColor?: string,
-	overlayOpacity?: string
+	overlay?: GraphQLTypes["PageBlocksSlideshowItemsOverlay"]
 };
 	["PageBlocksSlideshow"]: {
 	__typename: "PageBlocksSlideshow",
 	items?: Array<GraphQLTypes["PageBlocksSlideshowItems"] | undefined>
+};
+	["PageBlocksComparisonTableItemsMetaA"]: {
+	__typename: "PageBlocksComparisonTableItemsMetaA",
+	aOne?: string
+};
+	["PageBlocksComparisonTableItemsMetaB"]: {
+	__typename: "PageBlocksComparisonTableItemsMetaB",
+	bOne?: string
+};
+	["PageBlocksComparisonTableItemsMeta"]:{
+	__typename:"PageBlocksComparisonTableItemsMetaA" | "PageBlocksComparisonTableItemsMetaB"
+	['...on PageBlocksComparisonTableItemsMetaA']: '__union' & GraphQLTypes["PageBlocksComparisonTableItemsMetaA"];
+	['...on PageBlocksComparisonTableItemsMetaB']: '__union' & GraphQLTypes["PageBlocksComparisonTableItemsMetaB"];
 };
 	["PageBlocksComparisonTableItems"]: {
 	__typename: "PageBlocksComparisonTableItems",
 	title: string,
 	subTitle?: string,
 	description: GraphQLTypes["JSON"],
-	bulletPoints?: Array<string | undefined>
+	bulletPoints?: Array<string | undefined>,
+	meta?: Array<GraphQLTypes["PageBlocksComparisonTableItemsMeta"] | undefined>
 };
 	["PageBlocksComparisonTableAction"]: {
 	__typename: "PageBlocksComparisonTableAction",
@@ -1570,14 +1563,38 @@ export type GraphQLTypes = {
 	items?: Array<GraphQLTypes["PageBlocksComparisonTableItems"] | undefined>,
 	action?: GraphQLTypes["PageBlocksComparisonTableAction"]
 };
+	["PageBlocksFeatureFeatures"]: {
+	__typename: "PageBlocksFeatureFeatures",
+	icon: string,
+	name: string,
+	description: GraphQLTypes["JSON"]
+};
+	["PageBlocksFeatureOverlay"]: {
+	__typename: "PageBlocksFeatureOverlay",
+	image?: string,
+	overlayColor?: string,
+	overlayOpacity?: string
+};
+	["PageBlocksFeature"]: {
+	__typename: "PageBlocksFeature",
+	title: string,
+	subTitle?: string,
+	description: GraphQLTypes["JSON"],
+	featureStyle?: string,
+	features: Array<GraphQLTypes["PageBlocksFeatureFeatures"]>,
+	overlay?: GraphQLTypes["PageBlocksFeatureOverlay"]
+};
+	["PageBlocksFullScreenLogoOverlay"]: {
+	__typename: "PageBlocksFullScreenLogoOverlay",
+	image?: string,
+	overlayColor?: string,
+	overlayOpacity?: string
+};
 	["PageBlocksFullScreenLogo"]: {
 	__typename: "PageBlocksFullScreenLogo",
 	slogan?: string,
 	link?: string,
-	image?: string,
-	textColor?: string,
-	overlayColor?: string,
-	overlayOpacity?: string
+	overlay?: GraphQLTypes["PageBlocksFullScreenLogoOverlay"]
 };
 	["PageBlocksFullScreenHeaderAction"]: {
 	__typename: "PageBlocksFullScreenHeaderAction",
@@ -1589,77 +1606,30 @@ export type GraphQLTypes = {
 	secondaryLink?: string,
 	secondaryLinkOverride?: string
 };
+	["PageBlocksFullScreenHeaderOverlay"]: {
+	__typename: "PageBlocksFullScreenHeaderOverlay",
+	image?: string,
+	overlayColor?: string,
+	overlayOpacity?: string
+};
 	["PageBlocksFullScreenHeader"]: {
 	__typename: "PageBlocksFullScreenHeader",
 	title: string,
 	subTitle?: string,
 	description: GraphQLTypes["JSON"],
 	action?: GraphQLTypes["PageBlocksFullScreenHeaderAction"],
-	image?: string,
-	textColor?: string,
-	overlayColor?: string,
-	overlayOpacity?: string
-};
-	["PageBlocksFeatureFeatures"]: {
-	__typename: "PageBlocksFeatureFeatures",
-	icon: string,
-	name: string,
-	description: GraphQLTypes["JSON"]
-};
-	["PageBlocksFeature"]: {
-	__typename: "PageBlocksFeature",
-	title: string,
-	subTitle?: string,
-	description: GraphQLTypes["JSON"],
-	featureStyle?: string,
-	features: Array<GraphQLTypes["PageBlocksFeatureFeatures"]>,
-	image?: string,
-	textColor?: string,
-	overlayColor?: string,
-	overlayOpacity?: string
-};
-	["PageBlocksScreenShotFeatureAction"]: {
-	__typename: "PageBlocksScreenShotFeatureAction",
-	callToAction?: string,
-	linkText?: string,
-	link?: string,
-	linkOverride?: string,
-	secondaryText?: string,
-	secondaryLink?: string,
-	secondaryLinkOverride?: string
-};
-	["PageBlocksScreenShotFeatureTestimonialAuthor"]: {
-	__typename: "PageBlocksScreenShotFeatureTestimonialAuthor",
-	name: string,
-	avatar: string
-};
-	["PageBlocksScreenShotFeatureTestimonial"]: {
-	__typename: "PageBlocksScreenShotFeatureTestimonial",
-	quote: string,
-	author?: GraphQLTypes["PageBlocksScreenShotFeatureTestimonialAuthor"]
-};
-	["PageBlocksScreenShotFeature"]: {
-	__typename: "PageBlocksScreenShotFeature",
-	title: string,
-	subTitle?: string,
-	description: GraphQLTypes["JSON"],
-	image?: string,
-	alignment?: string,
-	icon?: string,
-	action?: GraphQLTypes["PageBlocksScreenShotFeatureAction"],
-	testimonial?: GraphQLTypes["PageBlocksScreenShotFeatureTestimonial"]
+	overlay?: GraphQLTypes["PageBlocksFullScreenHeaderOverlay"]
 };
 	["PageBlocks"]:{
-	__typename:"PageBlocksNews" | "PageBlocksStatsWithImage" | "PageBlocksHero" | "PageBlocksSlideshow" | "PageBlocksComparisonTable" | "PageBlocksFullScreenLogo" | "PageBlocksFullScreenHeader" | "PageBlocksFeature" | "PageBlocksScreenShotFeature"
+	__typename:"PageBlocksNews" | "PageBlocksStatsWithImage" | "PageBlocksHero" | "PageBlocksSlideshow" | "PageBlocksComparisonTable" | "PageBlocksFeature" | "PageBlocksFullScreenLogo" | "PageBlocksFullScreenHeader"
 	['...on PageBlocksNews']: '__union' & GraphQLTypes["PageBlocksNews"];
 	['...on PageBlocksStatsWithImage']: '__union' & GraphQLTypes["PageBlocksStatsWithImage"];
 	['...on PageBlocksHero']: '__union' & GraphQLTypes["PageBlocksHero"];
 	['...on PageBlocksSlideshow']: '__union' & GraphQLTypes["PageBlocksSlideshow"];
 	['...on PageBlocksComparisonTable']: '__union' & GraphQLTypes["PageBlocksComparisonTable"];
+	['...on PageBlocksFeature']: '__union' & GraphQLTypes["PageBlocksFeature"];
 	['...on PageBlocksFullScreenLogo']: '__union' & GraphQLTypes["PageBlocksFullScreenLogo"];
 	['...on PageBlocksFullScreenHeader']: '__union' & GraphQLTypes["PageBlocksFullScreenHeader"];
-	['...on PageBlocksFeature']: '__union' & GraphQLTypes["PageBlocksFeature"];
-	['...on PageBlocksScreenShotFeature']: '__union' & GraphQLTypes["PageBlocksScreenShotFeature"];
 };
 	["Page"]: {
 	__typename: "Page",
@@ -1816,24 +1786,37 @@ export type GraphQLTypes = {
 	secondaryLink?: string,
 	secondaryLinkOverride?: string
 };
+	["PageBlocksSlideshowItemsOverlayMutation"]: {
+		image?: string,
+	overlayColor?: string,
+	overlayOpacity?: string
+};
 	["PageBlocksSlideshowItemsMutation"]: {
 		title?: string,
 	subTitle?: string,
 	description?: GraphQLTypes["JSON"],
-	image?: string,
-	textColor?: string,
 	action?: GraphQLTypes["PageBlocksSlideshowItemsActionMutation"],
-	overlayColor?: string,
-	overlayOpacity?: string
+	overlay?: GraphQLTypes["PageBlocksSlideshowItemsOverlayMutation"]
 };
 	["PageBlocksSlideshowMutation"]: {
 		items?: Array<GraphQLTypes["PageBlocksSlideshowItemsMutation"] | undefined>
+};
+	["PageBlocksComparisonTableItemsMetaAMutation"]: {
+		aOne?: string
+};
+	["PageBlocksComparisonTableItemsMetaBMutation"]: {
+		bOne?: string
+};
+	["PageBlocksComparisonTableItemsMetaMutation"]: {
+		a?: GraphQLTypes["PageBlocksComparisonTableItemsMetaAMutation"],
+	b?: GraphQLTypes["PageBlocksComparisonTableItemsMetaBMutation"]
 };
 	["PageBlocksComparisonTableItemsMutation"]: {
 		title?: string,
 	subTitle?: string,
 	description?: GraphQLTypes["JSON"],
-	bulletPoints?: Array<string | undefined>
+	bulletPoints?: Array<string | undefined>,
+	meta?: Array<GraphQLTypes["PageBlocksComparisonTableItemsMetaMutation"] | undefined>
 };
 	["PageBlocksComparisonTableActionMutation"]: {
 		callToAction?: string,
@@ -1851,13 +1834,33 @@ export type GraphQLTypes = {
 	items?: Array<GraphQLTypes["PageBlocksComparisonTableItemsMutation"] | undefined>,
 	action?: GraphQLTypes["PageBlocksComparisonTableActionMutation"]
 };
+	["PageBlocksFeatureFeaturesMutation"]: {
+		icon?: string,
+	name?: string,
+	description?: GraphQLTypes["JSON"]
+};
+	["PageBlocksFeatureOverlayMutation"]: {
+		image?: string,
+	overlayColor?: string,
+	overlayOpacity?: string
+};
+	["PageBlocksFeatureMutation"]: {
+		title?: string,
+	subTitle?: string,
+	description?: GraphQLTypes["JSON"],
+	featureStyle?: string,
+	features?: Array<GraphQLTypes["PageBlocksFeatureFeaturesMutation"] | undefined>,
+	overlay?: GraphQLTypes["PageBlocksFeatureOverlayMutation"]
+};
+	["PageBlocksFullScreenLogoOverlayMutation"]: {
+		image?: string,
+	overlayColor?: string,
+	overlayOpacity?: string
+};
 	["PageBlocksFullScreenLogoMutation"]: {
 		slogan?: string,
 	link?: string,
-	image?: string,
-	textColor?: string,
-	overlayColor?: string,
-	overlayOpacity?: string
+	overlay?: GraphQLTypes["PageBlocksFullScreenLogoOverlayMutation"]
 };
 	["PageBlocksFullScreenHeaderActionMutation"]: {
 		callToAction?: string,
@@ -1868,58 +1871,17 @@ export type GraphQLTypes = {
 	secondaryLink?: string,
 	secondaryLinkOverride?: string
 };
+	["PageBlocksFullScreenHeaderOverlayMutation"]: {
+		image?: string,
+	overlayColor?: string,
+	overlayOpacity?: string
+};
 	["PageBlocksFullScreenHeaderMutation"]: {
 		title?: string,
 	subTitle?: string,
 	description?: GraphQLTypes["JSON"],
 	action?: GraphQLTypes["PageBlocksFullScreenHeaderActionMutation"],
-	image?: string,
-	textColor?: string,
-	overlayColor?: string,
-	overlayOpacity?: string
-};
-	["PageBlocksFeatureFeaturesMutation"]: {
-		icon?: string,
-	name?: string,
-	description?: GraphQLTypes["JSON"]
-};
-	["PageBlocksFeatureMutation"]: {
-		title?: string,
-	subTitle?: string,
-	description?: GraphQLTypes["JSON"],
-	featureStyle?: string,
-	features?: Array<GraphQLTypes["PageBlocksFeatureFeaturesMutation"] | undefined>,
-	image?: string,
-	textColor?: string,
-	overlayColor?: string,
-	overlayOpacity?: string
-};
-	["PageBlocksScreenShotFeatureActionMutation"]: {
-		callToAction?: string,
-	linkText?: string,
-	link?: string,
-	linkOverride?: string,
-	secondaryText?: string,
-	secondaryLink?: string,
-	secondaryLinkOverride?: string
-};
-	["PageBlocksScreenShotFeatureTestimonialAuthorMutation"]: {
-		name?: string,
-	avatar?: string
-};
-	["PageBlocksScreenShotFeatureTestimonialMutation"]: {
-		quote?: string,
-	author?: GraphQLTypes["PageBlocksScreenShotFeatureTestimonialAuthorMutation"]
-};
-	["PageBlocksScreenShotFeatureMutation"]: {
-		title?: string,
-	subTitle?: string,
-	description?: GraphQLTypes["JSON"],
-	image?: string,
-	alignment?: string,
-	icon?: string,
-	action?: GraphQLTypes["PageBlocksScreenShotFeatureActionMutation"],
-	testimonial?: GraphQLTypes["PageBlocksScreenShotFeatureTestimonialMutation"]
+	overlay?: GraphQLTypes["PageBlocksFullScreenHeaderOverlayMutation"]
 };
 	["PageBlocksMutation"]: {
 		news?: GraphQLTypes["PageBlocksNewsMutation"],
@@ -1927,10 +1889,9 @@ export type GraphQLTypes = {
 	hero?: GraphQLTypes["PageBlocksHeroMutation"],
 	slideshow?: GraphQLTypes["PageBlocksSlideshowMutation"],
 	comparisonTable?: GraphQLTypes["PageBlocksComparisonTableMutation"],
-	fullScreenLogo?: GraphQLTypes["PageBlocksFullScreenLogoMutation"],
-	fullScreenHeader?: GraphQLTypes["PageBlocksFullScreenHeaderMutation"],
 	feature?: GraphQLTypes["PageBlocksFeatureMutation"],
-	screenShotFeature?: GraphQLTypes["PageBlocksScreenShotFeatureMutation"]
+	fullScreenLogo?: GraphQLTypes["PageBlocksFullScreenLogoMutation"],
+	fullScreenHeader?: GraphQLTypes["PageBlocksFullScreenHeaderMutation"]
 };
 	["PageMutation"]: {
 		title?: string,
@@ -2222,10 +2183,10 @@ const traverseToSeekArrays = (parent: string[], a?: any): string => {
     }
   }
   return objectToTree(b);
-};  
+};
 
 
-const buildQuery = (type: string, a?: Record<any, any>) => 
+const buildQuery = (type: string, a?: Record<any, any>) =>
   traverseToSeekArrays([type], a);
 
 
@@ -2256,12 +2217,12 @@ const inspectVariables = (query: string) => {
 
 export const queryConstruct = (t: 'query' | 'mutation' | 'subscription', tName: string, operationName?: string) => (o: Record<any, any>) =>
   `${t.toLowerCase()}${operationName ? ' ' + operationName : ''}${inspectVariables(buildQuery(tName, o))}`;
-  
+
 
 export const fullChainConstruct = (fn: FetchFunction) => (t: 'query' | 'mutation' | 'subscription', tName: string) => (
   o: Record<any, any>,
   options?: OperationOptions,
-) => fn(queryConstruct(t, tName, options?.operationName)(o), options?.variables).then((r:any) => { 
+) => fn(queryConstruct(t, tName, options?.operationName)(o), options?.variables).then((r:any) => {
   seekForAliases(r)
   return r
 });
@@ -2366,7 +2327,7 @@ export const apiFetch = (options: fetchOptions) => (query: string, variables: Re
         return response.data;
       });
   };
-  
+
 
 export const apiSubscription = (options: chainOptions) => (
     query: string,
@@ -2427,8 +2388,8 @@ export const Thunder = (fn: FetchFunction) => <
 ) => <Z extends ValueTypes[R]>(o: Z | ValueTypes[R], ops?: OperationOptions) =>
   fullChainConstruct(fn)(operation, allOperations[operation])(o as any, ops) as Promise<InputType<GraphQLTypes[R], Z>>;
 
-export const Chain = (...options: chainOptions) => Thunder(apiFetch(options));  
-  
+export const Chain = (...options: chainOptions) => Thunder(apiFetch(options));
+
 export const SubscriptionThunder = (fn: SubscriptionFunction) => <
   O extends 'query' | 'mutation',
   R extends keyof ValueTypes = GenericOperation<O>
@@ -2454,4 +2415,3 @@ export const Zeus = <
   operationName?: string,
 ) => queryConstruct(operation, allOperations[operation], operationName)(o as any);
 export const Selector = <T extends keyof ValueTypes>(key: T) => ZeusSelect<ValueTypes[T]>();
-  

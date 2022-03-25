@@ -126,10 +126,12 @@ fragment PageParts on Page {
           secondaryLink
           secondaryLinkOverride
         }
-        image
-        textColor
-        overlayColor
-        overlayOpacity
+        overlay {
+          __typename
+          image
+          overlayColor
+          overlayOpacity
+        }
       }
     }
     ... on PageBlocksComparisonTable {
@@ -142,6 +144,15 @@ fragment PageParts on Page {
         subTitle
         description
         bulletPoints
+        meta {
+          __typename
+          ... on PageBlocksComparisonTableItemsMetaA {
+            aOne
+          }
+          ... on PageBlocksComparisonTableItemsMetaB {
+            bOne
+          }
+        }
       }
       action {
         __typename
@@ -165,45 +176,22 @@ fragment PageParts on Page {
         name
         description
       }
-      image
-      textColor
-      overlayColor
-      overlayOpacity
-    }
-    ... on PageBlocksScreenShotFeature {
-      title
-      subTitle
-      description
-      image
-      alignment
-      icon
-      action {
+      overlay {
         __typename
-        callToAction
-        linkText
-        link
-        linkOverride
-        secondaryText
-        secondaryLink
-        secondaryLinkOverride
-      }
-      testimonial {
-        __typename
-        quote
-        author {
-          __typename
-          name
-          avatar
-        }
+        image
+        overlayColor
+        overlayOpacity
       }
     }
     ... on PageBlocksFullScreenLogo {
       slogan
       link
-      image
-      textColor
-      overlayColor
-      overlayOpacity
+      overlay {
+        __typename
+        image
+        overlayColor
+        overlayOpacity
+      }
     }
     ... on PageBlocksFullScreenHeader {
       title
@@ -219,10 +207,12 @@ fragment PageParts on Page {
         secondaryLink
         secondaryLinkOverride
       }
-      image
-      textColor
-      overlayColor
-      overlayOpacity
+      overlay {
+        __typename
+        image
+        overlayColor
+        overlayOpacity
+      }
     }
   }
 }

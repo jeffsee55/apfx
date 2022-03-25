@@ -109,6 +109,7 @@ export type QueryGetDocumentListArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -122,6 +123,7 @@ export type QueryGetLocaleInfoListArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -135,6 +137,7 @@ export type QueryGetNewsListArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -148,6 +151,7 @@ export type QueryGetFooterListArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -161,6 +165,7 @@ export type QueryGetThemeListArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -174,6 +179,7 @@ export type QueryGetNavigationListArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -187,6 +193,7 @@ export type QueryGetPageListArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
 };
 
 export type DocumentConnectionEdges = {
@@ -221,6 +228,7 @@ export type CollectionDocumentsArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
 };
 
 export type DocumentNode = LocaleInfoDocument | NewsDocument | FooterDocument | ThemeDocument | NavigationDocument | PageDocument;
@@ -484,16 +492,20 @@ export type PageBlocksSlideshowItemsAction = {
   secondaryLinkOverride?: Maybe<Scalars['String']>;
 };
 
+export type PageBlocksSlideshowItemsOverlay = {
+  __typename?: 'PageBlocksSlideshowItemsOverlay';
+  image?: Maybe<Scalars['String']>;
+  overlayColor?: Maybe<Scalars['String']>;
+  overlayOpacity?: Maybe<Scalars['String']>;
+};
+
 export type PageBlocksSlideshowItems = {
   __typename?: 'PageBlocksSlideshowItems';
   title: Scalars['String'];
   subTitle?: Maybe<Scalars['String']>;
   description: Scalars['JSON'];
   action?: Maybe<PageBlocksSlideshowItemsAction>;
-  image?: Maybe<Scalars['String']>;
-  textColor?: Maybe<Scalars['String']>;
-  overlayColor?: Maybe<Scalars['String']>;
-  overlayOpacity?: Maybe<Scalars['String']>;
+  overlay?: Maybe<PageBlocksSlideshowItemsOverlay>;
 };
 
 export type PageBlocksSlideshow = {
@@ -501,12 +513,25 @@ export type PageBlocksSlideshow = {
   items?: Maybe<Array<Maybe<PageBlocksSlideshowItems>>>;
 };
 
+export type PageBlocksComparisonTableItemsMetaA = {
+  __typename?: 'PageBlocksComparisonTableItemsMetaA';
+  aOne?: Maybe<Scalars['String']>;
+};
+
+export type PageBlocksComparisonTableItemsMetaB = {
+  __typename?: 'PageBlocksComparisonTableItemsMetaB';
+  bOne?: Maybe<Scalars['String']>;
+};
+
+export type PageBlocksComparisonTableItemsMeta = PageBlocksComparisonTableItemsMetaA | PageBlocksComparisonTableItemsMetaB;
+
 export type PageBlocksComparisonTableItems = {
   __typename?: 'PageBlocksComparisonTableItems';
   title: Scalars['String'];
   subTitle?: Maybe<Scalars['String']>;
   description: Scalars['JSON'];
   bulletPoints?: Maybe<Array<Maybe<Scalars['String']>>>;
+  meta?: Maybe<Array<Maybe<PageBlocksComparisonTableItemsMeta>>>;
 };
 
 export type PageBlocksComparisonTableAction = {
@@ -536,6 +561,13 @@ export type PageBlocksFeatureFeatures = {
   description: Scalars['JSON'];
 };
 
+export type PageBlocksFeatureOverlay = {
+  __typename?: 'PageBlocksFeatureOverlay';
+  image?: Maybe<Scalars['String']>;
+  overlayColor?: Maybe<Scalars['String']>;
+  overlayOpacity?: Maybe<Scalars['String']>;
+};
+
 export type PageBlocksFeature = {
   __typename?: 'PageBlocksFeature';
   title: Scalars['String'];
@@ -543,55 +575,21 @@ export type PageBlocksFeature = {
   description: Scalars['JSON'];
   featureStyle?: Maybe<Scalars['String']>;
   features: Array<PageBlocksFeatureFeatures>;
+  overlay?: Maybe<PageBlocksFeatureOverlay>;
+};
+
+export type PageBlocksFullScreenLogoOverlay = {
+  __typename?: 'PageBlocksFullScreenLogoOverlay';
   image?: Maybe<Scalars['String']>;
-  textColor?: Maybe<Scalars['String']>;
   overlayColor?: Maybe<Scalars['String']>;
   overlayOpacity?: Maybe<Scalars['String']>;
-};
-
-export type PageBlocksScreenShotFeatureAction = {
-  __typename?: 'PageBlocksScreenShotFeatureAction';
-  callToAction?: Maybe<Scalars['String']>;
-  linkText?: Maybe<Scalars['String']>;
-  link?: Maybe<Scalars['String']>;
-  linkOverride?: Maybe<Scalars['String']>;
-  secondaryText?: Maybe<Scalars['String']>;
-  secondaryLink?: Maybe<Scalars['String']>;
-  secondaryLinkOverride?: Maybe<Scalars['String']>;
-};
-
-export type PageBlocksScreenShotFeatureTestimonialAuthor = {
-  __typename?: 'PageBlocksScreenShotFeatureTestimonialAuthor';
-  name: Scalars['String'];
-  avatar: Scalars['String'];
-};
-
-export type PageBlocksScreenShotFeatureTestimonial = {
-  __typename?: 'PageBlocksScreenShotFeatureTestimonial';
-  quote: Scalars['String'];
-  author?: Maybe<PageBlocksScreenShotFeatureTestimonialAuthor>;
-};
-
-export type PageBlocksScreenShotFeature = {
-  __typename?: 'PageBlocksScreenShotFeature';
-  title: Scalars['String'];
-  subTitle?: Maybe<Scalars['String']>;
-  description: Scalars['JSON'];
-  image?: Maybe<Scalars['String']>;
-  alignment?: Maybe<Scalars['String']>;
-  icon?: Maybe<Scalars['String']>;
-  action?: Maybe<PageBlocksScreenShotFeatureAction>;
-  testimonial?: Maybe<PageBlocksScreenShotFeatureTestimonial>;
 };
 
 export type PageBlocksFullScreenLogo = {
   __typename?: 'PageBlocksFullScreenLogo';
   slogan?: Maybe<Scalars['String']>;
   link?: Maybe<Scalars['String']>;
-  image?: Maybe<Scalars['String']>;
-  textColor?: Maybe<Scalars['String']>;
-  overlayColor?: Maybe<Scalars['String']>;
-  overlayOpacity?: Maybe<Scalars['String']>;
+  overlay?: Maybe<PageBlocksFullScreenLogoOverlay>;
 };
 
 export type PageBlocksFullScreenHeaderAction = {
@@ -605,19 +603,23 @@ export type PageBlocksFullScreenHeaderAction = {
   secondaryLinkOverride?: Maybe<Scalars['String']>;
 };
 
+export type PageBlocksFullScreenHeaderOverlay = {
+  __typename?: 'PageBlocksFullScreenHeaderOverlay';
+  image?: Maybe<Scalars['String']>;
+  overlayColor?: Maybe<Scalars['String']>;
+  overlayOpacity?: Maybe<Scalars['String']>;
+};
+
 export type PageBlocksFullScreenHeader = {
   __typename?: 'PageBlocksFullScreenHeader';
   title: Scalars['String'];
   subTitle?: Maybe<Scalars['String']>;
   description: Scalars['JSON'];
   action?: Maybe<PageBlocksFullScreenHeaderAction>;
-  image?: Maybe<Scalars['String']>;
-  textColor?: Maybe<Scalars['String']>;
-  overlayColor?: Maybe<Scalars['String']>;
-  overlayOpacity?: Maybe<Scalars['String']>;
+  overlay?: Maybe<PageBlocksFullScreenHeaderOverlay>;
 };
 
-export type PageBlocks = PageBlocksNews | PageBlocksStatsWithImage | PageBlocksHero | PageBlocksSlideshow | PageBlocksComparisonTable | PageBlocksFeature | PageBlocksScreenShotFeature | PageBlocksFullScreenLogo | PageBlocksFullScreenHeader;
+export type PageBlocks = PageBlocksNews | PageBlocksStatsWithImage | PageBlocksHero | PageBlocksSlideshow | PageBlocksComparisonTable | PageBlocksFeature | PageBlocksFullScreenLogo | PageBlocksFullScreenHeader;
 
 export type Page = {
   __typename?: 'Page';
@@ -892,19 +894,35 @@ export type PageBlocksSlideshowItemsActionMutation = {
   secondaryLinkOverride?: InputMaybe<Scalars['String']>;
 };
 
+export type PageBlocksSlideshowItemsOverlayMutation = {
+  image?: InputMaybe<Scalars['String']>;
+  overlayColor?: InputMaybe<Scalars['String']>;
+  overlayOpacity?: InputMaybe<Scalars['String']>;
+};
+
 export type PageBlocksSlideshowItemsMutation = {
   title?: InputMaybe<Scalars['String']>;
   subTitle?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['JSON']>;
   action?: InputMaybe<PageBlocksSlideshowItemsActionMutation>;
-  image?: InputMaybe<Scalars['String']>;
-  textColor?: InputMaybe<Scalars['String']>;
-  overlayColor?: InputMaybe<Scalars['String']>;
-  overlayOpacity?: InputMaybe<Scalars['String']>;
+  overlay?: InputMaybe<PageBlocksSlideshowItemsOverlayMutation>;
 };
 
 export type PageBlocksSlideshowMutation = {
   items?: InputMaybe<Array<InputMaybe<PageBlocksSlideshowItemsMutation>>>;
+};
+
+export type PageBlocksComparisonTableItemsMetaAMutation = {
+  aOne?: InputMaybe<Scalars['String']>;
+};
+
+export type PageBlocksComparisonTableItemsMetaBMutation = {
+  bOne?: InputMaybe<Scalars['String']>;
+};
+
+export type PageBlocksComparisonTableItemsMetaMutation = {
+  a?: InputMaybe<PageBlocksComparisonTableItemsMetaAMutation>;
+  b?: InputMaybe<PageBlocksComparisonTableItemsMetaBMutation>;
 };
 
 export type PageBlocksComparisonTableItemsMutation = {
@@ -912,6 +930,7 @@ export type PageBlocksComparisonTableItemsMutation = {
   subTitle?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['JSON']>;
   bulletPoints?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  meta?: InputMaybe<Array<InputMaybe<PageBlocksComparisonTableItemsMetaMutation>>>;
 };
 
 export type PageBlocksComparisonTableActionMutation = {
@@ -938,56 +957,31 @@ export type PageBlocksFeatureFeaturesMutation = {
   description?: InputMaybe<Scalars['JSON']>;
 };
 
+export type PageBlocksFeatureOverlayMutation = {
+  image?: InputMaybe<Scalars['String']>;
+  overlayColor?: InputMaybe<Scalars['String']>;
+  overlayOpacity?: InputMaybe<Scalars['String']>;
+};
+
 export type PageBlocksFeatureMutation = {
   title?: InputMaybe<Scalars['String']>;
   subTitle?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['JSON']>;
   featureStyle?: InputMaybe<Scalars['String']>;
   features?: InputMaybe<Array<InputMaybe<PageBlocksFeatureFeaturesMutation>>>;
+  overlay?: InputMaybe<PageBlocksFeatureOverlayMutation>;
+};
+
+export type PageBlocksFullScreenLogoOverlayMutation = {
   image?: InputMaybe<Scalars['String']>;
-  textColor?: InputMaybe<Scalars['String']>;
   overlayColor?: InputMaybe<Scalars['String']>;
   overlayOpacity?: InputMaybe<Scalars['String']>;
-};
-
-export type PageBlocksScreenShotFeatureActionMutation = {
-  callToAction?: InputMaybe<Scalars['String']>;
-  linkText?: InputMaybe<Scalars['String']>;
-  link?: InputMaybe<Scalars['String']>;
-  linkOverride?: InputMaybe<Scalars['String']>;
-  secondaryText?: InputMaybe<Scalars['String']>;
-  secondaryLink?: InputMaybe<Scalars['String']>;
-  secondaryLinkOverride?: InputMaybe<Scalars['String']>;
-};
-
-export type PageBlocksScreenShotFeatureTestimonialAuthorMutation = {
-  name?: InputMaybe<Scalars['String']>;
-  avatar?: InputMaybe<Scalars['String']>;
-};
-
-export type PageBlocksScreenShotFeatureTestimonialMutation = {
-  quote?: InputMaybe<Scalars['String']>;
-  author?: InputMaybe<PageBlocksScreenShotFeatureTestimonialAuthorMutation>;
-};
-
-export type PageBlocksScreenShotFeatureMutation = {
-  title?: InputMaybe<Scalars['String']>;
-  subTitle?: InputMaybe<Scalars['String']>;
-  description?: InputMaybe<Scalars['JSON']>;
-  image?: InputMaybe<Scalars['String']>;
-  alignment?: InputMaybe<Scalars['String']>;
-  icon?: InputMaybe<Scalars['String']>;
-  action?: InputMaybe<PageBlocksScreenShotFeatureActionMutation>;
-  testimonial?: InputMaybe<PageBlocksScreenShotFeatureTestimonialMutation>;
 };
 
 export type PageBlocksFullScreenLogoMutation = {
   slogan?: InputMaybe<Scalars['String']>;
   link?: InputMaybe<Scalars['String']>;
-  image?: InputMaybe<Scalars['String']>;
-  textColor?: InputMaybe<Scalars['String']>;
-  overlayColor?: InputMaybe<Scalars['String']>;
-  overlayOpacity?: InputMaybe<Scalars['String']>;
+  overlay?: InputMaybe<PageBlocksFullScreenLogoOverlayMutation>;
 };
 
 export type PageBlocksFullScreenHeaderActionMutation = {
@@ -1000,15 +994,18 @@ export type PageBlocksFullScreenHeaderActionMutation = {
   secondaryLinkOverride?: InputMaybe<Scalars['String']>;
 };
 
+export type PageBlocksFullScreenHeaderOverlayMutation = {
+  image?: InputMaybe<Scalars['String']>;
+  overlayColor?: InputMaybe<Scalars['String']>;
+  overlayOpacity?: InputMaybe<Scalars['String']>;
+};
+
 export type PageBlocksFullScreenHeaderMutation = {
   title?: InputMaybe<Scalars['String']>;
   subTitle?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['JSON']>;
   action?: InputMaybe<PageBlocksFullScreenHeaderActionMutation>;
-  image?: InputMaybe<Scalars['String']>;
-  textColor?: InputMaybe<Scalars['String']>;
-  overlayColor?: InputMaybe<Scalars['String']>;
-  overlayOpacity?: InputMaybe<Scalars['String']>;
+  overlay?: InputMaybe<PageBlocksFullScreenHeaderOverlayMutation>;
 };
 
 export type PageBlocksMutation = {
@@ -1018,7 +1015,6 @@ export type PageBlocksMutation = {
   slideshow?: InputMaybe<PageBlocksSlideshowMutation>;
   comparisonTable?: InputMaybe<PageBlocksComparisonTableMutation>;
   feature?: InputMaybe<PageBlocksFeatureMutation>;
-  screenShotFeature?: InputMaybe<PageBlocksScreenShotFeatureMutation>;
   fullScreenLogo?: InputMaybe<PageBlocksFullScreenLogoMutation>;
   fullScreenHeader?: InputMaybe<PageBlocksFullScreenHeaderMutation>;
 };
@@ -1040,7 +1036,7 @@ export type ThemePartsFragment = { __typename?: 'Theme', displayFont?: string | 
 
 export type NavigationPartsFragment = { __typename?: 'Navigation', items: Array<{ __typename: 'NavigationItems', page?: { __typename?: 'PageDocument', id: string } | null }> };
 
-export type PagePartsFragment = { __typename?: 'Page', title: string, link: string, seo?: { __typename: 'PageSeo', title?: string | null, image?: string | null, description: string } | null, blocks?: Array<{ __typename: 'PageBlocksNews', title: string, subTitle?: string | null, description: any, newsItems: Array<{ __typename: 'PageBlocksNewsNewsItems', article: { __typename?: 'NewsDocument', id: string } }> } | { __typename: 'PageBlocksStatsWithImage', title: string, subTitle?: string | null, description: any, image?: string | null, stats?: Array<{ __typename: 'PageBlocksStatsWithImageStats', title: string, subTitle?: string | null, description: any } | null> | null } | { __typename: 'PageBlocksHero', title: string, subTitle?: string | null, description: any, image?: string | null, action?: { __typename: 'PageBlocksHeroAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksSlideshow', items?: Array<{ __typename: 'PageBlocksSlideshowItems', title: string, subTitle?: string | null, description: any, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null, action?: { __typename: 'PageBlocksSlideshowItemsAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | null> | null } | { __typename: 'PageBlocksComparisonTable', title: string, subTitle?: string | null, description: any, items?: Array<{ __typename: 'PageBlocksComparisonTableItems', title: string, subTitle?: string | null, description: any, bulletPoints?: Array<string | null> | null } | null> | null, action?: { __typename: 'PageBlocksComparisonTableAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksFeature', title: string, subTitle?: string | null, description: any, featureStyle?: string | null, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null, features: Array<{ __typename: 'PageBlocksFeatureFeatures', icon: string, name: string, description: any }> } | { __typename: 'PageBlocksScreenShotFeature', title: string, subTitle?: string | null, description: any, image?: string | null, alignment?: string | null, icon?: string | null, action?: { __typename: 'PageBlocksScreenShotFeatureAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null, testimonial?: { __typename: 'PageBlocksScreenShotFeatureTestimonial', quote: string, author?: { __typename: 'PageBlocksScreenShotFeatureTestimonialAuthor', name: string, avatar: string } | null } | null } | { __typename: 'PageBlocksFullScreenLogo', slogan?: string | null, link?: string | null, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | { __typename: 'PageBlocksFullScreenHeader', title: string, subTitle?: string | null, description: any, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null, action?: { __typename: 'PageBlocksFullScreenHeaderAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | null> | null };
+export type PagePartsFragment = { __typename?: 'Page', title: string, link: string, seo?: { __typename: 'PageSeo', title?: string | null, image?: string | null, description: string } | null, blocks?: Array<{ __typename: 'PageBlocksNews', title: string, subTitle?: string | null, description: any, newsItems: Array<{ __typename: 'PageBlocksNewsNewsItems', article: { __typename?: 'NewsDocument', id: string } }> } | { __typename: 'PageBlocksStatsWithImage', title: string, subTitle?: string | null, description: any, image?: string | null, stats?: Array<{ __typename: 'PageBlocksStatsWithImageStats', title: string, subTitle?: string | null, description: any } | null> | null } | { __typename: 'PageBlocksHero', title: string, subTitle?: string | null, description: any, image?: string | null, action?: { __typename: 'PageBlocksHeroAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksSlideshow', items?: Array<{ __typename: 'PageBlocksSlideshowItems', title: string, subTitle?: string | null, description: any, action?: { __typename: 'PageBlocksSlideshowItemsAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null, overlay?: { __typename: 'PageBlocksSlideshowItemsOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | null> | null } | { __typename: 'PageBlocksComparisonTable', title: string, subTitle?: string | null, description: any, items?: Array<{ __typename: 'PageBlocksComparisonTableItems', title: string, subTitle?: string | null, description: any, bulletPoints?: Array<string | null> | null, meta?: Array<{ __typename: 'PageBlocksComparisonTableItemsMetaA', aOne?: string | null } | { __typename: 'PageBlocksComparisonTableItemsMetaB', bOne?: string | null } | null> | null } | null> | null, action?: { __typename: 'PageBlocksComparisonTableAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksFeature', title: string, subTitle?: string | null, description: any, featureStyle?: string | null, features: Array<{ __typename: 'PageBlocksFeatureFeatures', icon: string, name: string, description: any }>, overlay?: { __typename: 'PageBlocksFeatureOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | { __typename: 'PageBlocksFullScreenLogo', slogan?: string | null, link?: string | null, overlay?: { __typename: 'PageBlocksFullScreenLogoOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | { __typename: 'PageBlocksFullScreenHeader', title: string, subTitle?: string | null, description: any, action?: { __typename: 'PageBlocksFullScreenHeaderAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null, overlay?: { __typename: 'PageBlocksFullScreenHeaderOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | null> | null };
 
 export type GetLocaleInfoDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -1107,12 +1103,12 @@ export type GetPageDocumentQueryVariables = Exact<{
 }>;
 
 
-export type GetPageDocumentQuery = { __typename?: 'Query', getPageDocument: { __typename?: 'PageDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Page', title: string, link: string, seo?: { __typename: 'PageSeo', title?: string | null, image?: string | null, description: string } | null, blocks?: Array<{ __typename: 'PageBlocksNews', title: string, subTitle?: string | null, description: any, newsItems: Array<{ __typename: 'PageBlocksNewsNewsItems', article: { __typename?: 'NewsDocument', id: string } }> } | { __typename: 'PageBlocksStatsWithImage', title: string, subTitle?: string | null, description: any, image?: string | null, stats?: Array<{ __typename: 'PageBlocksStatsWithImageStats', title: string, subTitle?: string | null, description: any } | null> | null } | { __typename: 'PageBlocksHero', title: string, subTitle?: string | null, description: any, image?: string | null, action?: { __typename: 'PageBlocksHeroAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksSlideshow', items?: Array<{ __typename: 'PageBlocksSlideshowItems', title: string, subTitle?: string | null, description: any, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null, action?: { __typename: 'PageBlocksSlideshowItemsAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | null> | null } | { __typename: 'PageBlocksComparisonTable', title: string, subTitle?: string | null, description: any, items?: Array<{ __typename: 'PageBlocksComparisonTableItems', title: string, subTitle?: string | null, description: any, bulletPoints?: Array<string | null> | null } | null> | null, action?: { __typename: 'PageBlocksComparisonTableAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksFeature', title: string, subTitle?: string | null, description: any, featureStyle?: string | null, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null, features: Array<{ __typename: 'PageBlocksFeatureFeatures', icon: string, name: string, description: any }> } | { __typename: 'PageBlocksScreenShotFeature', title: string, subTitle?: string | null, description: any, image?: string | null, alignment?: string | null, icon?: string | null, action?: { __typename: 'PageBlocksScreenShotFeatureAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null, testimonial?: { __typename: 'PageBlocksScreenShotFeatureTestimonial', quote: string, author?: { __typename: 'PageBlocksScreenShotFeatureTestimonialAuthor', name: string, avatar: string } | null } | null } | { __typename: 'PageBlocksFullScreenLogo', slogan?: string | null, link?: string | null, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | { __typename: 'PageBlocksFullScreenHeader', title: string, subTitle?: string | null, description: any, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null, action?: { __typename: 'PageBlocksFullScreenHeaderAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | null> | null } } };
+export type GetPageDocumentQuery = { __typename?: 'Query', getPageDocument: { __typename?: 'PageDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Page', title: string, link: string, seo?: { __typename: 'PageSeo', title?: string | null, image?: string | null, description: string } | null, blocks?: Array<{ __typename: 'PageBlocksNews', title: string, subTitle?: string | null, description: any, newsItems: Array<{ __typename: 'PageBlocksNewsNewsItems', article: { __typename?: 'NewsDocument', id: string } }> } | { __typename: 'PageBlocksStatsWithImage', title: string, subTitle?: string | null, description: any, image?: string | null, stats?: Array<{ __typename: 'PageBlocksStatsWithImageStats', title: string, subTitle?: string | null, description: any } | null> | null } | { __typename: 'PageBlocksHero', title: string, subTitle?: string | null, description: any, image?: string | null, action?: { __typename: 'PageBlocksHeroAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksSlideshow', items?: Array<{ __typename: 'PageBlocksSlideshowItems', title: string, subTitle?: string | null, description: any, action?: { __typename: 'PageBlocksSlideshowItemsAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null, overlay?: { __typename: 'PageBlocksSlideshowItemsOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | null> | null } | { __typename: 'PageBlocksComparisonTable', title: string, subTitle?: string | null, description: any, items?: Array<{ __typename: 'PageBlocksComparisonTableItems', title: string, subTitle?: string | null, description: any, bulletPoints?: Array<string | null> | null, meta?: Array<{ __typename: 'PageBlocksComparisonTableItemsMetaA', aOne?: string | null } | { __typename: 'PageBlocksComparisonTableItemsMetaB', bOne?: string | null } | null> | null } | null> | null, action?: { __typename: 'PageBlocksComparisonTableAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksFeature', title: string, subTitle?: string | null, description: any, featureStyle?: string | null, features: Array<{ __typename: 'PageBlocksFeatureFeatures', icon: string, name: string, description: any }>, overlay?: { __typename: 'PageBlocksFeatureOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | { __typename: 'PageBlocksFullScreenLogo', slogan?: string | null, link?: string | null, overlay?: { __typename: 'PageBlocksFullScreenLogoOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | { __typename: 'PageBlocksFullScreenHeader', title: string, subTitle?: string | null, description: any, action?: { __typename: 'PageBlocksFullScreenHeaderAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null, overlay?: { __typename: 'PageBlocksFullScreenHeaderOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | null> | null } } };
 
 export type GetPageListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPageListQuery = { __typename?: 'Query', getPageList: { __typename?: 'PageConnection', totalCount: number, edges?: Array<{ __typename?: 'PageConnectionEdges', node?: { __typename?: 'PageDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Page', title: string, link: string, seo?: { __typename: 'PageSeo', title?: string | null, image?: string | null, description: string } | null, blocks?: Array<{ __typename: 'PageBlocksNews', title: string, subTitle?: string | null, description: any, newsItems: Array<{ __typename: 'PageBlocksNewsNewsItems', article: { __typename?: 'NewsDocument', id: string } }> } | { __typename: 'PageBlocksStatsWithImage', title: string, subTitle?: string | null, description: any, image?: string | null, stats?: Array<{ __typename: 'PageBlocksStatsWithImageStats', title: string, subTitle?: string | null, description: any } | null> | null } | { __typename: 'PageBlocksHero', title: string, subTitle?: string | null, description: any, image?: string | null, action?: { __typename: 'PageBlocksHeroAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksSlideshow', items?: Array<{ __typename: 'PageBlocksSlideshowItems', title: string, subTitle?: string | null, description: any, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null, action?: { __typename: 'PageBlocksSlideshowItemsAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | null> | null } | { __typename: 'PageBlocksComparisonTable', title: string, subTitle?: string | null, description: any, items?: Array<{ __typename: 'PageBlocksComparisonTableItems', title: string, subTitle?: string | null, description: any, bulletPoints?: Array<string | null> | null } | null> | null, action?: { __typename: 'PageBlocksComparisonTableAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksFeature', title: string, subTitle?: string | null, description: any, featureStyle?: string | null, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null, features: Array<{ __typename: 'PageBlocksFeatureFeatures', icon: string, name: string, description: any }> } | { __typename: 'PageBlocksScreenShotFeature', title: string, subTitle?: string | null, description: any, image?: string | null, alignment?: string | null, icon?: string | null, action?: { __typename: 'PageBlocksScreenShotFeatureAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null, testimonial?: { __typename: 'PageBlocksScreenShotFeatureTestimonial', quote: string, author?: { __typename: 'PageBlocksScreenShotFeatureTestimonialAuthor', name: string, avatar: string } | null } | null } | { __typename: 'PageBlocksFullScreenLogo', slogan?: string | null, link?: string | null, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | { __typename: 'PageBlocksFullScreenHeader', title: string, subTitle?: string | null, description: any, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null, action?: { __typename: 'PageBlocksFullScreenHeaderAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | null> | null } } | null } | null> | null } };
+export type GetPageListQuery = { __typename?: 'Query', getPageList: { __typename?: 'PageConnection', totalCount: number, edges?: Array<{ __typename?: 'PageConnectionEdges', node?: { __typename?: 'PageDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Page', title: string, link: string, seo?: { __typename: 'PageSeo', title?: string | null, image?: string | null, description: string } | null, blocks?: Array<{ __typename: 'PageBlocksNews', title: string, subTitle?: string | null, description: any, newsItems: Array<{ __typename: 'PageBlocksNewsNewsItems', article: { __typename?: 'NewsDocument', id: string } }> } | { __typename: 'PageBlocksStatsWithImage', title: string, subTitle?: string | null, description: any, image?: string | null, stats?: Array<{ __typename: 'PageBlocksStatsWithImageStats', title: string, subTitle?: string | null, description: any } | null> | null } | { __typename: 'PageBlocksHero', title: string, subTitle?: string | null, description: any, image?: string | null, action?: { __typename: 'PageBlocksHeroAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksSlideshow', items?: Array<{ __typename: 'PageBlocksSlideshowItems', title: string, subTitle?: string | null, description: any, action?: { __typename: 'PageBlocksSlideshowItemsAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null, overlay?: { __typename: 'PageBlocksSlideshowItemsOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | null> | null } | { __typename: 'PageBlocksComparisonTable', title: string, subTitle?: string | null, description: any, items?: Array<{ __typename: 'PageBlocksComparisonTableItems', title: string, subTitle?: string | null, description: any, bulletPoints?: Array<string | null> | null, meta?: Array<{ __typename: 'PageBlocksComparisonTableItemsMetaA', aOne?: string | null } | { __typename: 'PageBlocksComparisonTableItemsMetaB', bOne?: string | null } | null> | null } | null> | null, action?: { __typename: 'PageBlocksComparisonTableAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksFeature', title: string, subTitle?: string | null, description: any, featureStyle?: string | null, features: Array<{ __typename: 'PageBlocksFeatureFeatures', icon: string, name: string, description: any }>, overlay?: { __typename: 'PageBlocksFeatureOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | { __typename: 'PageBlocksFullScreenLogo', slogan?: string | null, link?: string | null, overlay?: { __typename: 'PageBlocksFullScreenLogoOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | { __typename: 'PageBlocksFullScreenHeader', title: string, subTitle?: string | null, description: any, action?: { __typename: 'PageBlocksFullScreenHeaderAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null, overlay?: { __typename: 'PageBlocksFullScreenHeaderOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | null> | null } } | null } | null> | null } };
 
 export const LocaleInfoPartsFragmentDoc = gql`
     fragment LocaleInfoParts on LocaleInfo {
@@ -1248,10 +1244,12 @@ export const PagePartsFragmentDoc = gql`
           secondaryLink
           secondaryLinkOverride
         }
-        image
-        textColor
-        overlayColor
-        overlayOpacity
+        overlay {
+          __typename
+          image
+          overlayColor
+          overlayOpacity
+        }
       }
     }
     ... on PageBlocksComparisonTable {
@@ -1264,6 +1262,15 @@ export const PagePartsFragmentDoc = gql`
         subTitle
         description
         bulletPoints
+        meta {
+          __typename
+          ... on PageBlocksComparisonTableItemsMetaA {
+            aOne
+          }
+          ... on PageBlocksComparisonTableItemsMetaB {
+            bOne
+          }
+        }
       }
       action {
         __typename
@@ -1287,45 +1294,22 @@ export const PagePartsFragmentDoc = gql`
         name
         description
       }
-      image
-      textColor
-      overlayColor
-      overlayOpacity
-    }
-    ... on PageBlocksScreenShotFeature {
-      title
-      subTitle
-      description
-      image
-      alignment
-      icon
-      action {
+      overlay {
         __typename
-        callToAction
-        linkText
-        link
-        linkOverride
-        secondaryText
-        secondaryLink
-        secondaryLinkOverride
-      }
-      testimonial {
-        __typename
-        quote
-        author {
-          __typename
-          name
-          avatar
-        }
+        image
+        overlayColor
+        overlayOpacity
       }
     }
     ... on PageBlocksFullScreenLogo {
       slogan
       link
-      image
-      textColor
-      overlayColor
-      overlayOpacity
+      overlay {
+        __typename
+        image
+        overlayColor
+        overlayOpacity
+      }
     }
     ... on PageBlocksFullScreenHeader {
       title
@@ -1341,10 +1325,12 @@ export const PagePartsFragmentDoc = gql`
         secondaryLink
         secondaryLinkOverride
       }
-      image
-      textColor
-      overlayColor
-      overlayOpacity
+      overlay {
+        __typename
+        image
+        overlayColor
+        overlayOpacity
+      }
     }
   }
 }

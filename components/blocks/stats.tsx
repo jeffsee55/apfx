@@ -4,10 +4,44 @@ import type { TinaTemplate } from "tinacms";
 import { Selector } from "../../zeus";
 import { Response } from "../util";
 
+const defaultText = {
+  children: [
+    {
+      type: "p",
+      children: [
+        {
+          type: "text",
+          text: "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua ad ad non deserunt sunt.",
+        },
+      ],
+    },
+  ],
+};
+
+const defaultStat = {
+  icon: "HeartIcon",
+  name: "This is some dummy content!",
+  description: defaultText,
+};
+
 export const statsWithImageTemplate = (textFields): TinaTemplate => {
   return {
     label: "Stats With Image",
     name: "statsWithImage",
+    ui: {
+      defaultItem: {
+        title: "This is the default feature list title",
+        // description: defaultText,
+        image:
+          "https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2830&q=80&sat=-100",
+        stats: [
+          {
+            title: "This is the default feature list title",
+            // description: defaultText,
+          },
+        ],
+      },
+    },
     fields: [
       ...textFields,
       {

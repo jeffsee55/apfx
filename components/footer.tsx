@@ -83,8 +83,6 @@ export const footerTemplate = (): TinaCollection => {
 };
 
 export function Footer(props: FooterProps) {
-  const router = useRouter();
-
   return (
     <footer className="bg-gray-800" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
@@ -94,9 +92,9 @@ export function Footer(props: FooterProps) {
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div className="pb-8 xl:grid xl:grid-cols-5 xl:gap-8">
           <div className="grid gap-8 xl:col-span-4">
-            {props.disclaimers.map((disclaimer) => {
+            {props.disclaimers.map((disclaimer, i) => {
               return (
-                <Markdown classNames="italic" variant="small">
+                <Markdown key={i} classNames="italic" variant="small">
                   {disclaimer.body}
                 </Markdown>
               );
@@ -229,9 +227,6 @@ export function CountrySelector2() {
 }
 
 export const CountrySelector = () => {
-  const [selected, setSelected] = React.useState(null);
-  const router = useRouter();
-
   return (
     <div className="mt-12 xl:mt-0 flex items-center h-4 gap-4">
       <h3 className="text-sm font-semibold text-gray-100 tracking-wider uppercase">
@@ -279,7 +274,7 @@ export function Offices({ offices }: { offices?: Office[] }) {
         <div className="mt-10 grid grid-cols-1 gap-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
           {offices?.map((office) => {
             return (
-              <div>
+              <div key={office.location}>
                 <h3 className="text-lg font-medium text-gray-100">
                   {office.location}
                 </h3>

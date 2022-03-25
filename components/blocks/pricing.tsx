@@ -3,15 +3,12 @@ import { CheckIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import { Markdown } from "../markdown";
 import { DisplayText } from "../typographqy";
-import { Action, getLinksFromAction } from "./hero";
+import { Action, action, getLinksFromAction, actionQuery } from "./hero";
 import type { TinaTemplate } from "tinacms";
 import { Selector } from "../../zeus";
 import { Response } from "../util";
 
-export const pageBlocksComparisonTableTemplate = (
-  textFields,
-  action
-): TinaTemplate => {
+export const pageBlocksComparisonTableTemplate = (textFields): TinaTemplate => {
   return {
     label: "Comparison Table",
     name: "comparisonTable",
@@ -37,6 +34,34 @@ export const pageBlocksComparisonTableTemplate = (
             type: "string",
             list: true,
           },
+          {
+            label: "Meta",
+            name: "meta",
+            type: "object",
+            list: true,
+            templates: [
+              {
+                label: "A",
+                name: "a",
+                fields: [
+                  {
+                    type: "string",
+                    name: "aOne",
+                  },
+                ],
+              },
+              {
+                label: "B",
+                name: "b",
+                fields: [
+                  {
+                    type: "string",
+                    name: "bOne",
+                  },
+                ],
+              },
+            ],
+          },
         ],
       },
       action,
@@ -48,20 +73,21 @@ export const blockComparisonTable = Selector("PageBlocksComparisonTable")({
   title: true,
   subTitle: true,
   description: true,
-  action: {
-    callToAction: true,
-    link: true,
-    linkText: true,
-    linkOverride: true,
-    secondaryLink: true,
-    secondaryText: true,
-    secondaryLinkOverride: true,
-  },
+  action: actionQuery,
   items: {
     title: true,
     subTitle: true,
     description: true,
     bulletPoints: true,
+    meta: {
+      __typename: true,
+      "...on PageBlocksComparisonTableItemsMetaA": {
+        aOne: true,
+      },
+      "...on PageBlocksComparisonTableItemsMetaB": {
+        bOne: true,
+      },
+    },
   },
 });
 
@@ -83,6 +109,9 @@ function Pill(props) {
 function ComparisonCard(props) {
   return (
     <div className="flex flex-col rounded-lg shadow-lg overflow-hidden bg-white">
+      <div className="py-8 bg-white">
+        <pre>{JSON.stringify(props.item.meta, null, 2)}</pre>
+      </div>
       <div className="px-6 py-8 bg-white sm:p-10 sm:pb-6">
         {props.item.subTitle && <Pill subTitle={props.item.subTitle}></Pill>}
         <DisplayText
@@ -116,6 +145,7 @@ function ComparisonCard(props) {
 }
 
 export function Pricing(props: ComparisonTableType) {
+  // console.log(props)
   return (
     <div className="bg-gray-900">
       <div className="pt-12 sm:pt-16 lg:pt-24">
@@ -138,10 +168,8 @@ export function Pricing(props: ComparisonTableType) {
           <div className="absolute inset-0 h-3/4 bg-gray-900" />
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-md mx-auto space-y-4 lg:max-w-5xl lg:grid lg:grid-cols-2 lg:gap-5 lg:space-y-0">
-              {props.items?.map((item) => {
-                return (
-                  <ComparisonCard key={item.title} item={item}></ComparisonCard>
-                );
+              {props.items?.map((item, i) => {
+                return <ComparisonCard key={i} item={item}></ComparisonCard>;
               })}
             </div>
           </div>
@@ -188,7 +216,10 @@ export function Cta({ action }: { action: Action }) {
       <DisplayText variant="dark" size="text-3xl md:text-4xl">
         {action?.callToAction.split("\n").map((textString, index) => {
           return (
-            <span className={`block ${index === 0 && "text-indigo-600"}`}>
+            <span
+              key={index}
+              className={`block ${index === 0 && "text-indigo-600"}`}
+            >
               {textString}
             </span>
           );

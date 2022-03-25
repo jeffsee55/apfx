@@ -47,20 +47,20 @@ type Query {
   getCollections: [Collection!]!
   node(id: String): Node!
   getDocument(collection: String, relativePath: String): DocumentNode!
-  getDocumentList(before: String, after: String, first: Float, last: Float): DocumentConnection!
+  getDocumentList(before: String, after: String, first: Float, last: Float, sort: String): DocumentConnection!
   getDocumentFields: JSON!
   getLocaleInfoDocument(relativePath: String): LocaleInfoDocument!
-  getLocaleInfoList(before: String, after: String, first: Float, last: Float): LocaleInfoConnection!
+  getLocaleInfoList(before: String, after: String, first: Float, last: Float, sort: String): LocaleInfoConnection!
   getNewsDocument(relativePath: String): NewsDocument!
-  getNewsList(before: String, after: String, first: Float, last: Float): NewsConnection!
+  getNewsList(before: String, after: String, first: Float, last: Float, sort: String): NewsConnection!
   getFooterDocument(relativePath: String): FooterDocument!
-  getFooterList(before: String, after: String, first: Float, last: Float): FooterConnection!
+  getFooterList(before: String, after: String, first: Float, last: Float, sort: String): FooterConnection!
   getThemeDocument(relativePath: String): ThemeDocument!
-  getThemeList(before: String, after: String, first: Float, last: Float): ThemeConnection!
+  getThemeList(before: String, after: String, first: Float, last: Float, sort: String): ThemeConnection!
   getNavigationDocument(relativePath: String): NavigationDocument!
-  getNavigationList(before: String, after: String, first: Float, last: Float): NavigationConnection!
+  getNavigationList(before: String, after: String, first: Float, last: Float, sort: String): NavigationConnection!
   getPageDocument(relativePath: String): PageDocument!
-  getPageList(before: String, after: String, first: Float, last: Float): PageConnection!
+  getPageList(before: String, after: String, first: Float, last: Float, sort: String): PageConnection!
 }
 
 type DocumentConnectionEdges {
@@ -83,7 +83,7 @@ type Collection {
   matches: String
   templates: [JSON]
   fields: [JSON]
-  documents(before: String, after: String, first: Float, last: Float): DocumentConnection!
+  documents(before: String, after: String, first: Float, last: Float, sort: String): DocumentConnection!
 }
 
 union DocumentNode = LocaleInfoDocument | NewsDocument | FooterDocument | ThemeDocument | NavigationDocument | PageDocument
@@ -313,26 +313,40 @@ type PageBlocksSlideshowItemsAction {
   secondaryLinkOverride: String
 }
 
+type PageBlocksSlideshowItemsOverlay {
+  image: String
+  overlayColor: String
+  overlayOpacity: String
+}
+
 type PageBlocksSlideshowItems {
   title: String!
   subTitle: String
   description: JSON!
   action: PageBlocksSlideshowItemsAction
-  image: String
-  textColor: String
-  overlayColor: String
-  overlayOpacity: String
+  overlay: PageBlocksSlideshowItemsOverlay
 }
 
 type PageBlocksSlideshow {
   items: [PageBlocksSlideshowItems]
 }
 
+type PageBlocksComparisonTableItemsMetaA {
+  aOne: String
+}
+
+type PageBlocksComparisonTableItemsMetaB {
+  bOne: String
+}
+
+union PageBlocksComparisonTableItemsMeta = PageBlocksComparisonTableItemsMetaA | PageBlocksComparisonTableItemsMetaB
+
 type PageBlocksComparisonTableItems {
   title: String!
   subTitle: String
   description: JSON!
   bulletPoints: [String]
+  meta: [PageBlocksComparisonTableItemsMeta]
 }
 
 type PageBlocksComparisonTableAction {
@@ -359,56 +373,31 @@ type PageBlocksFeatureFeatures {
   description: JSON!
 }
 
+type PageBlocksFeatureOverlay {
+  image: String
+  overlayColor: String
+  overlayOpacity: String
+}
+
 type PageBlocksFeature {
   title: String!
   subTitle: String
   description: JSON!
   featureStyle: String
   features: [PageBlocksFeatureFeatures!]!
+  overlay: PageBlocksFeatureOverlay
+}
+
+type PageBlocksFullScreenLogoOverlay {
   image: String
-  textColor: String
   overlayColor: String
   overlayOpacity: String
-}
-
-type PageBlocksScreenShotFeatureAction {
-  callToAction: String
-  linkText: String
-  link: String
-  linkOverride: String
-  secondaryText: String
-  secondaryLink: String
-  secondaryLinkOverride: String
-}
-
-type PageBlocksScreenShotFeatureTestimonialAuthor {
-  name: String!
-  avatar: String!
-}
-
-type PageBlocksScreenShotFeatureTestimonial {
-  quote: String!
-  author: PageBlocksScreenShotFeatureTestimonialAuthor
-}
-
-type PageBlocksScreenShotFeature {
-  title: String!
-  subTitle: String
-  description: JSON!
-  image: String
-  alignment: String
-  icon: String
-  action: PageBlocksScreenShotFeatureAction
-  testimonial: PageBlocksScreenShotFeatureTestimonial
 }
 
 type PageBlocksFullScreenLogo {
   slogan: String
   link: String
-  image: String
-  textColor: String
-  overlayColor: String
-  overlayOpacity: String
+  overlay: PageBlocksFullScreenLogoOverlay
 }
 
 type PageBlocksFullScreenHeaderAction {
@@ -421,18 +410,21 @@ type PageBlocksFullScreenHeaderAction {
   secondaryLinkOverride: String
 }
 
+type PageBlocksFullScreenHeaderOverlay {
+  image: String
+  overlayColor: String
+  overlayOpacity: String
+}
+
 type PageBlocksFullScreenHeader {
   title: String!
   subTitle: String
   description: JSON!
   action: PageBlocksFullScreenHeaderAction
-  image: String
-  textColor: String
-  overlayColor: String
-  overlayOpacity: String
+  overlay: PageBlocksFullScreenHeaderOverlay
 }
 
-union PageBlocks = PageBlocksNews | PageBlocksStatsWithImage | PageBlocksHero | PageBlocksSlideshow | PageBlocksComparisonTable | PageBlocksFeature | PageBlocksScreenShotFeature | PageBlocksFullScreenLogo | PageBlocksFullScreenHeader
+union PageBlocks = PageBlocksNews | PageBlocksStatsWithImage | PageBlocksHero | PageBlocksSlideshow | PageBlocksComparisonTable | PageBlocksFeature | PageBlocksFullScreenLogo | PageBlocksFullScreenHeader
 
 type Page {
   title: String!
@@ -609,19 +601,35 @@ input PageBlocksSlideshowItemsActionMutation {
   secondaryLinkOverride: String
 }
 
+input PageBlocksSlideshowItemsOverlayMutation {
+  image: String
+  overlayColor: String
+  overlayOpacity: String
+}
+
 input PageBlocksSlideshowItemsMutation {
   title: String
   subTitle: String
   description: JSON
   action: PageBlocksSlideshowItemsActionMutation
-  image: String
-  textColor: String
-  overlayColor: String
-  overlayOpacity: String
+  overlay: PageBlocksSlideshowItemsOverlayMutation
 }
 
 input PageBlocksSlideshowMutation {
   items: [PageBlocksSlideshowItemsMutation]
+}
+
+input PageBlocksComparisonTableItemsMetaAMutation {
+  aOne: String
+}
+
+input PageBlocksComparisonTableItemsMetaBMutation {
+  bOne: String
+}
+
+input PageBlocksComparisonTableItemsMetaMutation {
+  a: PageBlocksComparisonTableItemsMetaAMutation
+  b: PageBlocksComparisonTableItemsMetaBMutation
 }
 
 input PageBlocksComparisonTableItemsMutation {
@@ -629,6 +637,7 @@ input PageBlocksComparisonTableItemsMutation {
   subTitle: String
   description: JSON
   bulletPoints: [String]
+  meta: [PageBlocksComparisonTableItemsMetaMutation]
 }
 
 input PageBlocksComparisonTableActionMutation {
@@ -655,56 +664,31 @@ input PageBlocksFeatureFeaturesMutation {
   description: JSON
 }
 
+input PageBlocksFeatureOverlayMutation {
+  image: String
+  overlayColor: String
+  overlayOpacity: String
+}
+
 input PageBlocksFeatureMutation {
   title: String
   subTitle: String
   description: JSON
   featureStyle: String
   features: [PageBlocksFeatureFeaturesMutation]
+  overlay: PageBlocksFeatureOverlayMutation
+}
+
+input PageBlocksFullScreenLogoOverlayMutation {
   image: String
-  textColor: String
   overlayColor: String
   overlayOpacity: String
-}
-
-input PageBlocksScreenShotFeatureActionMutation {
-  callToAction: String
-  linkText: String
-  link: String
-  linkOverride: String
-  secondaryText: String
-  secondaryLink: String
-  secondaryLinkOverride: String
-}
-
-input PageBlocksScreenShotFeatureTestimonialAuthorMutation {
-  name: String
-  avatar: String
-}
-
-input PageBlocksScreenShotFeatureTestimonialMutation {
-  quote: String
-  author: PageBlocksScreenShotFeatureTestimonialAuthorMutation
-}
-
-input PageBlocksScreenShotFeatureMutation {
-  title: String
-  subTitle: String
-  description: JSON
-  image: String
-  alignment: String
-  icon: String
-  action: PageBlocksScreenShotFeatureActionMutation
-  testimonial: PageBlocksScreenShotFeatureTestimonialMutation
 }
 
 input PageBlocksFullScreenLogoMutation {
   slogan: String
   link: String
-  image: String
-  textColor: String
-  overlayColor: String
-  overlayOpacity: String
+  overlay: PageBlocksFullScreenLogoOverlayMutation
 }
 
 input PageBlocksFullScreenHeaderActionMutation {
@@ -717,15 +701,18 @@ input PageBlocksFullScreenHeaderActionMutation {
   secondaryLinkOverride: String
 }
 
+input PageBlocksFullScreenHeaderOverlayMutation {
+  image: String
+  overlayColor: String
+  overlayOpacity: String
+}
+
 input PageBlocksFullScreenHeaderMutation {
   title: String
   subTitle: String
   description: JSON
   action: PageBlocksFullScreenHeaderActionMutation
-  image: String
-  textColor: String
-  overlayColor: String
-  overlayOpacity: String
+  overlay: PageBlocksFullScreenHeaderOverlayMutation
 }
 
 input PageBlocksMutation {
@@ -735,7 +722,6 @@ input PageBlocksMutation {
   slideshow: PageBlocksSlideshowMutation
   comparisonTable: PageBlocksComparisonTableMutation
   feature: PageBlocksFeatureMutation
-  screenShotFeature: PageBlocksScreenShotFeatureMutation
   fullScreenLogo: PageBlocksFullScreenLogoMutation
   fullScreenHeader: PageBlocksFullScreenHeaderMutation
 }

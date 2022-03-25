@@ -54,9 +54,9 @@ type NavProps = Response<"NavigationDocument", typeof navQuery>["data"];
 
 export const Nav = (props: NavProps) => {
   const localeInfo = useLocaleInfo();
-  const router = useRouter();
+  const { asPath } = useRouter();
   const signUpLink =
-    router.asPath === "/personal"
+    asPath === "/personal"
       ? localeInfo.signUpLinkPersonal
         ? localeInfo.signUpLinkPersonal
         : localeInfo.signUpLink
@@ -151,7 +151,10 @@ export const Nav = (props: NavProps) => {
                     </div>
                     <div className="px-2 pt-2 pb-3 space-y-1">
                       {props.items?.map((item) => (
-                        <Link href={item.page?.data.link}>
+                        <Link
+                          key={item.page?.data.link}
+                          href={item.page?.data.link}
+                        >
                           <a
                             key={item.page?.data.title}
                             className="block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-gray-200 hover:bg-gray-700"
