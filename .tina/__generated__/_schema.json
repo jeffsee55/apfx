@@ -1,4 +1,11 @@
 {
+  "version": {
+    "fullVersion": "0.59.8",
+    "major": "0",
+    "minor": "59",
+    "patch": "8"
+  },
+  "meta": {},
   "collections": [
     {
       "label": "Locale Information",
@@ -188,19 +195,6 @@
           ]
         },
         {
-          "label": "Description",
-          "name": "description",
-          "type": "string",
-          "required": true,
-          "ui": {
-            "component": "markdown"
-          },
-          "namespace": [
-            "news",
-            "description"
-          ]
-        },
-        {
           "label": "Image",
           "name": "image",
           "type": "string",
@@ -210,13 +204,10 @@
           ]
         },
         {
-          "type": "string",
+          "type": "rich-text",
           "name": "body",
           "isBody": true,
           "label": "Body",
-          "ui": {
-            "component": "markdown"
-          },
           "namespace": [
             "news",
             "body"
@@ -261,9 +252,6 @@
               "name": "address",
               "required": true,
               "type": "string",
-              "ui": {
-                "component": "markdown"
-              },
               "namespace": [
                 "footer",
                 "offices",
@@ -297,10 +285,7 @@
             {
               "label": "Body",
               "name": "body",
-              "type": "string",
-              "ui": {
-                "component": "markdown"
-              },
+              "type": "rich-text",
               "namespace": [
                 "footer",
                 "disclaimers",
@@ -375,6 +360,7 @@
           "required": true,
           "type": "object",
           "list": true,
+          "ui": {},
           "fields": [
             {
               "label": "Page",
@@ -455,9 +441,6 @@
               "name": "description",
               "type": "string",
               "required": true,
-              "ui": {
-                "component": "markdown"
-              },
               "namespace": [
                 "page",
                 "seo",
@@ -506,11 +489,8 @@
                 {
                   "label": "Description",
                   "name": "description",
-                  "type": "string",
+                  "type": "rich-text",
                   "required": true,
-                  "ui": {
-                    "component": "markdown"
-                  },
                   "namespace": [
                     "page",
                     "blocks",
@@ -524,9 +504,14 @@
                   "type": "object",
                   "required": true,
                   "list": true,
+                  "ui": {
+                    "defaultItem": {
+                      "article": "content/news/dollar-gains.md"
+                    }
+                  },
                   "fields": [
                     {
-                      "label": "Items",
+                      "label": "Article",
                       "name": "article",
                       "type": "reference",
                       "required": true,
@@ -550,6 +535,17 @@
                   ]
                 }
               ],
+              "ui": {
+                "defaultItem": {
+                  "title": "Get in touch",
+                  "description": "Mattis amet hendrerit dolor, quisque lorem pharetra. Pellentesque lacus nisi urna, arcu sociis eu. Orci vel lectus nisl eget eget ut consectetur. Sit justo viverra non adipisicing elit distinctio.",
+                  "newsItems": [
+                    {
+                      "article": "content/news/dollar-gains.md"
+                    }
+                  ]
+                }
+              },
               "namespace": [
                 "page",
                 "blocks",
@@ -559,6 +555,17 @@
             {
               "label": "Stats With Image",
               "name": "statsWithImage",
+              "ui": {
+                "defaultItem": {
+                  "title": "This is the default feature list title",
+                  "image": "https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2830&q=80&sat=-100",
+                  "stats": [
+                    {
+                      "title": "This is the default feature list title"
+                    }
+                  ]
+                }
+              },
               "fields": [
                 {
                   "label": "Title",
@@ -586,11 +593,8 @@
                 {
                   "label": "Description",
                   "name": "description",
-                  "type": "string",
+                  "type": "rich-text",
                   "required": true,
-                  "ui": {
-                    "component": "markdown"
-                  },
                   "namespace": [
                     "page",
                     "blocks",
@@ -613,14 +617,7 @@
                   "label": "Stats",
                   "name": "stats",
                   "type": "object",
-                  "required": true,
                   "list": true,
-                  "ui": {
-                    "defaultItem": {
-                      "title": "8k",
-                      "description": "Companies use laoreet amet lacus nibh integer quis."
-                    }
-                  },
                   "fields": [
                     {
                       "label": "Title",
@@ -650,11 +647,8 @@
                     {
                       "label": "Description",
                       "name": "description",
-                      "type": "string",
+                      "type": "rich-text",
                       "required": true,
-                      "ui": {
-                        "component": "markdown"
-                      },
                       "namespace": [
                         "page",
                         "blocks",
@@ -672,13 +666,6 @@
                   ]
                 }
               ],
-              "ui": {
-                "defaultItem": {
-                  "title": "Get in touch",
-                  "description": "Mattis amet hendrerit dolor, quisque lorem pharetra. Pellentesque lacus nisi urna, arcu sociis eu. Orci vel lectus nisl eget eget ut consectetur. Sit justo viverra non adipisicing elit distinctio.",
-                  "image": "https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100"
-                }
-              },
               "namespace": [
                 "page",
                 "blocks",
@@ -715,11 +702,8 @@
                 {
                   "label": "Description",
                   "name": "description",
-                  "type": "string",
+                  "type": "rich-text",
                   "required": true,
-                  "ui": {
-                    "component": "markdown"
-                  },
                   "namespace": [
                     "page",
                     "blocks",
@@ -728,24 +712,9 @@
                   ]
                 },
                 {
-                  "label": "Style",
-                  "name": "style",
-                  "type": "string",
-                  "options": [
-                    "slanted",
-                    "withSignup"
-                  ],
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "hero",
-                    "style"
-                  ]
-                },
-                {
                   "label": "Image",
                   "name": "image",
-                  "type": "string",
+                  "type": "image",
                   "namespace": [
                     "page",
                     "blocks",
@@ -757,18 +726,11 @@
                   "label": "Action",
                   "name": "action",
                   "type": "object",
-                  "ui": {
-                    "linkText": "Give us a call!",
-                    "link": "tel"
-                  },
                   "fields": [
                     {
                       "label": "Call to Action",
                       "name": "callToAction",
                       "type": "string",
-                      "ui": {
-                        "component": "markdown"
-                      },
                       "namespace": [
                         "page",
                         "blocks",
@@ -780,7 +742,6 @@
                     {
                       "label": "Link Text",
                       "name": "linkText",
-                      "required": true,
                       "type": "string",
                       "namespace": [
                         "page",
@@ -793,7 +754,6 @@
                     {
                       "label": "Link",
                       "name": "link",
-                      "required": true,
                       "type": "string",
                       "options": [
                         {
@@ -920,6 +880,17 @@
             {
               "label": "Slideshow",
               "name": "slideshow",
+              "ui": {
+                "defaultItem": {
+                  "items": [
+                    {
+                      "title": "What we do",
+                      "description": "We work as your trusted business partner to help you more effectively operate your business globally. Ebury's global payment solutions enable you to efficiently and securely send payments across the world in over 140 currencies. Offering a sophisticated suite of products and an advanced technology platform, as well as a panel of the biggest, global banks to ensure the most competitive pricing in the industry.",
+                      "image": "https://images.ctfassets.net/fn5fbjfhb3z0/1GQRbVRTQ9OJmignvZxPTd/43b7e889507f8801aa8268aef9d95083/opera-house-2.jpg?w=1600&h=1066&q=50"
+                    }
+                  ]
+                }
+              },
               "fields": [
                 {
                   "label": "Items",
@@ -962,11 +933,8 @@
                     {
                       "label": "Description",
                       "name": "description",
-                      "type": "string",
+                      "type": "rich-text",
                       "required": true,
-                      "ui": {
-                        "component": "markdown"
-                      },
                       "namespace": [
                         "page",
                         "blocks",
@@ -976,49 +944,14 @@
                       ]
                     },
                     {
-                      "label": "Image",
-                      "name": "image",
-                      "type": "string",
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "slideshow",
-                        "items",
-                        "image"
-                      ]
-                    },
-                    {
-                      "label": "Text Color",
-                      "name": "textColor",
-                      "type": "string",
-                      "options": [
-                        "light",
-                        "dark"
-                      ],
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "slideshow",
-                        "items",
-                        "textColor"
-                      ]
-                    },
-                    {
                       "label": "Action",
                       "name": "action",
                       "type": "object",
-                      "ui": {
-                        "linkText": "Give us a call!",
-                        "link": "tel"
-                      },
                       "fields": [
                         {
                           "label": "Call to Action",
                           "name": "callToAction",
                           "type": "string",
-                          "ui": {
-                            "component": "markdown"
-                          },
                           "namespace": [
                             "page",
                             "blocks",
@@ -1031,7 +964,6 @@
                         {
                           "label": "Link Text",
                           "name": "linkText",
-                          "required": true,
                           "type": "string",
                           "namespace": [
                             "page",
@@ -1045,7 +977,6 @@
                         {
                           "label": "Link",
                           "name": "link",
-                          "required": true,
                           "type": "string",
                           "options": [
                             {
@@ -1162,65 +1093,94 @@
                       ]
                     },
                     {
-                      "label": "Overlay Color",
-                      "name": "overlayColor",
-                      "type": "string",
-                      "options": [
-                        "brand",
-                        "gray"
-                      ],
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "slideshow",
-                        "items",
-                        "overlayColor"
-                      ]
-                    },
-                    {
-                      "label": "Overlay Opacity",
-                      "name": "overlayOpacity",
-                      "type": "string",
-                      "options": [
+                      "type": "object",
+                      "name": "overlay",
+                      "label": "Overlay",
+                      "fields": [
                         {
-                          "label": "10",
-                          "value": "1"
+                          "label": "Image",
+                          "name": "image",
+                          "type": "image",
+                          "namespace": [
+                            "page",
+                            "blocks",
+                            "slideshow",
+                            "items",
+                            "overlay",
+                            "image"
+                          ]
                         },
                         {
-                          "label": "20",
-                          "value": "2"
+                          "label": "Overlay Color",
+                          "name": "overlayColor",
+                          "type": "string",
+                          "options": [
+                            "brand",
+                            "gray"
+                          ],
+                          "namespace": [
+                            "page",
+                            "blocks",
+                            "slideshow",
+                            "items",
+                            "overlay",
+                            "overlayColor"
+                          ]
                         },
                         {
-                          "label": "30",
-                          "value": "3"
-                        },
-                        {
-                          "label": "40",
-                          "value": "4"
-                        },
-                        {
-                          "label": "50",
-                          "value": "5"
-                        },
-                        {
-                          "label": "60",
-                          "value": "6"
-                        },
-                        {
-                          "label": "70",
-                          "value": "7"
-                        },
-                        {
-                          "label": "80",
-                          "value": "8"
-                        },
-                        {
-                          "label": "90",
-                          "value": "9"
-                        },
-                        {
-                          "label": "100",
-                          "value": "10"
+                          "label": "Overlay Opacity",
+                          "name": "overlayOpacity",
+                          "type": "string",
+                          "options": [
+                            {
+                              "label": "10",
+                              "value": "1"
+                            },
+                            {
+                              "label": "20",
+                              "value": "2"
+                            },
+                            {
+                              "label": "30",
+                              "value": "3"
+                            },
+                            {
+                              "label": "40",
+                              "value": "4"
+                            },
+                            {
+                              "label": "50",
+                              "value": "5"
+                            },
+                            {
+                              "label": "60",
+                              "value": "6"
+                            },
+                            {
+                              "label": "70",
+                              "value": "7"
+                            },
+                            {
+                              "label": "80",
+                              "value": "8"
+                            },
+                            {
+                              "label": "90",
+                              "value": "9"
+                            },
+                            {
+                              "label": "100",
+                              "value": "10"
+                            }
+                          ],
+                          "namespace": [
+                            "page",
+                            "blocks",
+                            "slideshow",
+                            "items",
+                            "overlay",
+                            "overlayOpacity"
+                          ]
                         }
                       ],
                       "namespace": [
@@ -1228,7 +1188,7 @@
                         "blocks",
                         "slideshow",
                         "items",
-                        "overlayOpacity"
+                        "overlay"
                       ]
                     }
                   ],
@@ -1282,11 +1242,8 @@
                 {
                   "label": "Description",
                   "name": "description",
-                  "type": "string",
+                  "type": "rich-text",
                   "required": true,
-                  "ui": {
-                    "component": "markdown"
-                  },
                   "namespace": [
                     "page",
                     "blocks",
@@ -1328,11 +1285,8 @@
                     {
                       "label": "Description",
                       "name": "description",
-                      "type": "string",
+                      "type": "rich-text",
                       "required": true,
-                      "ui": {
-                        "component": "markdown"
-                      },
                       "namespace": [
                         "page",
                         "blocks",
@@ -1353,6 +1307,75 @@
                         "items",
                         "bulletPoints"
                       ]
+                    },
+                    {
+                      "label": "Meta",
+                      "name": "meta",
+                      "type": "object",
+                      "list": true,
+                      "templates": [
+                        {
+                          "label": "A",
+                          "name": "a",
+                          "fields": [
+                            {
+                              "type": "string",
+                              "name": "aOne",
+                              "namespace": [
+                                "page",
+                                "blocks",
+                                "comparisonTable",
+                                "items",
+                                "meta",
+                                "a",
+                                "aOne"
+                              ]
+                            }
+                          ],
+                          "namespace": [
+                            "page",
+                            "blocks",
+                            "comparisonTable",
+                            "items",
+                            "meta",
+                            "a"
+                          ]
+                        },
+                        {
+                          "label": "B",
+                          "name": "b",
+                          "fields": [
+                            {
+                              "type": "string",
+                              "name": "bOne",
+                              "namespace": [
+                                "page",
+                                "blocks",
+                                "comparisonTable",
+                                "items",
+                                "meta",
+                                "b",
+                                "bOne"
+                              ]
+                            }
+                          ],
+                          "namespace": [
+                            "page",
+                            "blocks",
+                            "comparisonTable",
+                            "items",
+                            "meta",
+                            "b"
+                          ]
+                        }
+                      ],
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "comparisonTable",
+                        "items",
+                        "meta"
+                      ]
                     }
                   ],
                   "namespace": [
@@ -1366,18 +1389,11 @@
                   "label": "Action",
                   "name": "action",
                   "type": "object",
-                  "ui": {
-                    "linkText": "Give us a call!",
-                    "link": "tel"
-                  },
                   "fields": [
                     {
                       "label": "Call to Action",
                       "name": "callToAction",
                       "type": "string",
-                      "ui": {
-                        "component": "markdown"
-                      },
                       "namespace": [
                         "page",
                         "blocks",
@@ -1389,7 +1405,6 @@
                     {
                       "label": "Link Text",
                       "name": "linkText",
-                      "required": true,
                       "type": "string",
                       "namespace": [
                         "page",
@@ -1402,7 +1417,6 @@
                     {
                       "label": "Link",
                       "name": "link",
-                      "required": true,
                       "type": "string",
                       "options": [
                         {
@@ -1520,450 +1534,42 @@
               ]
             },
             {
-              "label": "Full Screen Logo",
-              "name": "fullScreenLogo",
-              "fields": [
-                {
-                  "label": "Slogan",
-                  "name": "slogan",
-                  "type": "string",
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenLogo",
-                    "slogan"
-                  ]
-                },
-                {
-                  "label": "Link",
-                  "name": "link",
-                  "type": "string",
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenLogo",
-                    "link"
-                  ]
-                },
-                {
-                  "label": "Image",
-                  "name": "image",
-                  "type": "string",
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenLogo",
-                    "image"
-                  ]
-                },
-                {
-                  "label": "Text Color",
-                  "name": "textColor",
-                  "type": "string",
-                  "options": [
-                    "light",
-                    "dark"
-                  ],
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenLogo",
-                    "textColor"
-                  ]
-                },
-                {
-                  "label": "Overlay Color",
-                  "name": "overlayColor",
-                  "type": "string",
-                  "options": [
-                    "brand",
-                    "gray"
-                  ],
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenLogo",
-                    "overlayColor"
-                  ]
-                },
-                {
-                  "label": "Overlay Opacity",
-                  "name": "overlayOpacity",
-                  "type": "string",
-                  "options": [
-                    {
-                      "label": "10",
-                      "value": "1"
-                    },
-                    {
-                      "label": "20",
-                      "value": "2"
-                    },
-                    {
-                      "label": "30",
-                      "value": "3"
-                    },
-                    {
-                      "label": "40",
-                      "value": "4"
-                    },
-                    {
-                      "label": "50",
-                      "value": "5"
-                    },
-                    {
-                      "label": "60",
-                      "value": "6"
-                    },
-                    {
-                      "label": "70",
-                      "value": "7"
-                    },
-                    {
-                      "label": "80",
-                      "value": "8"
-                    },
-                    {
-                      "label": "90",
-                      "value": "9"
-                    },
-                    {
-                      "label": "100",
-                      "value": "10"
-                    }
-                  ],
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenLogo",
-                    "overlayOpacity"
-                  ]
-                }
-              ],
-              "ui": {
-                "defaultItem": {
-                  "image": "https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100"
-                }
-              },
-              "namespace": [
-                "page",
-                "blocks",
-                "fullScreenLogo"
-              ]
-            },
-            {
-              "label": "Full Screen Header",
-              "name": "fullScreenHeader",
-              "fields": [
-                {
-                  "label": "Title",
-                  "name": "title",
-                  "type": "string",
-                  "required": true,
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenHeader",
-                    "title"
-                  ]
-                },
-                {
-                  "label": "Sub-Title",
-                  "name": "subTitle",
-                  "type": "string",
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenHeader",
-                    "subTitle"
-                  ]
-                },
-                {
-                  "label": "Description",
-                  "name": "description",
-                  "type": "string",
-                  "required": true,
-                  "ui": {
-                    "component": "markdown"
-                  },
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenHeader",
-                    "description"
-                  ]
-                },
-                {
-                  "label": "Action",
-                  "name": "action",
-                  "type": "object",
-                  "ui": {
-                    "linkText": "Give us a call!",
-                    "link": "tel"
-                  },
-                  "fields": [
-                    {
-                      "label": "Call to Action",
-                      "name": "callToAction",
-                      "type": "string",
-                      "ui": {
-                        "component": "markdown"
-                      },
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "fullScreenHeader",
-                        "action",
-                        "callToAction"
-                      ]
-                    },
-                    {
-                      "label": "Link Text",
-                      "name": "linkText",
-                      "required": true,
-                      "type": "string",
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "fullScreenHeader",
-                        "action",
-                        "linkText"
-                      ]
-                    },
-                    {
-                      "label": "Link",
-                      "name": "link",
-                      "required": true,
-                      "type": "string",
-                      "options": [
-                        {
-                          "label": "Link",
-                          "value": "link"
-                        },
-                        {
-                          "label": "Tel",
-                          "value": "tel"
-                        },
-                        {
-                          "label": "Sign Up",
-                          "value": "signUpLink"
-                        },
-                        {
-                          "label": "Sign Up Personal",
-                          "value": "signUpLinkPersonal"
-                        },
-                        {
-                          "label": "Sign In",
-                          "value": "signInLink"
-                        }
-                      ],
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "fullScreenHeader",
-                        "action",
-                        "link"
-                      ]
-                    },
-                    {
-                      "label": "Link Override",
-                      "name": "linkOverride",
-                      "type": "string",
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "fullScreenHeader",
-                        "action",
-                        "linkOverride"
-                      ]
-                    },
-                    {
-                      "label": "Secondary Text",
-                      "name": "secondaryText",
-                      "type": "string",
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "fullScreenHeader",
-                        "action",
-                        "secondaryText"
-                      ]
-                    },
-                    {
-                      "label": "Secondary Link",
-                      "name": "secondaryLink",
-                      "type": "string",
-                      "options": [
-                        {
-                          "label": "Link",
-                          "value": "link"
-                        },
-                        {
-                          "label": "Tel",
-                          "value": "tel"
-                        },
-                        {
-                          "label": "Sign Up",
-                          "value": "signUpLink"
-                        },
-                        {
-                          "label": "Sign Up Personal",
-                          "value": "signUpLinkPersonal"
-                        },
-                        {
-                          "label": "Sign In",
-                          "value": "signInLink"
-                        }
-                      ],
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "fullScreenHeader",
-                        "action",
-                        "secondaryLink"
-                      ]
-                    },
-                    {
-                      "label": "Secondary Link Override",
-                      "name": "secondaryLinkOverride",
-                      "type": "string",
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "fullScreenHeader",
-                        "action",
-                        "secondaryLinkOverride"
-                      ]
-                    }
-                  ],
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenHeader",
-                    "action"
-                  ]
-                },
-                {
-                  "label": "Image",
-                  "name": "image",
-                  "type": "string",
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenHeader",
-                    "image"
-                  ]
-                },
-                {
-                  "label": "Text Color",
-                  "name": "textColor",
-                  "type": "string",
-                  "options": [
-                    "light",
-                    "dark"
-                  ],
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenHeader",
-                    "textColor"
-                  ]
-                },
-                {
-                  "label": "Overlay Color",
-                  "name": "overlayColor",
-                  "type": "string",
-                  "options": [
-                    "brand",
-                    "gray"
-                  ],
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenHeader",
-                    "overlayColor"
-                  ]
-                },
-                {
-                  "label": "Overlay Opacity",
-                  "name": "overlayOpacity",
-                  "type": "string",
-                  "options": [
-                    {
-                      "label": "10",
-                      "value": "1"
-                    },
-                    {
-                      "label": "20",
-                      "value": "2"
-                    },
-                    {
-                      "label": "30",
-                      "value": "3"
-                    },
-                    {
-                      "label": "40",
-                      "value": "4"
-                    },
-                    {
-                      "label": "50",
-                      "value": "5"
-                    },
-                    {
-                      "label": "60",
-                      "value": "6"
-                    },
-                    {
-                      "label": "70",
-                      "value": "7"
-                    },
-                    {
-                      "label": "80",
-                      "value": "8"
-                    },
-                    {
-                      "label": "90",
-                      "value": "9"
-                    },
-                    {
-                      "label": "100",
-                      "value": "10"
-                    }
-                  ],
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "fullScreenHeader",
-                    "overlayOpacity"
-                  ]
-                }
-              ],
-              "ui": {
-                "defaultItem": {
-                  "title": "What we do",
-                  "description": "Mattis amet hendrerit dolor, quisque lorem pharetra. Pellentesque lacus nisi urna, arcu sociis eu. Orci vel lectus nisl eget eget ut consectetur. Sit justo viverra non adipisicing elit distinctio.",
-                  "image": "https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100"
-                }
-              },
-              "namespace": [
-                "page",
-                "blocks",
-                "fullScreenHeader"
-              ]
-            },
-            {
               "label": "Feature List",
               "name": "feature",
               "ui": {
                 "defaultItem": {
                   "title": "This is the default feature list title",
-                  "description": "And something here too",
+                  "description": {
+                    "children": [
+                      {
+                        "type": "p",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua ad ad non deserunt sunt."
+                          }
+                        ]
+                      }
+                    ]
+                  },
                   "featureStyle": "4-wide-grid",
                   "features": [
                     {
                       "icon": "HeartIcon",
-                      "name": "This is some dummy content",
-                      "description": "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis."
+                      "name": "This is some dummy content!",
+                      "description": {
+                        "children": [
+                          {
+                            "type": "p",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua ad ad non deserunt sunt."
+                              }
+                            ]
+                          }
+                        ]
+                      }
                     }
                   ]
                 }
@@ -1995,11 +1601,8 @@
                 {
                   "label": "Description",
                   "name": "description",
-                  "type": "string",
+                  "type": "rich-text",
                   "required": true,
-                  "ui": {
-                    "component": "markdown"
-                  },
                   "namespace": [
                     "page",
                     "blocks",
@@ -2032,8 +1635,20 @@
                   "ui": {
                     "defaultItem": {
                       "icon": "HeartIcon",
-                      "name": "This is some dummy content",
-                      "description": "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis."
+                      "name": "This is some dummy content!",
+                      "description": {
+                        "children": [
+                          {
+                            "type": "p",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua ad ad non deserunt sunt."
+                              }
+                            ]
+                          }
+                        ]
+                      }
                     }
                   },
                   "fields": [
@@ -2098,19 +1713,19 @@
                         "ChipIcon",
                         "ClipboardCheckIcon",
                         "ClipboardCopyIcon",
-                        "ClipboardListIcon",
                         "ClipboardIcon",
+                        "ClipboardListIcon",
                         "ClockIcon",
                         "CloudDownloadIcon",
-                        "CloudUploadIcon",
                         "CloudIcon",
+                        "CloudUploadIcon",
                         "CodeIcon",
                         "CogIcon",
                         "CollectionIcon",
                         "ColorSwatchIcon",
                         "CreditCardIcon",
-                        "CubeTransparentIcon",
                         "CubeIcon",
+                        "CubeTransparentIcon",
                         "CurrencyBangladeshiIcon",
                         "CurrencyDollarIcon",
                         "CurrencyEuroIcon",
@@ -2125,11 +1740,11 @@
                         "DocumentAddIcon",
                         "DocumentDownloadIcon",
                         "DocumentDuplicateIcon",
+                        "DocumentIcon",
                         "DocumentRemoveIcon",
                         "DocumentReportIcon",
                         "DocumentSearchIcon",
                         "DocumentTextIcon",
-                        "DocumentIcon",
                         "DotsCircleHorizontalIcon",
                         "DotsHorizontalIcon",
                         "DotsVerticalIcon",
@@ -2140,8 +1755,8 @@
                         "ExclamationCircleIcon",
                         "ExclamationIcon",
                         "ExternalLinkIcon",
-                        "EyeOffIcon",
                         "EyeIcon",
+                        "EyeOffIcon",
                         "FastForwardIcon",
                         "FilmIcon",
                         "FilterIcon",
@@ -2150,9 +1765,9 @@
                         "FlagIcon",
                         "FolderAddIcon",
                         "FolderDownloadIcon",
+                        "FolderIcon",
                         "FolderOpenIcon",
                         "FolderRemoveIcon",
-                        "FolderIcon",
                         "GiftIcon",
                         "GlobeAltIcon",
                         "GlobeIcon",
@@ -2161,8 +1776,8 @@
                         "HeartIcon",
                         "HomeIcon",
                         "IdentificationIcon",
-                        "InboxInIcon",
                         "InboxIcon",
+                        "InboxInIcon",
                         "InformationCircleIcon",
                         "KeyIcon",
                         "LibraryIcon",
@@ -2174,8 +1789,8 @@
                         "LockOpenIcon",
                         "LoginIcon",
                         "LogoutIcon",
-                        "MailOpenIcon",
                         "MailIcon",
+                        "MailOpenIcon",
                         "MapIcon",
                         "MenuAlt1Icon",
                         "MenuAlt2Icon",
@@ -2184,8 +1799,8 @@
                         "MenuIcon",
                         "MicrophoneIcon",
                         "MinusCircleIcon",
-                        "MinusSmIcon",
                         "MinusIcon",
+                        "MinusSmIcon",
                         "MoonIcon",
                         "MusicNoteIcon",
                         "NewspaperIcon",
@@ -2195,15 +1810,15 @@
                         "PauseIcon",
                         "PencilAltIcon",
                         "PencilIcon",
+                        "PhoneIcon",
                         "PhoneIncomingIcon",
                         "PhoneMissedCallIcon",
                         "PhoneOutgoingIcon",
-                        "PhoneIcon",
                         "PhotographIcon",
                         "PlayIcon",
                         "PlusCircleIcon",
-                        "PlusSmIcon",
                         "PlusIcon",
+                        "PlusSmIcon",
                         "PresentationChartBarIcon",
                         "PresentationChartLineIcon",
                         "PrinterIcon",
@@ -2257,8 +1872,8 @@
                         "UserAddIcon",
                         "UserCircleIcon",
                         "UserGroupIcon",
-                        "UserRemoveIcon",
                         "UserIcon",
+                        "UserRemoveIcon",
                         "UsersIcon",
                         "VariableIcon",
                         "VideoCameraIcon",
@@ -2272,7 +1887,8 @@
                         "XCircleIcon",
                         "XIcon",
                         "ZoomInIcon",
-                        "ZoomOutIcon"
+                        "ZoomOutIcon",
+                        "default"
                       ],
                       "namespace": [
                         "page",
@@ -2299,10 +1915,7 @@
                       "label": "Description",
                       "name": "description",
                       "required": true,
-                      "type": "string",
-                      "ui": {
-                        "component": "markdown"
-                      },
+                      "type": "rich-text",
                       "namespace": [
                         "page",
                         "blocks",
@@ -2320,97 +1933,98 @@
                   ]
                 },
                 {
-                  "label": "Image",
-                  "name": "image",
-                  "type": "string",
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "feature",
-                    "image"
-                  ]
-                },
-                {
-                  "label": "Text Color",
-                  "name": "textColor",
-                  "type": "string",
-                  "options": [
-                    "light",
-                    "dark"
-                  ],
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "feature",
-                    "textColor"
-                  ]
-                },
-                {
-                  "label": "Overlay Color",
-                  "name": "overlayColor",
-                  "type": "string",
-                  "options": [
-                    "brand",
-                    "gray"
-                  ],
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "feature",
-                    "overlayColor"
-                  ]
-                },
-                {
-                  "label": "Overlay Opacity",
-                  "name": "overlayOpacity",
-                  "type": "string",
-                  "options": [
+                  "type": "object",
+                  "name": "overlay",
+                  "label": "Overlay",
+                  "fields": [
                     {
-                      "label": "10",
-                      "value": "1"
+                      "label": "Image",
+                      "name": "image",
+                      "type": "image",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "feature",
+                        "overlay",
+                        "image"
+                      ]
                     },
                     {
-                      "label": "20",
-                      "value": "2"
+                      "label": "Overlay Color",
+                      "name": "overlayColor",
+                      "type": "string",
+                      "options": [
+                        "brand",
+                        "gray"
+                      ],
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "feature",
+                        "overlay",
+                        "overlayColor"
+                      ]
                     },
                     {
-                      "label": "30",
-                      "value": "3"
-                    },
-                    {
-                      "label": "40",
-                      "value": "4"
-                    },
-                    {
-                      "label": "50",
-                      "value": "5"
-                    },
-                    {
-                      "label": "60",
-                      "value": "6"
-                    },
-                    {
-                      "label": "70",
-                      "value": "7"
-                    },
-                    {
-                      "label": "80",
-                      "value": "8"
-                    },
-                    {
-                      "label": "90",
-                      "value": "9"
-                    },
-                    {
-                      "label": "100",
-                      "value": "10"
+                      "label": "Overlay Opacity",
+                      "name": "overlayOpacity",
+                      "type": "string",
+                      "options": [
+                        {
+                          "label": "10",
+                          "value": "1"
+                        },
+                        {
+                          "label": "20",
+                          "value": "2"
+                        },
+                        {
+                          "label": "30",
+                          "value": "3"
+                        },
+                        {
+                          "label": "40",
+                          "value": "4"
+                        },
+                        {
+                          "label": "50",
+                          "value": "5"
+                        },
+                        {
+                          "label": "60",
+                          "value": "6"
+                        },
+                        {
+                          "label": "70",
+                          "value": "7"
+                        },
+                        {
+                          "label": "80",
+                          "value": "8"
+                        },
+                        {
+                          "label": "90",
+                          "value": "9"
+                        },
+                        {
+                          "label": "100",
+                          "value": "10"
+                        }
+                      ],
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "feature",
+                        "overlay",
+                        "overlayOpacity"
+                      ]
                     }
                   ],
                   "namespace": [
                     "page",
                     "blocks",
                     "feature",
-                    "overlayOpacity"
+                    "overlay"
                   ]
                 }
               ],
@@ -2421,8 +2035,143 @@
               ]
             },
             {
-              "label": "Screen Shot Feature",
-              "name": "screenShotFeature",
+              "label": "Full Screen Logo",
+              "name": "fullScreenLogo",
+              "fields": [
+                {
+                  "label": "Slogan",
+                  "name": "slogan",
+                  "type": "string",
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "fullScreenLogo",
+                    "slogan"
+                  ]
+                },
+                {
+                  "label": "Link",
+                  "name": "link",
+                  "type": "string",
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "fullScreenLogo",
+                    "link"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "name": "overlay",
+                  "label": "Overlay",
+                  "fields": [
+                    {
+                      "label": "Image",
+                      "name": "image",
+                      "type": "image",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "fullScreenLogo",
+                        "overlay",
+                        "image"
+                      ]
+                    },
+                    {
+                      "label": "Overlay Color",
+                      "name": "overlayColor",
+                      "type": "string",
+                      "options": [
+                        "brand",
+                        "gray"
+                      ],
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "fullScreenLogo",
+                        "overlay",
+                        "overlayColor"
+                      ]
+                    },
+                    {
+                      "label": "Overlay Opacity",
+                      "name": "overlayOpacity",
+                      "type": "string",
+                      "options": [
+                        {
+                          "label": "10",
+                          "value": "1"
+                        },
+                        {
+                          "label": "20",
+                          "value": "2"
+                        },
+                        {
+                          "label": "30",
+                          "value": "3"
+                        },
+                        {
+                          "label": "40",
+                          "value": "4"
+                        },
+                        {
+                          "label": "50",
+                          "value": "5"
+                        },
+                        {
+                          "label": "60",
+                          "value": "6"
+                        },
+                        {
+                          "label": "70",
+                          "value": "7"
+                        },
+                        {
+                          "label": "80",
+                          "value": "8"
+                        },
+                        {
+                          "label": "90",
+                          "value": "9"
+                        },
+                        {
+                          "label": "100",
+                          "value": "10"
+                        }
+                      ],
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "fullScreenLogo",
+                        "overlay",
+                        "overlayOpacity"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "fullScreenLogo",
+                    "overlay"
+                  ]
+                }
+              ],
+              "ui": {
+                "defaultItem": {
+                  "overlay": {
+                    "image": "https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100"
+                  }
+                }
+              },
+              "namespace": [
+                "page",
+                "blocks",
+                "fullScreenLogo"
+              ]
+            },
+            {
+              "label": "Full Screen Header",
+              "name": "fullScreenHeader",
               "fields": [
                 {
                   "label": "Title",
@@ -2432,7 +2181,7 @@
                   "namespace": [
                     "page",
                     "blocks",
-                    "screenShotFeature",
+                    "fullScreenHeader",
                     "title"
                   ]
                 },
@@ -2443,314 +2192,35 @@
                   "namespace": [
                     "page",
                     "blocks",
-                    "screenShotFeature",
+                    "fullScreenHeader",
                     "subTitle"
                   ]
                 },
                 {
                   "label": "Description",
                   "name": "description",
-                  "type": "string",
+                  "type": "rich-text",
                   "required": true,
-                  "ui": {
-                    "component": "markdown"
-                  },
                   "namespace": [
                     "page",
                     "blocks",
-                    "screenShotFeature",
+                    "fullScreenHeader",
                     "description"
-                  ]
-                },
-                {
-                  "label": "Image",
-                  "name": "image",
-                  "type": "string",
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "screenShotFeature",
-                    "image"
-                  ]
-                },
-                {
-                  "label": "Alignment",
-                  "name": "alignment",
-                  "type": "string",
-                  "options": [
-                    "left",
-                    "right"
-                  ],
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "screenShotFeature",
-                    "alignment"
-                  ]
-                },
-                {
-                  "label": "Icon",
-                  "name": "icon",
-                  "type": "string",
-                  "options": [
-                    "AcademicCapIcon",
-                    "AdjustmentsIcon",
-                    "AnnotationIcon",
-                    "ArchiveIcon",
-                    "ArrowCircleDownIcon",
-                    "ArrowCircleLeftIcon",
-                    "ArrowCircleRightIcon",
-                    "ArrowCircleUpIcon",
-                    "ArrowDownIcon",
-                    "ArrowLeftIcon",
-                    "ArrowNarrowDownIcon",
-                    "ArrowNarrowLeftIcon",
-                    "ArrowNarrowRightIcon",
-                    "ArrowNarrowUpIcon",
-                    "ArrowRightIcon",
-                    "ArrowSmDownIcon",
-                    "ArrowSmLeftIcon",
-                    "ArrowSmRightIcon",
-                    "ArrowSmUpIcon",
-                    "ArrowUpIcon",
-                    "ArrowsExpandIcon",
-                    "AtSymbolIcon",
-                    "BackspaceIcon",
-                    "BadgeCheckIcon",
-                    "BanIcon",
-                    "BeakerIcon",
-                    "BellIcon",
-                    "BookOpenIcon",
-                    "BookmarkAltIcon",
-                    "BookmarkIcon",
-                    "BriefcaseIcon",
-                    "CakeIcon",
-                    "CalculatorIcon",
-                    "CalendarIcon",
-                    "CameraIcon",
-                    "CashIcon",
-                    "ChartBarIcon",
-                    "ChartPieIcon",
-                    "ChartSquareBarIcon",
-                    "ChatAlt2Icon",
-                    "ChatAltIcon",
-                    "ChatIcon",
-                    "CheckCircleIcon",
-                    "CheckIcon",
-                    "ChevronDoubleDownIcon",
-                    "ChevronDoubleLeftIcon",
-                    "ChevronDoubleRightIcon",
-                    "ChevronDoubleUpIcon",
-                    "ChevronDownIcon",
-                    "ChevronLeftIcon",
-                    "ChevronRightIcon",
-                    "ChevronUpIcon",
-                    "ChipIcon",
-                    "ClipboardCheckIcon",
-                    "ClipboardCopyIcon",
-                    "ClipboardListIcon",
-                    "ClipboardIcon",
-                    "ClockIcon",
-                    "CloudDownloadIcon",
-                    "CloudUploadIcon",
-                    "CloudIcon",
-                    "CodeIcon",
-                    "CogIcon",
-                    "CollectionIcon",
-                    "ColorSwatchIcon",
-                    "CreditCardIcon",
-                    "CubeTransparentIcon",
-                    "CubeIcon",
-                    "CurrencyBangladeshiIcon",
-                    "CurrencyDollarIcon",
-                    "CurrencyEuroIcon",
-                    "CurrencyPoundIcon",
-                    "CurrencyRupeeIcon",
-                    "CurrencyYenIcon",
-                    "CursorClickIcon",
-                    "DatabaseIcon",
-                    "DesktopComputerIcon",
-                    "DeviceMobileIcon",
-                    "DeviceTabletIcon",
-                    "DocumentAddIcon",
-                    "DocumentDownloadIcon",
-                    "DocumentDuplicateIcon",
-                    "DocumentRemoveIcon",
-                    "DocumentReportIcon",
-                    "DocumentSearchIcon",
-                    "DocumentTextIcon",
-                    "DocumentIcon",
-                    "DotsCircleHorizontalIcon",
-                    "DotsHorizontalIcon",
-                    "DotsVerticalIcon",
-                    "DownloadIcon",
-                    "DuplicateIcon",
-                    "EmojiHappyIcon",
-                    "EmojiSadIcon",
-                    "ExclamationCircleIcon",
-                    "ExclamationIcon",
-                    "ExternalLinkIcon",
-                    "EyeOffIcon",
-                    "EyeIcon",
-                    "FastForwardIcon",
-                    "FilmIcon",
-                    "FilterIcon",
-                    "FingerPrintIcon",
-                    "FireIcon",
-                    "FlagIcon",
-                    "FolderAddIcon",
-                    "FolderDownloadIcon",
-                    "FolderOpenIcon",
-                    "FolderRemoveIcon",
-                    "FolderIcon",
-                    "GiftIcon",
-                    "GlobeAltIcon",
-                    "GlobeIcon",
-                    "HandIcon",
-                    "HashtagIcon",
-                    "HeartIcon",
-                    "HomeIcon",
-                    "IdentificationIcon",
-                    "InboxInIcon",
-                    "InboxIcon",
-                    "InformationCircleIcon",
-                    "KeyIcon",
-                    "LibraryIcon",
-                    "LightBulbIcon",
-                    "LightningBoltIcon",
-                    "LinkIcon",
-                    "LocationMarkerIcon",
-                    "LockClosedIcon",
-                    "LockOpenIcon",
-                    "LoginIcon",
-                    "LogoutIcon",
-                    "MailOpenIcon",
-                    "MailIcon",
-                    "MapIcon",
-                    "MenuAlt1Icon",
-                    "MenuAlt2Icon",
-                    "MenuAlt3Icon",
-                    "MenuAlt4Icon",
-                    "MenuIcon",
-                    "MicrophoneIcon",
-                    "MinusCircleIcon",
-                    "MinusSmIcon",
-                    "MinusIcon",
-                    "MoonIcon",
-                    "MusicNoteIcon",
-                    "NewspaperIcon",
-                    "OfficeBuildingIcon",
-                    "PaperAirplaneIcon",
-                    "PaperClipIcon",
-                    "PauseIcon",
-                    "PencilAltIcon",
-                    "PencilIcon",
-                    "PhoneIncomingIcon",
-                    "PhoneMissedCallIcon",
-                    "PhoneOutgoingIcon",
-                    "PhoneIcon",
-                    "PhotographIcon",
-                    "PlayIcon",
-                    "PlusCircleIcon",
-                    "PlusSmIcon",
-                    "PlusIcon",
-                    "PresentationChartBarIcon",
-                    "PresentationChartLineIcon",
-                    "PrinterIcon",
-                    "PuzzleIcon",
-                    "QrcodeIcon",
-                    "QuestionMarkCircleIcon",
-                    "ReceiptRefundIcon",
-                    "ReceiptTaxIcon",
-                    "RefreshIcon",
-                    "ReplyIcon",
-                    "RewindIcon",
-                    "RssIcon",
-                    "SaveAsIcon",
-                    "SaveIcon",
-                    "ScaleIcon",
-                    "ScissorsIcon",
-                    "SearchCircleIcon",
-                    "SearchIcon",
-                    "SelectorIcon",
-                    "ServerIcon",
-                    "ShareIcon",
-                    "ShieldCheckIcon",
-                    "ShieldExclamationIcon",
-                    "ShoppingBagIcon",
-                    "ShoppingCartIcon",
-                    "SortAscendingIcon",
-                    "SortDescendingIcon",
-                    "SparklesIcon",
-                    "SpeakerphoneIcon",
-                    "StarIcon",
-                    "StatusOfflineIcon",
-                    "StatusOnlineIcon",
-                    "StopIcon",
-                    "SunIcon",
-                    "SupportIcon",
-                    "SwitchHorizontalIcon",
-                    "SwitchVerticalIcon",
-                    "TableIcon",
-                    "TagIcon",
-                    "TemplateIcon",
-                    "TerminalIcon",
-                    "ThumbDownIcon",
-                    "ThumbUpIcon",
-                    "TicketIcon",
-                    "TranslateIcon",
-                    "TrashIcon",
-                    "TrendingDownIcon",
-                    "TrendingUpIcon",
-                    "TruckIcon",
-                    "UploadIcon",
-                    "UserAddIcon",
-                    "UserCircleIcon",
-                    "UserGroupIcon",
-                    "UserRemoveIcon",
-                    "UserIcon",
-                    "UsersIcon",
-                    "VariableIcon",
-                    "VideoCameraIcon",
-                    "ViewBoardsIcon",
-                    "ViewGridAddIcon",
-                    "ViewGridIcon",
-                    "ViewListIcon",
-                    "VolumeOffIcon",
-                    "VolumeUpIcon",
-                    "WifiIcon",
-                    "XCircleIcon",
-                    "XIcon",
-                    "ZoomInIcon",
-                    "ZoomOutIcon"
-                  ],
-                  "namespace": [
-                    "page",
-                    "blocks",
-                    "screenShotFeature",
-                    "icon"
                   ]
                 },
                 {
                   "label": "Action",
                   "name": "action",
                   "type": "object",
-                  "ui": {
-                    "linkText": "Give us a call!",
-                    "link": "tel"
-                  },
                   "fields": [
                     {
                       "label": "Call to Action",
                       "name": "callToAction",
                       "type": "string",
-                      "ui": {
-                        "component": "markdown"
-                      },
                       "namespace": [
                         "page",
                         "blocks",
-                        "screenShotFeature",
+                        "fullScreenHeader",
                         "action",
                         "callToAction"
                       ]
@@ -2758,12 +2228,11 @@
                     {
                       "label": "Link Text",
                       "name": "linkText",
-                      "required": true,
                       "type": "string",
                       "namespace": [
                         "page",
                         "blocks",
-                        "screenShotFeature",
+                        "fullScreenHeader",
                         "action",
                         "linkText"
                       ]
@@ -2771,7 +2240,6 @@
                     {
                       "label": "Link",
                       "name": "link",
-                      "required": true,
                       "type": "string",
                       "options": [
                         {
@@ -2798,7 +2266,7 @@
                       "namespace": [
                         "page",
                         "blocks",
-                        "screenShotFeature",
+                        "fullScreenHeader",
                         "action",
                         "link"
                       ]
@@ -2810,7 +2278,7 @@
                       "namespace": [
                         "page",
                         "blocks",
-                        "screenShotFeature",
+                        "fullScreenHeader",
                         "action",
                         "linkOverride"
                       ]
@@ -2822,7 +2290,7 @@
                       "namespace": [
                         "page",
                         "blocks",
-                        "screenShotFeature",
+                        "fullScreenHeader",
                         "action",
                         "secondaryText"
                       ]
@@ -2856,7 +2324,7 @@
                       "namespace": [
                         "page",
                         "blocks",
-                        "screenShotFeature",
+                        "fullScreenHeader",
                         "action",
                         "secondaryLink"
                       ]
@@ -2868,7 +2336,7 @@
                       "namespace": [
                         "page",
                         "blocks",
-                        "screenShotFeature",
+                        "fullScreenHeader",
                         "action",
                         "secondaryLinkOverride"
                       ]
@@ -2877,100 +2345,119 @@
                   "namespace": [
                     "page",
                     "blocks",
-                    "screenShotFeature",
+                    "fullScreenHeader",
                     "action"
                   ]
                 },
                 {
-                  "label": "Testimonial",
-                  "name": "testimonial",
                   "type": "object",
-                  "ui": {
-                    "text": "Cras velit quis eros eget rhoncus lacus ultrices sed diam. Sit orci risus aenean curabitur donec aliquet. Mi venenatis in euismod ut.",
-                    "author": {
-                      "name": "Marcia Hill",
-                      "avatar": "https://images.unsplash.com/photo-1509783236416-c9ad59bae472?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-                    }
-                  },
+                  "name": "overlay",
+                  "label": "Overlay",
                   "fields": [
                     {
-                      "label": "Quote",
-                      "name": "quote",
-                      "required": true,
-                      "type": "string",
-                      "ui": {
-                        "component": "markdown"
-                      },
+                      "label": "Image",
+                      "name": "image",
+                      "type": "image",
                       "namespace": [
                         "page",
                         "blocks",
-                        "screenShotFeature",
-                        "testimonial",
-                        "quote"
+                        "fullScreenHeader",
+                        "overlay",
+                        "image"
                       ]
                     },
                     {
-                      "type": "object",
-                      "name": "author",
-                      "label": "Author",
-                      "fields": [
+                      "label": "Overlay Color",
+                      "name": "overlayColor",
+                      "type": "string",
+                      "options": [
+                        "brand",
+                        "gray"
+                      ],
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "fullScreenHeader",
+                        "overlay",
+                        "overlayColor"
+                      ]
+                    },
+                    {
+                      "label": "Overlay Opacity",
+                      "name": "overlayOpacity",
+                      "type": "string",
+                      "options": [
                         {
-                          "label": "Name",
-                          "name": "name",
-                          "required": true,
-                          "type": "string",
-                          "namespace": [
-                            "page",
-                            "blocks",
-                            "screenShotFeature",
-                            "testimonial",
-                            "author",
-                            "name"
-                          ]
+                          "label": "10",
+                          "value": "1"
                         },
                         {
-                          "label": "Avatar",
-                          "required": true,
-                          "name": "avatar",
-                          "type": "string",
-                          "namespace": [
-                            "page",
-                            "blocks",
-                            "screenShotFeature",
-                            "testimonial",
-                            "author",
-                            "avatar"
-                          ]
+                          "label": "20",
+                          "value": "2"
+                        },
+                        {
+                          "label": "30",
+                          "value": "3"
+                        },
+                        {
+                          "label": "40",
+                          "value": "4"
+                        },
+                        {
+                          "label": "50",
+                          "value": "5"
+                        },
+                        {
+                          "label": "60",
+                          "value": "6"
+                        },
+                        {
+                          "label": "70",
+                          "value": "7"
+                        },
+                        {
+                          "label": "80",
+                          "value": "8"
+                        },
+                        {
+                          "label": "90",
+                          "value": "9"
+                        },
+                        {
+                          "label": "100",
+                          "value": "10"
                         }
                       ],
                       "namespace": [
                         "page",
                         "blocks",
-                        "screenShotFeature",
-                        "testimonial",
-                        "author"
+                        "fullScreenHeader",
+                        "overlay",
+                        "overlayOpacity"
                       ]
                     }
                   ],
                   "namespace": [
                     "page",
                     "blocks",
-                    "screenShotFeature",
-                    "testimonial"
+                    "fullScreenHeader",
+                    "overlay"
                   ]
                 }
               ],
               "ui": {
                 "defaultItem": {
-                  "title": "Stay on top of customer support",
-                  "description": "Semper curabitur ullamcorper posuere nunc sed. Ornare iaculis bibendum malesuada faucibus lacinia porttitor. Pulvinar laoreet sagittis viverra duis. In venenatis sem arcu pretium pharetra at. Lectus viverra dui tellus ornare pharetra.",
-                  "image": "https://tailwindui.com/img/component-images/inbox-app-screenshot-1.jpg"
+                  "title": "What we do",
+                  "description": "Mattis amet hendrerit dolor, quisque lorem pharetra. Pellentesque lacus nisi urna, arcu sociis eu. Orci vel lectus nisl eget eget ut consectetur. Sit justo viverra non adipisicing elit distinctio.",
+                  "overlay": {
+                    "image": "https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100"
+                  }
                 }
               },
               "namespace": [
                 "page",
                 "blocks",
-                "screenShotFeature"
+                "fullScreenHeader"
               ]
             }
           ],
@@ -2984,6 +2471,5 @@
         "page"
       ]
     }
-  ],
-  "namespace": []
+  ]
 }

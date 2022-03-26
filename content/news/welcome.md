@@ -6,8 +6,6 @@ image: >-
   https://images.unsplash.com/photo-1617330107595-3c049b5ef565?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80
 ---
 
-
-
 One of the key correlations beginning to establish itself in the post-pandemic world seems to be the negative one between US inflation and the dollar.
 
 Yet another strong CPI report showed headline inflation above 5% for the fifth consecutive month. Yields did not move much as a response, but the US dollar lost ground for the week against every major world currency. The only exceptions were the Japanese yen, weighed down by the relentless rise of commodity prices and risk appetite, and the Turkish lira, tripped once again by Erdogan’s rate shenanigans.

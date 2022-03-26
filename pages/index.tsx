@@ -1,4 +1,6 @@
-import Page, { getStaticProps as baseGetStaticProps } from "../components/page";
+import Page, {
+  getStaticProps as baseGetStaticProps,
+} from "../components/blocks";
 
 export default Page;
 

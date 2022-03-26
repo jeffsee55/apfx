@@ -1,20 +1,77 @@
 import React from "react";
-import { FullScreenHeaderWithBackground } from "./header";
-import { Action } from "./hero";
+import { FullScreenHeaderWithBackground, overlayField } from "./header";
+import type { TinaTemplate } from "tinacms";
+import { Selector } from "../../zeus";
+import { Response } from "../util";
+import { action } from "./hero";
 
-type SlideshowItem = {
-  title: string;
-  image?: string;
-  description: string;
-  overlayColor?: string;
-  overlayOpacity?: string;
-  textColor?: string;
-  action?: Action;
+export const slideshowTemplate = (textFields): TinaTemplate => {
+  return {
+    label: "Slideshow",
+    name: "slideshow",
+    ui: {
+      defaultItem: {
+        items: [
+          {
+            title: "What we do",
+            description:
+              "We work as your trusted business partner to help you more effectively operate your business globally. Ebury's global payment solutions enable you to efficiently and securely send payments across the world in over 140 currencies. Offering a sophisticated suite of products and an advanced technology platform, as well as a panel of the biggest, global banks to ensure the most competitive pricing in the industry.",
+            image:
+              "https://images.ctfassets.net/fn5fbjfhb3z0/1GQRbVRTQ9OJmignvZxPTd/43b7e889507f8801aa8268aef9d95083/opera-house-2.jpg?w=1600&h=1066&q=50",
+          },
+        ],
+      },
+    },
+    fields: [
+      {
+        label: "Items",
+        name: "items",
+        type: "object",
+        list: true,
+        ui: {
+          itemProps: (item) => {
+            if (item) {
+              return { label: item.title };
+            }
+          },
+          defaultItem: {
+            title: "What we do",
+            description:
+              "We work as your trusted business partner to help you more effectively operate your business globally. Ebury's global payment solutions enable you to efficiently and securely send payments across the world in over 140 currencies. Offering a sophisticated suite of products and an advanced technology platform, as well as a panel of the biggest, global banks to ensure the most competitive pricing in the industry.",
+            image:
+              "https://images.ctfassets.net/fn5fbjfhb3z0/1GQRbVRTQ9OJmignvZxPTd/43b7e889507f8801aa8268aef9d95083/opera-house-2.jpg?w=1600&h=1066&q=50",
+          },
+        },
+        fields: [...textFields, action, overlayField],
+      },
+    ],
+  };
 };
 
-type SlideshowProps = {
-  items?: SlideshowItem[];
-};
+export const blockSlideshowQuery = Selector("PageBlocksSlideshow")({
+  items: {
+    title: true,
+    description: true,
+    action: {
+      link: true,
+      linkText: true,
+      secondaryLink: true,
+      secondaryText: true,
+    },
+    overlay: {
+      image: true,
+      overlayColor: true,
+      overlayOpacity: true,
+    },
+  },
+});
+
+type SlideshowProps = Response<
+  "PageBlocksSlideshow",
+  typeof blockSlideshowQuery
+>;
+
+type SlideshowItem = SlideshowProps["items"][number];
 
 export const Slideshow = (props: SlideshowProps) => {
   const [current, setCurrent] = React.useState(false);

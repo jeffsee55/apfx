@@ -4,25 +4,109 @@ import { useLocaleInfo } from "../locale-info";
 import { Markdown } from "../markdown";
 import { useTheme } from "../theme";
 import { DisplayText } from "../typographqy";
+import type { TinaTemplate } from "tinacms";
+import { Selector } from "../../zeus";
+import { Response } from "../util";
 
-export type Action = {
-  callToAction?: string;
-  link: string;
-  linkText: string;
-  linkOverride?: string;
-  secondaryText?: string;
-  secondaryLink?: string;
-  secondaryLinkOverride?: string;
+const linkOptions = [
+  { label: "Link", value: "link" },
+  { label: "Tel", value: "tel" },
+  { label: "Sign Up", value: "signUpLink" },
+  { label: "Sign Up Personal", value: "signUpLinkPersonal" },
+  { label: "Sign In", value: "signInLink" },
+];
+
+export const action = {
+  label: "Action",
+  name: "action",
+  type: "object",
+  fields: [
+    {
+      label: "Call to Action",
+      name: "callToAction",
+      type: "string",
+    },
+    {
+      label: "Link Text",
+      name: "linkText",
+      // required: true,
+      type: "string",
+    },
+    {
+      label: "Link",
+      name: "link",
+      // required: true,
+      type: "string",
+      options: linkOptions,
+    },
+    {
+      label: "Link Override",
+      name: "linkOverride",
+      // description: "Provide a raw value to link (can't be internationalized)",
+      type: "string",
+    },
+    {
+      label: "Secondary Text",
+      name: "secondaryText",
+      type: "string",
+    },
+    {
+      label: "Secondary Link",
+      name: "secondaryLink",
+      type: "string",
+      options: linkOptions,
+    },
+    {
+      label: "Secondary Link Override",
+      name: "secondaryLinkOverride",
+      // description: "Provide a raw value to link (can't be internationalized)",
+      type: "string",
+    },
+  ],
 };
 
-type HeroProps = {
-  title: string;
-  description: string;
-  image?: string;
-  action?: Action;
-};
+export const heroTemplate = (textFields): TinaTemplate => ({
+  label: "Hero",
+  name: "hero",
+  fields: [
+    ...textFields,
+    {
+      label: "Image",
+      name: "image",
+      type: "image",
+    },
+    action,
+  ],
+  ui: {
+    defaultItem: {
+      title: "Let's put something down here...",
+      description: "And something here too",
+      image: "https://placehold.it/2000x1500",
+    },
+  },
+});
 
-export function HeroWithSlantImage(props: HeroProps) {
+export const actionQuery = Selector("PageBlocksHeroAction")({
+  callToAction: true,
+  link: true,
+  linkText: true,
+  linkOverride: true,
+  secondaryLink: true,
+  secondaryText: true,
+  secondaryLinkOverride: true,
+});
+
+export const blockHeroQuery = Selector("PageBlocksHero")({
+  title: true,
+  description: true,
+  image: true,
+  action: actionQuery,
+});
+
+type Hero = Response<"PageBlocksHero", typeof blockHeroQuery>;
+export type Action = Response<"PageBlocksHeroAction", typeof actionQuery>;
+
+export function HeroWithSlantImage(props: Hero) {
   const bg = "bg-gray-900";
   const text = "text-gray-900";
   return (
@@ -56,7 +140,6 @@ export function HeroWithSlantImage(props: HeroProps) {
         </svg>
       </div>
       <div className="lg:absolute lg:inset-0">
-        {/* <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2"> */}
         <Img
           className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
           src={props.image}

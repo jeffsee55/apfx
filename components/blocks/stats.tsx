@@ -1,16 +1,82 @@
-import { DisplayText, Text } from "../typographqy";
+import { DisplayText } from "../typographqy";
+import { Markdown } from "../markdown";
+import type { TinaTemplate } from "tinacms";
+import { Selector } from "../../zeus";
+import { Response } from "../util";
 
-type StatsProps = {
-  title: string;
-  subTitle?: string;
-  description: string;
-  stats: {
-    title: string;
-    description: string;
-  }[];
+const defaultText = {
+  children: [
+    {
+      type: "p",
+      children: [
+        {
+          type: "text",
+          text: "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua ad ad non deserunt sunt.",
+        },
+      ],
+    },
+  ],
 };
 
-export function StatsWithImage(props: StatsProps) {
+const defaultStat = {
+  icon: "HeartIcon",
+  name: "This is some dummy content!",
+  description: defaultText,
+};
+
+export const statsWithImageTemplate = (textFields): TinaTemplate => {
+  return {
+    label: "Stats With Image",
+    name: "statsWithImage",
+    ui: {
+      defaultItem: {
+        title: "This is the default feature list title",
+        // description: defaultText,
+        image:
+          "https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2830&q=80&sat=-100",
+        stats: [
+          {
+            title: "This is the default feature list title",
+            // description: defaultText,
+          },
+        ],
+      },
+    },
+    fields: [
+      ...textFields,
+      {
+        label: "Image",
+        name: "image",
+        type: "string",
+      },
+      {
+        label: "Stats",
+        name: "stats",
+        type: "object",
+        list: true,
+        fields: textFields,
+      },
+    ],
+  };
+};
+
+export const blockStatsWithImageQuery = Selector("PageBlocksStatsWithImage")({
+  title: true,
+  description: true,
+  image: true,
+  subTitle: true,
+  stats: {
+    title: true,
+    description: true,
+  },
+});
+
+type StatsWithImageType = Response<
+  "PageBlocksStatsWithImage",
+  typeof blockStatsWithImageQuery
+>;
+
+export function StatsWithImage(props: StatsWithImageType) {
   return (
     <div className="relative bg-gray-800">
       <div className="h-80 w-full absolute bottom-0 xl:inset-0 xl:h-full">
@@ -42,9 +108,7 @@ export function StatsWithImage(props: StatsProps) {
           >
             {props.title}
           </DisplayText>
-          <Text variant={"light"} classNames="lg:max-w-xl">
-            {props.description}
-          </Text>
+          <Markdown>{props.description}</Markdown>
           <div className="mt-12 grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-2">
             {props.stats?.map((item, index) => (
               <p key={item.title + index}>

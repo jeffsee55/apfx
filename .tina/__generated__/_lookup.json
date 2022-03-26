@@ -21,116 +21,17 @@
     "createDocument": "create",
     "updateDocument": "update"
   },
-  "PageDocument": {
-    "type": "PageDocument",
+  "LocaleInfoDocument": {
+    "type": "LocaleInfoDocument",
     "resolveType": "collectionDocument",
-    "collection": "page",
-    "createPageDocument": "create",
-    "updatePageDocument": "update"
+    "collection": "localeInfo",
+    "createLocaleInfoDocument": "create",
+    "updateLocaleInfoDocument": "update"
   },
-  "PageConnection": {
-    "type": "PageConnection",
+  "LocaleInfoConnection": {
+    "type": "LocaleInfoConnection",
     "resolveType": "collectionDocumentList",
-    "collection": "page"
-  },
-  "PageBlocks": {
-    "type": "PageBlocks",
-    "resolveType": "unionData",
-    "typeMap": {
-      "news": "PageBlocksNews",
-      "statsWithImage": "PageBlocksStatsWithImage",
-      "hero": "PageBlocksHero",
-      "slideshow": "PageBlocksSlideshow",
-      "comparisonTable": "PageBlocksComparisonTable",
-      "fullScreenLogo": "PageBlocksFullScreenLogo",
-      "fullScreenHeader": "PageBlocksFullScreenHeader",
-      "feature": "PageBlocksFeature",
-      "screenShotFeature": "PageBlocksScreenShotFeature"
-    }
-  },
-  "PageSeo": {
-    "type": "PageSeo",
-    "resolveType": "unionData",
-    "typeMap": {
-      "seoBasic": "PageSeoSeoBasic"
-    }
-  },
-  "NavigationItemsConnection": {
-    "type": "NavigationItemsConnection",
-    "resolveType": "multiCollectionDocumentList",
-    "collections": [
-      "page"
-    ]
-  },
-  "NavigationDocument": {
-    "type": "NavigationDocument",
-    "resolveType": "collectionDocument",
-    "collection": "navigation",
-    "createNavigationDocument": "create",
-    "updateNavigationDocument": "update"
-  },
-  "NavigationConnection": {
-    "type": "NavigationConnection",
-    "resolveType": "collectionDocumentList",
-    "collection": "navigation"
-  },
-  "NavigationItemsPageDocument": {
-    "type": "NavigationItemsPageDocument",
-    "resolveType": "multiCollectionDocument",
-    "createDocument": "create",
-    "updateDocument": "update"
-  },
-  "FooterDocument": {
-    "type": "FooterDocument",
-    "resolveType": "collectionDocument",
-    "collection": "footer",
-    "createFooterDocument": "create",
-    "updateFooterDocument": "update"
-  },
-  "FooterConnection": {
-    "type": "FooterConnection",
-    "resolveType": "collectionDocumentList",
-    "collection": "footer"
-  },
-  "Action": {
-    "type": "Action",
-    "resolveType": "unionData",
-    "typeMap": {
-      "giveUsACall": "ActionGiveUsACall"
-    }
-  },
-  "ActionDocument": {
-    "type": "ActionDocument",
-    "resolveType": "collectionDocument",
-    "collection": "action"
-  },
-  "ActionConnection": {
-    "type": "ActionConnection",
-    "resolveType": "collectionDocumentList",
-    "collection": "action"
-  },
-  "PageBlocksHeroActionDocument": {
-    "type": "PageBlocksHeroActionDocument",
-    "resolveType": "multiCollectionDocument"
-  },
-  "PageBlocksHeroAction": {
-    "type": "PageBlocksHeroAction",
-    "resolveType": "unionData",
-    "typeMap": {
-      "giveUsACall": "PageBlocksHeroActionGiveUsACall"
-    }
-  },
-  "ThemeDocument": {
-    "type": "ThemeDocument",
-    "resolveType": "collectionDocument",
-    "collection": "theme",
-    "createThemeDocument": "create",
-    "updateThemeDocument": "update"
-  },
-  "ThemeConnection": {
-    "type": "ThemeConnection",
-    "resolveType": "collectionDocumentList",
-    "collection": "theme"
+    "collection": "localeInfo"
   },
   "NewsDocument": {
     "type": "NewsDocument",
@@ -144,57 +45,86 @@
     "resolveType": "collectionDocumentList",
     "collection": "news"
   },
-  "PageBlocksNewsItemsConnection": {
-    "type": "PageBlocksNewsItemsConnection",
-    "resolveType": "multiCollectionDocumentList",
-    "collections": [
-      "news"
-    ]
-  },
-  "PageBlocksNewsNewsItemConnection": {
-    "type": "PageBlocksNewsNewsItemConnection",
-    "resolveType": "multiCollectionDocumentList",
-    "collections": [
-      "news"
-    ]
-  },
-  "PageBlocksNewsNewsItemsConnection": {
-    "type": "PageBlocksNewsNewsItemsConnection",
-    "resolveType": "multiCollectionDocumentList",
-    "collections": [
-      "news"
-    ]
-  },
-  "LocaleInfoDocument": {
-    "type": "LocaleInfoDocument",
+  "FooterDocument": {
+    "type": "FooterDocument",
     "resolveType": "collectionDocument",
-    "collection": "localeInfo",
-    "createLocaleInfoDocument": "create",
-    "updateLocaleInfoDocument": "update"
+    "collection": "footer",
+    "createFooterDocument": "create",
+    "updateFooterDocument": "update"
   },
-  "LocaleInfoConnection": {
-    "type": "LocaleInfoConnection",
+  "FooterConnection": {
+    "type": "FooterConnection",
     "resolveType": "collectionDocumentList",
-    "collection": "localeInfo"
+    "collection": "footer"
   },
-  "PageBlocksNewsNewsItemsNewsItemsConnection": {
-    "type": "PageBlocksNewsNewsItemsNewsItemsConnection",
-    "resolveType": "multiCollectionDocumentList",
-    "collections": [
-      "news"
-    ]
+  "ThemeDocument": {
+    "type": "ThemeDocument",
+    "resolveType": "collectionDocument",
+    "collection": "theme",
+    "createThemeDocument": "create",
+    "updateThemeDocument": "update"
   },
-  "PageBlocksNewsNewsItemsArticleConnection": {
-    "type": "PageBlocksNewsNewsItemsArticleConnection",
-    "resolveType": "multiCollectionDocumentList",
-    "collections": [
-      "news"
-    ]
+  "ThemeConnection": {
+    "type": "ThemeConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "theme"
+  },
+  "NavigationItemsPageDocument": {
+    "type": "NavigationItemsPageDocument",
+    "resolveType": "multiCollectionDocument",
+    "createDocument": "create",
+    "updateDocument": "update"
+  },
+  "NavigationDocument": {
+    "type": "NavigationDocument",
+    "resolveType": "collectionDocument",
+    "collection": "navigation",
+    "createNavigationDocument": "create",
+    "updateNavigationDocument": "update"
+  },
+  "NavigationConnection": {
+    "type": "NavigationConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "navigation"
   },
   "PageBlocksNewsNewsItemsArticleDocument": {
     "type": "PageBlocksNewsNewsItemsArticleDocument",
     "resolveType": "multiCollectionDocument",
     "createDocument": "create",
     "updateDocument": "update"
+  },
+  "PageBlocksComparisonTableItemsMeta": {
+    "type": "PageBlocksComparisonTableItemsMeta",
+    "resolveType": "unionData",
+    "typeMap": {
+      "a": "PageBlocksComparisonTableItemsMetaA",
+      "b": "PageBlocksComparisonTableItemsMetaB"
+    }
+  },
+  "PageBlocks": {
+    "type": "PageBlocks",
+    "resolveType": "unionData",
+    "typeMap": {
+      "news": "PageBlocksNews",
+      "statsWithImage": "PageBlocksStatsWithImage",
+      "hero": "PageBlocksHero",
+      "slideshow": "PageBlocksSlideshow",
+      "comparisonTable": "PageBlocksComparisonTable",
+      "feature": "PageBlocksFeature",
+      "fullScreenLogo": "PageBlocksFullScreenLogo",
+      "fullScreenHeader": "PageBlocksFullScreenHeader"
+    }
+  },
+  "PageDocument": {
+    "type": "PageDocument",
+    "resolveType": "collectionDocument",
+    "collection": "page",
+    "createPageDocument": "create",
+    "updatePageDocument": "update"
+  },
+  "PageConnection": {
+    "type": "PageConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "page"
   }
 }

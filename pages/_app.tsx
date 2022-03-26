@@ -8,6 +8,7 @@ import React from "react";
 import { LocaleContext } from "../components/locale-info";
 import Head from "next/head";
 const Tina = dynamic(() => import("../components/tina"), { ssr: false });
+import { useTina } from "tinacms/dist/edit-state";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -16,9 +17,7 @@ function MyApp({ Component, pageProps }) {
         showEditButton={false}
         editMode={
           <Tina pageProps={pageProps}>
-            {(livePageProps) => (
-              <Page pageProps={livePageProps} Component={Component} />
-            )}
+            <Page pageProps={pageProps} Component={Component} />
           </Tina>
         }
       >
@@ -29,20 +28,34 @@ function MyApp({ Component, pageProps }) {
 }
 
 const Page = ({ pageProps, Component }) => {
-  const router = useRouter();
-
+  const { locale } = useRouter();
+  const props = useTina(pageProps);
   const theme = pageProps.data?.getThemeDocument?.dataJSON;
   const currentLocaleInfo =
-    pageProps.data?.getLocaleInfoDocument?.dataJSON[
-      router.locale.replace("en-", "") || "au"
+    pageProps.data?.getLocaleInfoDocument?.data[
+      locale.replace("en-", "") || "au"
     ] || {};
+
+  const [isBrowser, setIsBrowser] = React.useState(false);
+  React.useEffect(() => {
+    setIsBrowser(true);
+  });
+
   return (
     <LocaleContext.Provider value={currentLocaleInfo}>
       <Head>
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       {theme && <Theme theme={theme} />}
-      <Component {...pageProps} />
+      {isBrowser && <ThirdParty />}
+      <Component {...props} />
+    </LocaleContext.Provider>
+  );
+};
+
+const ThirdParty = () => {
+  return (
+    <>
       <script
         type="text/javascript"
         id="hs-script-loader"
@@ -73,7 +86,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);`}
           src="https://px.ads.linkedin.com/collect/?pid=3408244&fmt=gif"
         />
       </noscript> */}
-    </LocaleContext.Provider>
+    </>
   );
 };
 
