@@ -22,6 +22,13 @@ export const navTemplate = (): TinaCollection => {
         required: true,
         type: "object",
         list: true,
+        ui: {
+          itemProps: (item) => {
+            if (item) {
+              return { label: item.page };
+            }
+          },
+        },
         fields: [
           {
             label: "Page",

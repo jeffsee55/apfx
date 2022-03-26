@@ -360,6 +360,7 @@
           "required": true,
           "type": "object",
           "list": true,
+          "ui": {},
           "fields": [
             {
               "label": "Page",

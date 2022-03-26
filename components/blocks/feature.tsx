@@ -55,6 +55,11 @@ export const featureTemplate = (textFields): TinaTemplate => {
         list: true,
         ui: {
           defaultItem: defaultFeature,
+          itemProps: (item) => {
+            if (item) {
+              return { label: item.name };
+            }
+          },
         },
         fields: [
           {

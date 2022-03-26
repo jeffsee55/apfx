@@ -44,6 +44,16 @@ export const overlayField: TinaField = {
   type: "object",
   name: "overlay",
   label: "Overlay",
+  ui: {
+    // WIP - would be cool to be able to show preview
+    // component: (props) => {
+    //   return (
+    //     <div>
+    //       <img src={props.input.value.image} />
+    //     </div>
+    //   );
+    // },
+  },
   fields: overlayControls,
 };
 
@@ -250,7 +260,7 @@ export function FullScreenHeaderWithBackground(
 }
 
 const TextBlurb = (props: Omit<HeaderProps, "image">) => {
-  const textColor = props.textColor === "dark" ? "dark" : "light";
+  const textColor = "light";
   return (
     <>
       {props.subTitle && (

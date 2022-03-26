@@ -15,8 +15,8 @@
     "@tailwindcss/forms": "^0.3.3",
     "@tailwindcss/typography": "^0.4.1",
     "@tinacms/auth": "latest",
-    "@tinacms/cli": "0.0.0-202222420745",
-    "@tinacms/toolkit": "0.0.0-202222420745",
+    "@tinacms/cli": "0.0.0-202222523126",
+    "@tinacms/toolkit": "0.0.0-202222523126",
     "graphql-zeus": "^4.0.4",
     "next": "^11.1.2",
     "next-tinacms-cloudinary": "latest",
@@ -25,7 +25,7 @@
     "react-is": "^17.0.2",
     "smoothscroll-polyfill": "^0.4.4",
     "styled-components": "^5.3.0",
-    "tinacms": "0.0.0-202222420745"
+    "tinacms": "0.0.0-202222523126"
   },
   "devDependencies": {
     "@types/node": "^16.3.1",

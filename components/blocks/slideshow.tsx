@@ -29,6 +29,11 @@ export const slideshowTemplate = (textFields): TinaTemplate => {
         type: "object",
         list: true,
         ui: {
+          itemProps: (item) => {
+            if (item) {
+              return { label: item.title };
+            }
+          },
           defaultItem: {
             title: "What we do",
             description:

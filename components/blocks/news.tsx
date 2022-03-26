@@ -20,6 +20,11 @@ export const newsTemplate = (textFields): TinaTemplate => ({
         defaultItem: {
           article: "content/news/dollar-gains.md",
         },
+        itemProps: (item) => {
+          if (item) {
+            return { label: item.article };
+          }
+        },
       },
       fields: [
         {

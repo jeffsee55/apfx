@@ -20,11 +20,11 @@ blocks:
       link: signUpLinkPersonal
       secondaryText: Get in touch
       secondaryLink: link
-      secondaryLinkOverride: "https://share.hsforms.com/1Zi7kaqn1THCrZt6hdDaGng5kdde"
+      secondaryLinkOverride: 'https://share.hsforms.com/1Zi7kaqn1THCrZt6hdDaGng5kdde'
     _template: hero
   - items:
       - title: International Payments
-        subTitle: ""
+        subTitle: ''
         description: >
           APFX's market leading suite of payments products are also available to
           individuals.
@@ -40,8 +40,9 @@ blocks:
 
           Our online portal is a way to manage your account 24/7, easily trade
           in over 50 currencies and make payments to your beneficiaries.
-        image: >-
-          https://images.unsplash.com/photo-1561728130-afd430af0493?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3300&q=80
+        overlay:
+          image: >-
+            https://res.cloudinary.com/deuzrsg3m/image/upload/v1647030485/apfx/photo-1561728130-afd430af0493_mjlpyy.jpg
       - title: Currency Accounts
         description: >
           With a private APFX Global account you have the flexibility to send
@@ -62,8 +63,9 @@ blocks:
 
           Quickly and easily open accounts and manage them via APFX online. Save
           time, money and hassle on this process
-        image: >-
-          https://images.unsplash.com/photo-1473042904451-00171c69419d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3475&q=80
+        overlay:
+          image: >-
+            https://res.cloudinary.com/deuzrsg3m/image/upload/v1647030509/apfx/photo-1473042904451-00171c69419d_ylp2eh.jpg
       - title: Why APFX?
         description: >
           We understand how important it is for private individuals to move
@@ -78,7 +80,9 @@ blocks:
 
           Get in touch with one of our experts today to see how much you could
           save.
-        image: >-
-          https://images.unsplash.com/photo-1526459808813-57c44a8cf699?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3466&q=80
+        overlay:
+          image: >-
+            https://res.cloudinary.com/deuzrsg3m/image/upload/v1647030608/apfx/photo-1574607408180-3b72da2969bb_efa8un.jpg
     _template: slideshow
 ---
+
