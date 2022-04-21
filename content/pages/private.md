@@ -1,5 +1,5 @@
 ---
-title: Private Clients
+title: Private Client
 link: /personal
 seo:
   title: Private Client Services
@@ -9,6 +9,56 @@ seo:
     Bank beating FX rates, intuitive mulit-currency online platform and superior
     customer support for individuals
 blocks:
+  - title: 'The right price for you, whoever you are'
+    subTitle: Test
+    description: ''
+    items:
+      - title: Pricing Model
+        subTitle: Health
+        description: |
+          dsds
+        bulletPoints:
+          - dsdss
+      - title: Tests
+        subTitle: tets
+        description: |
+          This is how it'll work
+        bulletPoints:
+          - Writing
+          - Work this way 1
+    _template: comparisonTable
+  - title: This is the default feature list title
+    description: >
+      Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
+      cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua ad
+      ad non deserunt sunt.
+    featureStyle: 4-wide-grid
+    features:
+      - icon: HeartIcon
+        name: This is some dummy content!
+        description: >
+          Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
+          cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua
+          ad ad non deserunt sunt.
+      - icon: HeartIcon
+        name: This is some dummy content!
+        description: >
+          Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
+          cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua
+          ad ad non deserunt sunt.
+      - icon: HeartIcon
+        name: This is some dummy content!
+        description: >
+          Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
+          cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua
+          ad ad non deserunt sunt.
+      - icon: HeartIcon
+        name: This is some dummy content!
+        description: >
+          Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
+          cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua
+          ad ad non deserunt sunt.
+    _template: feature
   - title: Private Client Services
     description: >
       Bank beating FX rates, intuitive mulit-currency online platform and
@@ -63,11 +113,11 @@ blocks:
       link: signUpLinkPersonal
       secondaryText: Get in touch
       secondaryLink: link
-      secondaryLinkOverride: "https://share.hsforms.com/1Zi7kaqn1THCrZt6hdDaGng5kdde"
+      secondaryLinkOverride: 'https://share.hsforms.com/1Zi7kaqn1THCrZt6hdDaGng5kdde'
     _template: hero
   - items:
       - title: International Payments
-        subTitle: ""
+        subTitle: ''
         description: >
           APFX's market leading suite of payments products are also available to
           individuals.
@@ -128,3 +178,4 @@ blocks:
             https://res.cloudinary.com/deuzrsg3m/image/upload/v1647030608/apfx/photo-1574607408180-3b72da2969bb_efa8un.jpg
     _template: slideshow
 ---
+

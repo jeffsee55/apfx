@@ -1,62 +1,62 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { CheckIcon } from '@heroicons/react/outline'
-import Link from 'next/link'
-import { Markdown } from '../markdown'
-import { DisplayText } from '../typographqy'
-import { Action, action, useLinksFromAction, actionQuery } from './hero'
-import type { TinaTemplate } from 'tinacms'
-import { Selector } from '../../zeus'
-import { Response } from '../util'
+import { CheckIcon } from "@heroicons/react/outline";
+import Link from "next/link";
+import { Markdown } from "../markdown";
+import { DisplayText } from "../typographqy";
+import { Action, action, useLinksFromAction, actionQuery } from "./hero";
+import type { TinaTemplate } from "tinacms";
+import { Selector } from "../../zeus";
+import { Response } from "../util";
 
 export const pageBlocksComparisonTableTemplate = (textFields): TinaTemplate => {
   return {
-    label: 'Comparison Table',
-    name: 'comparisonTable',
+    label: "Comparison Table",
+    name: "comparisonTable",
     ui: {
       defaultItem: {
-        title: 'The right price for you, whoever you are',
+        title: "The right price for you, whoever you are",
         description:
-          'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum sequi unde repudiandae natus.',
+          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum sequi unde repudiandae natus.",
       },
     },
     fields: [
       ...textFields,
       {
-        label: 'Items',
-        name: 'items',
-        type: 'object',
+        label: "Items",
+        name: "items",
+        type: "object",
         list: true,
         fields: [
           ...textFields,
           {
-            label: 'Bullet points',
-            name: 'bulletPoints',
-            type: 'string',
+            label: "Bullet points",
+            name: "bulletPoints",
+            type: "string",
             list: true,
           },
           {
-            label: 'Meta',
-            name: 'meta',
-            type: 'object',
+            label: "Meta",
+            name: "meta",
+            type: "object",
             list: true,
             templates: [
               {
-                label: 'A',
-                name: 'a',
+                label: "A",
+                name: "a",
                 fields: [
                   {
-                    type: 'string',
-                    name: 'aOne',
+                    type: "string",
+                    name: "aOne",
                   },
                 ],
               },
               {
-                label: 'B',
-                name: 'b',
+                label: "B",
+                name: "b",
                 fields: [
                   {
-                    type: 'string',
-                    name: 'bOne',
+                    type: "string",
+                    name: "bOne",
                   },
                 ],
               },
@@ -66,10 +66,10 @@ export const pageBlocksComparisonTableTemplate = (textFields): TinaTemplate => {
       },
       action,
     ],
-  }
-}
+  };
+};
 
-export const blockComparisonTable = Selector('PageBlocksComparisonTable')({
+export const blockComparisonTable = Selector("PageBlocksComparisonTable")({
   title: true,
   subTitle: true,
   description: true,
@@ -81,20 +81,20 @@ export const blockComparisonTable = Selector('PageBlocksComparisonTable')({
     bulletPoints: true,
     meta: {
       __typename: true,
-      '...on PageBlocksComparisonTableItemsMetaA': {
+      "...on PageBlocksComparisonTableItemsMetaA": {
         aOne: true,
       },
-      '...on PageBlocksComparisonTableItemsMetaB': {
+      "...on PageBlocksComparisonTableItemsMetaB": {
         bOne: true,
       },
     },
   },
-})
+});
 
 type ComparisonTableType = Response<
-  'PageBlocksComparisonTable',
+  "PageBlocksComparisonTable",
   typeof blockComparisonTable
->
+>;
 
 function Pill(props) {
   return (
@@ -103,19 +103,16 @@ function Pill(props) {
         {props.subTitle}
       </h3>
     </div>
-  )
+  );
 }
 
 function ComparisonCard(props) {
   return (
     <div className="flex flex-col rounded-lg shadow-lg overflow-hidden bg-white">
-      <div className="py-8 bg-white">
-        <pre>{JSON.stringify(props.item.meta, null, 2)}</pre>
-      </div>
       <div className="px-6 py-8 bg-white sm:p-10 sm:pb-6">
         {props.item.subTitle && <Pill subTitle={props.item.subTitle}></Pill>}
         <DisplayText
-          size={'text-2xl lg:text-3xl'}
+          size={"text-2xl lg:text-3xl"}
           classNames="my-4 flex items-baseline"
           variant="dark"
         >
@@ -126,22 +123,24 @@ function ComparisonCard(props) {
       {props.item.bulletPoints?.length > 0 && (
         <div className="flex-1 flex flex-col justify-between px-6 pt-6 pb-8 bg-gray-50 space-y-6 sm:p-10 sm:pt-6">
           <ul className="space-y-4">
-            {props.item.bulletPoints?.map((bulletPoints) => (
-              <li key={bulletPoints} className="flex items-start">
-                <div className="flex-shrink-0">
-                  <CheckIcon
-                    className="h-6 w-6 text-green-500"
-                    aria-hidden="true"
-                  />
-                </div>
-                <p className="ml-3 text-base text-gray-700">{bulletPoints}</p>
-              </li>
-            ))}
+            {props.item.bulletPoints?.map((bulletPoints) => {
+              return (
+                <li key={bulletPoints} className="flex items-start">
+                  <div className="flex-shrink-0">
+                    <CheckIcon
+                      className="h-6 w-6 text-green-500"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <p className="ml-3 text-base text-gray-700">{bulletPoints}</p>
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}
     </div>
-  )
+  );
 }
 
 export function Pricing(props: ComparisonTableType) {
@@ -156,7 +155,7 @@ export function Pricing(props: ComparisonTableType) {
                 {props.subTitle}
               </h2>
             )}
-            <DisplayText size={'text-3xl lg:text-5xl py-4'}>
+            <DisplayText size={"text-3xl lg:text-5xl py-4"}>
               {props.title}
             </DisplayText>
             {props.description && <Markdown>{props.description}</Markdown>}
@@ -169,7 +168,7 @@ export function Pricing(props: ComparisonTableType) {
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-md mx-auto space-y-4 lg:max-w-5xl lg:grid lg:grid-cols-2 lg:gap-5 lg:space-y-0">
               {props.items?.map((item, i) => {
-                return <ComparisonCard key={i} item={item}></ComparisonCard>
+                return <ComparisonCard key={i} item={item}></ComparisonCard>;
               })}
             </div>
           </div>
@@ -181,11 +180,11 @@ export function Pricing(props: ComparisonTableType) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function ActionButtons(props) {
-  const { link, secondaryLink } = useLinksFromAction(props.action)
+  const { link, secondaryLink } = useLinksFromAction(props.action);
   return (
     <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
       <div className="inline-flex rounded-md shadow">
@@ -207,25 +206,25 @@ function ActionButtons(props) {
         </div>
       )}
     </div>
-  )
+  );
 }
 
 export function Cta({ action }: { action: Action }) {
   return (
     <div className="py-4 px-4 sm:px-6 w-full lg:py-12 lg:px-8 lg:flex lg:items-center lg:justify-between">
       <DisplayText variant="dark" size="text-3xl md:text-4xl">
-        {action?.callToAction.split('\n').map((textString, index) => {
+        {action?.callToAction.split("\n").map((textString, index) => {
           return (
             <span
               key={index}
-              className={`block ${index === 0 && 'text-indigo-600'}`}
+              className={`block ${index === 0 && "text-indigo-600"}`}
             >
               {textString}
             </span>
-          )
+          );
         })}
       </DisplayText>
       <ActionButtons action={action}></ActionButtons>
     </div>
-  )
+  );
 }
