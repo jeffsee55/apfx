@@ -113,7 +113,6 @@ export type QueryLocaleInfoConnectionArgs = {
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
   sort?: InputMaybe<Scalars['String']>;
-  filter?: InputMaybe<LocaleInfoFilter>;
 };
 
 
@@ -128,7 +127,6 @@ export type QueryNewsConnectionArgs = {
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
   sort?: InputMaybe<Scalars['String']>;
-  filter?: InputMaybe<NewsFilter>;
 };
 
 
@@ -143,7 +141,6 @@ export type QueryFooterConnectionArgs = {
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
   sort?: InputMaybe<Scalars['String']>;
-  filter?: InputMaybe<FooterFilter>;
 };
 
 
@@ -158,7 +155,6 @@ export type QueryThemeConnectionArgs = {
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
   sort?: InputMaybe<Scalars['String']>;
-  filter?: InputMaybe<ThemeFilter>;
 };
 
 
@@ -173,7 +169,6 @@ export type QueryNavigationConnectionArgs = {
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
   sort?: InputMaybe<Scalars['String']>;
-  filter?: InputMaybe<NavigationFilter>;
 };
 
 
@@ -188,16 +183,6 @@ export type QueryPageConnectionArgs = {
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
   sort?: InputMaybe<Scalars['String']>;
-  filter?: InputMaybe<PageFilter>;
-};
-
-export type DocumentFilter = {
-  localeInfo?: InputMaybe<LocaleInfoFilter>;
-  news?: InputMaybe<NewsFilter>;
-  footer?: InputMaybe<FooterFilter>;
-  theme?: InputMaybe<ThemeFilter>;
-  navigation?: InputMaybe<NavigationFilter>;
-  page?: InputMaybe<PageFilter>;
 };
 
 export type DocumentConnectionEdges = {
@@ -233,7 +218,6 @@ export type CollectionDocumentsArgs = {
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
   sort?: InputMaybe<Scalars['String']>;
-  filter?: InputMaybe<DocumentFilter>;
 };
 
 export type DocumentNode = LocaleInfo | News | Footer | Theme | Navigation | Page;
@@ -272,40 +256,6 @@ export type LocaleInfo = Node & Document & {
   _values: Scalars['JSON'];
 };
 
-export type StringFilter = {
-  startsWith?: InputMaybe<Scalars['String']>;
-  eq?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LocaleInfoAuFilter = {
-  tel?: InputMaybe<StringFilter>;
-  signUpLink?: InputMaybe<StringFilter>;
-  signUpLinkPersonal?: InputMaybe<StringFilter>;
-  signInLink?: InputMaybe<StringFilter>;
-};
-
-export type LocaleInfoUsFilter = {
-  tel?: InputMaybe<StringFilter>;
-  signUpLink?: InputMaybe<StringFilter>;
-  signUpLinkPersonal?: InputMaybe<StringFilter>;
-  signInLink?: InputMaybe<StringFilter>;
-};
-
-export type LocaleInfoGbFilter = {
-  tel?: InputMaybe<StringFilter>;
-  signUpLink?: InputMaybe<StringFilter>;
-  signUpLinkPersonal?: InputMaybe<StringFilter>;
-  signInLink?: InputMaybe<StringFilter>;
-};
-
-export type LocaleInfoFilter = {
-  au?: InputMaybe<LocaleInfoAuFilter>;
-  us?: InputMaybe<LocaleInfoUsFilter>;
-  gb?: InputMaybe<LocaleInfoGbFilter>;
-};
-
 export type LocaleInfoConnectionEdges = {
   __typename?: 'LocaleInfoConnectionEdges';
   cursor: Scalars['String'];
@@ -330,29 +280,6 @@ export type News = Node & Document & {
   id: Scalars['ID'];
   _sys: SystemInfo;
   _values: Scalars['JSON'];
-};
-
-export type DatetimeFilter = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  eq?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type RichTextFilter = {
-  startsWith?: InputMaybe<Scalars['String']>;
-  eq?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-};
-
-export type NewsFilter = {
-  title?: InputMaybe<StringFilter>;
-  subTitle?: InputMaybe<StringFilter>;
-  image?: InputMaybe<StringFilter>;
-  publishDate?: InputMaybe<DatetimeFilter>;
-  category?: InputMaybe<StringFilter>;
-  body?: InputMaybe<RichTextFilter>;
 };
 
 export type NewsConnectionEdges = {
@@ -383,25 +310,10 @@ export type FooterDisclaimers = {
 export type Footer = Node & Document & {
   __typename?: 'Footer';
   offices?: Maybe<Array<Maybe<FooterOffices>>>;
-  disclaimers: Array<FooterDisclaimers>;
+  disclaimers?: Maybe<Array<Maybe<FooterDisclaimers>>>;
   id: Scalars['ID'];
   _sys: SystemInfo;
   _values: Scalars['JSON'];
-};
-
-export type FooterOfficesFilter = {
-  location?: InputMaybe<StringFilter>;
-  address?: InputMaybe<StringFilter>;
-  phone?: InputMaybe<StringFilter>;
-};
-
-export type FooterDisclaimersFilter = {
-  body?: InputMaybe<RichTextFilter>;
-};
-
-export type FooterFilter = {
-  offices?: InputMaybe<FooterOfficesFilter>;
-  disclaimers?: InputMaybe<FooterDisclaimersFilter>;
 };
 
 export type FooterConnectionEdges = {
@@ -426,11 +338,6 @@ export type Theme = Node & Document & {
   _values: Scalars['JSON'];
 };
 
-export type ThemeFilter = {
-  displayFont?: InputMaybe<StringFilter>;
-  colorMode?: InputMaybe<StringFilter>;
-};
-
 export type ThemeConnectionEdges = {
   __typename?: 'ThemeConnectionEdges';
   cursor: Scalars['String'];
@@ -453,22 +360,10 @@ export type NavigationItems = {
 
 export type Navigation = Node & Document & {
   __typename?: 'Navigation';
-  items: Array<NavigationItems>;
+  items?: Maybe<Array<Maybe<NavigationItems>>>;
   id: Scalars['ID'];
   _sys: SystemInfo;
   _values: Scalars['JSON'];
-};
-
-export type NavigationItemsPageFilter = {
-  page?: InputMaybe<PageFilter>;
-};
-
-export type NavigationItemsFilter = {
-  page?: InputMaybe<NavigationItemsPageFilter>;
-};
-
-export type NavigationFilter = {
-  items?: InputMaybe<NavigationItemsFilter>;
 };
 
 export type NavigationConnectionEdges = {
@@ -691,208 +586,6 @@ export type Page = Node & Document & {
   id: Scalars['ID'];
   _sys: SystemInfo;
   _values: Scalars['JSON'];
-};
-
-export type PageSeoFilter = {
-  title?: InputMaybe<StringFilter>;
-  image?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-};
-
-export type PageBlocksNewsNewsItemsArticleFilter = {
-  news?: InputMaybe<NewsFilter>;
-};
-
-export type PageBlocksNewsNewsItemsFilter = {
-  article?: InputMaybe<PageBlocksNewsNewsItemsArticleFilter>;
-};
-
-export type PageBlocksNewsFilter = {
-  title?: InputMaybe<StringFilter>;
-  subTitle?: InputMaybe<StringFilter>;
-  description?: InputMaybe<RichTextFilter>;
-  newsItems?: InputMaybe<PageBlocksNewsNewsItemsFilter>;
-};
-
-export type PageBlocksStatsWithImageStatsFilter = {
-  title?: InputMaybe<StringFilter>;
-  subTitle?: InputMaybe<StringFilter>;
-  description?: InputMaybe<RichTextFilter>;
-};
-
-export type PageBlocksStatsWithImageFilter = {
-  title?: InputMaybe<StringFilter>;
-  subTitle?: InputMaybe<StringFilter>;
-  description?: InputMaybe<RichTextFilter>;
-  image?: InputMaybe<StringFilter>;
-  stats?: InputMaybe<PageBlocksStatsWithImageStatsFilter>;
-};
-
-export type ImageFilter = {
-  startsWith?: InputMaybe<Scalars['String']>;
-  eq?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type PageBlocksHeroActionFilter = {
-  callToAction?: InputMaybe<StringFilter>;
-  linkText?: InputMaybe<StringFilter>;
-  link?: InputMaybe<StringFilter>;
-  linkOverride?: InputMaybe<StringFilter>;
-  secondaryText?: InputMaybe<StringFilter>;
-  secondaryLink?: InputMaybe<StringFilter>;
-  secondaryLinkOverride?: InputMaybe<StringFilter>;
-};
-
-export type PageBlocksHeroFilter = {
-  title?: InputMaybe<StringFilter>;
-  subTitle?: InputMaybe<StringFilter>;
-  description?: InputMaybe<RichTextFilter>;
-  image?: InputMaybe<ImageFilter>;
-  action?: InputMaybe<PageBlocksHeroActionFilter>;
-};
-
-export type PageBlocksSlideshowItemsActionFilter = {
-  callToAction?: InputMaybe<StringFilter>;
-  linkText?: InputMaybe<StringFilter>;
-  link?: InputMaybe<StringFilter>;
-  linkOverride?: InputMaybe<StringFilter>;
-  secondaryText?: InputMaybe<StringFilter>;
-  secondaryLink?: InputMaybe<StringFilter>;
-  secondaryLinkOverride?: InputMaybe<StringFilter>;
-};
-
-export type PageBlocksSlideshowItemsOverlayFilter = {
-  image?: InputMaybe<ImageFilter>;
-  overlayColor?: InputMaybe<StringFilter>;
-  overlayOpacity?: InputMaybe<StringFilter>;
-};
-
-export type PageBlocksSlideshowItemsFilter = {
-  title?: InputMaybe<StringFilter>;
-  subTitle?: InputMaybe<StringFilter>;
-  description?: InputMaybe<RichTextFilter>;
-  action?: InputMaybe<PageBlocksSlideshowItemsActionFilter>;
-  overlay?: InputMaybe<PageBlocksSlideshowItemsOverlayFilter>;
-};
-
-export type PageBlocksSlideshowFilter = {
-  items?: InputMaybe<PageBlocksSlideshowItemsFilter>;
-};
-
-export type PageBlocksComparisonTableItemsMetaAFilter = {
-  aOne?: InputMaybe<StringFilter>;
-};
-
-export type PageBlocksComparisonTableItemsMetaBFilter = {
-  bOne?: InputMaybe<StringFilter>;
-};
-
-export type PageBlocksComparisonTableItemsMetaFilter = {
-  a?: InputMaybe<PageBlocksComparisonTableItemsMetaAFilter>;
-  b?: InputMaybe<PageBlocksComparisonTableItemsMetaBFilter>;
-};
-
-export type PageBlocksComparisonTableItemsFilter = {
-  title?: InputMaybe<StringFilter>;
-  subTitle?: InputMaybe<StringFilter>;
-  description?: InputMaybe<RichTextFilter>;
-  bulletPoints?: InputMaybe<StringFilter>;
-  meta?: InputMaybe<PageBlocksComparisonTableItemsMetaFilter>;
-};
-
-export type PageBlocksComparisonTableActionFilter = {
-  callToAction?: InputMaybe<StringFilter>;
-  linkText?: InputMaybe<StringFilter>;
-  link?: InputMaybe<StringFilter>;
-  linkOverride?: InputMaybe<StringFilter>;
-  secondaryText?: InputMaybe<StringFilter>;
-  secondaryLink?: InputMaybe<StringFilter>;
-  secondaryLinkOverride?: InputMaybe<StringFilter>;
-};
-
-export type PageBlocksComparisonTableFilter = {
-  title?: InputMaybe<StringFilter>;
-  subTitle?: InputMaybe<StringFilter>;
-  description?: InputMaybe<RichTextFilter>;
-  items?: InputMaybe<PageBlocksComparisonTableItemsFilter>;
-  action?: InputMaybe<PageBlocksComparisonTableActionFilter>;
-};
-
-export type PageBlocksFeatureFeaturesFilter = {
-  icon?: InputMaybe<StringFilter>;
-  name?: InputMaybe<StringFilter>;
-  description?: InputMaybe<RichTextFilter>;
-};
-
-export type PageBlocksFeatureOverlayFilter = {
-  image?: InputMaybe<ImageFilter>;
-  overlayColor?: InputMaybe<StringFilter>;
-  overlayOpacity?: InputMaybe<StringFilter>;
-};
-
-export type PageBlocksFeatureFilter = {
-  title?: InputMaybe<StringFilter>;
-  subTitle?: InputMaybe<StringFilter>;
-  description?: InputMaybe<RichTextFilter>;
-  featureStyle?: InputMaybe<StringFilter>;
-  features?: InputMaybe<PageBlocksFeatureFeaturesFilter>;
-  overlay?: InputMaybe<PageBlocksFeatureOverlayFilter>;
-};
-
-export type PageBlocksFullScreenLogoOverlayFilter = {
-  image?: InputMaybe<ImageFilter>;
-  overlayColor?: InputMaybe<StringFilter>;
-  overlayOpacity?: InputMaybe<StringFilter>;
-};
-
-export type PageBlocksFullScreenLogoFilter = {
-  slogan?: InputMaybe<StringFilter>;
-  link?: InputMaybe<StringFilter>;
-  overlay?: InputMaybe<PageBlocksFullScreenLogoOverlayFilter>;
-};
-
-export type PageBlocksFullScreenHeaderActionFilter = {
-  callToAction?: InputMaybe<StringFilter>;
-  linkText?: InputMaybe<StringFilter>;
-  link?: InputMaybe<StringFilter>;
-  linkOverride?: InputMaybe<StringFilter>;
-  secondaryText?: InputMaybe<StringFilter>;
-  secondaryLink?: InputMaybe<StringFilter>;
-  secondaryLinkOverride?: InputMaybe<StringFilter>;
-};
-
-export type PageBlocksFullScreenHeaderOverlayFilter = {
-  image?: InputMaybe<ImageFilter>;
-  overlayColor?: InputMaybe<StringFilter>;
-  overlayOpacity?: InputMaybe<StringFilter>;
-};
-
-export type PageBlocksFullScreenHeaderFilter = {
-  title?: InputMaybe<StringFilter>;
-  subTitle?: InputMaybe<StringFilter>;
-  description?: InputMaybe<RichTextFilter>;
-  action?: InputMaybe<PageBlocksFullScreenHeaderActionFilter>;
-  overlay?: InputMaybe<PageBlocksFullScreenHeaderOverlayFilter>;
-};
-
-export type PageBlocksFilter = {
-  news?: InputMaybe<PageBlocksNewsFilter>;
-  statsWithImage?: InputMaybe<PageBlocksStatsWithImageFilter>;
-  hero?: InputMaybe<PageBlocksHeroFilter>;
-  slideshow?: InputMaybe<PageBlocksSlideshowFilter>;
-  comparisonTable?: InputMaybe<PageBlocksComparisonTableFilter>;
-  feature?: InputMaybe<PageBlocksFeatureFilter>;
-  fullScreenLogo?: InputMaybe<PageBlocksFullScreenLogoFilter>;
-  fullScreenHeader?: InputMaybe<PageBlocksFullScreenHeaderFilter>;
-};
-
-export type PageFilter = {
-  title?: InputMaybe<StringFilter>;
-  link?: InputMaybe<StringFilter>;
-  seo?: InputMaybe<PageSeoFilter>;
-  blocks?: InputMaybe<PageBlocksFilter>;
 };
 
 export type PageConnectionEdges = {
@@ -1291,11 +984,578 @@ export type PageMutation = {
   blocks?: InputMaybe<Array<InputMaybe<PageBlocksMutation>>>;
 };
 
+export type LocaleInfoPartsFragment = { __typename?: 'LocaleInfo', au?: { __typename: 'LocaleInfoAu', tel?: string | null, signUpLink?: string | null, signUpLinkPersonal?: string | null, signInLink?: string | null } | null, us?: { __typename: 'LocaleInfoUs', tel?: string | null, signUpLink?: string | null, signUpLinkPersonal?: string | null, signInLink?: string | null } | null, gb?: { __typename: 'LocaleInfoGb', tel?: string | null, signUpLink?: string | null, signUpLinkPersonal?: string | null, signInLink?: string | null } | null };
 
+export type NewsPartsFragment = { __typename?: 'News', title: string, subTitle?: string | null, image?: string | null, publishDate?: string | null, category?: string | null, body?: any | null };
+
+export type FooterPartsFragment = { __typename?: 'Footer', offices?: Array<{ __typename: 'FooterOffices', location: string, address: string, phone: string } | null> | null, disclaimers?: Array<{ __typename: 'FooterDisclaimers', body?: any | null } | null> | null };
+
+export type ThemePartsFragment = { __typename?: 'Theme', displayFont?: string | null, colorMode?: string | null };
+
+export type NavigationPartsFragment = { __typename?: 'Navigation', items?: Array<{ __typename: 'NavigationItems', page?: { __typename?: 'Page', id: string } | null } | null> | null };
+
+export type PagePartsFragment = { __typename?: 'Page', title: string, link: string, seo?: { __typename: 'PageSeo', title?: string | null, image?: string | null, description: string } | null, blocks?: Array<{ __typename: 'PageBlocksNews', title: string, subTitle?: string | null, description: any, newsItems: Array<{ __typename: 'PageBlocksNewsNewsItems', article: { __typename?: 'News', id: string } }> } | { __typename: 'PageBlocksStatsWithImage', title: string, subTitle?: string | null, description: any, image?: string | null, stats?: Array<{ __typename: 'PageBlocksStatsWithImageStats', title: string, subTitle?: string | null, description: any } | null> | null } | { __typename: 'PageBlocksHero', title: string, subTitle?: string | null, description: any, image?: string | null, action?: { __typename: 'PageBlocksHeroAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksSlideshow', items?: Array<{ __typename: 'PageBlocksSlideshowItems', title: string, subTitle?: string | null, description: any, action?: { __typename: 'PageBlocksSlideshowItemsAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null, overlay?: { __typename: 'PageBlocksSlideshowItemsOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | null> | null } | { __typename: 'PageBlocksComparisonTable', title: string, subTitle?: string | null, description: any, items?: Array<{ __typename: 'PageBlocksComparisonTableItems', title: string, subTitle?: string | null, description: any, bulletPoints?: Array<string | null> | null, meta?: Array<{ __typename: 'PageBlocksComparisonTableItemsMetaA', aOne?: string | null } | { __typename: 'PageBlocksComparisonTableItemsMetaB', bOne?: string | null } | null> | null } | null> | null, action?: { __typename: 'PageBlocksComparisonTableAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksFeature', title: string, subTitle?: string | null, description: any, featureStyle?: string | null, features: Array<{ __typename: 'PageBlocksFeatureFeatures', icon: string, name: string, description: any }>, overlay?: { __typename: 'PageBlocksFeatureOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | { __typename: 'PageBlocksFullScreenLogo', slogan?: string | null, link?: string | null, overlay?: { __typename: 'PageBlocksFullScreenLogoOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | { __typename: 'PageBlocksFullScreenHeader', title: string, subTitle?: string | null, description: any, action?: { __typename: 'PageBlocksFullScreenHeaderAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null, overlay?: { __typename: 'PageBlocksFullScreenHeaderOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | null> | null };
+
+export type LocaleInfoQueryVariables = Exact<{
+  relativePath: Scalars['String'];
+}>;
+
+
+export type LocaleInfoQuery = { __typename?: 'Query', localeInfo: { __typename?: 'LocaleInfo', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, au?: { __typename: 'LocaleInfoAu', tel?: string | null, signUpLink?: string | null, signUpLinkPersonal?: string | null, signInLink?: string | null } | null, us?: { __typename: 'LocaleInfoUs', tel?: string | null, signUpLink?: string | null, signUpLinkPersonal?: string | null, signInLink?: string | null } | null, gb?: { __typename: 'LocaleInfoGb', tel?: string | null, signUpLink?: string | null, signUpLinkPersonal?: string | null, signInLink?: string | null } | null } };
+
+export type LocaleInfoConnectionQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type LocaleInfoConnectionQuery = { __typename?: 'Query', localeInfoConnection: { __typename?: 'LocaleInfoConnection', totalCount: number, edges?: Array<{ __typename?: 'LocaleInfoConnectionEdges', node?: { __typename?: 'LocaleInfo', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, au?: { __typename: 'LocaleInfoAu', tel?: string | null, signUpLink?: string | null, signUpLinkPersonal?: string | null, signInLink?: string | null } | null, us?: { __typename: 'LocaleInfoUs', tel?: string | null, signUpLink?: string | null, signUpLinkPersonal?: string | null, signInLink?: string | null } | null, gb?: { __typename: 'LocaleInfoGb', tel?: string | null, signUpLink?: string | null, signUpLinkPersonal?: string | null, signInLink?: string | null } | null } | null } | null> | null } };
+
+export type NewsQueryVariables = Exact<{
+  relativePath: Scalars['String'];
+}>;
+
+
+export type NewsQuery = { __typename?: 'Query', news: { __typename?: 'News', id: string, title: string, subTitle?: string | null, image?: string | null, publishDate?: string | null, category?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+
+export type NewsConnectionQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type NewsConnectionQuery = { __typename?: 'Query', newsConnection: { __typename?: 'NewsConnection', totalCount: number, edges?: Array<{ __typename?: 'NewsConnectionEdges', node?: { __typename?: 'News', id: string, title: string, subTitle?: string | null, image?: string | null, publishDate?: string | null, category?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+
+export type FooterQueryVariables = Exact<{
+  relativePath: Scalars['String'];
+}>;
+
+
+export type FooterQuery = { __typename?: 'Query', footer: { __typename?: 'Footer', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, offices?: Array<{ __typename: 'FooterOffices', location: string, address: string, phone: string } | null> | null, disclaimers?: Array<{ __typename: 'FooterDisclaimers', body?: any | null } | null> | null } };
+
+export type FooterConnectionQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type FooterConnectionQuery = { __typename?: 'Query', footerConnection: { __typename?: 'FooterConnection', totalCount: number, edges?: Array<{ __typename?: 'FooterConnectionEdges', node?: { __typename?: 'Footer', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, offices?: Array<{ __typename: 'FooterOffices', location: string, address: string, phone: string } | null> | null, disclaimers?: Array<{ __typename: 'FooterDisclaimers', body?: any | null } | null> | null } | null } | null> | null } };
+
+export type ThemeQueryVariables = Exact<{
+  relativePath: Scalars['String'];
+}>;
+
+
+export type ThemeQuery = { __typename?: 'Query', theme: { __typename?: 'Theme', id: string, displayFont?: string | null, colorMode?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+
+export type ThemeConnectionQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ThemeConnectionQuery = { __typename?: 'Query', themeConnection: { __typename?: 'ThemeConnection', totalCount: number, edges?: Array<{ __typename?: 'ThemeConnectionEdges', node?: { __typename?: 'Theme', id: string, displayFont?: string | null, colorMode?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+
+export type NavigationQueryVariables = Exact<{
+  relativePath: Scalars['String'];
+}>;
+
+
+export type NavigationQuery = { __typename?: 'Query', navigation: { __typename?: 'Navigation', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, items?: Array<{ __typename: 'NavigationItems', page?: { __typename?: 'Page', id: string } | null } | null> | null } };
+
+export type NavigationConnectionQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type NavigationConnectionQuery = { __typename?: 'Query', navigationConnection: { __typename?: 'NavigationConnection', totalCount: number, edges?: Array<{ __typename?: 'NavigationConnectionEdges', node?: { __typename?: 'Navigation', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, items?: Array<{ __typename: 'NavigationItems', page?: { __typename?: 'Page', id: string } | null } | null> | null } | null } | null> | null } };
+
+export type PageQueryVariables = Exact<{
+  relativePath: Scalars['String'];
+}>;
+
+
+export type PageQuery = { __typename?: 'Query', page: { __typename?: 'Page', id: string, title: string, link: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, seo?: { __typename: 'PageSeo', title?: string | null, image?: string | null, description: string } | null, blocks?: Array<{ __typename: 'PageBlocksNews', title: string, subTitle?: string | null, description: any, newsItems: Array<{ __typename: 'PageBlocksNewsNewsItems', article: { __typename?: 'News', id: string } }> } | { __typename: 'PageBlocksStatsWithImage', title: string, subTitle?: string | null, description: any, image?: string | null, stats?: Array<{ __typename: 'PageBlocksStatsWithImageStats', title: string, subTitle?: string | null, description: any } | null> | null } | { __typename: 'PageBlocksHero', title: string, subTitle?: string | null, description: any, image?: string | null, action?: { __typename: 'PageBlocksHeroAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksSlideshow', items?: Array<{ __typename: 'PageBlocksSlideshowItems', title: string, subTitle?: string | null, description: any, action?: { __typename: 'PageBlocksSlideshowItemsAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null, overlay?: { __typename: 'PageBlocksSlideshowItemsOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | null> | null } | { __typename: 'PageBlocksComparisonTable', title: string, subTitle?: string | null, description: any, items?: Array<{ __typename: 'PageBlocksComparisonTableItems', title: string, subTitle?: string | null, description: any, bulletPoints?: Array<string | null> | null, meta?: Array<{ __typename: 'PageBlocksComparisonTableItemsMetaA', aOne?: string | null } | { __typename: 'PageBlocksComparisonTableItemsMetaB', bOne?: string | null } | null> | null } | null> | null, action?: { __typename: 'PageBlocksComparisonTableAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksFeature', title: string, subTitle?: string | null, description: any, featureStyle?: string | null, features: Array<{ __typename: 'PageBlocksFeatureFeatures', icon: string, name: string, description: any }>, overlay?: { __typename: 'PageBlocksFeatureOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | { __typename: 'PageBlocksFullScreenLogo', slogan?: string | null, link?: string | null, overlay?: { __typename: 'PageBlocksFullScreenLogoOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | { __typename: 'PageBlocksFullScreenHeader', title: string, subTitle?: string | null, description: any, action?: { __typename: 'PageBlocksFullScreenHeaderAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null, overlay?: { __typename: 'PageBlocksFullScreenHeaderOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | null> | null } };
+
+export type PageConnectionQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type PageConnectionQuery = { __typename?: 'Query', pageConnection: { __typename?: 'PageConnection', totalCount: number, edges?: Array<{ __typename?: 'PageConnectionEdges', node?: { __typename?: 'Page', id: string, title: string, link: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, seo?: { __typename: 'PageSeo', title?: string | null, image?: string | null, description: string } | null, blocks?: Array<{ __typename: 'PageBlocksNews', title: string, subTitle?: string | null, description: any, newsItems: Array<{ __typename: 'PageBlocksNewsNewsItems', article: { __typename?: 'News', id: string } }> } | { __typename: 'PageBlocksStatsWithImage', title: string, subTitle?: string | null, description: any, image?: string | null, stats?: Array<{ __typename: 'PageBlocksStatsWithImageStats', title: string, subTitle?: string | null, description: any } | null> | null } | { __typename: 'PageBlocksHero', title: string, subTitle?: string | null, description: any, image?: string | null, action?: { __typename: 'PageBlocksHeroAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksSlideshow', items?: Array<{ __typename: 'PageBlocksSlideshowItems', title: string, subTitle?: string | null, description: any, action?: { __typename: 'PageBlocksSlideshowItemsAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null, overlay?: { __typename: 'PageBlocksSlideshowItemsOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | null> | null } | { __typename: 'PageBlocksComparisonTable', title: string, subTitle?: string | null, description: any, items?: Array<{ __typename: 'PageBlocksComparisonTableItems', title: string, subTitle?: string | null, description: any, bulletPoints?: Array<string | null> | null, meta?: Array<{ __typename: 'PageBlocksComparisonTableItemsMetaA', aOne?: string | null } | { __typename: 'PageBlocksComparisonTableItemsMetaB', bOne?: string | null } | null> | null } | null> | null, action?: { __typename: 'PageBlocksComparisonTableAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksFeature', title: string, subTitle?: string | null, description: any, featureStyle?: string | null, features: Array<{ __typename: 'PageBlocksFeatureFeatures', icon: string, name: string, description: any }>, overlay?: { __typename: 'PageBlocksFeatureOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | { __typename: 'PageBlocksFullScreenLogo', slogan?: string | null, link?: string | null, overlay?: { __typename: 'PageBlocksFullScreenLogoOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | { __typename: 'PageBlocksFullScreenHeader', title: string, subTitle?: string | null, description: any, action?: { __typename: 'PageBlocksFullScreenHeaderAction', callToAction?: string | null, linkText?: string | null, link?: string | null, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null, overlay?: { __typename: 'PageBlocksFullScreenHeaderOverlay', image?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | null } | null> | null } | null } | null> | null } };
+
+export const LocaleInfoPartsFragmentDoc = gql`
+    fragment LocaleInfoParts on LocaleInfo {
+  au {
+    __typename
+    tel
+    signUpLink
+    signUpLinkPersonal
+    signInLink
+  }
+  us {
+    __typename
+    tel
+    signUpLink
+    signUpLinkPersonal
+    signInLink
+  }
+  gb {
+    __typename
+    tel
+    signUpLink
+    signUpLinkPersonal
+    signInLink
+  }
+}
+    `;
+export const NewsPartsFragmentDoc = gql`
+    fragment NewsParts on News {
+  title
+  subTitle
+  image
+  publishDate
+  category
+  body
+}
+    `;
+export const FooterPartsFragmentDoc = gql`
+    fragment FooterParts on Footer {
+  offices {
+    __typename
+    location
+    address
+    phone
+  }
+  disclaimers {
+    __typename
+    body
+  }
+}
+    `;
+export const ThemePartsFragmentDoc = gql`
+    fragment ThemeParts on Theme {
+  displayFont
+  colorMode
+}
+    `;
+export const NavigationPartsFragmentDoc = gql`
+    fragment NavigationParts on Navigation {
+  items {
+    __typename
+    page {
+      ... on Document {
+        id
+      }
+    }
+  }
+}
+    `;
+export const PagePartsFragmentDoc = gql`
+    fragment PageParts on Page {
+  title
+  link
+  seo {
+    __typename
+    title
+    image
+    description
+  }
+  blocks {
+    __typename
+    ... on PageBlocksNews {
+      title
+      subTitle
+      description
+      newsItems {
+        __typename
+        article {
+          ... on Document {
+            id
+          }
+        }
+      }
+    }
+    ... on PageBlocksStatsWithImage {
+      title
+      subTitle
+      description
+      image
+      stats {
+        __typename
+        title
+        subTitle
+        description
+      }
+    }
+    ... on PageBlocksHero {
+      title
+      subTitle
+      description
+      image
+      action {
+        __typename
+        callToAction
+        linkText
+        link
+        linkOverride
+        secondaryText
+        secondaryLink
+        secondaryLinkOverride
+      }
+    }
+    ... on PageBlocksSlideshow {
+      items {
+        __typename
+        title
+        subTitle
+        description
+        action {
+          __typename
+          callToAction
+          linkText
+          link
+          linkOverride
+          secondaryText
+          secondaryLink
+          secondaryLinkOverride
+        }
+        overlay {
+          __typename
+          image
+          overlayColor
+          overlayOpacity
+        }
+      }
+    }
+    ... on PageBlocksComparisonTable {
+      title
+      subTitle
+      description
+      items {
+        __typename
+        title
+        subTitle
+        description
+        bulletPoints
+        meta {
+          __typename
+          ... on PageBlocksComparisonTableItemsMetaA {
+            aOne
+          }
+          ... on PageBlocksComparisonTableItemsMetaB {
+            bOne
+          }
+        }
+      }
+      action {
+        __typename
+        callToAction
+        linkText
+        link
+        linkOverride
+        secondaryText
+        secondaryLink
+        secondaryLinkOverride
+      }
+    }
+    ... on PageBlocksFeature {
+      title
+      subTitle
+      description
+      featureStyle
+      features {
+        __typename
+        icon
+        name
+        description
+      }
+      overlay {
+        __typename
+        image
+        overlayColor
+        overlayOpacity
+      }
+    }
+    ... on PageBlocksFullScreenLogo {
+      slogan
+      link
+      overlay {
+        __typename
+        image
+        overlayColor
+        overlayOpacity
+      }
+    }
+    ... on PageBlocksFullScreenHeader {
+      title
+      subTitle
+      description
+      action {
+        __typename
+        callToAction
+        linkText
+        link
+        linkOverride
+        secondaryText
+        secondaryLink
+        secondaryLinkOverride
+      }
+      overlay {
+        __typename
+        image
+        overlayColor
+        overlayOpacity
+      }
+    }
+  }
+}
+    `;
+export const LocaleInfoDocument = gql`
+    query localeInfo($relativePath: String!) {
+  localeInfo(relativePath: $relativePath) {
+    _sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    ...LocaleInfoParts
+  }
+}
+    ${LocaleInfoPartsFragmentDoc}`;
+export const LocaleInfoConnectionDocument = gql`
+    query localeInfoConnection {
+  localeInfoConnection {
+    totalCount
+    edges {
+      node {
+        id
+        _sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        ...LocaleInfoParts
+      }
+    }
+  }
+}
+    ${LocaleInfoPartsFragmentDoc}`;
+export const NewsDocument = gql`
+    query news($relativePath: String!) {
+  news(relativePath: $relativePath) {
+    _sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    ...NewsParts
+  }
+}
+    ${NewsPartsFragmentDoc}`;
+export const NewsConnectionDocument = gql`
+    query newsConnection {
+  newsConnection {
+    totalCount
+    edges {
+      node {
+        id
+        _sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        ...NewsParts
+      }
+    }
+  }
+}
+    ${NewsPartsFragmentDoc}`;
+export const FooterDocument = gql`
+    query footer($relativePath: String!) {
+  footer(relativePath: $relativePath) {
+    _sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    ...FooterParts
+  }
+}
+    ${FooterPartsFragmentDoc}`;
+export const FooterConnectionDocument = gql`
+    query footerConnection {
+  footerConnection {
+    totalCount
+    edges {
+      node {
+        id
+        _sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        ...FooterParts
+      }
+    }
+  }
+}
+    ${FooterPartsFragmentDoc}`;
+export const ThemeDocument = gql`
+    query theme($relativePath: String!) {
+  theme(relativePath: $relativePath) {
+    _sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    ...ThemeParts
+  }
+}
+    ${ThemePartsFragmentDoc}`;
+export const ThemeConnectionDocument = gql`
+    query themeConnection {
+  themeConnection {
+    totalCount
+    edges {
+      node {
+        id
+        _sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        ...ThemeParts
+      }
+    }
+  }
+}
+    ${ThemePartsFragmentDoc}`;
+export const NavigationDocument = gql`
+    query navigation($relativePath: String!) {
+  navigation(relativePath: $relativePath) {
+    _sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    ...NavigationParts
+  }
+}
+    ${NavigationPartsFragmentDoc}`;
+export const NavigationConnectionDocument = gql`
+    query navigationConnection {
+  navigationConnection {
+    totalCount
+    edges {
+      node {
+        id
+        _sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        ...NavigationParts
+      }
+    }
+  }
+}
+    ${NavigationPartsFragmentDoc}`;
+export const PageDocument = gql`
+    query page($relativePath: String!) {
+  page(relativePath: $relativePath) {
+    _sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    ...PageParts
+  }
+}
+    ${PagePartsFragmentDoc}`;
+export const PageConnectionDocument = gql`
+    query pageConnection {
+  pageConnection {
+    totalCount
+    edges {
+      node {
+        id
+        _sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        ...PageParts
+      }
+    }
+  }
+}
+    ${PagePartsFragmentDoc}`;
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
-  
+      localeInfo(variables: LocaleInfoQueryVariables, options?: C): Promise<{data: LocaleInfoQuery, variables: LocaleInfoQueryVariables, query: string}> {
+        return requester<{data: LocaleInfoQuery, variables: LocaleInfoQueryVariables, query: string}, LocaleInfoQueryVariables>(LocaleInfoDocument, variables, options);
+      },
+    localeInfoConnection(variables?: LocaleInfoConnectionQueryVariables, options?: C): Promise<{data: LocaleInfoConnectionQuery, variables: LocaleInfoConnectionQueryVariables, query: string}> {
+        return requester<{data: LocaleInfoConnectionQuery, variables: LocaleInfoConnectionQueryVariables, query: string}, LocaleInfoConnectionQueryVariables>(LocaleInfoConnectionDocument, variables, options);
+      },
+    news(variables: NewsQueryVariables, options?: C): Promise<{data: NewsQuery, variables: NewsQueryVariables, query: string}> {
+        return requester<{data: NewsQuery, variables: NewsQueryVariables, query: string}, NewsQueryVariables>(NewsDocument, variables, options);
+      },
+    newsConnection(variables?: NewsConnectionQueryVariables, options?: C): Promise<{data: NewsConnectionQuery, variables: NewsConnectionQueryVariables, query: string}> {
+        return requester<{data: NewsConnectionQuery, variables: NewsConnectionQueryVariables, query: string}, NewsConnectionQueryVariables>(NewsConnectionDocument, variables, options);
+      },
+    footer(variables: FooterQueryVariables, options?: C): Promise<{data: FooterQuery, variables: FooterQueryVariables, query: string}> {
+        return requester<{data: FooterQuery, variables: FooterQueryVariables, query: string}, FooterQueryVariables>(FooterDocument, variables, options);
+      },
+    footerConnection(variables?: FooterConnectionQueryVariables, options?: C): Promise<{data: FooterConnectionQuery, variables: FooterConnectionQueryVariables, query: string}> {
+        return requester<{data: FooterConnectionQuery, variables: FooterConnectionQueryVariables, query: string}, FooterConnectionQueryVariables>(FooterConnectionDocument, variables, options);
+      },
+    theme(variables: ThemeQueryVariables, options?: C): Promise<{data: ThemeQuery, variables: ThemeQueryVariables, query: string}> {
+        return requester<{data: ThemeQuery, variables: ThemeQueryVariables, query: string}, ThemeQueryVariables>(ThemeDocument, variables, options);
+      },
+    themeConnection(variables?: ThemeConnectionQueryVariables, options?: C): Promise<{data: ThemeConnectionQuery, variables: ThemeConnectionQueryVariables, query: string}> {
+        return requester<{data: ThemeConnectionQuery, variables: ThemeConnectionQueryVariables, query: string}, ThemeConnectionQueryVariables>(ThemeConnectionDocument, variables, options);
+      },
+    navigation(variables: NavigationQueryVariables, options?: C): Promise<{data: NavigationQuery, variables: NavigationQueryVariables, query: string}> {
+        return requester<{data: NavigationQuery, variables: NavigationQueryVariables, query: string}, NavigationQueryVariables>(NavigationDocument, variables, options);
+      },
+    navigationConnection(variables?: NavigationConnectionQueryVariables, options?: C): Promise<{data: NavigationConnectionQuery, variables: NavigationConnectionQueryVariables, query: string}> {
+        return requester<{data: NavigationConnectionQuery, variables: NavigationConnectionQueryVariables, query: string}, NavigationConnectionQueryVariables>(NavigationConnectionDocument, variables, options);
+      },
+    page(variables: PageQueryVariables, options?: C): Promise<{data: PageQuery, variables: PageQueryVariables, query: string}> {
+        return requester<{data: PageQuery, variables: PageQueryVariables, query: string}, PageQueryVariables>(PageDocument, variables, options);
+      },
+    pageConnection(variables?: PageConnectionQueryVariables, options?: C): Promise<{data: PageConnectionQuery, variables: PageConnectionQueryVariables, query: string}> {
+        return requester<{data: PageConnectionQuery, variables: PageConnectionQueryVariables, query: string}, PageConnectionQueryVariables>(PageConnectionDocument, variables, options);
+      }
     };
   }
   export type Sdk = ReturnType<typeof getSdk>;

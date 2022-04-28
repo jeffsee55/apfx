@@ -1,69 +1,69 @@
-import { Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react'
-import { MenuIcon, XIcon } from '@heroicons/react/outline'
-import Link from 'next/link'
-import { useLocaleInfo } from './locale-info'
-import { useRouter } from 'next/router'
-import { CountrySelector, CountrySelector2 } from './footer'
-import type { TinaTemplate, TinaCollection } from 'tinacms'
-import { Selector } from '../zeus'
-import { Response } from './util'
+import { Fragment } from "react";
+import { Popover, Transition } from "@headlessui/react";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import Link from "next/link";
+import { useLocaleInfo } from "./locale-info";
+import { useRouter } from "next/router";
+import { CountrySelector, CountrySelector2 } from "./footer";
+import type { TinaTemplate, TinaCollection } from "tinacms";
+import { Selector } from "../zeus";
+import { Response } from "./util";
 
 export const navTemplate = (): TinaCollection => {
   return {
-    label: 'Navigation',
-    name: 'navigation',
-    path: 'content/navigation',
+    label: "Navigation",
+    name: "navigation",
+    path: "content/navigation",
     fields: [
       {
-        label: 'Items',
-        name: 'items',
+        label: "Items",
+        name: "items",
         // @ts-ignore
-        required: true,
-        type: 'object',
+        // required: true,
+        type: "object",
         list: true,
         ui: {
           itemProps: (item) => {
             if (item) {
-              return { label: item.page }
+              return { label: item.page };
             }
           },
         },
         fields: [
           {
-            label: 'Page',
-            name: 'page',
-            type: 'reference',
-            collections: ['page'],
+            label: "Page",
+            name: "page",
+            type: "reference",
+            collections: ["page"],
           },
         ],
       },
     ],
-  }
-}
+  };
+};
 
-export const navQuery = Selector('Navigation')({
+export const navQuery = Selector("Navigation")({
   items: {
     page: {
-      '...on Page': {
+      "...on Page": {
         title: true,
         link: true,
       },
     },
   },
-})
+});
 
-type NavProps = Response<'Navigation', typeof navQuery>
+type NavProps = Response<"Navigation", typeof navQuery>;
 
 export const Nav = (props: NavProps) => {
-  const localeInfo = useLocaleInfo()
-  const { asPath } = useRouter()
+  const localeInfo = useLocaleInfo();
+  const { asPath } = useRouter();
   const signUpLink =
-    asPath === '/personal'
+    asPath === "/personal"
       ? localeInfo.signUpLinkPersonal
         ? localeInfo.signUpLinkPersonal
         : localeInfo.signUpLink
-      : localeInfo.signUpLink
+      : localeInfo.signUpLink;
   return (
     <div className="absolute top-0 left-0 right-0 z-50">
       <div className="relative py-6 sm:py-8">
@@ -169,7 +169,7 @@ export const Nav = (props: NavProps) => {
                         Sign up
                       </a>
                       <p className="mt-6 text-center text-base font-medium text-gray-100">
-                        Existing customer?{' '}
+                        Existing customer?{" "}
                         <a
                           href={localeInfo.signInLink}
                           className="text-gray-200 hover:text-gray-300"
@@ -186,16 +186,16 @@ export const Nav = (props: NavProps) => {
         </Popover>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export const Logo = (props: {
-  variant?: 'light' | 'dark'
-  classNames: string
+  variant?: "light" | "dark";
+  classNames: string;
 }) => {
-  const variant = props.variant || 'light'
-  const gray = variant === 'light' ? 'currentColor' : '#293C76'
-  const brand = variant === 'light' ? 'currentColor' : '#838383'
+  const variant = props.variant || "light";
+  const gray = variant === "light" ? "currentColor" : "#293C76";
+  const brand = variant === "light" ? "currentColor" : "#838383";
   return (
     <svg
       className={`${props.classNames} text-white w-24 lg:w-32`}
@@ -228,13 +228,13 @@ export const Logo = (props: {
         fill={brand}
       />
     </svg>
-  )
-}
+  );
+};
 
 export const LogoJumbo = (props: { variant?: string; classNames?: string }) => {
-  const variant = props.variant === 'dark' ? 'dark' : 'light'
-  const gray = variant === 'light' ? 'currentColor' : '#293C76'
-  const brand = variant === 'light' ? 'currentColor' : '#1e293b'
+  const variant = props.variant === "dark" ? "dark" : "light";
+  const gray = variant === "light" ? "currentColor" : "#293C76";
+  const brand = variant === "light" ? "currentColor" : "#1e293b";
   return (
     <svg
       className={`${props.classNames} w-96 text-white`}
@@ -267,5 +267,5 @@ export const LogoJumbo = (props: { variant?: string; classNames?: string }) => {
         fill={brand}
       />
     </svg>
-  )
-}
+  );
+};
