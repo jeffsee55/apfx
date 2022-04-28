@@ -1,45 +1,54 @@
-// import "tailwindcss/tailwind.css";
-// import "../styles/main.css";
-import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import { TinaEditProvider } from "tinacms/dist/edit-state";
 import { Theme } from "../components/theme";
 import React from "react";
 import { LocaleContext } from "../components/locale-info";
 import Head from "next/head";
-const Tina = dynamic(() => import("../components/tina"), { ssr: false });
+import { useTina } from "tinacms/dist/edit-state";
+import Tina from "../.tina/components/TinaDynamicProvider";
 
-function MyApp({ Component, pageProps }) {
+const App = (props) => {
+  const { pathname } = useRouter();
+  if (pathname.includes("admin")) {
+    return (
+      <Tina>
+        <props.Component {...props.pageProps} />
+      </Tina>
+    );
+  }
   return (
-    <>
-      <TinaEditProvider
-        showEditButton={false}
-        editMode={
-          <Tina pageProps={pageProps}>
-            <Page pageProps={pageProps} Component={Component} />
-          </Tina>
-        }
-      >
-        <Page pageProps={pageProps} Component={Component} />
-      </TinaEditProvider>
-    </>
+    <Tina>
+      <Page {...props} />
+    </Tina>
   );
-}
+};
 
 const Page = ({ pageProps, Component }) => {
-  const router = useRouter();
-  const theme = pageProps.data?.getThemeDocument?.dataJSON;
+  const { locale } = useRouter();
+  const props = useTina(pageProps);
+  const theme = pageProps.data?.theme?._values;
   const currentLocaleInfo =
-    pageProps.data?.getLocaleInfoDocument?.dataJSON[
-      router.locale.replace("en-", "") || "au"
-    ] || {};
+    pageProps?.data?.localeInfo[locale.replace("en-", "") || "au"] || {};
+
+  const [isBrowser, setIsBrowser] = React.useState(false);
+  React.useEffect(() => {
+    setIsBrowser(true);
+  });
+
   return (
     <LocaleContext.Provider value={currentLocaleInfo}>
       <Head>
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       {theme && <Theme theme={theme} />}
-      <Component {...pageProps} />
+      {isBrowser && <ThirdParty />}
+      <Component {...props} />
+    </LocaleContext.Provider>
+  );
+};
+
+const ThirdParty = () => {
+  return (
+    <>
       <script
         type="text/javascript"
         id="hs-script-loader"
@@ -70,8 +79,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);`}
           src="https://px.ads.linkedin.com/collect/?pid=3408244&fmt=gif"
         />
       </noscript> */}
-    </LocaleContext.Provider>
+    </>
   );
 };
 
-export default MyApp;
+export default App;

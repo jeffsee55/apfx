@@ -1,6 +1,6 @@
-query getLocaleInfoDocument($relativePath: String!) {
-  getLocaleInfoDocument(relativePath: $relativePath) {
-    sys {
+query localeInfo($relativePath: String!) {
+  localeInfo(relativePath: $relativePath) {
+    _sys {
       filename
       basename
       breadcrumbs
@@ -9,19 +9,17 @@ query getLocaleInfoDocument($relativePath: String!) {
       extension
     }
     id
-    data {
-      ...LocaleInfoParts
-    }
+    ...LocaleInfoParts
   }
 }
 
-query getLocaleInfoList {
-  getLocaleInfoList {
+query localeInfoConnection {
+  localeInfoConnection {
     totalCount
     edges {
       node {
         id
-        sys {
+        _sys {
           filename
           basename
           breadcrumbs
@@ -29,17 +27,15 @@ query getLocaleInfoList {
           relativePath
           extension
         }
-        data {
-          ...LocaleInfoParts
-        }
+        ...LocaleInfoParts
       }
     }
   }
 }
 
-query getNewsDocument($relativePath: String!) {
-  getNewsDocument(relativePath: $relativePath) {
-    sys {
+query news($relativePath: String!) {
+  news(relativePath: $relativePath) {
+    _sys {
       filename
       basename
       breadcrumbs
@@ -48,19 +44,17 @@ query getNewsDocument($relativePath: String!) {
       extension
     }
     id
-    data {
-      ...NewsParts
-    }
+    ...NewsParts
   }
 }
 
-query getNewsList {
-  getNewsList {
+query newsConnection {
+  newsConnection {
     totalCount
     edges {
       node {
         id
-        sys {
+        _sys {
           filename
           basename
           breadcrumbs
@@ -68,17 +62,15 @@ query getNewsList {
           relativePath
           extension
         }
-        data {
-          ...NewsParts
-        }
+        ...NewsParts
       }
     }
   }
 }
 
-query getFooterDocument($relativePath: String!) {
-  getFooterDocument(relativePath: $relativePath) {
-    sys {
+query footer($relativePath: String!) {
+  footer(relativePath: $relativePath) {
+    _sys {
       filename
       basename
       breadcrumbs
@@ -87,19 +79,17 @@ query getFooterDocument($relativePath: String!) {
       extension
     }
     id
-    data {
-      ...FooterParts
-    }
+    ...FooterParts
   }
 }
 
-query getFooterList {
-  getFooterList {
+query footerConnection {
+  footerConnection {
     totalCount
     edges {
       node {
         id
-        sys {
+        _sys {
           filename
           basename
           breadcrumbs
@@ -107,17 +97,15 @@ query getFooterList {
           relativePath
           extension
         }
-        data {
-          ...FooterParts
-        }
+        ...FooterParts
       }
     }
   }
 }
 
-query getThemeDocument($relativePath: String!) {
-  getThemeDocument(relativePath: $relativePath) {
-    sys {
+query theme($relativePath: String!) {
+  theme(relativePath: $relativePath) {
+    _sys {
       filename
       basename
       breadcrumbs
@@ -126,19 +114,17 @@ query getThemeDocument($relativePath: String!) {
       extension
     }
     id
-    data {
-      ...ThemeParts
-    }
+    ...ThemeParts
   }
 }
 
-query getThemeList {
-  getThemeList {
+query themeConnection {
+  themeConnection {
     totalCount
     edges {
       node {
         id
-        sys {
+        _sys {
           filename
           basename
           breadcrumbs
@@ -146,17 +132,15 @@ query getThemeList {
           relativePath
           extension
         }
-        data {
-          ...ThemeParts
-        }
+        ...ThemeParts
       }
     }
   }
 }
 
-query getNavigationDocument($relativePath: String!) {
-  getNavigationDocument(relativePath: $relativePath) {
-    sys {
+query navigation($relativePath: String!) {
+  navigation(relativePath: $relativePath) {
+    _sys {
       filename
       basename
       breadcrumbs
@@ -165,19 +149,17 @@ query getNavigationDocument($relativePath: String!) {
       extension
     }
     id
-    data {
-      ...NavigationParts
-    }
+    ...NavigationParts
   }
 }
 
-query getNavigationList {
-  getNavigationList {
+query navigationConnection {
+  navigationConnection {
     totalCount
     edges {
       node {
         id
-        sys {
+        _sys {
           filename
           basename
           breadcrumbs
@@ -185,17 +167,15 @@ query getNavigationList {
           relativePath
           extension
         }
-        data {
-          ...NavigationParts
-        }
+        ...NavigationParts
       }
     }
   }
 }
 
-query getPageDocument($relativePath: String!) {
-  getPageDocument(relativePath: $relativePath) {
-    sys {
+query page($relativePath: String!) {
+  page(relativePath: $relativePath) {
+    _sys {
       filename
       basename
       breadcrumbs
@@ -204,19 +184,17 @@ query getPageDocument($relativePath: String!) {
       extension
     }
     id
-    data {
-      ...PageParts
-    }
+    ...PageParts
   }
 }
 
-query getPageList {
-  getPageList {
+query pageConnection {
+  pageConnection {
     totalCount
     edges {
       node {
         id
-        sys {
+        _sys {
           filename
           basename
           breadcrumbs
@@ -224,9 +202,7 @@ query getPageList {
           relativePath
           extension
         }
-        data {
-          ...PageParts
-        }
+        ...PageParts
       }
     }
   }

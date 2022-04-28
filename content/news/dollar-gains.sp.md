@@ -1,35 +1,18 @@
 ---
 title: Skyrocketing energy prices buoy oil exporting currencies
 subTitle: Markets
-description: ''
 image: >-
   https://images.unsplash.com/photo-1539186607619-df476afe6ff1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3270&q=80
+publishDate: '2022-03-26T18:25:28.208Z'
+category: markets
 ---
 
+Bank beating FX rates, intuitive mulit-currency online platform and superior customer support for individuals Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut diam velit, tempus vitae diam ut, aliquam tempus nisl. Nullam eget libero a risus aliquam ullamcorper sit amet vitae ipsum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc mauris nulla, blandit quis nisi ut, pharetra vulputate felis. Donec quis blandit diam, id accumsan augue. Aenean lectus libero, scelerisque ac sapien nec, sodales dictum erat. Maecenas eget nibh felis. Pellentesque sagittis massa et quam vestibulum interdum at quis felis.
+Maecenas sagittis tortor in lacus interdum, ut tristique lectus accumsan. Integer in vestibulum libero. Integer eu cursus sapien, et cursus lectus. In hac habitasse platea dictumst. Aliquam vel ligula lacus. Nam a lectus in elit tempus sagittis et id diam. Phasellus sit amet libero scelerisque, faucibus elit ut, dignissim nibh. Vivamus id ex est. Nunc ut blandit sem.
+Sed iaculis enim et tortor mattis ultrices. Sed et diam ut odio pharetra molestie at eget massa. Etiam vel blandit libero. Nullam non elementum neque, eget suscipit nulla. Etiam suscipit, sapien ut dignissim condimentum, metus tortor tristique quam, in hendrerit metus libero nec purus. Suspendisse non ipsum est. Vivamus dapibus justo id arcu hendrerit iaculis. Pellentesque nunc enim, ultrices et neque at, aliquam pretium augue.
+Duis ultricies, arcu quis eleifend consectetur, est purus tincidunt sem, feugiat auctor nisl quam quis enim. Ut viverra hendrerit sem, id egestas massa vestibulum a. Praesent aliquet efficitur posuere. Suspendisse laoreet, odio sed pretium consequat, turpis nibh posuere urna, a vehicula sapien tortor quis tortor. Aliquam erat volutpat. Duis id ligula vitae nisi sodales blandit quis vitae eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc egestas sapien in ante ornare tempor eu id elit.
+Fusce vel lorem nec augue luctus congue ac eu nisi. Praesent vel lectus gravida, tincidunt lectus a, auctor leo. Integer consectetur placerat ligula nec consequat. Cras lacinia,&#x20;
 
+ex nec dignissim rhoncus, velit tellus placerat nisl, at consequat urna leo id&#x20;
 
-In a week when markets mostly marked time waiting for this week’s Federal Reserve September meeting, the main news was the relentless rise in energy prices, even as inflation data for August in the US came slightly softer than expected, and Eurozone inflation was confirmed at a 10-year high.
-
-The general tone in financial news is that of growing worries that **inflationary pressures** may not be wholly transitory, and that bottlenecks, shortages and price hikes are here to stay, fuelled by extraordinarily stimulative fiscal and monetary conditions. The biggest winners last week were again the currencies of commodity exporting countries: **the Norwegian kroner, Russian ruble, and the Chilean peso**.
-
-A side event to the **Fed meeting** that warrants attention is the developments around the troubled Chinese property developer Evergrande. For now, the impact on the yuan has been minimal, though some of the Pacific currencies more exposed to Chinese trade have suffered.
-
-**Central banks** take front and center this week. Of course, the main event will be the Federal Reserve meeting on Wednesday. However, the **Bank of England** on Thursday will also provide for volatility, as will the meetings of the Norwegian, Swedish, Swiss and Japanese central banks.
-
-### **GBP**
-
-Yet another strong **inflation report out of the UK**, together with encouraging employment data, saw traders bring forward their expectations for Bank of England hikes. However, even after this adjustment there is no hike priced in until the summer of 2022, and we wonder if the relentless upward pressure on prices will bring forward expectations for hikes into Q1 next year.
-
-The **Bank of England meeting on Thursday** will be key in this regard. Market expectations about the meeting are too relaxed, and we would not be surprised to see more dissenters join Michael Saunders in calling for an immediate reduction in QE purchases, which would provide solid support for the pound.
-
-### **EUR**
-
-**Skyrocketing gas prices in Europe** and the resulting hike in energy costs for consumers and producers throughout the Eurozone seem to have blindsided the ECB. Signs are emerging that some within the central bank are uneasy with its forecasts of below target inflation as far as the eye can see, and that market expectations of no hikes until at least 2025 may be too dovish.
-
-At any rate, we expect these disagreements and inflation data to remain the main drivers of euro trading for the foreseeable future. Market views of future ECB policy are so dovish that the risk is clearly toward an earlier than expected tightening of monetary policy, which would be positive for the common currency. Meanwhile, the **German federal election on Sunday** will be closely monitored by investors, although we think that the actual impact on the euro will be rather limited.
-
-### **USD**
-
-**Inflation in August** remained very high, though the headline and core numbers were slightly softer than expected. There were signs that the spikes in inflation are spreading from pandemic-related shortages such as used cars to more persistent areas such as housing. Regardless, markets did not seem reassured by the inflation numbers and sent Treasury yields higher for the week.
-
-The above provides an interesting backdrop for the [September FOMC meeting on Wednesday](https://ebury.com/e-blog/blog/ebury_post/fomc-september-meeting-preview-will-the-fed-announce-a-qe-taper/). We think the doves will carry the day for now, and no taper will be announced at this meeting. However, the hawks are likely to express their rising dissent in the “dot plot” where each member records their expectations for rates in successive years. We are likely to see quite a few outliers expecting hikes much sooner than the market, though the dollar’s reaction will be anyone’s guess.
+sapien. Pellentesque sollicitudin viverra tellus, vitae molestie nibh consectetur id. Nulla vehicula fermentum diam cursus egestas. Quisque efficitur nisi ut ante volutpat semper.

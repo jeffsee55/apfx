@@ -1,7 +1,9 @@
-import Page, { getStaticProps as baseGetStaticProps } from "../components/page";
+import Page, {
+  getStaticProps as baseGetStaticProps,
+} from '../components/blocks'
 
-export default Page;
+export default Page
 
 export const getStaticProps = () => {
-  return baseGetStaticProps({ relativePath: "home.md" });
-};
+  return baseGetStaticProps({ relativePath: 'home.md' })
+}

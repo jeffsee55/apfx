@@ -1,175 +1,103 @@
-import Head from "next/head";
-import { Chain, Zeus } from "../../zeus";
-import { News } from "../../components/news";
-import { Nav } from "../../components/nav";
-import { Footer } from "../../components/footer";
+import Head from 'next/head'
+import { Chain, Zeus } from '../../zeus'
+import { News } from '../../components/news'
+import { Nav, navQuery } from '../../components/nav'
+import { Footer, footerQuery } from '../../components/footer'
+import { request } from '../../components/blocks'
+import { localeQuery } from '../../components/locale-info'
 
 type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (
   ...args: any
 ) => Promise<infer R>
   ? R
-  : any;
-type HomeProps = AsyncReturnType<typeof getStaticProps>["props"];
+  : any
+type HomeProps = AsyncReturnType<typeof getStaticProps>['props']
 
 export default function Home(props: HomeProps) {
-  if (!props.data) {
-    return <div>No data</div>;
+  if (!props.data.news) {
+    return null
   }
   return (
     <>
       <Head>
-        <title>{props.data.getNewsDocument.data.title}</title>
-        <meta
-          property="og:title"
-          content={props.data.getNewsDocument.data.title}
-        />
-        <meta name="description" property="og:description" content={""} />
-        <meta
-          property="og:image"
-          content={props.data.getNewsDocument.data.image}
-        />
+        <title>{props.data.news.title}</title>
+        <meta property="og:title" content={props.data.news.title} />
+        <meta name="description" property="og:description" content={''} />
+        <meta property="og:image" content={props.data.news.image} />
       </Head>
 
       <main>
-        {props.data.getNavigationDocument.data && (
-          <Nav {...props.data.getNavigationDocument.data} />
-        )}
-        <News {...props.data.getNewsDocument.data} />
-        {props.data.getFooterDocument.data && (
-          <Footer {...props.data.getFooterDocument.data} />
-        )}
+        {props.data.navigation && <Nav {...props.data.navigation} />}
+        <News {...props.data.news} />
+        {props.data.footer && <Footer {...props.data.footer} />}
       </main>
     </>
-  );
+  )
 }
 
 export const getStaticProps = async ({
   params,
 }: {
-  params: { filename: string };
+  params: { filename: string }
 }) => {
-  console.log(params);
-  const { filename } = params;
-  const chain = Chain("http://localhost:4001/graphql", {});
-  const chainWithQueryString = {
-    query: async <
-      T extends Parameters<typeof chain.query>[0],
-      B extends Parameters<typeof chain.query>[1]
-    >(
-      queryObject: T,
-      variables?: B
-    ) => {
-      return {
-        query: Zeus.query(queryObject),
-        data: await chain.query(queryObject, variables),
-      };
-    },
-  };
-  // try {
-  const listCardsAndDraw = await chainWithQueryString.query({
-    getLocaleInfoDocument: [
+  const { filename } = params
+  const props = await request().query({
+    localeInfo: [
       {
-        relativePath: "main.md",
+        relativePath: 'main.md',
       },
+      localeQuery,
+    ],
+    navigation: [{ relativePath: 'main.md' }, navQuery],
+    footer: [{ relativePath: 'main.md' }, footerQuery],
+    theme: [
+      { relativePath: 'main.json' },
       {
-        dataJSON: true,
+        _values: true,
       },
     ],
-    getPageList: [
-      {},
-      {
-        edges: {
-          node: {
-            id: true,
-          },
-        },
-      },
-    ],
-    getNavigationDocument: [
-      { relativePath: "main.md" },
-      {
-        data: {
-          items: {
-            page: {
-              "...on PageDocument": {
-                data: {
-                  title: true,
-                  link: true,
-                },
-              },
-            },
-          },
-        },
-      },
-    ],
-    getFooterDocument: [
-      { relativePath: "main.md" },
-      {
-        data: {
-          offices: {
-            address: true,
-            location: true,
-            phone: true,
-          },
-          disclaimers: {
-            body: true,
-          },
-        },
-      },
-    ],
-    getThemeDocument: [
-      { relativePath: "main.json" },
-      {
-        dataJSON: true,
-      },
-    ],
-    getNewsDocument: [
+    news: [
       { relativePath: `${filename}.md` },
       {
-        data: {
-          title: true,
-          image: true,
-          subTitle: true,
-          body: true,
-        },
+        title: true,
+        image: true,
+        subTitle: true,
+        body: true,
       },
     ],
-  });
-  return { props: listCardsAndDraw };
-  // } catch (e) {
-  //   return {
-  //     props: JSON.parse(JSON.stringify(e)).response,
-  //   };
-  // }
-};
+  })
+  return {
+    props,
+  }
+}
 
 export const getStaticPaths = async () => {
-  const chain = Chain("http://localhost:4001/graphql", {});
-  const paths = await chain.query({
-    getNewsList: [
+  const chain = Chain('http://localhost:4001/graphql', {})
+  const paths = await chain('query')({
+    newsConnection: [
       {},
       {
         edges: {
           node: {
-            sys: {
+            _sys: {
               filename: true,
             },
           },
         },
       },
     ],
-  });
-  const paths2 = paths.getNewsList.edges.map((edge) => {
-    return { params: { filename: edge.node.sys.filename } };
-  });
-  const paths3 = [];
-  ["en-us", "en-gb", "en-au"].forEach((locale) => {
+  })
+  const paths2 = paths.newsConnection.edges.map((edge) => {
+    return { params: { filename: edge.node._sys.filename } }
+  })
+  const paths3 = []
+  ;['en-us', 'en-gb', 'en-au'].forEach((locale) => {
     paths2.forEach((p2) => {
-      paths3.push({ ...p2, locale });
-    });
-  });
+      paths3.push({ ...p2, locale })
+    })
+  })
   return {
     paths: paths3,
-    fallback: "blocking",
-  };
-};
+    fallback: 'blocking',
+  }
+}

@@ -1,5 +1,5 @@
 ---
-title: Private Clients
+title: Private Client
 link: /personal
 seo:
   title: Private Client Services
@@ -9,11 +9,103 @@ seo:
     Bank beating FX rates, intuitive mulit-currency online platform and superior
     customer support for individuals
 blocks:
+  - title: 'The right price for you, whoever you are'
+    subTitle: Test
+    description: ''
+    items:
+      - title: Pricing Model
+        subTitle: Health
+        description: |
+          dsds
+        bulletPoints:
+          - dsdss
+      - title: Tests
+        subTitle: tets
+        description: |
+          This is how it'll work
+        bulletPoints:
+          - Writing
+          - Work this way 1
+    _template: comparisonTable
+  - title: This is the default feature list title
+    description: >
+      Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
+      cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua ad
+      ad non deserunt sunt.
+    featureStyle: 4-wide-grid
+    features:
+      - icon: HeartIcon
+        name: This is some dummy content!
+        description: >
+          Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
+          cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua
+          ad ad non deserunt sunt.
+      - icon: HeartIcon
+        name: This is some dummy content!
+        description: >
+          Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
+          cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua
+          ad ad non deserunt sunt.
+      - icon: HeartIcon
+        name: This is some dummy content!
+        description: >
+          Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
+          cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua
+          ad ad non deserunt sunt.
+      - icon: HeartIcon
+        name: This is some dummy content!
+        description: >
+          Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
+          cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua
+          ad ad non deserunt sunt.
+    _template: feature
   - title: Private Client Services
-    description: >-
+    description: >
       Bank beating FX rates, intuitive mulit-currency online platform and
-      superior customer support for individuals
-    style: slanted
+      superior d customer support for individuals Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit. Ut diam velit, tempus vitae diam ut, aliquamd
+      tempus nisl. Nullam eget libero a risus aliquam ullamcorper sit amet vitae
+      ipsum. Class daptent taciti sociosqu ad litora torquent per conubia
+      nostra, per inceptos himenaeos. Nunc mauris nulla, blandit quis nisi ut,
+      pharetra vulputate felis. Donec quis blandit diam, id accumsan augue.
+      Aenean lectus libero, scelerisque ac sapien nec, sodales dictum erat.
+      Maecenas eget nibh felis. Pellentesque sagittis massa et quam vestibulum
+      interdum at quis felis.
+
+
+      Maecenas sagittis tortor in lacus interdum, ut tristique lectus accumsan.
+      Integer in vestibulum libero. Integer eu cursus sapien, et cursus lectus.
+      In hac habitasse platea dictumst. Aliquam vel ligula lacus. Nam a lectus
+      in elit tempus sagittis et id diam. Phasellus sit amet libero scelerisque,
+      faucibus elit ut, dignissim nibh. Vivamus id ex est. Nunc ut bldandit sem.
+      Sed iaculis enim et tortor mattis ultrices. Sed et diam ut odio pharetra
+      molestie at eget massa. Etiam vel blandit libero. Nullam non elementum
+      neque, eget suscipit nulla. Etiam suscipit, sapien ut dignissim
+      condimentum, metus tortor
+
+
+      tristique quam, in hendrerit metus libero nec purus. Suspendisse non ipsum
+      est. Vivamus dapibus justo id arcu hendrerit iaculis. Pellentesque nunc
+      enim, ultrices et neque at, aliquam pretium augue.
+
+      Duis ultricies, arcu quis eleifend consectetur, est purus tincidunt sem,
+      feugiat auctor nisl quam quis enim. Ut viverra hendrerit sem, id egestas
+      massa vestibulum a. Praesent aliquet efficitur posuere. Suspendisse
+      laoreet, odio sed pretium consequat, turpis nibh posuere urna, a vehicula
+      sapien tortor quis tortor. Aliquam erat volutpat. Duis id ligula vitae
+      nisi sodales blandit quis vitae eros. Class aptent taciti sociosqu ad
+      litora torquent per conubia nostra, per inceptos himenaeos. Nunc egestas
+      sapien in ante ornare tempor eu id elit.
+
+
+      Fusce vel lorem nec augue luctus congue ac eu nisi. Praesent vel lectus
+      gravida, tincidunt lectus a, auctor leo. Integer consectetur placerat
+      ligula nec consequat. Cras lacinia, yesh\
+
+      ex nec dignissim rhoncus, velit tellus placerat nisl, at consequat urna
+      leo id sapiden. Pellentesque sollicitudin viverra tellus, vitae molestie
+      nibh consectetur id. Nulla vehicula fermentum diam cursus egestas.
+      Quisqued efficitur nisi ut ante volutpat semper.
     image: >-
       https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80
     action:
@@ -26,7 +118,7 @@ blocks:
   - items:
       - title: International Payments
         subTitle: ''
-        description: >-
+        description: >
           APFX's market leading suite of payments products are also available to
           individuals.
 
@@ -41,10 +133,11 @@ blocks:
 
           Our online portal is a way to manage your account 24/7, easily trade
           in over 50 currencies and make payments to your beneficiaries.
-        image: >-
-          https://images.unsplash.com/photo-1561728130-afd430af0493?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3300&q=80
+        overlay:
+          image: >-
+            https://res.cloudinary.com/deuzrsg3m/image/upload/v1647030485/apfx/photo-1561728130-afd430af0493_mjlpyy.jpg
       - title: Currency Accounts
-        description: >-
+        description: >
           With a private APFX Global account you have the flexibility to send
           and receive in multiple currencies.
 
@@ -63,10 +156,11 @@ blocks:
 
           Quickly and easily open accounts and manage them via APFX online. Save
           time, money and hassle on this process
-        image: >-
-          https://images.unsplash.com/photo-1473042904451-00171c69419d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3475&q=80
+        overlay:
+          image: >-
+            https://res.cloudinary.com/deuzrsg3m/image/upload/v1647030509/apfx/photo-1473042904451-00171c69419d_ylp2eh.jpg
       - title: Why APFX?
-        description: >-
+        description: >
           We understand how important it is for private individuals to move
           their own money around the world in a more cost and time effective
           way.
@@ -79,8 +173,9 @@ blocks:
 
           Get in touch with one of our experts today to see how much you could
           save.
-        image: >-
-          https://images.unsplash.com/photo-1526459808813-57c44a8cf699?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3466&q=80
+        overlay:
+          image: >-
+            https://res.cloudinary.com/deuzrsg3m/image/upload/v1647030608/apfx/photo-1574607408180-3b72da2969bb_efa8un.jpg
     _template: slideshow
 ---
 

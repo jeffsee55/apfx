@@ -3,134 +3,134 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Adren";
-  src: url("/fonts/Adren-black.otf");
+  font-family: 'Adren';
+  src: url('/fonts/Adren-black.otf');
   font-style: black;
   font-weight: 900;
   font-display: swap;
 }
 @font-face {
-  font-family: "Ardent";
-  src: url("/fonts/Ardent-Sans bold.otf");
+  font-family: 'Ardent';
+  src: url('/fonts/Ardent-Sans bold.otf');
   font-style: black;
   font-weight: 900;
   font-display: swap;
 }
 @font-face {
-  font-family: "Ardent";
-  src: url("/fonts/Ardent-Sans regular.otf");
+  font-family: 'Ardent';
+  src: url('/fonts/Ardent-Sans regular.otf');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
-  font-family: "Ardent";
-  src: url("/fonts/Ardent-Sans light.otf");
+  font-family: 'Ardent';
+  src: url('/fonts/Ardent-Sans light.otf');
   font-style: thin;
   font-weight: 100;
   font-display: swap;
 }
 @font-face {
-  font-family: "Article";
-  src: url("/fonts/Article-light.otf");
+  font-family: 'Article';
+  src: url('/fonts/Article-light.otf');
   font-style: thin;
   font-weight: 100;
   font-display: swap;
 }
 @font-face {
-  font-family: "Article";
-  src: url("/fonts/Article-regular.otf");
+  font-family: 'Article';
+  src: url('/fonts/Article-regular.otf');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
-  font-family: "Article";
-  src: url("/fonts/Article-bold.otf");
+  font-family: 'Article';
+  src: url('/fonts/Article-bold.otf');
   font-style: bold;
   font-weight: 900;
   font-display: swap;
 }
 @font-face {
-  font-family: "Pulse";
-  src: url("/fonts/Pulse light.otf");
+  font-family: 'Pulse';
+  src: url('/fonts/Pulse light.otf');
   font-style: thin;
   font-weight: 100;
   font-display: swap;
 }
 @font-face {
-  font-family: "Pulse";
-  src: url("/fonts/Pulse regular.otf");
+  font-family: 'Pulse';
+  src: url('/fonts/Pulse regular.otf');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
-  font-family: "Pulse";
-  src: url("/fonts/Pulse bold.otf");
+  font-family: 'Pulse';
+  src: url('/fonts/Pulse bold.otf');
   font-style: bold;
   font-weight: 900;
   font-display: swap;
 }
 @font-face {
-  font-family: "Bristan Rought";
-  src: url("/fonts/BristainRought.ttf");
+  font-family: 'Bristan Rought';
+  src: url('/fonts/BristainRought.ttf');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
-  font-family: "Berlin";
-  src: url("/fonts/Berlin-Bold.woff2");
+  font-family: 'Berlin';
+  src: url('/fonts/Berlin-Bold.woff2');
   font-style: black;
   font-weight: 900;
   font-display: swap;
 }
 @font-face {
-  font-family: "Brooklyn";
-  src: url("/fonts/Brooklyn-Bold.ttf");
+  font-family: 'Brooklyn';
+  src: url('/fonts/Brooklyn-Bold.ttf');
   font-style: black;
   font-weight: 900;
   font-display: swap;
 }
 @font-face {
-  font-family: "Lumiera";
-  src: url("/fonts/Lumiera.woff");
+  font-family: 'Lumiera';
+  src: url('/fonts/Lumiera.woff');
   font-style: black;
   font-weight: 900;
   font-display: swap;
 }
 @font-face {
-  font-family: "Moneta";
-  src: url("/fonts/Moneta-Bold.ttf");
+  font-family: 'Moneta';
+  src: url('/fonts/Moneta-Bold.ttf');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
-  font-family: "Nord";
-  src: url("/fonts/Nord-Bold.ttf");
+  font-family: 'Nord';
+  src: url('/fonts/Nord-Bold.ttf');
   font-style: black;
   font-weight: 900;
   font-display: swap;
 }
 @font-face {
-  font-family: "Quart";
-  src: url("/fonts/Quart-Regular.ttf");
+  font-family: 'Quart';
+  src: url('/fonts/Quart-Regular.ttf');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
-  font-family: "Recoleta";
-  src: url("/fonts/Recoleta-Medium.ttf");
+  font-family: 'Recoleta';
+  src: url('/fonts/Recoleta-Medium.ttf');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
-  font-family: "Wensley";
-  src: url("/fonts/Wensley-Bold.woff");
+  font-family: 'Wensley';
+  src: url('/fonts/Wensley-Bold.woff');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -146,7 +146,7 @@ a.hover-smooth {
 }
 
 a.hover-smooth::before {
-  content: "";
+  content: '';
   position: absolute;
   display: block;
   width: 100%;

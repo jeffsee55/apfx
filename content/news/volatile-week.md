@@ -1,14 +1,12 @@
 ---
 title: 5 tips to trade better with companies in China
 subTitle: Doing business with China
-description: >-
-  The U.S. Dollar is aiming to close the week with another half-percent barely
-  gained as volatility this week has caused swings between losses and gains
-  because of markets trying to find guidance in the midst of trouble for the
-  global economic recovery.
 image: >-
   https://images.unsplash.com/photo-1532270239525-86620e182354?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3302&q=80
+publishDate: '2022-03-26T18:25:28.208Z'
+category: au
 ---
+
 China accounts for nearly 15% of the global trade, and if you are an importer, it is very likely that you are already trading with China or planning to do so in the future. However, navigating cross-border trade with China through the coronavirus pandemic has proven challenging.
 
 Prices have surged due to factors like the rapid price increases for raw materials and freight costs have skyrocketed to historical highs, coupled with adverse exchange rates due to a strengthening Renminbi (“RMB”).
@@ -17,8 +15,8 @@ Whilst these factors are largely outside the control of SMEs in the UK and Europ
 
 ### **1. Manage FX risk**
 
-Always ask for prices in suppliers’ **local currency – RMB.**  
-Suppliers normally set their export prices considering USD/RMB exchange rate movements. Given the market volatility, businesses should expect Chinese sellers to add some buffer into their foreign currency pricing to protect against small fluctuations.  
+Always ask for prices in suppliers’ **local currency – RMB.**
+Suppliers normally set their export prices considering USD/RMB exchange rate movements. Given the market volatility, businesses should expect Chinese sellers to add some buffer into their foreign currency pricing to protect against small fluctuations.
 If there is a large adverse move in the exchange rates, then suppliers are likely to increase their prices so buyers will share the FX loss. By asking to be invoiced in RMB, buyers ensure stable prices that will not be impacted by currency fluctuations. Explore our FX Risk Management solutions
 
 ### **2. Always negotiate prices**
@@ -37,7 +35,7 @@ The Chinese way of doing business is that business partners are often deemed as 
 
 ### **5. Understand local market practice**
 
-The language barrier as well as Chinese market and cultural differences are significant hurdles for Western business to overcome when trading, which sometimes can make conversations more difficult.  
+The language barrier as well as Chinese market and cultural differences are significant hurdles for Western business to overcome when trading, which sometimes can make conversations more difficult.
 As such, it is important for businesses to get some Chinese-specific resources and support to understand the supplier side better and to facilitate the negotiations.There are a range of different options that businesses can investigate depending on the size and resources available.
 
 Most commonly this can range from using a local purchasing agent in China to centralize communications with suppliers, all the way to setting up your own China office with local staff or employing mandarin-speaking staff in your country to help manage the suppliers.

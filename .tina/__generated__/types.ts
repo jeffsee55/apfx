@@ -48,38 +48,36 @@ export type Node = {
 };
 
 export type Document = {
-  sys?: Maybe<SystemInfo>;
   id: Scalars['ID'];
-  form: Scalars['JSON'];
-  values: Scalars['JSON'];
+  _sys?: Maybe<SystemInfo>;
+  _values: Scalars['JSON'];
 };
 
 /** A relay-compliant pagination connection */
 export type Connection = {
   totalCount: Scalars['Float'];
+  pageInfo: PageInfo;
 };
 
 export type Query = {
   __typename?: 'Query';
   getOptimizedQuery?: Maybe<Scalars['String']>;
-  getCollection: Collection;
-  getCollections: Array<Collection>;
+  collection: Collection;
+  collections: Array<Collection>;
   node: Node;
-  getDocument: DocumentNode;
-  getDocumentList: DocumentConnection;
-  getDocumentFields: Scalars['JSON'];
-  getLocaleInfoDocument: LocaleInfoDocument;
-  getLocaleInfoList: LocaleInfoConnection;
-  getNewsDocument: NewsDocument;
-  getNewsList: NewsConnection;
-  getFooterDocument: FooterDocument;
-  getFooterList: FooterConnection;
-  getThemeDocument: ThemeDocument;
-  getThemeList: ThemeConnection;
-  getNavigationDocument: NavigationDocument;
-  getNavigationList: NavigationConnection;
-  getPageDocument: PageDocument;
-  getPageList: PageConnection;
+  document: DocumentNode;
+  localeInfo: LocaleInfo;
+  localeInfoConnection: LocaleInfoConnection;
+  news: News;
+  newsConnection: NewsConnection;
+  footer: Footer;
+  footerConnection: FooterConnection;
+  theme: Theme;
+  themeConnection: ThemeConnection;
+  navigation: Navigation;
+  navigationConnection: NavigationConnection;
+  page: Page;
+  pageConnection: PageConnection;
 };
 
 
@@ -88,7 +86,7 @@ export type QueryGetOptimizedQueryArgs = {
 };
 
 
-export type QueryGetCollectionArgs = {
+export type QueryCollectionArgs = {
   collection?: InputMaybe<Scalars['String']>;
 };
 
@@ -98,106 +96,119 @@ export type QueryNodeArgs = {
 };
 
 
-export type QueryGetDocumentArgs = {
+export type QueryDocumentArgs = {
   collection?: InputMaybe<Scalars['String']>;
   relativePath?: InputMaybe<Scalars['String']>;
 };
 
 
-export type QueryGetDocumentListArgs = {
-  before?: InputMaybe<Scalars['String']>;
-  after?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Float']>;
-  last?: InputMaybe<Scalars['Float']>;
-};
-
-
-export type QueryGetLocaleInfoDocumentArgs = {
+export type QueryLocaleInfoArgs = {
   relativePath?: InputMaybe<Scalars['String']>;
 };
 
 
-export type QueryGetLocaleInfoListArgs = {
+export type QueryLocaleInfoConnectionArgs = {
   before?: InputMaybe<Scalars['String']>;
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
+  filter?: InputMaybe<LocaleInfoFilter>;
 };
 
 
-export type QueryGetNewsDocumentArgs = {
+export type QueryNewsArgs = {
   relativePath?: InputMaybe<Scalars['String']>;
 };
 
 
-export type QueryGetNewsListArgs = {
+export type QueryNewsConnectionArgs = {
   before?: InputMaybe<Scalars['String']>;
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
+  filter?: InputMaybe<NewsFilter>;
 };
 
 
-export type QueryGetFooterDocumentArgs = {
+export type QueryFooterArgs = {
   relativePath?: InputMaybe<Scalars['String']>;
 };
 
 
-export type QueryGetFooterListArgs = {
+export type QueryFooterConnectionArgs = {
   before?: InputMaybe<Scalars['String']>;
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
+  filter?: InputMaybe<FooterFilter>;
 };
 
 
-export type QueryGetThemeDocumentArgs = {
+export type QueryThemeArgs = {
   relativePath?: InputMaybe<Scalars['String']>;
 };
 
 
-export type QueryGetThemeListArgs = {
+export type QueryThemeConnectionArgs = {
   before?: InputMaybe<Scalars['String']>;
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
+  filter?: InputMaybe<ThemeFilter>;
 };
 
 
-export type QueryGetNavigationDocumentArgs = {
+export type QueryNavigationArgs = {
   relativePath?: InputMaybe<Scalars['String']>;
 };
 
 
-export type QueryGetNavigationListArgs = {
+export type QueryNavigationConnectionArgs = {
   before?: InputMaybe<Scalars['String']>;
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
+  filter?: InputMaybe<NavigationFilter>;
 };
 
 
-export type QueryGetPageDocumentArgs = {
+export type QueryPageArgs = {
   relativePath?: InputMaybe<Scalars['String']>;
 };
 
 
-export type QueryGetPageListArgs = {
+export type QueryPageConnectionArgs = {
   before?: InputMaybe<Scalars['String']>;
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
+  filter?: InputMaybe<PageFilter>;
+};
+
+export type DocumentFilter = {
+  localeInfo?: InputMaybe<LocaleInfoFilter>;
+  news?: InputMaybe<NewsFilter>;
+  footer?: InputMaybe<FooterFilter>;
+  theme?: InputMaybe<ThemeFilter>;
+  navigation?: InputMaybe<NavigationFilter>;
+  page?: InputMaybe<PageFilter>;
 };
 
 export type DocumentConnectionEdges = {
   __typename?: 'DocumentConnectionEdges';
-  cursor?: Maybe<Scalars['String']>;
+  cursor: Scalars['String'];
   node?: Maybe<DocumentNode>;
 };
 
 export type DocumentConnection = Connection & {
   __typename?: 'DocumentConnection';
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo: PageInfo;
   totalCount: Scalars['Float'];
   edges?: Maybe<Array<Maybe<DocumentConnectionEdges>>>;
 };
@@ -221,9 +232,11 @@ export type CollectionDocumentsArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
+  filter?: InputMaybe<DocumentFilter>;
 };
 
-export type DocumentNode = LocaleInfoDocument | NewsDocument | FooterDocument | ThemeDocument | NavigationDocument | PageDocument;
+export type DocumentNode = LocaleInfo | News | Footer | Theme | Navigation | Page;
 
 export type LocaleInfoAu = {
   __typename?: 'LocaleInfoAu';
@@ -249,64 +262,108 @@ export type LocaleInfoGb = {
   signInLink?: Maybe<Scalars['String']>;
 };
 
-export type LocaleInfo = {
+export type LocaleInfo = Node & Document & {
   __typename?: 'LocaleInfo';
   au?: Maybe<LocaleInfoAu>;
   us?: Maybe<LocaleInfoUs>;
   gb?: Maybe<LocaleInfoGb>;
+  id: Scalars['ID'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON'];
 };
 
-export type LocaleInfoDocument = Node & Document & {
-  __typename?: 'LocaleInfoDocument';
-  id: Scalars['ID'];
-  sys: SystemInfo;
-  data: LocaleInfo;
-  form: Scalars['JSON'];
-  values: Scalars['JSON'];
-  dataJSON: Scalars['JSON'];
+export type StringFilter = {
+  startsWith?: InputMaybe<Scalars['String']>;
+  eq?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LocaleInfoAuFilter = {
+  tel?: InputMaybe<StringFilter>;
+  signUpLink?: InputMaybe<StringFilter>;
+  signUpLinkPersonal?: InputMaybe<StringFilter>;
+  signInLink?: InputMaybe<StringFilter>;
+};
+
+export type LocaleInfoUsFilter = {
+  tel?: InputMaybe<StringFilter>;
+  signUpLink?: InputMaybe<StringFilter>;
+  signUpLinkPersonal?: InputMaybe<StringFilter>;
+  signInLink?: InputMaybe<StringFilter>;
+};
+
+export type LocaleInfoGbFilter = {
+  tel?: InputMaybe<StringFilter>;
+  signUpLink?: InputMaybe<StringFilter>;
+  signUpLinkPersonal?: InputMaybe<StringFilter>;
+  signInLink?: InputMaybe<StringFilter>;
+};
+
+export type LocaleInfoFilter = {
+  au?: InputMaybe<LocaleInfoAuFilter>;
+  us?: InputMaybe<LocaleInfoUsFilter>;
+  gb?: InputMaybe<LocaleInfoGbFilter>;
 };
 
 export type LocaleInfoConnectionEdges = {
   __typename?: 'LocaleInfoConnectionEdges';
-  cursor?: Maybe<Scalars['String']>;
-  node?: Maybe<LocaleInfoDocument>;
+  cursor: Scalars['String'];
+  node?: Maybe<LocaleInfo>;
 };
 
 export type LocaleInfoConnection = Connection & {
   __typename?: 'LocaleInfoConnection';
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo: PageInfo;
   totalCount: Scalars['Float'];
   edges?: Maybe<Array<Maybe<LocaleInfoConnectionEdges>>>;
 };
 
-export type News = {
+export type News = Node & Document & {
   __typename?: 'News';
   title: Scalars['String'];
   subTitle?: Maybe<Scalars['String']>;
-  description: Scalars['String'];
   image?: Maybe<Scalars['String']>;
-  body?: Maybe<Scalars['String']>;
+  publishDate?: Maybe<Scalars['String']>;
+  category?: Maybe<Scalars['String']>;
+  body?: Maybe<Scalars['JSON']>;
+  id: Scalars['ID'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON'];
 };
 
-export type NewsDocument = Node & Document & {
-  __typename?: 'NewsDocument';
-  id: Scalars['ID'];
-  sys: SystemInfo;
-  data: News;
-  form: Scalars['JSON'];
-  values: Scalars['JSON'];
-  dataJSON: Scalars['JSON'];
+export type DatetimeFilter = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  eq?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type RichTextFilter = {
+  startsWith?: InputMaybe<Scalars['String']>;
+  eq?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type NewsFilter = {
+  title?: InputMaybe<StringFilter>;
+  subTitle?: InputMaybe<StringFilter>;
+  image?: InputMaybe<StringFilter>;
+  publishDate?: InputMaybe<DatetimeFilter>;
+  category?: InputMaybe<StringFilter>;
+  body?: InputMaybe<RichTextFilter>;
 };
 
 export type NewsConnectionEdges = {
   __typename?: 'NewsConnectionEdges';
-  cursor?: Maybe<Scalars['String']>;
-  node?: Maybe<NewsDocument>;
+  cursor: Scalars['String'];
+  node?: Maybe<News>;
 };
 
 export type NewsConnection = Connection & {
   __typename?: 'NewsConnection';
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo: PageInfo;
   totalCount: Scalars['Float'];
   edges?: Maybe<Array<Maybe<NewsConnectionEdges>>>;
 };
@@ -320,98 +377,109 @@ export type FooterOffices = {
 
 export type FooterDisclaimers = {
   __typename?: 'FooterDisclaimers';
-  body?: Maybe<Scalars['String']>;
+  body?: Maybe<Scalars['JSON']>;
 };
 
-export type Footer = {
+export type Footer = Node & Document & {
   __typename?: 'Footer';
   offices?: Maybe<Array<Maybe<FooterOffices>>>;
   disclaimers: Array<FooterDisclaimers>;
+  id: Scalars['ID'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON'];
 };
 
-export type FooterDocument = Node & Document & {
-  __typename?: 'FooterDocument';
-  id: Scalars['ID'];
-  sys: SystemInfo;
-  data: Footer;
-  form: Scalars['JSON'];
-  values: Scalars['JSON'];
-  dataJSON: Scalars['JSON'];
+export type FooterOfficesFilter = {
+  location?: InputMaybe<StringFilter>;
+  address?: InputMaybe<StringFilter>;
+  phone?: InputMaybe<StringFilter>;
+};
+
+export type FooterDisclaimersFilter = {
+  body?: InputMaybe<RichTextFilter>;
+};
+
+export type FooterFilter = {
+  offices?: InputMaybe<FooterOfficesFilter>;
+  disclaimers?: InputMaybe<FooterDisclaimersFilter>;
 };
 
 export type FooterConnectionEdges = {
   __typename?: 'FooterConnectionEdges';
-  cursor?: Maybe<Scalars['String']>;
-  node?: Maybe<FooterDocument>;
+  cursor: Scalars['String'];
+  node?: Maybe<Footer>;
 };
 
 export type FooterConnection = Connection & {
   __typename?: 'FooterConnection';
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo: PageInfo;
   totalCount: Scalars['Float'];
   edges?: Maybe<Array<Maybe<FooterConnectionEdges>>>;
 };
 
-export type Theme = {
+export type Theme = Node & Document & {
   __typename?: 'Theme';
   displayFont?: Maybe<Scalars['String']>;
   colorMode?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON'];
 };
 
-export type ThemeDocument = Node & Document & {
-  __typename?: 'ThemeDocument';
-  id: Scalars['ID'];
-  sys: SystemInfo;
-  data: Theme;
-  form: Scalars['JSON'];
-  values: Scalars['JSON'];
-  dataJSON: Scalars['JSON'];
+export type ThemeFilter = {
+  displayFont?: InputMaybe<StringFilter>;
+  colorMode?: InputMaybe<StringFilter>;
 };
 
 export type ThemeConnectionEdges = {
   __typename?: 'ThemeConnectionEdges';
-  cursor?: Maybe<Scalars['String']>;
-  node?: Maybe<ThemeDocument>;
+  cursor: Scalars['String'];
+  node?: Maybe<Theme>;
 };
 
 export type ThemeConnection = Connection & {
   __typename?: 'ThemeConnection';
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo: PageInfo;
   totalCount: Scalars['Float'];
   edges?: Maybe<Array<Maybe<ThemeConnectionEdges>>>;
 };
 
-export type NavigationItemsPageDocument = PageDocument;
+export type NavigationItemsPage = Page;
 
 export type NavigationItems = {
   __typename?: 'NavigationItems';
-  page?: Maybe<NavigationItemsPageDocument>;
+  page?: Maybe<NavigationItemsPage>;
 };
 
-export type Navigation = {
+export type Navigation = Node & Document & {
   __typename?: 'Navigation';
   items: Array<NavigationItems>;
+  id: Scalars['ID'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON'];
 };
 
-export type NavigationDocument = Node & Document & {
-  __typename?: 'NavigationDocument';
-  id: Scalars['ID'];
-  sys: SystemInfo;
-  data: Navigation;
-  form: Scalars['JSON'];
-  values: Scalars['JSON'];
-  dataJSON: Scalars['JSON'];
+export type NavigationItemsPageFilter = {
+  page?: InputMaybe<PageFilter>;
+};
+
+export type NavigationItemsFilter = {
+  page?: InputMaybe<NavigationItemsPageFilter>;
+};
+
+export type NavigationFilter = {
+  items?: InputMaybe<NavigationItemsFilter>;
 };
 
 export type NavigationConnectionEdges = {
   __typename?: 'NavigationConnectionEdges';
-  cursor?: Maybe<Scalars['String']>;
-  node?: Maybe<NavigationDocument>;
+  cursor: Scalars['String'];
+  node?: Maybe<Navigation>;
 };
 
 export type NavigationConnection = Connection & {
   __typename?: 'NavigationConnection';
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo: PageInfo;
   totalCount: Scalars['Float'];
   edges?: Maybe<Array<Maybe<NavigationConnectionEdges>>>;
 };
@@ -423,18 +491,18 @@ export type PageSeo = {
   description: Scalars['String'];
 };
 
-export type PageBlocksNewsNewsItemsArticleDocument = NewsDocument;
+export type PageBlocksNewsNewsItemsArticle = News;
 
 export type PageBlocksNewsNewsItems = {
   __typename?: 'PageBlocksNewsNewsItems';
-  article: PageBlocksNewsNewsItemsArticleDocument;
+  article: PageBlocksNewsNewsItemsArticle;
 };
 
 export type PageBlocksNews = {
   __typename?: 'PageBlocksNews';
   title: Scalars['String'];
   subTitle?: Maybe<Scalars['String']>;
-  description: Scalars['String'];
+  description: Scalars['JSON'];
   newsItems: Array<PageBlocksNewsNewsItems>;
 };
 
@@ -442,23 +510,23 @@ export type PageBlocksStatsWithImageStats = {
   __typename?: 'PageBlocksStatsWithImageStats';
   title: Scalars['String'];
   subTitle?: Maybe<Scalars['String']>;
-  description: Scalars['String'];
+  description: Scalars['JSON'];
 };
 
 export type PageBlocksStatsWithImage = {
   __typename?: 'PageBlocksStatsWithImage';
   title: Scalars['String'];
   subTitle?: Maybe<Scalars['String']>;
-  description: Scalars['String'];
+  description: Scalars['JSON'];
   image?: Maybe<Scalars['String']>;
-  stats: Array<PageBlocksStatsWithImageStats>;
+  stats?: Maybe<Array<Maybe<PageBlocksStatsWithImageStats>>>;
 };
 
 export type PageBlocksHeroAction = {
   __typename?: 'PageBlocksHeroAction';
   callToAction?: Maybe<Scalars['String']>;
-  linkText: Scalars['String'];
-  link: Scalars['String'];
+  linkText?: Maybe<Scalars['String']>;
+  link?: Maybe<Scalars['String']>;
   linkOverride?: Maybe<Scalars['String']>;
   secondaryText?: Maybe<Scalars['String']>;
   secondaryLink?: Maybe<Scalars['String']>;
@@ -469,8 +537,7 @@ export type PageBlocksHero = {
   __typename?: 'PageBlocksHero';
   title: Scalars['String'];
   subTitle?: Maybe<Scalars['String']>;
-  description: Scalars['String'];
-  style?: Maybe<Scalars['String']>;
+  description: Scalars['JSON'];
   image?: Maybe<Scalars['String']>;
   action?: Maybe<PageBlocksHeroAction>;
 };
@@ -478,24 +545,28 @@ export type PageBlocksHero = {
 export type PageBlocksSlideshowItemsAction = {
   __typename?: 'PageBlocksSlideshowItemsAction';
   callToAction?: Maybe<Scalars['String']>;
-  linkText: Scalars['String'];
-  link: Scalars['String'];
+  linkText?: Maybe<Scalars['String']>;
+  link?: Maybe<Scalars['String']>;
   linkOverride?: Maybe<Scalars['String']>;
   secondaryText?: Maybe<Scalars['String']>;
   secondaryLink?: Maybe<Scalars['String']>;
   secondaryLinkOverride?: Maybe<Scalars['String']>;
 };
 
+export type PageBlocksSlideshowItemsOverlay = {
+  __typename?: 'PageBlocksSlideshowItemsOverlay';
+  image?: Maybe<Scalars['String']>;
+  overlayColor?: Maybe<Scalars['String']>;
+  overlayOpacity?: Maybe<Scalars['String']>;
+};
+
 export type PageBlocksSlideshowItems = {
   __typename?: 'PageBlocksSlideshowItems';
   title: Scalars['String'];
   subTitle?: Maybe<Scalars['String']>;
-  description: Scalars['String'];
-  image?: Maybe<Scalars['String']>;
-  textColor?: Maybe<Scalars['String']>;
+  description: Scalars['JSON'];
   action?: Maybe<PageBlocksSlideshowItemsAction>;
-  overlayColor?: Maybe<Scalars['String']>;
-  overlayOpacity?: Maybe<Scalars['String']>;
+  overlay?: Maybe<PageBlocksSlideshowItemsOverlay>;
 };
 
 export type PageBlocksSlideshow = {
@@ -503,19 +574,32 @@ export type PageBlocksSlideshow = {
   items?: Maybe<Array<Maybe<PageBlocksSlideshowItems>>>;
 };
 
+export type PageBlocksComparisonTableItemsMetaA = {
+  __typename?: 'PageBlocksComparisonTableItemsMetaA';
+  aOne?: Maybe<Scalars['String']>;
+};
+
+export type PageBlocksComparisonTableItemsMetaB = {
+  __typename?: 'PageBlocksComparisonTableItemsMetaB';
+  bOne?: Maybe<Scalars['String']>;
+};
+
+export type PageBlocksComparisonTableItemsMeta = PageBlocksComparisonTableItemsMetaA | PageBlocksComparisonTableItemsMetaB;
+
 export type PageBlocksComparisonTableItems = {
   __typename?: 'PageBlocksComparisonTableItems';
   title: Scalars['String'];
   subTitle?: Maybe<Scalars['String']>;
-  description: Scalars['String'];
+  description: Scalars['JSON'];
   bulletPoints?: Maybe<Array<Maybe<Scalars['String']>>>;
+  meta?: Maybe<Array<Maybe<PageBlocksComparisonTableItemsMeta>>>;
 };
 
 export type PageBlocksComparisonTableAction = {
   __typename?: 'PageBlocksComparisonTableAction';
   callToAction?: Maybe<Scalars['String']>;
-  linkText: Scalars['String'];
-  link: Scalars['String'];
+  linkText?: Maybe<Scalars['String']>;
+  link?: Maybe<Scalars['String']>;
   linkOverride?: Maybe<Scalars['String']>;
   secondaryText?: Maybe<Scalars['String']>;
   secondaryLink?: Maybe<Scalars['String']>;
@@ -526,128 +610,300 @@ export type PageBlocksComparisonTable = {
   __typename?: 'PageBlocksComparisonTable';
   title: Scalars['String'];
   subTitle?: Maybe<Scalars['String']>;
-  description: Scalars['String'];
+  description: Scalars['JSON'];
   items?: Maybe<Array<Maybe<PageBlocksComparisonTableItems>>>;
   action?: Maybe<PageBlocksComparisonTableAction>;
-};
-
-export type PageBlocksFullScreenLogo = {
-  __typename?: 'PageBlocksFullScreenLogo';
-  slogan?: Maybe<Scalars['String']>;
-  link?: Maybe<Scalars['String']>;
-  image?: Maybe<Scalars['String']>;
-  textColor?: Maybe<Scalars['String']>;
-  overlayColor?: Maybe<Scalars['String']>;
-  overlayOpacity?: Maybe<Scalars['String']>;
-};
-
-export type PageBlocksFullScreenHeaderAction = {
-  __typename?: 'PageBlocksFullScreenHeaderAction';
-  callToAction?: Maybe<Scalars['String']>;
-  linkText: Scalars['String'];
-  link: Scalars['String'];
-  linkOverride?: Maybe<Scalars['String']>;
-  secondaryText?: Maybe<Scalars['String']>;
-  secondaryLink?: Maybe<Scalars['String']>;
-  secondaryLinkOverride?: Maybe<Scalars['String']>;
-};
-
-export type PageBlocksFullScreenHeader = {
-  __typename?: 'PageBlocksFullScreenHeader';
-  title: Scalars['String'];
-  subTitle?: Maybe<Scalars['String']>;
-  description: Scalars['String'];
-  action?: Maybe<PageBlocksFullScreenHeaderAction>;
-  image?: Maybe<Scalars['String']>;
-  textColor?: Maybe<Scalars['String']>;
-  overlayColor?: Maybe<Scalars['String']>;
-  overlayOpacity?: Maybe<Scalars['String']>;
 };
 
 export type PageBlocksFeatureFeatures = {
   __typename?: 'PageBlocksFeatureFeatures';
   icon: Scalars['String'];
   name: Scalars['String'];
-  description: Scalars['String'];
+  description: Scalars['JSON'];
+};
+
+export type PageBlocksFeatureOverlay = {
+  __typename?: 'PageBlocksFeatureOverlay';
+  image?: Maybe<Scalars['String']>;
+  overlayColor?: Maybe<Scalars['String']>;
+  overlayOpacity?: Maybe<Scalars['String']>;
 };
 
 export type PageBlocksFeature = {
   __typename?: 'PageBlocksFeature';
   title: Scalars['String'];
   subTitle?: Maybe<Scalars['String']>;
-  description: Scalars['String'];
+  description: Scalars['JSON'];
   featureStyle?: Maybe<Scalars['String']>;
   features: Array<PageBlocksFeatureFeatures>;
+  overlay?: Maybe<PageBlocksFeatureOverlay>;
+};
+
+export type PageBlocksFullScreenLogoOverlay = {
+  __typename?: 'PageBlocksFullScreenLogoOverlay';
   image?: Maybe<Scalars['String']>;
-  textColor?: Maybe<Scalars['String']>;
   overlayColor?: Maybe<Scalars['String']>;
   overlayOpacity?: Maybe<Scalars['String']>;
 };
 
-export type PageBlocksScreenShotFeatureAction = {
-  __typename?: 'PageBlocksScreenShotFeatureAction';
+export type PageBlocksFullScreenLogo = {
+  __typename?: 'PageBlocksFullScreenLogo';
+  slogan?: Maybe<Scalars['String']>;
+  link?: Maybe<Scalars['String']>;
+  overlay?: Maybe<PageBlocksFullScreenLogoOverlay>;
+};
+
+export type PageBlocksFullScreenHeaderAction = {
+  __typename?: 'PageBlocksFullScreenHeaderAction';
   callToAction?: Maybe<Scalars['String']>;
-  linkText: Scalars['String'];
-  link: Scalars['String'];
+  linkText?: Maybe<Scalars['String']>;
+  link?: Maybe<Scalars['String']>;
   linkOverride?: Maybe<Scalars['String']>;
   secondaryText?: Maybe<Scalars['String']>;
   secondaryLink?: Maybe<Scalars['String']>;
   secondaryLinkOverride?: Maybe<Scalars['String']>;
 };
 
-export type PageBlocksScreenShotFeatureTestimonialAuthor = {
-  __typename?: 'PageBlocksScreenShotFeatureTestimonialAuthor';
-  name: Scalars['String'];
-  avatar: Scalars['String'];
+export type PageBlocksFullScreenHeaderOverlay = {
+  __typename?: 'PageBlocksFullScreenHeaderOverlay';
+  image?: Maybe<Scalars['String']>;
+  overlayColor?: Maybe<Scalars['String']>;
+  overlayOpacity?: Maybe<Scalars['String']>;
 };
 
-export type PageBlocksScreenShotFeatureTestimonial = {
-  __typename?: 'PageBlocksScreenShotFeatureTestimonial';
-  quote: Scalars['String'];
-  author?: Maybe<PageBlocksScreenShotFeatureTestimonialAuthor>;
-};
-
-export type PageBlocksScreenShotFeature = {
-  __typename?: 'PageBlocksScreenShotFeature';
+export type PageBlocksFullScreenHeader = {
+  __typename?: 'PageBlocksFullScreenHeader';
   title: Scalars['String'];
   subTitle?: Maybe<Scalars['String']>;
-  description: Scalars['String'];
-  image?: Maybe<Scalars['String']>;
-  alignment?: Maybe<Scalars['String']>;
-  icon?: Maybe<Scalars['String']>;
-  action?: Maybe<PageBlocksScreenShotFeatureAction>;
-  testimonial?: Maybe<PageBlocksScreenShotFeatureTestimonial>;
+  description: Scalars['JSON'];
+  action?: Maybe<PageBlocksFullScreenHeaderAction>;
+  overlay?: Maybe<PageBlocksFullScreenHeaderOverlay>;
 };
 
-export type PageBlocks = PageBlocksNews | PageBlocksStatsWithImage | PageBlocksHero | PageBlocksSlideshow | PageBlocksComparisonTable | PageBlocksFullScreenLogo | PageBlocksFullScreenHeader | PageBlocksFeature | PageBlocksScreenShotFeature;
+export type PageBlocks = PageBlocksNews | PageBlocksStatsWithImage | PageBlocksHero | PageBlocksSlideshow | PageBlocksComparisonTable | PageBlocksFeature | PageBlocksFullScreenLogo | PageBlocksFullScreenHeader;
 
-export type Page = {
+export type Page = Node & Document & {
   __typename?: 'Page';
   title: Scalars['String'];
   link: Scalars['String'];
   seo?: Maybe<PageSeo>;
   blocks?: Maybe<Array<Maybe<PageBlocks>>>;
+  id: Scalars['ID'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON'];
 };
 
-export type PageDocument = Node & Document & {
-  __typename?: 'PageDocument';
-  id: Scalars['ID'];
-  sys: SystemInfo;
-  data: Page;
-  form: Scalars['JSON'];
-  values: Scalars['JSON'];
-  dataJSON: Scalars['JSON'];
+export type PageSeoFilter = {
+  title?: InputMaybe<StringFilter>;
+  image?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type PageBlocksNewsNewsItemsArticleFilter = {
+  news?: InputMaybe<NewsFilter>;
+};
+
+export type PageBlocksNewsNewsItemsFilter = {
+  article?: InputMaybe<PageBlocksNewsNewsItemsArticleFilter>;
+};
+
+export type PageBlocksNewsFilter = {
+  title?: InputMaybe<StringFilter>;
+  subTitle?: InputMaybe<StringFilter>;
+  description?: InputMaybe<RichTextFilter>;
+  newsItems?: InputMaybe<PageBlocksNewsNewsItemsFilter>;
+};
+
+export type PageBlocksStatsWithImageStatsFilter = {
+  title?: InputMaybe<StringFilter>;
+  subTitle?: InputMaybe<StringFilter>;
+  description?: InputMaybe<RichTextFilter>;
+};
+
+export type PageBlocksStatsWithImageFilter = {
+  title?: InputMaybe<StringFilter>;
+  subTitle?: InputMaybe<StringFilter>;
+  description?: InputMaybe<RichTextFilter>;
+  image?: InputMaybe<StringFilter>;
+  stats?: InputMaybe<PageBlocksStatsWithImageStatsFilter>;
+};
+
+export type ImageFilter = {
+  startsWith?: InputMaybe<Scalars['String']>;
+  eq?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type PageBlocksHeroActionFilter = {
+  callToAction?: InputMaybe<StringFilter>;
+  linkText?: InputMaybe<StringFilter>;
+  link?: InputMaybe<StringFilter>;
+  linkOverride?: InputMaybe<StringFilter>;
+  secondaryText?: InputMaybe<StringFilter>;
+  secondaryLink?: InputMaybe<StringFilter>;
+  secondaryLinkOverride?: InputMaybe<StringFilter>;
+};
+
+export type PageBlocksHeroFilter = {
+  title?: InputMaybe<StringFilter>;
+  subTitle?: InputMaybe<StringFilter>;
+  description?: InputMaybe<RichTextFilter>;
+  image?: InputMaybe<ImageFilter>;
+  action?: InputMaybe<PageBlocksHeroActionFilter>;
+};
+
+export type PageBlocksSlideshowItemsActionFilter = {
+  callToAction?: InputMaybe<StringFilter>;
+  linkText?: InputMaybe<StringFilter>;
+  link?: InputMaybe<StringFilter>;
+  linkOverride?: InputMaybe<StringFilter>;
+  secondaryText?: InputMaybe<StringFilter>;
+  secondaryLink?: InputMaybe<StringFilter>;
+  secondaryLinkOverride?: InputMaybe<StringFilter>;
+};
+
+export type PageBlocksSlideshowItemsOverlayFilter = {
+  image?: InputMaybe<ImageFilter>;
+  overlayColor?: InputMaybe<StringFilter>;
+  overlayOpacity?: InputMaybe<StringFilter>;
+};
+
+export type PageBlocksSlideshowItemsFilter = {
+  title?: InputMaybe<StringFilter>;
+  subTitle?: InputMaybe<StringFilter>;
+  description?: InputMaybe<RichTextFilter>;
+  action?: InputMaybe<PageBlocksSlideshowItemsActionFilter>;
+  overlay?: InputMaybe<PageBlocksSlideshowItemsOverlayFilter>;
+};
+
+export type PageBlocksSlideshowFilter = {
+  items?: InputMaybe<PageBlocksSlideshowItemsFilter>;
+};
+
+export type PageBlocksComparisonTableItemsMetaAFilter = {
+  aOne?: InputMaybe<StringFilter>;
+};
+
+export type PageBlocksComparisonTableItemsMetaBFilter = {
+  bOne?: InputMaybe<StringFilter>;
+};
+
+export type PageBlocksComparisonTableItemsMetaFilter = {
+  a?: InputMaybe<PageBlocksComparisonTableItemsMetaAFilter>;
+  b?: InputMaybe<PageBlocksComparisonTableItemsMetaBFilter>;
+};
+
+export type PageBlocksComparisonTableItemsFilter = {
+  title?: InputMaybe<StringFilter>;
+  subTitle?: InputMaybe<StringFilter>;
+  description?: InputMaybe<RichTextFilter>;
+  bulletPoints?: InputMaybe<StringFilter>;
+  meta?: InputMaybe<PageBlocksComparisonTableItemsMetaFilter>;
+};
+
+export type PageBlocksComparisonTableActionFilter = {
+  callToAction?: InputMaybe<StringFilter>;
+  linkText?: InputMaybe<StringFilter>;
+  link?: InputMaybe<StringFilter>;
+  linkOverride?: InputMaybe<StringFilter>;
+  secondaryText?: InputMaybe<StringFilter>;
+  secondaryLink?: InputMaybe<StringFilter>;
+  secondaryLinkOverride?: InputMaybe<StringFilter>;
+};
+
+export type PageBlocksComparisonTableFilter = {
+  title?: InputMaybe<StringFilter>;
+  subTitle?: InputMaybe<StringFilter>;
+  description?: InputMaybe<RichTextFilter>;
+  items?: InputMaybe<PageBlocksComparisonTableItemsFilter>;
+  action?: InputMaybe<PageBlocksComparisonTableActionFilter>;
+};
+
+export type PageBlocksFeatureFeaturesFilter = {
+  icon?: InputMaybe<StringFilter>;
+  name?: InputMaybe<StringFilter>;
+  description?: InputMaybe<RichTextFilter>;
+};
+
+export type PageBlocksFeatureOverlayFilter = {
+  image?: InputMaybe<ImageFilter>;
+  overlayColor?: InputMaybe<StringFilter>;
+  overlayOpacity?: InputMaybe<StringFilter>;
+};
+
+export type PageBlocksFeatureFilter = {
+  title?: InputMaybe<StringFilter>;
+  subTitle?: InputMaybe<StringFilter>;
+  description?: InputMaybe<RichTextFilter>;
+  featureStyle?: InputMaybe<StringFilter>;
+  features?: InputMaybe<PageBlocksFeatureFeaturesFilter>;
+  overlay?: InputMaybe<PageBlocksFeatureOverlayFilter>;
+};
+
+export type PageBlocksFullScreenLogoOverlayFilter = {
+  image?: InputMaybe<ImageFilter>;
+  overlayColor?: InputMaybe<StringFilter>;
+  overlayOpacity?: InputMaybe<StringFilter>;
+};
+
+export type PageBlocksFullScreenLogoFilter = {
+  slogan?: InputMaybe<StringFilter>;
+  link?: InputMaybe<StringFilter>;
+  overlay?: InputMaybe<PageBlocksFullScreenLogoOverlayFilter>;
+};
+
+export type PageBlocksFullScreenHeaderActionFilter = {
+  callToAction?: InputMaybe<StringFilter>;
+  linkText?: InputMaybe<StringFilter>;
+  link?: InputMaybe<StringFilter>;
+  linkOverride?: InputMaybe<StringFilter>;
+  secondaryText?: InputMaybe<StringFilter>;
+  secondaryLink?: InputMaybe<StringFilter>;
+  secondaryLinkOverride?: InputMaybe<StringFilter>;
+};
+
+export type PageBlocksFullScreenHeaderOverlayFilter = {
+  image?: InputMaybe<ImageFilter>;
+  overlayColor?: InputMaybe<StringFilter>;
+  overlayOpacity?: InputMaybe<StringFilter>;
+};
+
+export type PageBlocksFullScreenHeaderFilter = {
+  title?: InputMaybe<StringFilter>;
+  subTitle?: InputMaybe<StringFilter>;
+  description?: InputMaybe<RichTextFilter>;
+  action?: InputMaybe<PageBlocksFullScreenHeaderActionFilter>;
+  overlay?: InputMaybe<PageBlocksFullScreenHeaderOverlayFilter>;
+};
+
+export type PageBlocksFilter = {
+  news?: InputMaybe<PageBlocksNewsFilter>;
+  statsWithImage?: InputMaybe<PageBlocksStatsWithImageFilter>;
+  hero?: InputMaybe<PageBlocksHeroFilter>;
+  slideshow?: InputMaybe<PageBlocksSlideshowFilter>;
+  comparisonTable?: InputMaybe<PageBlocksComparisonTableFilter>;
+  feature?: InputMaybe<PageBlocksFeatureFilter>;
+  fullScreenLogo?: InputMaybe<PageBlocksFullScreenLogoFilter>;
+  fullScreenHeader?: InputMaybe<PageBlocksFullScreenHeaderFilter>;
+};
+
+export type PageFilter = {
+  title?: InputMaybe<StringFilter>;
+  link?: InputMaybe<StringFilter>;
+  seo?: InputMaybe<PageSeoFilter>;
+  blocks?: InputMaybe<PageBlocksFilter>;
 };
 
 export type PageConnectionEdges = {
   __typename?: 'PageConnectionEdges';
-  cursor?: Maybe<Scalars['String']>;
-  node?: Maybe<PageDocument>;
+  cursor: Scalars['String'];
+  node?: Maybe<Page>;
 };
 
 export type PageConnection = Connection & {
   __typename?: 'PageConnection';
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo: PageInfo;
   totalCount: Scalars['Float'];
   edges?: Maybe<Array<Maybe<PageConnectionEdges>>>;
 };
@@ -656,19 +912,20 @@ export type Mutation = {
   __typename?: 'Mutation';
   addPendingDocument: DocumentNode;
   updateDocument: DocumentNode;
+  deleteDocument: DocumentNode;
   createDocument: DocumentNode;
-  updateLocaleInfoDocument: LocaleInfoDocument;
-  createLocaleInfoDocument: LocaleInfoDocument;
-  updateNewsDocument: NewsDocument;
-  createNewsDocument: NewsDocument;
-  updateFooterDocument: FooterDocument;
-  createFooterDocument: FooterDocument;
-  updateThemeDocument: ThemeDocument;
-  createThemeDocument: ThemeDocument;
-  updateNavigationDocument: NavigationDocument;
-  createNavigationDocument: NavigationDocument;
-  updatePageDocument: PageDocument;
-  createPageDocument: PageDocument;
+  updateLocaleInfo: LocaleInfo;
+  createLocaleInfo: LocaleInfo;
+  updateNews: News;
+  createNews: News;
+  updateFooter: Footer;
+  createFooter: Footer;
+  updateTheme: Theme;
+  createTheme: Theme;
+  updateNavigation: Navigation;
+  createNavigation: Navigation;
+  updatePage: Page;
+  createPage: Page;
 };
 
 
@@ -686,6 +943,12 @@ export type MutationUpdateDocumentArgs = {
 };
 
 
+export type MutationDeleteDocumentArgs = {
+  collection?: InputMaybe<Scalars['String']>;
+  relativePath: Scalars['String'];
+};
+
+
 export type MutationCreateDocumentArgs = {
   collection?: InputMaybe<Scalars['String']>;
   relativePath: Scalars['String'];
@@ -693,73 +956,73 @@ export type MutationCreateDocumentArgs = {
 };
 
 
-export type MutationUpdateLocaleInfoDocumentArgs = {
+export type MutationUpdateLocaleInfoArgs = {
   relativePath: Scalars['String'];
   params: LocaleInfoMutation;
 };
 
 
-export type MutationCreateLocaleInfoDocumentArgs = {
+export type MutationCreateLocaleInfoArgs = {
   relativePath: Scalars['String'];
   params: LocaleInfoMutation;
 };
 
 
-export type MutationUpdateNewsDocumentArgs = {
+export type MutationUpdateNewsArgs = {
   relativePath: Scalars['String'];
   params: NewsMutation;
 };
 
 
-export type MutationCreateNewsDocumentArgs = {
+export type MutationCreateNewsArgs = {
   relativePath: Scalars['String'];
   params: NewsMutation;
 };
 
 
-export type MutationUpdateFooterDocumentArgs = {
+export type MutationUpdateFooterArgs = {
   relativePath: Scalars['String'];
   params: FooterMutation;
 };
 
 
-export type MutationCreateFooterDocumentArgs = {
+export type MutationCreateFooterArgs = {
   relativePath: Scalars['String'];
   params: FooterMutation;
 };
 
 
-export type MutationUpdateThemeDocumentArgs = {
+export type MutationUpdateThemeArgs = {
   relativePath: Scalars['String'];
   params: ThemeMutation;
 };
 
 
-export type MutationCreateThemeDocumentArgs = {
+export type MutationCreateThemeArgs = {
   relativePath: Scalars['String'];
   params: ThemeMutation;
 };
 
 
-export type MutationUpdateNavigationDocumentArgs = {
+export type MutationUpdateNavigationArgs = {
   relativePath: Scalars['String'];
   params: NavigationMutation;
 };
 
 
-export type MutationCreateNavigationDocumentArgs = {
+export type MutationCreateNavigationArgs = {
   relativePath: Scalars['String'];
   params: NavigationMutation;
 };
 
 
-export type MutationUpdatePageDocumentArgs = {
+export type MutationUpdatePageArgs = {
   relativePath: Scalars['String'];
   params: PageMutation;
 };
 
 
-export type MutationCreatePageDocumentArgs = {
+export type MutationCreatePageArgs = {
   relativePath: Scalars['String'];
   params: PageMutation;
 };
@@ -803,9 +1066,10 @@ export type LocaleInfoMutation = {
 export type NewsMutation = {
   title?: InputMaybe<Scalars['String']>;
   subTitle?: InputMaybe<Scalars['String']>;
-  description?: InputMaybe<Scalars['String']>;
   image?: InputMaybe<Scalars['String']>;
-  body?: InputMaybe<Scalars['String']>;
+  publishDate?: InputMaybe<Scalars['String']>;
+  category?: InputMaybe<Scalars['String']>;
+  body?: InputMaybe<Scalars['JSON']>;
 };
 
 export type FooterOfficesMutation = {
@@ -815,7 +1079,7 @@ export type FooterOfficesMutation = {
 };
 
 export type FooterDisclaimersMutation = {
-  body?: InputMaybe<Scalars['String']>;
+  body?: InputMaybe<Scalars['JSON']>;
 };
 
 export type FooterMutation = {
@@ -849,20 +1113,20 @@ export type PageBlocksNewsNewsItemsMutation = {
 export type PageBlocksNewsMutation = {
   title?: InputMaybe<Scalars['String']>;
   subTitle?: InputMaybe<Scalars['String']>;
-  description?: InputMaybe<Scalars['String']>;
+  description?: InputMaybe<Scalars['JSON']>;
   newsItems?: InputMaybe<Array<InputMaybe<PageBlocksNewsNewsItemsMutation>>>;
 };
 
 export type PageBlocksStatsWithImageStatsMutation = {
   title?: InputMaybe<Scalars['String']>;
   subTitle?: InputMaybe<Scalars['String']>;
-  description?: InputMaybe<Scalars['String']>;
+  description?: InputMaybe<Scalars['JSON']>;
 };
 
 export type PageBlocksStatsWithImageMutation = {
   title?: InputMaybe<Scalars['String']>;
   subTitle?: InputMaybe<Scalars['String']>;
-  description?: InputMaybe<Scalars['String']>;
+  description?: InputMaybe<Scalars['JSON']>;
   image?: InputMaybe<Scalars['String']>;
   stats?: InputMaybe<Array<InputMaybe<PageBlocksStatsWithImageStatsMutation>>>;
 };
@@ -880,8 +1144,7 @@ export type PageBlocksHeroActionMutation = {
 export type PageBlocksHeroMutation = {
   title?: InputMaybe<Scalars['String']>;
   subTitle?: InputMaybe<Scalars['String']>;
-  description?: InputMaybe<Scalars['String']>;
-  style?: InputMaybe<Scalars['String']>;
+  description?: InputMaybe<Scalars['JSON']>;
   image?: InputMaybe<Scalars['String']>;
   action?: InputMaybe<PageBlocksHeroActionMutation>;
 };
@@ -896,26 +1159,43 @@ export type PageBlocksSlideshowItemsActionMutation = {
   secondaryLinkOverride?: InputMaybe<Scalars['String']>;
 };
 
+export type PageBlocksSlideshowItemsOverlayMutation = {
+  image?: InputMaybe<Scalars['String']>;
+  overlayColor?: InputMaybe<Scalars['String']>;
+  overlayOpacity?: InputMaybe<Scalars['String']>;
+};
+
 export type PageBlocksSlideshowItemsMutation = {
   title?: InputMaybe<Scalars['String']>;
   subTitle?: InputMaybe<Scalars['String']>;
-  description?: InputMaybe<Scalars['String']>;
-  image?: InputMaybe<Scalars['String']>;
-  textColor?: InputMaybe<Scalars['String']>;
+  description?: InputMaybe<Scalars['JSON']>;
   action?: InputMaybe<PageBlocksSlideshowItemsActionMutation>;
-  overlayColor?: InputMaybe<Scalars['String']>;
-  overlayOpacity?: InputMaybe<Scalars['String']>;
+  overlay?: InputMaybe<PageBlocksSlideshowItemsOverlayMutation>;
 };
 
 export type PageBlocksSlideshowMutation = {
   items?: InputMaybe<Array<InputMaybe<PageBlocksSlideshowItemsMutation>>>;
 };
 
+export type PageBlocksComparisonTableItemsMetaAMutation = {
+  aOne?: InputMaybe<Scalars['String']>;
+};
+
+export type PageBlocksComparisonTableItemsMetaBMutation = {
+  bOne?: InputMaybe<Scalars['String']>;
+};
+
+export type PageBlocksComparisonTableItemsMetaMutation = {
+  a?: InputMaybe<PageBlocksComparisonTableItemsMetaAMutation>;
+  b?: InputMaybe<PageBlocksComparisonTableItemsMetaBMutation>;
+};
+
 export type PageBlocksComparisonTableItemsMutation = {
   title?: InputMaybe<Scalars['String']>;
   subTitle?: InputMaybe<Scalars['String']>;
-  description?: InputMaybe<Scalars['String']>;
+  description?: InputMaybe<Scalars['JSON']>;
   bulletPoints?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  meta?: InputMaybe<Array<InputMaybe<PageBlocksComparisonTableItemsMetaMutation>>>;
 };
 
 export type PageBlocksComparisonTableActionMutation = {
@@ -931,18 +1211,42 @@ export type PageBlocksComparisonTableActionMutation = {
 export type PageBlocksComparisonTableMutation = {
   title?: InputMaybe<Scalars['String']>;
   subTitle?: InputMaybe<Scalars['String']>;
-  description?: InputMaybe<Scalars['String']>;
+  description?: InputMaybe<Scalars['JSON']>;
   items?: InputMaybe<Array<InputMaybe<PageBlocksComparisonTableItemsMutation>>>;
   action?: InputMaybe<PageBlocksComparisonTableActionMutation>;
+};
+
+export type PageBlocksFeatureFeaturesMutation = {
+  icon?: InputMaybe<Scalars['String']>;
+  name?: InputMaybe<Scalars['String']>;
+  description?: InputMaybe<Scalars['JSON']>;
+};
+
+export type PageBlocksFeatureOverlayMutation = {
+  image?: InputMaybe<Scalars['String']>;
+  overlayColor?: InputMaybe<Scalars['String']>;
+  overlayOpacity?: InputMaybe<Scalars['String']>;
+};
+
+export type PageBlocksFeatureMutation = {
+  title?: InputMaybe<Scalars['String']>;
+  subTitle?: InputMaybe<Scalars['String']>;
+  description?: InputMaybe<Scalars['JSON']>;
+  featureStyle?: InputMaybe<Scalars['String']>;
+  features?: InputMaybe<Array<InputMaybe<PageBlocksFeatureFeaturesMutation>>>;
+  overlay?: InputMaybe<PageBlocksFeatureOverlayMutation>;
+};
+
+export type PageBlocksFullScreenLogoOverlayMutation = {
+  image?: InputMaybe<Scalars['String']>;
+  overlayColor?: InputMaybe<Scalars['String']>;
+  overlayOpacity?: InputMaybe<Scalars['String']>;
 };
 
 export type PageBlocksFullScreenLogoMutation = {
   slogan?: InputMaybe<Scalars['String']>;
   link?: InputMaybe<Scalars['String']>;
-  image?: InputMaybe<Scalars['String']>;
-  textColor?: InputMaybe<Scalars['String']>;
-  overlayColor?: InputMaybe<Scalars['String']>;
-  overlayOpacity?: InputMaybe<Scalars['String']>;
+  overlay?: InputMaybe<PageBlocksFullScreenLogoOverlayMutation>;
 };
 
 export type PageBlocksFullScreenHeaderActionMutation = {
@@ -955,64 +1259,18 @@ export type PageBlocksFullScreenHeaderActionMutation = {
   secondaryLinkOverride?: InputMaybe<Scalars['String']>;
 };
 
+export type PageBlocksFullScreenHeaderOverlayMutation = {
+  image?: InputMaybe<Scalars['String']>;
+  overlayColor?: InputMaybe<Scalars['String']>;
+  overlayOpacity?: InputMaybe<Scalars['String']>;
+};
+
 export type PageBlocksFullScreenHeaderMutation = {
   title?: InputMaybe<Scalars['String']>;
   subTitle?: InputMaybe<Scalars['String']>;
-  description?: InputMaybe<Scalars['String']>;
+  description?: InputMaybe<Scalars['JSON']>;
   action?: InputMaybe<PageBlocksFullScreenHeaderActionMutation>;
-  image?: InputMaybe<Scalars['String']>;
-  textColor?: InputMaybe<Scalars['String']>;
-  overlayColor?: InputMaybe<Scalars['String']>;
-  overlayOpacity?: InputMaybe<Scalars['String']>;
-};
-
-export type PageBlocksFeatureFeaturesMutation = {
-  icon?: InputMaybe<Scalars['String']>;
-  name?: InputMaybe<Scalars['String']>;
-  description?: InputMaybe<Scalars['String']>;
-};
-
-export type PageBlocksFeatureMutation = {
-  title?: InputMaybe<Scalars['String']>;
-  subTitle?: InputMaybe<Scalars['String']>;
-  description?: InputMaybe<Scalars['String']>;
-  featureStyle?: InputMaybe<Scalars['String']>;
-  features?: InputMaybe<Array<InputMaybe<PageBlocksFeatureFeaturesMutation>>>;
-  image?: InputMaybe<Scalars['String']>;
-  textColor?: InputMaybe<Scalars['String']>;
-  overlayColor?: InputMaybe<Scalars['String']>;
-  overlayOpacity?: InputMaybe<Scalars['String']>;
-};
-
-export type PageBlocksScreenShotFeatureActionMutation = {
-  callToAction?: InputMaybe<Scalars['String']>;
-  linkText?: InputMaybe<Scalars['String']>;
-  link?: InputMaybe<Scalars['String']>;
-  linkOverride?: InputMaybe<Scalars['String']>;
-  secondaryText?: InputMaybe<Scalars['String']>;
-  secondaryLink?: InputMaybe<Scalars['String']>;
-  secondaryLinkOverride?: InputMaybe<Scalars['String']>;
-};
-
-export type PageBlocksScreenShotFeatureTestimonialAuthorMutation = {
-  name?: InputMaybe<Scalars['String']>;
-  avatar?: InputMaybe<Scalars['String']>;
-};
-
-export type PageBlocksScreenShotFeatureTestimonialMutation = {
-  quote?: InputMaybe<Scalars['String']>;
-  author?: InputMaybe<PageBlocksScreenShotFeatureTestimonialAuthorMutation>;
-};
-
-export type PageBlocksScreenShotFeatureMutation = {
-  title?: InputMaybe<Scalars['String']>;
-  subTitle?: InputMaybe<Scalars['String']>;
-  description?: InputMaybe<Scalars['String']>;
-  image?: InputMaybe<Scalars['String']>;
-  alignment?: InputMaybe<Scalars['String']>;
-  icon?: InputMaybe<Scalars['String']>;
-  action?: InputMaybe<PageBlocksScreenShotFeatureActionMutation>;
-  testimonial?: InputMaybe<PageBlocksScreenShotFeatureTestimonialMutation>;
+  overlay?: InputMaybe<PageBlocksFullScreenHeaderOverlayMutation>;
 };
 
 export type PageBlocksMutation = {
@@ -1021,10 +1279,9 @@ export type PageBlocksMutation = {
   hero?: InputMaybe<PageBlocksHeroMutation>;
   slideshow?: InputMaybe<PageBlocksSlideshowMutation>;
   comparisonTable?: InputMaybe<PageBlocksComparisonTableMutation>;
+  feature?: InputMaybe<PageBlocksFeatureMutation>;
   fullScreenLogo?: InputMaybe<PageBlocksFullScreenLogoMutation>;
   fullScreenHeader?: InputMaybe<PageBlocksFullScreenHeaderMutation>;
-  feature?: InputMaybe<PageBlocksFeatureMutation>;
-  screenShotFeature?: InputMaybe<PageBlocksScreenShotFeatureMutation>;
 };
 
 export type PageMutation = {
@@ -1034,612 +1291,11 @@ export type PageMutation = {
   blocks?: InputMaybe<Array<InputMaybe<PageBlocksMutation>>>;
 };
 
-export type LocaleInfoPartsFragment = { __typename?: 'LocaleInfo', au?: { __typename: 'LocaleInfoAu', tel?: string | null, signUpLink?: string | null, signUpLinkPersonal?: string | null, signInLink?: string | null } | null, us?: { __typename: 'LocaleInfoUs', tel?: string | null, signUpLink?: string | null, signUpLinkPersonal?: string | null, signInLink?: string | null } | null, gb?: { __typename: 'LocaleInfoGb', tel?: string | null, signUpLink?: string | null, signUpLinkPersonal?: string | null, signInLink?: string | null } | null };
 
-export type NewsPartsFragment = { __typename?: 'News', title: string, subTitle?: string | null, description: string, image?: string | null, body?: string | null };
-
-export type FooterPartsFragment = { __typename?: 'Footer', offices?: Array<{ __typename: 'FooterOffices', location: string, address: string, phone: string } | null> | null, disclaimers: Array<{ __typename: 'FooterDisclaimers', body?: string | null }> };
-
-export type ThemePartsFragment = { __typename?: 'Theme', displayFont?: string | null, colorMode?: string | null };
-
-export type NavigationPartsFragment = { __typename?: 'Navigation', items: Array<{ __typename: 'NavigationItems', page?: { __typename?: 'PageDocument', id: string } | null }> };
-
-export type PagePartsFragment = { __typename?: 'Page', title: string, link: string, seo?: { __typename: 'PageSeo', title?: string | null, image?: string | null, description: string } | null, blocks?: Array<{ __typename: 'PageBlocksNews', title: string, subTitle?: string | null, description: string, newsItems: Array<{ __typename: 'PageBlocksNewsNewsItems', article: { __typename?: 'NewsDocument', id: string } }> } | { __typename: 'PageBlocksStatsWithImage', title: string, subTitle?: string | null, description: string, image?: string | null, stats: Array<{ __typename: 'PageBlocksStatsWithImageStats', title: string, subTitle?: string | null, description: string }> } | { __typename: 'PageBlocksHero', title: string, subTitle?: string | null, description: string, style?: string | null, image?: string | null, action?: { __typename: 'PageBlocksHeroAction', callToAction?: string | null, linkText: string, link: string, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksSlideshow', items?: Array<{ __typename: 'PageBlocksSlideshowItems', title: string, subTitle?: string | null, description: string, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null, action?: { __typename: 'PageBlocksSlideshowItemsAction', callToAction?: string | null, linkText: string, link: string, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | null> | null } | { __typename: 'PageBlocksComparisonTable', title: string, subTitle?: string | null, description: string, items?: Array<{ __typename: 'PageBlocksComparisonTableItems', title: string, subTitle?: string | null, description: string, bulletPoints?: Array<string | null> | null } | null> | null, action?: { __typename: 'PageBlocksComparisonTableAction', callToAction?: string | null, linkText: string, link: string, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksFullScreenLogo', slogan?: string | null, link?: string | null, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | { __typename: 'PageBlocksFullScreenHeader', title: string, subTitle?: string | null, description: string, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null, action?: { __typename: 'PageBlocksFullScreenHeaderAction', callToAction?: string | null, linkText: string, link: string, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksFeature', title: string, subTitle?: string | null, description: string, featureStyle?: string | null, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null, features: Array<{ __typename: 'PageBlocksFeatureFeatures', icon: string, name: string, description: string }> } | { __typename: 'PageBlocksScreenShotFeature', title: string, subTitle?: string | null, description: string, image?: string | null, alignment?: string | null, icon?: string | null, action?: { __typename: 'PageBlocksScreenShotFeatureAction', callToAction?: string | null, linkText: string, link: string, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null, testimonial?: { __typename: 'PageBlocksScreenShotFeatureTestimonial', quote: string, author?: { __typename: 'PageBlocksScreenShotFeatureTestimonialAuthor', name: string, avatar: string } | null } | null } | null> | null };
-
-export type GetLocaleInfoDocumentQueryVariables = Exact<{
-  relativePath: Scalars['String'];
-}>;
-
-
-export type GetLocaleInfoDocumentQuery = { __typename?: 'Query', getLocaleInfoDocument: { __typename?: 'LocaleInfoDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'LocaleInfo', au?: { __typename: 'LocaleInfoAu', tel?: string | null, signUpLink?: string | null, signUpLinkPersonal?: string | null, signInLink?: string | null } | null, us?: { __typename: 'LocaleInfoUs', tel?: string | null, signUpLink?: string | null, signUpLinkPersonal?: string | null, signInLink?: string | null } | null, gb?: { __typename: 'LocaleInfoGb', tel?: string | null, signUpLink?: string | null, signUpLinkPersonal?: string | null, signInLink?: string | null } | null } } };
-
-export type GetLocaleInfoListQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetLocaleInfoListQuery = { __typename?: 'Query', getLocaleInfoList: { __typename?: 'LocaleInfoConnection', totalCount: number, edges?: Array<{ __typename?: 'LocaleInfoConnectionEdges', node?: { __typename?: 'LocaleInfoDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'LocaleInfo', au?: { __typename: 'LocaleInfoAu', tel?: string | null, signUpLink?: string | null, signUpLinkPersonal?: string | null, signInLink?: string | null } | null, us?: { __typename: 'LocaleInfoUs', tel?: string | null, signUpLink?: string | null, signUpLinkPersonal?: string | null, signInLink?: string | null } | null, gb?: { __typename: 'LocaleInfoGb', tel?: string | null, signUpLink?: string | null, signUpLinkPersonal?: string | null, signInLink?: string | null } | null } } | null } | null> | null } };
-
-export type GetNewsDocumentQueryVariables = Exact<{
-  relativePath: Scalars['String'];
-}>;
-
-
-export type GetNewsDocumentQuery = { __typename?: 'Query', getNewsDocument: { __typename?: 'NewsDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'News', title: string, subTitle?: string | null, description: string, image?: string | null, body?: string | null } } };
-
-export type GetNewsListQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetNewsListQuery = { __typename?: 'Query', getNewsList: { __typename?: 'NewsConnection', totalCount: number, edges?: Array<{ __typename?: 'NewsConnectionEdges', node?: { __typename?: 'NewsDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'News', title: string, subTitle?: string | null, description: string, image?: string | null, body?: string | null } } | null } | null> | null } };
-
-export type GetFooterDocumentQueryVariables = Exact<{
-  relativePath: Scalars['String'];
-}>;
-
-
-export type GetFooterDocumentQuery = { __typename?: 'Query', getFooterDocument: { __typename?: 'FooterDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Footer', offices?: Array<{ __typename: 'FooterOffices', location: string, address: string, phone: string } | null> | null, disclaimers: Array<{ __typename: 'FooterDisclaimers', body?: string | null }> } } };
-
-export type GetFooterListQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetFooterListQuery = { __typename?: 'Query', getFooterList: { __typename?: 'FooterConnection', totalCount: number, edges?: Array<{ __typename?: 'FooterConnectionEdges', node?: { __typename?: 'FooterDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Footer', offices?: Array<{ __typename: 'FooterOffices', location: string, address: string, phone: string } | null> | null, disclaimers: Array<{ __typename: 'FooterDisclaimers', body?: string | null }> } } | null } | null> | null } };
-
-export type GetThemeDocumentQueryVariables = Exact<{
-  relativePath: Scalars['String'];
-}>;
-
-
-export type GetThemeDocumentQuery = { __typename?: 'Query', getThemeDocument: { __typename?: 'ThemeDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Theme', displayFont?: string | null, colorMode?: string | null } } };
-
-export type GetThemeListQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetThemeListQuery = { __typename?: 'Query', getThemeList: { __typename?: 'ThemeConnection', totalCount: number, edges?: Array<{ __typename?: 'ThemeConnectionEdges', node?: { __typename?: 'ThemeDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Theme', displayFont?: string | null, colorMode?: string | null } } | null } | null> | null } };
-
-export type GetNavigationDocumentQueryVariables = Exact<{
-  relativePath: Scalars['String'];
-}>;
-
-
-export type GetNavigationDocumentQuery = { __typename?: 'Query', getNavigationDocument: { __typename?: 'NavigationDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Navigation', items: Array<{ __typename: 'NavigationItems', page?: { __typename?: 'PageDocument', id: string } | null }> } } };
-
-export type GetNavigationListQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetNavigationListQuery = { __typename?: 'Query', getNavigationList: { __typename?: 'NavigationConnection', totalCount: number, edges?: Array<{ __typename?: 'NavigationConnectionEdges', node?: { __typename?: 'NavigationDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Navigation', items: Array<{ __typename: 'NavigationItems', page?: { __typename?: 'PageDocument', id: string } | null }> } } | null } | null> | null } };
-
-export type GetPageDocumentQueryVariables = Exact<{
-  relativePath: Scalars['String'];
-}>;
-
-
-export type GetPageDocumentQuery = { __typename?: 'Query', getPageDocument: { __typename?: 'PageDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Page', title: string, link: string, seo?: { __typename: 'PageSeo', title?: string | null, image?: string | null, description: string } | null, blocks?: Array<{ __typename: 'PageBlocksNews', title: string, subTitle?: string | null, description: string, newsItems: Array<{ __typename: 'PageBlocksNewsNewsItems', article: { __typename?: 'NewsDocument', id: string } }> } | { __typename: 'PageBlocksStatsWithImage', title: string, subTitle?: string | null, description: string, image?: string | null, stats: Array<{ __typename: 'PageBlocksStatsWithImageStats', title: string, subTitle?: string | null, description: string }> } | { __typename: 'PageBlocksHero', title: string, subTitle?: string | null, description: string, style?: string | null, image?: string | null, action?: { __typename: 'PageBlocksHeroAction', callToAction?: string | null, linkText: string, link: string, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksSlideshow', items?: Array<{ __typename: 'PageBlocksSlideshowItems', title: string, subTitle?: string | null, description: string, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null, action?: { __typename: 'PageBlocksSlideshowItemsAction', callToAction?: string | null, linkText: string, link: string, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | null> | null } | { __typename: 'PageBlocksComparisonTable', title: string, subTitle?: string | null, description: string, items?: Array<{ __typename: 'PageBlocksComparisonTableItems', title: string, subTitle?: string | null, description: string, bulletPoints?: Array<string | null> | null } | null> | null, action?: { __typename: 'PageBlocksComparisonTableAction', callToAction?: string | null, linkText: string, link: string, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksFullScreenLogo', slogan?: string | null, link?: string | null, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | { __typename: 'PageBlocksFullScreenHeader', title: string, subTitle?: string | null, description: string, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null, action?: { __typename: 'PageBlocksFullScreenHeaderAction', callToAction?: string | null, linkText: string, link: string, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksFeature', title: string, subTitle?: string | null, description: string, featureStyle?: string | null, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null, features: Array<{ __typename: 'PageBlocksFeatureFeatures', icon: string, name: string, description: string }> } | { __typename: 'PageBlocksScreenShotFeature', title: string, subTitle?: string | null, description: string, image?: string | null, alignment?: string | null, icon?: string | null, action?: { __typename: 'PageBlocksScreenShotFeatureAction', callToAction?: string | null, linkText: string, link: string, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null, testimonial?: { __typename: 'PageBlocksScreenShotFeatureTestimonial', quote: string, author?: { __typename: 'PageBlocksScreenShotFeatureTestimonialAuthor', name: string, avatar: string } | null } | null } | null> | null } } };
-
-export type GetPageListQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetPageListQuery = { __typename?: 'Query', getPageList: { __typename?: 'PageConnection', totalCount: number, edges?: Array<{ __typename?: 'PageConnectionEdges', node?: { __typename?: 'PageDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Page', title: string, link: string, seo?: { __typename: 'PageSeo', title?: string | null, image?: string | null, description: string } | null, blocks?: Array<{ __typename: 'PageBlocksNews', title: string, subTitle?: string | null, description: string, newsItems: Array<{ __typename: 'PageBlocksNewsNewsItems', article: { __typename?: 'NewsDocument', id: string } }> } | { __typename: 'PageBlocksStatsWithImage', title: string, subTitle?: string | null, description: string, image?: string | null, stats: Array<{ __typename: 'PageBlocksStatsWithImageStats', title: string, subTitle?: string | null, description: string }> } | { __typename: 'PageBlocksHero', title: string, subTitle?: string | null, description: string, style?: string | null, image?: string | null, action?: { __typename: 'PageBlocksHeroAction', callToAction?: string | null, linkText: string, link: string, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksSlideshow', items?: Array<{ __typename: 'PageBlocksSlideshowItems', title: string, subTitle?: string | null, description: string, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null, action?: { __typename: 'PageBlocksSlideshowItemsAction', callToAction?: string | null, linkText: string, link: string, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | null> | null } | { __typename: 'PageBlocksComparisonTable', title: string, subTitle?: string | null, description: string, items?: Array<{ __typename: 'PageBlocksComparisonTableItems', title: string, subTitle?: string | null, description: string, bulletPoints?: Array<string | null> | null } | null> | null, action?: { __typename: 'PageBlocksComparisonTableAction', callToAction?: string | null, linkText: string, link: string, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksFullScreenLogo', slogan?: string | null, link?: string | null, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null } | { __typename: 'PageBlocksFullScreenHeader', title: string, subTitle?: string | null, description: string, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null, action?: { __typename: 'PageBlocksFullScreenHeaderAction', callToAction?: string | null, linkText: string, link: string, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null } | { __typename: 'PageBlocksFeature', title: string, subTitle?: string | null, description: string, featureStyle?: string | null, image?: string | null, textColor?: string | null, overlayColor?: string | null, overlayOpacity?: string | null, features: Array<{ __typename: 'PageBlocksFeatureFeatures', icon: string, name: string, description: string }> } | { __typename: 'PageBlocksScreenShotFeature', title: string, subTitle?: string | null, description: string, image?: string | null, alignment?: string | null, icon?: string | null, action?: { __typename: 'PageBlocksScreenShotFeatureAction', callToAction?: string | null, linkText: string, link: string, linkOverride?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryLinkOverride?: string | null } | null, testimonial?: { __typename: 'PageBlocksScreenShotFeatureTestimonial', quote: string, author?: { __typename: 'PageBlocksScreenShotFeatureTestimonialAuthor', name: string, avatar: string } | null } | null } | null> | null } } | null } | null> | null } };
-
-export const LocaleInfoPartsFragmentDoc = gql`
-    fragment LocaleInfoParts on LocaleInfo {
-  au {
-    __typename
-    tel
-    signUpLink
-    signUpLinkPersonal
-    signInLink
-  }
-  us {
-    __typename
-    tel
-    signUpLink
-    signUpLinkPersonal
-    signInLink
-  }
-  gb {
-    __typename
-    tel
-    signUpLink
-    signUpLinkPersonal
-    signInLink
-  }
-}
-    `;
-export const NewsPartsFragmentDoc = gql`
-    fragment NewsParts on News {
-  title
-  subTitle
-  description
-  image
-  body
-}
-    `;
-export const FooterPartsFragmentDoc = gql`
-    fragment FooterParts on Footer {
-  offices {
-    __typename
-    location
-    address
-    phone
-  }
-  disclaimers {
-    __typename
-    body
-  }
-}
-    `;
-export const ThemePartsFragmentDoc = gql`
-    fragment ThemeParts on Theme {
-  displayFont
-  colorMode
-}
-    `;
-export const NavigationPartsFragmentDoc = gql`
-    fragment NavigationParts on Navigation {
-  items {
-    __typename
-    page {
-      ... on Document {
-        id
-      }
-    }
-  }
-}
-    `;
-export const PagePartsFragmentDoc = gql`
-    fragment PageParts on Page {
-  title
-  link
-  seo {
-    __typename
-    title
-    image
-    description
-  }
-  blocks {
-    __typename
-    ... on PageBlocksNews {
-      title
-      subTitle
-      description
-      newsItems {
-        __typename
-        article {
-          ... on Document {
-            id
-          }
-        }
-      }
-    }
-    ... on PageBlocksStatsWithImage {
-      title
-      subTitle
-      description
-      image
-      stats {
-        __typename
-        title
-        subTitle
-        description
-      }
-    }
-    ... on PageBlocksHero {
-      title
-      subTitle
-      description
-      style
-      image
-      action {
-        __typename
-        callToAction
-        linkText
-        link
-        linkOverride
-        secondaryText
-        secondaryLink
-        secondaryLinkOverride
-      }
-    }
-    ... on PageBlocksSlideshow {
-      items {
-        __typename
-        title
-        subTitle
-        description
-        image
-        textColor
-        action {
-          __typename
-          callToAction
-          linkText
-          link
-          linkOverride
-          secondaryText
-          secondaryLink
-          secondaryLinkOverride
-        }
-        overlayColor
-        overlayOpacity
-      }
-    }
-    ... on PageBlocksComparisonTable {
-      title
-      subTitle
-      description
-      items {
-        __typename
-        title
-        subTitle
-        description
-        bulletPoints
-      }
-      action {
-        __typename
-        callToAction
-        linkText
-        link
-        linkOverride
-        secondaryText
-        secondaryLink
-        secondaryLinkOverride
-      }
-    }
-    ... on PageBlocksFullScreenLogo {
-      slogan
-      link
-      image
-      textColor
-      overlayColor
-      overlayOpacity
-    }
-    ... on PageBlocksFullScreenHeader {
-      title
-      subTitle
-      description
-      action {
-        __typename
-        callToAction
-        linkText
-        link
-        linkOverride
-        secondaryText
-        secondaryLink
-        secondaryLinkOverride
-      }
-      image
-      textColor
-      overlayColor
-      overlayOpacity
-    }
-    ... on PageBlocksFeature {
-      title
-      subTitle
-      description
-      featureStyle
-      features {
-        __typename
-        icon
-        name
-        description
-      }
-      image
-      textColor
-      overlayColor
-      overlayOpacity
-    }
-    ... on PageBlocksScreenShotFeature {
-      title
-      subTitle
-      description
-      image
-      alignment
-      icon
-      action {
-        __typename
-        callToAction
-        linkText
-        link
-        linkOverride
-        secondaryText
-        secondaryLink
-        secondaryLinkOverride
-      }
-      testimonial {
-        __typename
-        quote
-        author {
-          __typename
-          name
-          avatar
-        }
-      }
-    }
-  }
-}
-    `;
-export const GetLocaleInfoDocumentDocument = gql`
-    query getLocaleInfoDocument($relativePath: String!) {
-  getLocaleInfoDocument(relativePath: $relativePath) {
-    sys {
-      filename
-      basename
-      breadcrumbs
-      path
-      relativePath
-      extension
-    }
-    id
-    data {
-      ...LocaleInfoParts
-    }
-  }
-}
-    ${LocaleInfoPartsFragmentDoc}`;
-export const GetLocaleInfoListDocument = gql`
-    query getLocaleInfoList {
-  getLocaleInfoList {
-    totalCount
-    edges {
-      node {
-        id
-        sys {
-          filename
-          basename
-          breadcrumbs
-          path
-          relativePath
-          extension
-        }
-        data {
-          ...LocaleInfoParts
-        }
-      }
-    }
-  }
-}
-    ${LocaleInfoPartsFragmentDoc}`;
-export const GetNewsDocumentDocument = gql`
-    query getNewsDocument($relativePath: String!) {
-  getNewsDocument(relativePath: $relativePath) {
-    sys {
-      filename
-      basename
-      breadcrumbs
-      path
-      relativePath
-      extension
-    }
-    id
-    data {
-      ...NewsParts
-    }
-  }
-}
-    ${NewsPartsFragmentDoc}`;
-export const GetNewsListDocument = gql`
-    query getNewsList {
-  getNewsList {
-    totalCount
-    edges {
-      node {
-        id
-        sys {
-          filename
-          basename
-          breadcrumbs
-          path
-          relativePath
-          extension
-        }
-        data {
-          ...NewsParts
-        }
-      }
-    }
-  }
-}
-    ${NewsPartsFragmentDoc}`;
-export const GetFooterDocumentDocument = gql`
-    query getFooterDocument($relativePath: String!) {
-  getFooterDocument(relativePath: $relativePath) {
-    sys {
-      filename
-      basename
-      breadcrumbs
-      path
-      relativePath
-      extension
-    }
-    id
-    data {
-      ...FooterParts
-    }
-  }
-}
-    ${FooterPartsFragmentDoc}`;
-export const GetFooterListDocument = gql`
-    query getFooterList {
-  getFooterList {
-    totalCount
-    edges {
-      node {
-        id
-        sys {
-          filename
-          basename
-          breadcrumbs
-          path
-          relativePath
-          extension
-        }
-        data {
-          ...FooterParts
-        }
-      }
-    }
-  }
-}
-    ${FooterPartsFragmentDoc}`;
-export const GetThemeDocumentDocument = gql`
-    query getThemeDocument($relativePath: String!) {
-  getThemeDocument(relativePath: $relativePath) {
-    sys {
-      filename
-      basename
-      breadcrumbs
-      path
-      relativePath
-      extension
-    }
-    id
-    data {
-      ...ThemeParts
-    }
-  }
-}
-    ${ThemePartsFragmentDoc}`;
-export const GetThemeListDocument = gql`
-    query getThemeList {
-  getThemeList {
-    totalCount
-    edges {
-      node {
-        id
-        sys {
-          filename
-          basename
-          breadcrumbs
-          path
-          relativePath
-          extension
-        }
-        data {
-          ...ThemeParts
-        }
-      }
-    }
-  }
-}
-    ${ThemePartsFragmentDoc}`;
-export const GetNavigationDocumentDocument = gql`
-    query getNavigationDocument($relativePath: String!) {
-  getNavigationDocument(relativePath: $relativePath) {
-    sys {
-      filename
-      basename
-      breadcrumbs
-      path
-      relativePath
-      extension
-    }
-    id
-    data {
-      ...NavigationParts
-    }
-  }
-}
-    ${NavigationPartsFragmentDoc}`;
-export const GetNavigationListDocument = gql`
-    query getNavigationList {
-  getNavigationList {
-    totalCount
-    edges {
-      node {
-        id
-        sys {
-          filename
-          basename
-          breadcrumbs
-          path
-          relativePath
-          extension
-        }
-        data {
-          ...NavigationParts
-        }
-      }
-    }
-  }
-}
-    ${NavigationPartsFragmentDoc}`;
-export const GetPageDocumentDocument = gql`
-    query getPageDocument($relativePath: String!) {
-  getPageDocument(relativePath: $relativePath) {
-    sys {
-      filename
-      basename
-      breadcrumbs
-      path
-      relativePath
-      extension
-    }
-    id
-    data {
-      ...PageParts
-    }
-  }
-}
-    ${PagePartsFragmentDoc}`;
-export const GetPageListDocument = gql`
-    query getPageList {
-  getPageList {
-    totalCount
-    edges {
-      node {
-        id
-        sys {
-          filename
-          basename
-          breadcrumbs
-          path
-          relativePath
-          extension
-        }
-        data {
-          ...PageParts
-        }
-      }
-    }
-  }
-}
-    ${PagePartsFragmentDoc}`;
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
-      getLocaleInfoDocument(variables: GetLocaleInfoDocumentQueryVariables, options?: C): Promise<{data: GetLocaleInfoDocumentQuery, variables: GetLocaleInfoDocumentQueryVariables, query: string}> {
-        return requester<{data: GetLocaleInfoDocumentQuery, variables: GetLocaleInfoDocumentQueryVariables, query: string}, GetLocaleInfoDocumentQueryVariables>(GetLocaleInfoDocumentDocument, variables, options);
-      },
-    getLocaleInfoList(variables?: GetLocaleInfoListQueryVariables, options?: C): Promise<{data: GetLocaleInfoListQuery, variables: GetLocaleInfoListQueryVariables, query: string}> {
-        return requester<{data: GetLocaleInfoListQuery, variables: GetLocaleInfoListQueryVariables, query: string}, GetLocaleInfoListQueryVariables>(GetLocaleInfoListDocument, variables, options);
-      },
-    getNewsDocument(variables: GetNewsDocumentQueryVariables, options?: C): Promise<{data: GetNewsDocumentQuery, variables: GetNewsDocumentQueryVariables, query: string}> {
-        return requester<{data: GetNewsDocumentQuery, variables: GetNewsDocumentQueryVariables, query: string}, GetNewsDocumentQueryVariables>(GetNewsDocumentDocument, variables, options);
-      },
-    getNewsList(variables?: GetNewsListQueryVariables, options?: C): Promise<{data: GetNewsListQuery, variables: GetNewsListQueryVariables, query: string}> {
-        return requester<{data: GetNewsListQuery, variables: GetNewsListQueryVariables, query: string}, GetNewsListQueryVariables>(GetNewsListDocument, variables, options);
-      },
-    getFooterDocument(variables: GetFooterDocumentQueryVariables, options?: C): Promise<{data: GetFooterDocumentQuery, variables: GetFooterDocumentQueryVariables, query: string}> {
-        return requester<{data: GetFooterDocumentQuery, variables: GetFooterDocumentQueryVariables, query: string}, GetFooterDocumentQueryVariables>(GetFooterDocumentDocument, variables, options);
-      },
-    getFooterList(variables?: GetFooterListQueryVariables, options?: C): Promise<{data: GetFooterListQuery, variables: GetFooterListQueryVariables, query: string}> {
-        return requester<{data: GetFooterListQuery, variables: GetFooterListQueryVariables, query: string}, GetFooterListQueryVariables>(GetFooterListDocument, variables, options);
-      },
-    getThemeDocument(variables: GetThemeDocumentQueryVariables, options?: C): Promise<{data: GetThemeDocumentQuery, variables: GetThemeDocumentQueryVariables, query: string}> {
-        return requester<{data: GetThemeDocumentQuery, variables: GetThemeDocumentQueryVariables, query: string}, GetThemeDocumentQueryVariables>(GetThemeDocumentDocument, variables, options);
-      },
-    getThemeList(variables?: GetThemeListQueryVariables, options?: C): Promise<{data: GetThemeListQuery, variables: GetThemeListQueryVariables, query: string}> {
-        return requester<{data: GetThemeListQuery, variables: GetThemeListQueryVariables, query: string}, GetThemeListQueryVariables>(GetThemeListDocument, variables, options);
-      },
-    getNavigationDocument(variables: GetNavigationDocumentQueryVariables, options?: C): Promise<{data: GetNavigationDocumentQuery, variables: GetNavigationDocumentQueryVariables, query: string}> {
-        return requester<{data: GetNavigationDocumentQuery, variables: GetNavigationDocumentQueryVariables, query: string}, GetNavigationDocumentQueryVariables>(GetNavigationDocumentDocument, variables, options);
-      },
-    getNavigationList(variables?: GetNavigationListQueryVariables, options?: C): Promise<{data: GetNavigationListQuery, variables: GetNavigationListQueryVariables, query: string}> {
-        return requester<{data: GetNavigationListQuery, variables: GetNavigationListQueryVariables, query: string}, GetNavigationListQueryVariables>(GetNavigationListDocument, variables, options);
-      },
-    getPageDocument(variables: GetPageDocumentQueryVariables, options?: C): Promise<{data: GetPageDocumentQuery, variables: GetPageDocumentQueryVariables, query: string}> {
-        return requester<{data: GetPageDocumentQuery, variables: GetPageDocumentQueryVariables, query: string}, GetPageDocumentQueryVariables>(GetPageDocumentDocument, variables, options);
-      },
-    getPageList(variables?: GetPageListQueryVariables, options?: C): Promise<{data: GetPageListQuery, variables: GetPageListQueryVariables, query: string}> {
-        return requester<{data: GetPageListQuery, variables: GetPageListQueryVariables, query: string}, GetPageListQueryVariables>(GetPageListDocument, variables, options);
-      }
+  
     };
   }
   export type Sdk = ReturnType<typeof getSdk>;

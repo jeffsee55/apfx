@@ -15,9 +15,71 @@
   ```
 */
 
-import React from "react";
-import { Header } from "./blocks/feature";
-import { Markdown } from "./markdown";
+import React from 'react'
+import { Header } from './blocks/feature'
+import { Markdown } from './markdown'
+import type { TinaCollection, TinaField } from 'tinacms'
+
+const textFields: TinaField[] = [
+  {
+    label: 'Title',
+    name: 'title',
+    type: 'string' as const,
+    required: true,
+  },
+  {
+    label: 'Sub-Title',
+    name: 'subTitle',
+    type: 'string',
+  },
+  {
+    label: 'Description',
+    name: 'description',
+    type: 'rich-text' as const,
+    required: true,
+  },
+]
+
+export const newsTemplate = (): TinaCollection => ({
+  label: 'News & Insights',
+  name: 'news',
+  path: 'content/news',
+  fields: [
+    ...textFields.filter((textField) => textField.name !== 'description'),
+    {
+      label: 'Image',
+      name: 'image',
+      type: 'string',
+    },
+    {
+      label: 'Publish Date',
+      name: 'publishDate',
+      type: 'datetime',
+      ui: {
+        defaultValue: new Date().toISOString(),
+      },
+    },
+    {
+      label: 'Category',
+      name: 'category',
+      type: 'string',
+      options: [
+        { label: 'Inflation', value: 'inflation' },
+        { label: 'Markets', value: 'markets' },
+        { label: 'Exchange Rates', value: 'exchangeRates' },
+        { label: 'AU', value: 'au' },
+        { label: 'UK', value: 'uk' },
+        { label: 'US', value: 'us' },
+      ],
+    },
+    {
+      type: 'rich-text',
+      name: 'body',
+      isBody: true,
+      label: 'Body',
+    },
+  ],
+})
 
 export const News = (props) => {
   return (
@@ -95,5 +157,5 @@ export const News = (props) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
