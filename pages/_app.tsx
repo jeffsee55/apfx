@@ -25,7 +25,7 @@ const App = (props) => {
 const Page = ({ pageProps, Component }) => {
   const { locale } = useRouter();
   const props = useTina(pageProps);
-  const theme = pageProps.data.theme?._values;
+  const theme = pageProps.data?.theme?._values;
   const currentLocaleInfo =
     pageProps?.data?.localeInfo[locale.replace("en-", "") || "au"] || {};
 
