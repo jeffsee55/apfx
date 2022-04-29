@@ -32,11 +32,8 @@ const schema = defineSchema({
 
 export default schema;
 
-const branch = process.env.NEXT_PUBLIC_BRANCH_NAME || "main";
-const apiURL =
-  process.env.NODE_ENV == "development"
-    ? "http://localhost:4001/graphql"
-    : `https://content.tinajs.io/content/d94095b9-fb25-40a6-a3ea-277ad5653cb0/github/${branch}`;
+// const branch = process.env.NEXT_PUBLIC_BRANCH_NAME || "main";
+const apiURL = `https://content.tinajs.io/content/20b587fa-0a31-45cd-9a19-b441fe9cd3a8/github/simpler-names`;
 
 export const tinaConfig = defineConfig({
   apiURL,
