@@ -1,5 +1,5 @@
 ---
-title: Welcome to APFX
+title: Welcome to APFX!
 link: /
 seo:
   title: Home
