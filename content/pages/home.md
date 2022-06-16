@@ -1,5 +1,5 @@
 ---
-title: Welcome
+title: Welcome ok
 link: /
 seo:
   title: Home
