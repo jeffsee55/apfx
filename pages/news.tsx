@@ -1,9 +1,10 @@
 import Page, {
   getStaticProps as baseGetStaticProps,
-} from '../components/blocks'
+} from "../components/blocks";
 
-export default Page
+export default Page;
 
 export const getStaticProps = () => {
-  return baseGetStaticProps({ relativePath: 'news.md' })
-}
+  console.log("get it");
+  return baseGetStaticProps({ relativePath: "news.md" });
+};

@@ -1,14 +1,16 @@
 query localeInfo($relativePath: String!) {
   localeInfo(relativePath: $relativePath) {
-    _sys {
-      filename
-      basename
-      breadcrumbs
-      path
-      relativePath
-      extension
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
     }
-    id
     ...LocaleInfoParts
   }
 }
@@ -18,14 +20,16 @@ query localeInfoConnection {
     totalCount
     edges {
       node {
-        id
-        _sys {
-          filename
-          basename
-          breadcrumbs
-          path
-          relativePath
-          extension
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
         }
         ...LocaleInfoParts
       }
@@ -35,15 +39,17 @@ query localeInfoConnection {
 
 query news($relativePath: String!) {
   news(relativePath: $relativePath) {
-    _sys {
-      filename
-      basename
-      breadcrumbs
-      path
-      relativePath
-      extension
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
     }
-    id
     ...NewsParts
   }
 }
@@ -53,14 +59,16 @@ query newsConnection {
     totalCount
     edges {
       node {
-        id
-        _sys {
-          filename
-          basename
-          breadcrumbs
-          path
-          relativePath
-          extension
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
         }
         ...NewsParts
       }
@@ -70,15 +78,17 @@ query newsConnection {
 
 query footer($relativePath: String!) {
   footer(relativePath: $relativePath) {
-    _sys {
-      filename
-      basename
-      breadcrumbs
-      path
-      relativePath
-      extension
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
     }
-    id
     ...FooterParts
   }
 }
@@ -88,14 +98,16 @@ query footerConnection {
     totalCount
     edges {
       node {
-        id
-        _sys {
-          filename
-          basename
-          breadcrumbs
-          path
-          relativePath
-          extension
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
         }
         ...FooterParts
       }
@@ -105,15 +117,17 @@ query footerConnection {
 
 query theme($relativePath: String!) {
   theme(relativePath: $relativePath) {
-    _sys {
-      filename
-      basename
-      breadcrumbs
-      path
-      relativePath
-      extension
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
     }
-    id
     ...ThemeParts
   }
 }
@@ -123,14 +137,16 @@ query themeConnection {
     totalCount
     edges {
       node {
-        id
-        _sys {
-          filename
-          basename
-          breadcrumbs
-          path
-          relativePath
-          extension
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
         }
         ...ThemeParts
       }
@@ -140,15 +156,17 @@ query themeConnection {
 
 query navigation($relativePath: String!) {
   navigation(relativePath: $relativePath) {
-    _sys {
-      filename
-      basename
-      breadcrumbs
-      path
-      relativePath
-      extension
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
     }
-    id
     ...NavigationParts
   }
 }
@@ -158,14 +176,16 @@ query navigationConnection {
     totalCount
     edges {
       node {
-        id
-        _sys {
-          filename
-          basename
-          breadcrumbs
-          path
-          relativePath
-          extension
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
         }
         ...NavigationParts
       }
@@ -175,15 +195,17 @@ query navigationConnection {
 
 query page($relativePath: String!) {
   page(relativePath: $relativePath) {
-    _sys {
-      filename
-      basename
-      breadcrumbs
-      path
-      relativePath
-      extension
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
     }
-    id
     ...PageParts
   }
 }
@@ -193,14 +215,16 @@ query pageConnection {
     totalCount
     edges {
       node {
-        id
-        _sys {
-          filename
-          basename
-          breadcrumbs
-          path
-          relativePath
-          extension
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
         }
         ...PageParts
       }

@@ -33,7 +33,8 @@ const schema = defineSchema({
 export default schema;
 
 // const branch = process.env.NEXT_PUBLIC_BRANCH_NAME || "main";
-const apiURL = `https://content.tinajs.io/content/20b587fa-0a31-45cd-9a19-b441fe9cd3a8/github/simpler-names`;
+// const apiURL = `https://content.tinajs.io/content/20b587fa-0a31-45cd-9a19-b441fe9cd3a8/github/simpler-names`;
+const apiURL = `http://localhost:4001`;
 
 export const tinaConfig = defineConfig({
   apiURL,

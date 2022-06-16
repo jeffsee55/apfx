@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "yarn tinacms server:start -c \"next dev\" --experimentalData --noTelemetry --noSDK",
+    "dev": "yarn tinacms server:start -c \"next dev\" --experimentalData --noTelemetry --noSDK --isomorphicGitBridge",
     "build": "yarn tinacms server:start -c \"next build\"",
     "start": "yarn tinacms server:start -c \"next start\""
   },
@@ -15,7 +15,7 @@
     "@tailwindcss/forms": "^0.3.3",
     "@tailwindcss/typography": "^0.4.1",
     "@tinacms/auth": "latest",
-    "@tinacms/cli": "^0.60.14",
+    "@tinacms/cli": "0.0.0-2022510204053",
     "graphql-zeus": "^4.0.4",
     "next": "^11.1.2",
     "next-tinacms-cloudinary": "latest",
