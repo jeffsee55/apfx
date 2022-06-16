@@ -1,5 +1,5 @@
 ---
-title: Home
+title: Home!
 link: /
 seo:
   title: Home
