@@ -13,13 +13,6 @@ seo:
     an advanced technology platform, as well as a number of strategic liquidity
     providers to ensure the most competitive pricing in the industry.
 blocks:
-  - slogan: Your global payments partner
-    overlay:
-      image: >-
-        https://res.cloudinary.com/deuzrsg3m/image/upload/v1647030376/apfx/photo-1480714378408-67cf0d13bc1b_jqbwuc.jpg
-      overlayColor: brand
-      overlayOpacity: '6'
-    _template: fullScreenLogo
   - title: About Us
     description: >
       At APFX, we develop strategies to assist corporates and private clients to
@@ -71,6 +64,13 @@ blocks:
     overlay:
       overlayOpacity: '4'
     _template: feature
+  - slogan: Your global payments partner
+    overlay:
+      image: >-
+        https://res.cloudinary.com/deuzrsg3m/image/upload/v1647030376/apfx/photo-1480714378408-67cf0d13bc1b_jqbwuc.jpg
+      overlayColor: brand
+      overlayOpacity: '6'
+    _template: fullScreenLogo
   - items:
       - title: International Payments
         description: >
