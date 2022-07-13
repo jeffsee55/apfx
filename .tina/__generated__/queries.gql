@@ -15,8 +15,15 @@ query localeInfo($relativePath: String!) {
   }
 }
 
-query localeInfoConnection {
-  localeInfoConnection {
+query localeInfoConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: LocaleInfoFilter) {
+  localeInfoConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
     totalCount
     edges {
       node {
@@ -54,8 +61,15 @@ query news($relativePath: String!) {
   }
 }
 
-query newsConnection {
-  newsConnection {
+query newsConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: NewsFilter) {
+  newsConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
     totalCount
     edges {
       node {
@@ -93,8 +107,15 @@ query footer($relativePath: String!) {
   }
 }
 
-query footerConnection {
-  footerConnection {
+query footerConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: FooterFilter) {
+  footerConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
     totalCount
     edges {
       node {
@@ -132,8 +153,15 @@ query theme($relativePath: String!) {
   }
 }
 
-query themeConnection {
-  themeConnection {
+query themeConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: ThemeFilter) {
+  themeConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
     totalCount
     edges {
       node {
@@ -171,8 +199,15 @@ query navigation($relativePath: String!) {
   }
 }
 
-query navigationConnection {
-  navigationConnection {
+query navigationConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: NavigationFilter) {
+  navigationConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
     totalCount
     edges {
       node {
@@ -210,8 +245,15 @@ query page($relativePath: String!) {
   }
 }
 
-query pageConnection {
-  pageConnection {
+query pageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: PageFilter) {
+  pageConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
     totalCount
     edges {
       node {
