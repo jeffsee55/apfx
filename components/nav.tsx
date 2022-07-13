@@ -5,23 +5,61 @@ import Link from "next/link";
 import { useLocaleInfo } from "./locale-info";
 import { useRouter } from "next/router";
 import { CountrySelector, CountrySelector2 } from "./footer";
+import type { TinaTemplate, TinaCollection } from "tinacms";
+import { Selector } from "../zeus";
+import { Response } from "./util";
 
-type NavProps = {
-  items: {
-    page?: {
-      data: {
-        title: string;
-        link: string;
-      };
-    } & {};
-  }[];
+export const navTemplate = (): TinaCollection => {
+  return {
+    label: "Navigation",
+    name: "navigation",
+    path: "content/navigation",
+    fields: [
+      {
+        label: "Items",
+        name: "items",
+        // @ts-ignore
+        // required: true,
+        type: "object",
+        list: true,
+        ui: {
+          itemProps: (item) => {
+            if (item) {
+              return { label: item.page };
+            }
+          },
+        },
+        fields: [
+          {
+            label: "Page",
+            name: "page",
+            type: "reference",
+            collections: ["page"],
+          },
+        ],
+      },
+    ],
+  };
 };
+
+export const navQuery = Selector("Navigation")({
+  items: {
+    page: {
+      "...on Page": {
+        title: true,
+        link: true,
+      },
+    },
+  },
+});
+
+type NavProps = Response<"Navigation", typeof navQuery>;
 
 export const Nav = (props: NavProps) => {
   const localeInfo = useLocaleInfo();
-  const router = useRouter();
+  const { asPath } = useRouter();
   const signUpLink =
-    router.asPath === "/personal"
+    asPath === "/personal"
       ? localeInfo.signUpLinkPersonal
         ? localeInfo.signUpLinkPersonal
         : localeInfo.signUpLink
@@ -52,12 +90,9 @@ export const Nav = (props: NavProps) => {
                   </div>
                   <div className="hidden space-x-10 md:flex sm:ml-12 lg:ml-28">
                     {props.items?.map((item) => (
-                      <Link
-                        href={item.page?.data.link}
-                        key={item?.page?.data.title}
-                      >
+                      <Link href={item.page?.link} key={item?.page?.title}>
                         <a className="font-medium text-white hover:text-gray-300 whitespace-pre">
-                          {item?.page.data?.title}
+                          {item?.page?.title}
                         </a>
                       </Link>
                     ))}
@@ -116,12 +151,12 @@ export const Nav = (props: NavProps) => {
                     </div>
                     <div className="px-2 pt-2 pb-3 space-y-1">
                       {props.items?.map((item) => (
-                        <Link href={item.page?.data.link}>
+                        <Link key={item.page?.link} href={item.page?.link}>
                           <a
-                            key={item.page?.data.title}
+                            key={item.page?.title}
                             className="block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-gray-200 hover:bg-gray-700"
                           >
-                            {item.page?.data.title}
+                            {item.page?.title}
                           </a>
                         </Link>
                       ))}
@@ -143,20 +178,6 @@ export const Nav = (props: NavProps) => {
                         </a>
                       </p>
                     </div>
-                    {/* <div className="px-4 pb-2">
-                      <a
-                        href={signUpLink}
-                        className="block w-full px-5 py-3 text-center font-medium text-indigo-200 bg-gray-700 hover:bg-gray-600"
-                      >
-                        Sign Up
-                      </a>
-                      <a
-                        href={localeInfo.signInLink}
-                        className="block w-full px-5 py-3 text-center font-medium text-indigo-200 bg-gray-700 hover:bg-gray-600"
-                      >
-                        Log in
-                      </a>
-                    </div> */}
                   </div>
                 </Popover.Panel>
               </Transition>

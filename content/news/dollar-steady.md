@@ -4,6 +4,8 @@ subTitle: USD
 description: ''
 image: >-
   https://images.unsplash.com/photo-1519121785383-3229633bb75b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80
+publishDate: '2022-03-26T18:25:28.208Z'
+category: inflation
 ---
 
 The dollar’s blistering rally gathered speed last week as markets brought forward their expectations for Fed hikes, while the European Central Bank’s aggressively dovish communications hammered the euro.

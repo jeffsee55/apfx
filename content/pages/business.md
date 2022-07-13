@@ -76,6 +76,16 @@ blocks:
           into your APFX account. This means that you don't have to go into your
           bank account and push the funds. (US clients only)
     _template: feature
+  - title: Get in touch
+    description: >-
+      Mattis amet hendrerit dolor, quisque lorem pharetra. Pellentesque lacus
+      nisi urna, arcu sociis eu. Orci vel lectus nisl eget eget ut consectetur.
+      Sit justo viverra non adipisicing elit distinctio.
+    newsItems:
+      - article: content/news/dollar-gains.md
+      - article: content/news/dollar-steady.md
+      - article: content/news/markets-unclear.md
+    _template: news
   - title: Currency Accounts
     subTitle: ''
     description: "With an APFX Global account you have the flexibility to allow your clients and suppliers to pay you in multiple currencies. \n\nHold currency in accounts without a local presence in your own name, with transfers always addressed to an account in your name avoiding any delays due to to any third party collection queries\n\nAccess your funds securely online at any time through APFX online\n\nSend and receive funds using local payment networks avoiding the delays and charges associated with intermediary institutions\n\nCentralise cash management – assign accounts to indivudals entities or even specific departments or subsidiaries. Create a virtual account structure that emulates operations and enables cash across the business to be viewed and managed centrally.\n\nSimplify account management – Quickly and easily open accounts and manage them via APFX online. Save time, money and hassle on this proicess\n\n\_"

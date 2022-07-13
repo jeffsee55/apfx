@@ -1,34 +1,86 @@
 import React from "react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { DisplayText } from "./typographqy";
-import { useLocale } from "@react-aria/i18n";
 import { useRouter } from "next/router";
 import { Markdown } from "./markdown";
 import Link from "next/link";
+import type { TinaCollection } from "tinacms";
+import { Selector } from "../zeus";
+import { Response } from "./util";
 
-type Office = {
-  location: string;
-  address: string;
-  phone: string;
-};
-
-type FooterProps = {
-  offices?: Office[];
+export const footerQuery = Selector("Footer")({
+  offices: {
+    address: true,
+    location: true,
+    phone: true,
+  },
   disclaimers: {
-    body?: string;
-  }[];
+    body: true,
+  },
+});
+
+type FooterProps = Response<"Footer", typeof footerQuery>;
+type Office = FooterProps["offices"][number];
+
+export const footerTemplate = (): TinaCollection => {
+  return {
+    label: "Footer",
+    name: "footer",
+    path: "content/footer",
+    fields: [
+      {
+        label: "Offices",
+        name: "offices",
+        type: "object",
+        list: true,
+        ui: {
+          defaultItem: {
+            location: "London",
+            address: "Some Address\nInLondon\nUnited Kingdom",
+            phone: "+44 123 456",
+          },
+        },
+        fields: [
+          {
+            label: "Location",
+            name: "location",
+            required: true,
+            type: "string",
+          },
+          {
+            label: "Address",
+            name: "address",
+            required: true,
+            type: "string",
+          },
+          {
+            label: "Phone",
+            name: "phone",
+            required: true,
+            type: "string",
+          },
+        ],
+      },
+      {
+        label: "Disclaimers",
+        name: "disclaimers",
+        // @ts-ignore
+        // required: true,
+        type: "object",
+        list: true,
+        fields: [
+          {
+            label: "Body",
+            name: "body",
+            type: "rich-text",
+          },
+        ],
+      },
+    ],
+  };
 };
 
 export function Footer(props: FooterProps) {
-  const [chosenLocale, setChosenLocale] = React.useState(null);
-  const [selected, setSelected] = React.useState(null);
-  const router = useRouter();
-
-  React.useEffect(() => {
-    console.log(router.locale);
-    setSelected(router.locale);
-  }, [router.locale]);
-
   return (
     <footer className="bg-gray-800" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
@@ -38,8 +90,12 @@ export function Footer(props: FooterProps) {
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div className="pb-8 xl:grid xl:grid-cols-5 xl:gap-8">
           <div className="grid gap-8 xl:col-span-4">
-            {props.disclaimers.map((disclaimer) => {
-              return <Markdown variant="small">{disclaimer.body}</Markdown>;
+            {props.disclaimers.map((disclaimer, i) => {
+              return (
+                <Markdown key={i} classNames="italic" variant="small">
+                  {disclaimer.body}
+                </Markdown>
+              );
             })}
           </div>
           <CountrySelector />
@@ -169,9 +225,6 @@ export function CountrySelector2() {
 }
 
 export const CountrySelector = () => {
-  const [selected, setSelected] = React.useState(null);
-  const router = useRouter();
-
   return (
     <div className="mt-12 xl:mt-0 flex items-center h-4 gap-4">
       <h3 className="text-sm font-semibold text-gray-100 tracking-wider uppercase">
@@ -219,7 +272,7 @@ export function Offices({ offices }: { offices?: Office[] }) {
         <div className="mt-10 grid grid-cols-1 gap-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
           {offices?.map((office) => {
             return (
-              <div>
+              <div key={office.location}>
                 <h3 className="text-lg font-medium text-gray-100">
                   {office.location}
                 </h3>

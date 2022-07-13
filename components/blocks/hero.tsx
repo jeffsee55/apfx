@@ -1,30 +1,114 @@
-import React from "react";
-import { Img } from "../img";
-import { useLocaleInfo } from "../locale-info";
-import { Markdown } from "../markdown";
-import { useTheme } from "../theme";
-import { DisplayText } from "../typographqy";
+import React from 'react'
+import { Img } from '../img'
+import { useLocaleInfo } from '../locale-info'
+import { Markdown } from '../markdown'
+import { useTheme } from '../theme'
+import { DisplayText } from '../typographqy'
+import type { TinaTemplate } from 'tinacms'
+import { Selector } from '../../zeus'
+import { getTinaField, Response } from '../util'
 
-export type Action = {
-  callToAction?: string;
-  link: string;
-  linkText: string;
-  linkOverride?: string;
-  secondaryText?: string;
-  secondaryLink?: string;
-  secondaryLinkOverride?: string;
-};
+const linkOptions = [
+  { label: 'Link', value: 'link' },
+  { label: 'Tel', value: 'tel' },
+  { label: 'Sign Up', value: 'signUpLink' },
+  { label: 'Sign Up Personal', value: 'signUpLinkPersonal' },
+  { label: 'Sign In', value: 'signInLink' },
+]
 
-type HeroProps = {
-  title: string;
-  description: string;
-  image?: string;
-  action?: Action;
-};
+export const action = {
+  label: 'Action',
+  name: 'action',
+  type: 'object',
+  fields: [
+    {
+      label: 'Call to Action',
+      name: 'callToAction',
+      type: 'string',
+    },
+    {
+      label: 'Link Text',
+      name: 'linkText',
+      // required: true,
+      type: 'string',
+    },
+    {
+      label: 'Link',
+      name: 'link',
+      // required: true,
+      type: 'string',
+      options: linkOptions,
+    },
+    {
+      label: 'Link Override',
+      name: 'linkOverride',
+      // description: "Provide a raw value to link (can't be internationalized)",
+      type: 'string',
+    },
+    {
+      label: 'Secondary Text',
+      name: 'secondaryText',
+      type: 'string',
+    },
+    {
+      label: 'Secondary Link',
+      name: 'secondaryLink',
+      type: 'string',
+      options: linkOptions,
+    },
+    {
+      label: 'Secondary Link Override',
+      name: 'secondaryLinkOverride',
+      // description: "Provide a raw value to link (can't be internationalized)",
+      type: 'string',
+    },
+  ],
+}
 
-export function HeroWithSlantImage(props: HeroProps) {
-  const bg = "bg-gray-900";
-  const text = "text-gray-900";
+export const heroTemplate = (textFields): TinaTemplate => ({
+  label: 'Hero',
+  name: 'hero',
+  fields: [
+    ...textFields,
+    {
+      label: 'Image',
+      name: 'image',
+      type: 'image',
+    },
+    action,
+  ],
+  ui: {
+    defaultItem: {
+      title: "Let's put something down here...",
+      description: 'And something here too',
+      image: 'https://placehold.it/2000x1500',
+    },
+  },
+})
+
+export const actionQuery = Selector('PageBlocksHeroAction')({
+  callToAction: true,
+  link: true,
+  linkText: true,
+  linkOverride: true,
+  secondaryLink: true,
+  secondaryText: true,
+  secondaryLinkOverride: true,
+})
+
+export const blockHeroQuery = Selector('PageBlocksHero')({
+  title: true,
+  description: true,
+  image: true,
+  action: actionQuery,
+})
+
+type Hero = Response<'PageBlocksHero', typeof blockHeroQuery>
+export type Action = Response<'PageBlocksHeroAction', typeof actionQuery>
+
+export function HeroWithSlantImage(props: Hero) {
+  const bg = 'bg-gray-900'
+  const text = 'text-gray-900'
   return (
     <div className={`relative ${bg} overflow-hidden`}>
       <div className="max-w-7xl mx-auto relative z-30">
@@ -34,9 +118,14 @@ export function HeroWithSlantImage(props: HeroProps) {
           {/* <main className="mx-auto max-w-7xl px-4 mt-10 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28"> */}
           <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-20">
             <div className="sm:text-center lg:text-left">
-              {/* <div data-tinaField="blocks.1.title"> */}
-              <DisplayText variant={"light"}>{props.title}</DisplayText>
-              {/* </div> */}
+              <div>
+                <DisplayText
+                  tinaField={getTinaField(props, 'title')}
+                  variant={'light'}
+                >
+                  {props.title}
+                </DisplayText>
+              </div>
               <Markdown classNames="mt-4 md:mt-8">{props.description}</Markdown>
               {props.action && <ActionBox action={props.action} />}
             </div>
@@ -56,7 +145,6 @@ export function HeroWithSlantImage(props: HeroProps) {
         </svg>
       </div>
       <div className="lg:absolute lg:inset-0">
-        {/* <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2"> */}
         <Img
           className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
           src={props.image}
@@ -71,35 +159,35 @@ export function HeroWithSlantImage(props: HeroProps) {
         />
       </div>
     </div>
-  );
+  )
 }
 
-export const getLinksFromAction = (action: Action) => {
-  const localeInfo = useLocaleInfo();
+export const useLinksFromAction = (action: Action) => {
+  const localeInfo = useLocaleInfo()
   const link = action.linkOverride
     ? action.linkOverride
-    : action.link === "tel"
+    : action.link === 'tel'
     ? `tel: ${localeInfo[action.link]}`
-    : localeInfo[action.link];
+    : localeInfo[action.link]
   const secondaryLink = action.secondaryLinkOverride
     ? action.secondaryLinkOverride
-    : action.secondaryLink === "tel"
+    : action.secondaryLink === 'tel'
     ? `tel: ${localeInfo[action.secondaryLink]}`
-    : localeInfo[action.secondaryLink];
+    : localeInfo[action.secondaryLink]
 
-  return { link, secondaryLink };
-};
+  return { link, secondaryLink }
+}
 
 export const ActionBox = (props: { action: Action }) => {
-  const { link, secondaryLink } = getLinksFromAction(props.action);
+  const { link, secondaryLink } = useLinksFromAction(props.action)
   return (
     <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
       <div className="rounded-md shadow">
         <a
-          href={link || ""}
+          href={link || ''}
           className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
         >
-          {props.action?.linkText || ""}
+          {props.action?.linkText || ''}
         </a>
       </div>
       {secondaryLink && (
@@ -113,8 +201,8 @@ export const ActionBox = (props: { action: Action }) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
 export const ActionSlim = (props: { action?: Action }) => {
   return props.action && props.action.linkText ? (
@@ -128,38 +216,38 @@ export const ActionSlim = (props: { action?: Action }) => {
         </SecondaryButton>
       )}
     </div>
-  ) : null;
-};
+  ) : null
+}
 
 type ButtonProps = {
-  link: string;
-  children: React.ReactNode;
-};
+  link: string
+  children: React.ReactNode
+}
 const PrimaryButton = (props: ButtonProps) => {
-  const themeContext = useTheme();
-  const variant = themeContext.variant;
+  const themeContext = useTheme()
+  const variant = themeContext.variant
   switch (variant) {
-    case "classic":
-      return <ClassicPrimary {...props} />;
-    case "modern":
-      return <ModernPrimary {...props} />;
-    case "standard":
-      return <StandardPrimary {...props} />;
+    case 'classic':
+      return <ClassicPrimary {...props} />
+    case 'modern':
+      return <ModernPrimary {...props} />
+    case 'standard':
+      return <StandardPrimary {...props} />
   }
-};
+}
 
 const SecondaryButton = (props: ButtonProps) => {
-  const themeContext = useTheme();
-  const variant = themeContext.variant;
+  const themeContext = useTheme()
+  const variant = themeContext.variant
   switch (variant) {
-    case "classic":
-      return <ClassicSecondary {...props} />;
-    case "modern":
-      return <ModernSecondary {...props} />;
-    case "standard":
-      return <StandardSecondary {...props} />;
+    case 'classic':
+      return <ClassicSecondary {...props} />
+    case 'modern':
+      return <ModernSecondary {...props} />
+    case 'standard':
+      return <StandardSecondary {...props} />
   }
-};
+}
 
 const ClassicPrimary = (props: ButtonProps) => {
   return (
@@ -171,8 +259,8 @@ const ClassicPrimary = (props: ButtonProps) => {
         {props.children}
       </a>
     </div>
-  );
-};
+  )
+}
 
 const ClassicSecondary = (props: ButtonProps) => {
   return (
@@ -184,11 +272,11 @@ const ClassicSecondary = (props: ButtonProps) => {
         {props.children}
       </a>
     </div>
-  );
-};
+  )
+}
 
 const StandardPrimary = (props: ButtonProps) => {
-  const fontStyles = `uppercase tracking-widest text-sm font-bold `;
+  const fontStyles = `uppercase tracking-widest text-sm font-bold `
   return (
     <div className="inline-flex rounded-md shadow">
       <a
@@ -198,11 +286,11 @@ const StandardPrimary = (props: ButtonProps) => {
         {props.children}
       </a>
     </div>
-  );
-};
+  )
+}
 
 const StandardSecondary = (props: ButtonProps) => {
-  const fontStyles = `uppercase tracking-widest text-sm font-bold `;
+  const fontStyles = `uppercase tracking-widest text-sm font-bold `
   return (
     <div className="ml-3 inline-flex">
       <a
@@ -212,8 +300,8 @@ const StandardSecondary = (props: ButtonProps) => {
         {props.children}
       </a>
     </div>
-  );
-};
+  )
+}
 const ModernPrimary = (props: ButtonProps) => {
   return (
     <div className="inline-flex rounded-none shadow">
@@ -224,8 +312,8 @@ const ModernPrimary = (props: ButtonProps) => {
         {props.children}
       </a>
     </div>
-  );
-};
+  )
+}
 
 const ModernSecondary = (props: ButtonProps) => {
   return (
@@ -237,5 +325,5 @@ const ModernSecondary = (props: ButtonProps) => {
         {props.children}
       </a>
     </div>
-  );
-};
+  )
+}

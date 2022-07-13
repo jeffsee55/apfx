@@ -3,6 +3,8 @@ title: 'Fed tapers QE, but signals no rush to raise interest rates'
 subTitle: Federal reserve
 description: ''
 image: 'https://ebury.com/wp-content/uploads/2020/04/iStock-487808414-scaled.jpg'
+publishDate: '2022-02-26T18:25:28.208Z'
+category: au
 ---
 
 The Federal Reserve stuck to the script during its monetary policy meeting on Wednesday, tapering its quantitative easing programme, but suggesting that interest rate hikes remain some way off.
