@@ -34,7 +34,7 @@ disclaimers:
       Ebury is authorised and regulated by the Australian Securities and
       Investments Commission (ASIC) to provide financial services under
       Australian Financial Services License (AFSL) 520548 and registered with
-      the Australian Transaction Reports and Analysis Centre (AUSTRAC). AP FX,_ 
+      the Australian Transaction Reports and Analysis Centre (AUSTRAC). AP FX,_
 
 
       _Inc currency exchange services are provided by The Currency Cloud
@@ -43,5 +43,10 @@ disclaimers:
       Currency Cloud Limited is authorised by the Financial Conduct Authority
       under the Electronic Money Regulations 2011 for the issuing of electronic
       money. FCA registration number: 900199_
----
 
+
+      _AP FX PTY LTD's Payment and Foreign Currency Exchange Services are provided by Navigate Global Payments Pty Ltd .AP FX PTY LTD is authorised by Navigate Global Payments Pty Ltd as an ASIC authorised representative with representative # 001294663. Navigate Global Payments Pty Ltd ('Navigate') ABN 75615699888, Registered Office : Level 8, 140 Arthur Street, North Sydney NSW 2060. Navigate is authorised and regulated by the Australian_
+
+
+      _Securities and Investments Commission (ASIC) to provide financial services under Australian Financial Services License (AFSL) 502711 and registered with the Australian Transaction Reports and Analysis Centre (AUSTRAC)._
+---

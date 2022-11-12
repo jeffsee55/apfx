@@ -8,7 +8,7 @@ seo:
   description: Bespoke payments and risk management capabilities for businesses of all size
 blocks:
   - title: Corporate Client Services
-    subTitle: ''
+    subTitle: ""
     description: >-
       Bespoke payments and risk management capabilities for businesses of all
       size
@@ -20,7 +20,7 @@ blocks:
       link: signUpLink
       secondaryText: Get in touch
       secondaryLink: link
-      secondaryLinkOverride: 'https://share.hsforms.com/1Zi7kaqn1THCrZt6hdDaGng5kdde'
+      secondaryLinkOverride: "https://share.hsforms.com/1Zi7kaqn1THCrZt6hdDaGng5kdde"
     _template: hero
   - title: International Payments
     description: >-
@@ -87,13 +87,13 @@ blocks:
       - article: content/news/markets-unclear.md
     _template: news
   - title: Currency Accounts
-    subTitle: ''
+    subTitle: ""
     description: "With an APFX Global account you have the flexibility to allow your clients and suppliers to pay you in multiple currencies. \n\nHold currency in accounts without a local presence in your own name, with transfers always addressed to an account in your name avoiding any delays due to to any third party collection queries\n\nAccess your funds securely online at any time through APFX online\n\nSend and receive funds using local payment networks avoiding the delays and charges associated with intermediary institutions\n\nCentralise cash management – assign accounts to indivudals entities or even specific departments or subsidiaries. Create a virtual account structure that emulates operations and enables cash across the business to be viewed and managed centrally.\n\nSimplify account management – Quickly and easily open accounts and manage them via APFX online. Save time, money and hassle on this proicess\n\n\_"
     image: >-
       https://images.unsplash.com/photo-1473042904451-00171c69419d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3475&q=80
     textColor: light
     overlayColor: gray
-    overlayOpacity: '6'
+    overlayOpacity: "6"
     _template: fullScreenHeader
   - title: Risk Management
     description: >-
@@ -140,15 +140,13 @@ blocks:
           initiate payment using our innovative payment infrastructure, ensuring
           your payments are fast and secure.
       - icon: HeartIcon
-        name: Options
+        name: Options (Coming Soon)
         description: >-
-          Coming in 2021 – An extension to our suite of risk management products
-          to assist in enhancing your FX portfolio further. Speak to a
-          consultant to find out more about this exciting new launch
-    image: ''
+          Full suite of risk management products to assist in enhancing your currency portfolio, speak to one of our consultants to find out more
+    image: ""
     _template: feature
-  - title: 'Dedicated Relationship Manager '
-    subTitle: ''
+  - title: "Dedicated Relationship Manager "
+    subTitle: ""
     description: >-
       With our complimentary FX risk assessment, your consultant will help to
       identify any inefficiencies in your current processes and recommend
@@ -164,7 +162,6 @@ blocks:
       consultant to book currency and make payments on the go
     image: >-
       https://images.unsplash.com/39/lIZrwvbeRuuzqOoWJUEn_Photoaday_CSD%20(1%20of%201)-5.jpg?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80
-    overlayOpacity: '6'
+    overlayOpacity: "6"
     _template: fullScreenHeader
 ---
-
