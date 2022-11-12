@@ -28,6 +28,7 @@ type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (
 type HomeProps = AsyncReturnType<typeof getStaticProps>["props"];
 
 export default function Home(p: HomeProps) {
+  // @ts-ignore
   const props = useTina(p);
   const seo = props.data.getPageDocument.data.seo;
 
