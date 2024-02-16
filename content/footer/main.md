@@ -43,4 +43,6 @@ disclaimers:
       Currency Cloud Limited is authorised by the Financial Conduct Authority
       under the Electronic Money Regulations 2011 for the issuing of electronic
       money. FCA registration number: 900199_
+
+      _APFX Insurance Pty Ltd – ACN 672 717 930 is a Corporate Authorised Representative (AFS Rep.No. 001306867) of Integrated Insurance Solutions Pty Ltd - ABN 38 119 008 301 AFSL 306931_
 ---

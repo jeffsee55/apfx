@@ -25,6 +25,9 @@ const base = (colorOption, fontOption) => ({
       colors: {
         indigo: colorOption,
       },
+      letterSpacing: {
+        insurance: "0.50em",
+      },
       typography: {
         DEFAULT: {
           css: {

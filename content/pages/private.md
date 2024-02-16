@@ -1,5 +1,5 @@
 ---
-title: Private Clients
+title: APFX Private
 link: /personal
 seo:
   title: Private Client Services

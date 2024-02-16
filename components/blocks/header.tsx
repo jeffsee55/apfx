@@ -63,7 +63,14 @@ export function FullScreenLogo(
             />
           </div>
           <h2
-            className={`text-center ${textColor} text-lg md:text-xl mt-12 uppercase font-display tracking-widest`}
+            // style={{
+            // letterSpacing: props.slogan === "Insurance" ? "20px" : "auto",
+            // }}
+            className={`text-center ${textColor} ${
+              props.slogan === "Insurance"
+                ? "text-2xl md:text-4xl font-bold tracking-insurance"
+                : "text-lg md:text-xl tracking-widest"
+            } mt-12 uppercase font-display`}
           >
             {props.slogan}
           </h2>

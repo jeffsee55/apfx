@@ -107,11 +107,15 @@ export function Pricing(props: PricingProps) {
 
 function ActionButtons(props) {
   const { link, secondaryLink } = getLinksFromAction(props.action);
+  const extra = {};
+  if (link?.includes("apfx-insurance-fsg.pdf")) {
+    extra["locale"] = false;
+  }
   return (
     <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
       <div className="inline-flex rounded-md shadow">
         {props.action?.linkText && (
-          <Link href={link}>
+          <Link href={link} {...extra}>
             <a className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
               {props.action.linkText}
             </a>

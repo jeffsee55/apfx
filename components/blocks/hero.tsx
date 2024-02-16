@@ -92,6 +92,7 @@ export const getLinksFromAction = (action: Action) => {
 
 export const ActionBox = (props: { action: Action }) => {
   const { link, secondaryLink } = getLinksFromAction(props.action);
+  console.log({ secondaryLink });
   return (
     <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
       <div className="rounded-md shadow">
