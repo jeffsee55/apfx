@@ -2,8 +2,8 @@
 offices:
   - location: Sydney
     address: >-
-      Level 29, Chifley Tower,                                    Chifley
-      Square, Sydney, 2000
+      Level 8, 2 Bligh Street,
+      Sydney, NSW, 2000
     phone: +61 2 9216 9027
   - location: London
     address: |
