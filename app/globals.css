@@ -975,9 +975,6 @@ h3 {
 }
 
 @media (min-width: 901px) {
-  .intro-slanted .intro-image {
-    clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
-  }
   .feature-grid-two {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -996,4 +993,48 @@ h3 {
   display: inline-block;
   vertical-align: middle;
   margin: 0 8px 24px 0;
+}
+
+@media (min-width: 901px) {
+  .intro-slanted {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 780px;
+    display: flex;
+    align-items: center;
+    padding: 120px 0;
+  }
+  .intro-slanted.first-section {
+    min-height: 100svh;
+    padding: 160px 0 100px;
+  }
+  .intro-slanted .intro-image {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -2;
+  }
+  .intro-slanted .intro-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 15, 28, 0.66);
+  }
+  .intro-slanted::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(15, 23, 39, 0.94);
+    clip-path: polygon(0 0, 65% 0, 51% 100%, 0 100%);
+  }
+  .intro-slanted .intro-grid > div:first-child {
+    position: relative;
+    z-index: 1;
+  }
+  .intro-slanted h1 {
+    margin-bottom: 28px;
+  }
 }
