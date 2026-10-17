@@ -892,7 +892,8 @@ h3 {
 }
 @media (min-width: 901px) and (min-height: 650px) and (prefers-reduced-motion: no-preference) {
   .service-stage .service-scene-image {
-    inset: -12% 0;
+    inset: 0;
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 22% 100%);
     transform: translate3d(0, var(--scene-parallax, 0px), 0)
       scale(var(--scene-zoom, 1.065));
     will-change: transform;
