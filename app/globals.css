@@ -803,6 +803,7 @@ h3 {
   position: absolute;
   z-index: 10;
   inset: 0 0 36px;
+  padding-top: 24px;
   pointer-events: none;
 }
 .service-controls-position {
