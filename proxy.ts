@@ -26,7 +26,7 @@ export function proxy(request: NextRequest) {
     locale === "en-au"
       ? NextResponse.next()
       : NextResponse.redirect(
-          new URL(`/` + locale + `/` + request.nextUrl.search, request.url),
+          new URL(`/${locale}${request.nextUrl.search}`, request.url),
           307,
         );
   response.headers.set("Vary", "Accept-Language, Cookie");

@@ -40,7 +40,7 @@ export function Navigation({
       </a>
       <div className="nav-wrap">
         <Link
-          href={prefix + "/"}
+          href={prefix || "/"}
           aria-label="APFX home"
           scroll={false}
           onNavigate={scrollToTop}
@@ -141,8 +141,7 @@ export function CountryPicker({
           router.push(
             "/" +
               selected +
-              "/" +
-              parts.join("/") +
+              (parts.length ? "/" + parts.join("/") : "") +
               window.location.search +
               window.location.hash,
             { scroll: false },
