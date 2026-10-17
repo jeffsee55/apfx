@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { PageLink as Link } from "./page-link";
 import Markdown from "react-markdown";
 import {
   ArrowUpRight,
