@@ -32,3 +32,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+.next/
+out/
+*.tsbuildinfo
+.openai/local/
+.env*
